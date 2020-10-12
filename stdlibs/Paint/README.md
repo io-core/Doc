@@ -1,3 +1,5 @@
+The [Paint](./Paint/README.md) package provides tools for viewing and manipulating bitmap images.
+
 [MODULE Images](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
 [MODULE Paint](https://github.com/io-core/Paint/blob/main/Paint.Mod)

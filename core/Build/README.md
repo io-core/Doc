@@ -1,3 +1,5 @@
+The [Build](./Build/README.md) package provides the compiler and associated program building and debugging tools for Oberon.
+
 [MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
 
 [MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)

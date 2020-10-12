@@ -1,3 +1,5 @@
+The [Draw](./Draw/README.md) package provides line-oriented drawing primitives and a vector drawing tool.
+
 [MODULE GraphTool](https://github.com/io-core/Draw/blob/main/GraphTool.Mod)
 
 [MODULE Rectangles](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)

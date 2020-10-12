@@ -1,3 +1,5 @@
+The [System](./System/README.md) package prepares the user interface and manages viewers for the user.
+
 [MODULE Batch](https://github.com/io-core/System/blob/main/Batch.Mod)
 
 [MODULE Tools](https://github.com/io-core/System/blob/main/Tools.Mod)
