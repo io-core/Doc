@@ -10,7 +10,7 @@ None of the above features are implemented yet. [extended oberon](https://github
 
 ## Getting and Using the system
 
-To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been programmed to implmenet the (Oberon RISC architecture)[https://github.com/emard/oberon]. 
+To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been programmed to implmenet the [Oberon RISC architecture](https://github.com/emard/oberon).
 
 You can read more about how to get and use the system here:  [Introduction](./intro/Intro.md) to Oberon.
 
