@@ -1,6 +1,6 @@
 # Welcome to Integrated Oberon
 
-* [What is Oberon](https://github.com/io-core/doc#what-is-oberon)
+* [What is Oberon?](https://github.com/io-core/doc#what-is-oberon)
 * [What is Integrated Oberon?](https://github.com/io-core/doc#what-is-integrated-oberon)
 * [How to get it](https://github.com/io-core/doc#how-to-get-it)
 * [How to use it](https://github.com/io-core/doc#how-to-use-it)
@@ -11,6 +11,7 @@
 * [The Oberon Core](https://github.com/io-core/doc#the-oberon-core)
 * [The Standard Libraries](https://github.com/io-core/doc#the-standard-libraries)
 * [The Extended Libaries](https://github.com/io-core/doc#the-extended-libraries)
+* [Other Repos](https://github.com/io-core/doc#other-repos)
 
 #### What is Oberon?
 
@@ -59,4 +60,8 @@ summary and link to stdlibs.md
 ## The Extended Libraries
 
 summary and link to extlibs.md
+
+## Other Repos
+
+summary of package management in Integrated Oberon and where to find other repositories
 
