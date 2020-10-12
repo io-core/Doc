@@ -15,7 +15,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 		echo >> $k/README.md
 		for l in `grep '^p,' $j | awk -F',' '{print $2}'`; do
 			snam=`echo $l | sed -e 's/\(.*\).Mod/\1/g'`
-			echo "[MODULE $snam](https://github.com/io-core/nam/snam)" >> $k/$nam/README.md
+			echo "[MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/README.md
 			echo >> $k/$nam/README.md
 		done
 	done
