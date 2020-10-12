@@ -1,20 +1,10 @@
-[Crypto](./Crypto/README.md)
+[Crypto](./Crypto/README.md) provides common cryptographic algorithms.
 
-Crypto provides common cryptographic algorithms.
+[Draw](./Draw/README.md) provides line-oriented drawing primitives and a vector drawing tool.
 
-[Draw](./Draw/README.md)
+[Mod](./Mod/README.md) provides source code package management in Oberon.
 
-Draw provides line-oriented drawing primitives and a vector drawing tool.
+[Paint](./Paint/README.md) provides tools for viewing and manipulating bitmap images.
 
-[Mod](./Mod/README.md)
-
-Mod provides source code package management in Oberon.
-
-[Paint](./Paint/README.md)
-
-Paint provides tools for viewing and manipulating bitmap images
-
-[Script](./Script/README.md)
-
-Script allows the user to batch commands and 'script' the Oberon environment
+[Script](./Script/README.md) allows the user to batch commands and 'script' the Oberon environment
 

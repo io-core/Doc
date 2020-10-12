@@ -1,28 +1,14 @@
-[Build](./Build/README.md)
+[Build](./Build/README.md) provides the compiler and associated program building and debugging tools for Oberon.
 
-Build provides the compiler and associated program building and debugging tools for Oberon.
+[Edit](./Edit/README.md) manages the text and font handling in Oberon.
 
-[Edit](./Edit/README.md)
+[Files](./Files/README.md) handles persistent storage and the file and directory interface of Oberon.
 
-Edit manages the text and font handling in Oberon.
+[Kernel](./Kernel/README.md) handles basic os functionality including device access and garbage collection.
 
-[Files](./Files/README.md)
+[Modules](./Modules/README.md) handles the loading and unloading of program code.
 
-Files handles persistent storage and the file and directory interface of Oberon.
+[Oberon](./Oberon/README.md) implements the user-interface and task loop of the system.
 
-[Kernel](./Kernel/README.md)
-
-Kernel handles basic os functionality including device access and garbage collection.
-
-[Modules](./Modules/README.md)
-
-Modules handles the loading and unloading of program code.
-
-[Oberon](./Oberon/README.md)
-
-Oberon implements the user-interface and task loop of the system.
-
-[System](./System/README.md)
-
-System prepares the user interface and manages viewers for the user.
+[System](./System/README.md) prepares the user interface and manages viewers for the user.
 
