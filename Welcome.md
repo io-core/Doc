@@ -8,9 +8,9 @@ Integrated Oberon departs from Project Oberon by introducing features and capabi
 
 
 
-## Using the system
+## Getting and Using the system
 
-summary and link to Intro.md
+To run Integrated Oberon you need a [disk image]() and either an [emulator]() or a properly programmed [FPGA](). Learn more [here.](./intro/Intro.md)
 
 ## System Concepts
 
