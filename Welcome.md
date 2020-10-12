@@ -1,16 +1,18 @@
 # Welcome to Integrated Oberon
 
-Oberon is both an operating system and a computer language, first developed by professors Wirth and Gutknect for a custom workstation in the 1980s at ETH Zurich, a public research university in Switzerland. Oberon (both the language and the OS) has been extended, ported, refined, and evolved by themselves and others, with the most recent (2013) incarnation of Project Oberon being a particularly succinct implementation for a custom-designed FPGA RISC architecture.
+Oberon is both an operating system and a computer language, first developed by professors Wirth and Gutknect for a custom workstation in the 1980s at ETH Zurich in Switzerland. Oberon, both the language and the OS, has been extended, ported, refined, and evolved by themselves and others, with the most recent (2013) incarnation of Project Oberon being a particularly succinct implementation for a custom-designed FPGA RISC architecture.
 
 Project Oberon is self-contained and provides a complete single-user computing experience, having its own compiler, file storage, text and graphics manipulation, and local area network clients and servers. The 2013 version of Project Oberon makes little concession to interoperability with other computing systems.
 
 Integrated Oberon departs from Project Oberon by introducing features and capabilities to Oberon, taken from other systems based on pervasiveness (e.g. utf8, markdown, TTF fonts, HTML/DOM, tcp/ip) and utility (multicore and distributed computing, capability based security, the leveraging of immutable data structures and content-addressed storage for replication, deduplication, and eventual consistency, etc.)
 
-
+None of the above features are implemented yet. [extended oberon](https://github.com/andreaspirklbauer/Oberon-extended) begins the journey by re-introducing to 2013 Project Oberon support for Oberon-2 and other features. Integrated Oberon will start from there. 
 
 ## Getting and Using the system
 
-To run Integrated Oberon you need a [disk image]() and either an [emulator]() or a properly programmed [FPGA](). Learn more [here.](./intro/Intro.md)
+To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been programmed to implmenet the (Oberon RISC architecture)[https://github.com/emard/oberon]. 
+
+You can read more about how to get and use the system here:  [Introduction](./intro/Intro.md) to Oberon.
 
 ## System Concepts
 
