@@ -7,11 +7,8 @@
 * [How to code for it](https://github.com/io-core/doc#how-to-code-for-it)
 * [How to contribute to it](https://github.com/io-core/doc#how-to-contribute-to-it)
 * [System Concepts](https://github.com/io-core/doc#system-concepts)
-* [The Oberon Language](https://github.com/io-core/doc#the-oberon-language)
-* [The Oberon Core](https://github.com/io-core/doc#the-oberon-core)
-* [The Standard Libraries](https://github.com/io-core/doc#the-standard-libraries)
-* [The Extended Libaries](https://github.com/io-core/doc#the-extended-libraries)
-* [Other Repos](https://github.com/io-core/doc#other-repos)
+* [Documentation](https://github.com/io-core/doc#documentation)
+* [Repositories](https://github.com/io-core/doc#repositories)
 
 #### What is Oberon?
 
@@ -45,23 +42,17 @@ Links to the repo, the wiki, some guidelines, etc.
 
 summary and link to Concepts.md
 
-## The Oberon Language
+## Documentation
 
 summary and link to Language.md
 
-## The Oberon Core
+summary and link to [documentation of the Oberon Core packages of modules](./core/README.md)
 
-summary and link to Core.md
+summary and link to [Standard libraries of modules](./stdlibs/README.md)
 
-## The Standard Libraries
+summary and link to [Extended libraries of modules](./extlibs/README.md)
 
-summary and link to stdlibs.md
-
-## The Extended Libraries
-
-summary and link to extlibs.md
-
-## Other Repos
+## Repositories
 
 summary of package management in Integrated Oberon and where to find other repositories
 
