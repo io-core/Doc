@@ -1,5 +1,10 @@
-Crypto/Crypto.md
-Draw/Draw.md
-Mod/Mod.md
-Paint/Paint.md
-Script/Script.md
+[Crypto](./Crypto/README.md)
+
+[Draw](./Draw/README.md)
+
+[Mod](./Mod/README.md)
+
+[Paint](./Paint/README.md)
+
+[Script](./Script/README.md)
+
