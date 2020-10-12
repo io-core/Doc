@@ -1,8 +1,8 @@
-[MODULE PackageFrames](https://github.com/io-core/nam/snam)
+[MODULE PackageFrames](https://github.com/io-core/Mod/PackageFrames.Mod)
 
-[MODULE Mod](https://github.com/io-core/nam/snam)
+[MODULE Mod](https://github.com/io-core/Mod/Mod.Mod)
 
-[MODULE Packages](https://github.com/io-core/nam/snam)
+[MODULE Packages](https://github.com/io-core/Mod/Packages.Mod)
 
-[MODULE Resources](https://github.com/io-core/nam/snam)
+[MODULE Resources](https://github.com/io-core/Mod/Resources.Mod)
 
