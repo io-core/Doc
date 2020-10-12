@@ -1,12 +1,12 @@
-[MODULE ORS](https://github.com/io-core/Build/ORS.Mod)
+[MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
 
-[MODULE ORTool](https://github.com/io-core/Build/ORTool.Mod)
+[MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)
 
-[MODULE ORB](https://github.com/io-core/Build/ORB.Mod)
+[MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
 
-[MODULE ORG](https://github.com/io-core/Build/ORG.Mod)
+[MODULE ORG](https://github.com/io-core/Build/blob/main/ORG.Mod)
 
-[MODULE ORP](https://github.com/io-core/Build/ORP.Mod)
+[MODULE ORP](https://github.com/io-core/Build/blob/main/ORP.Mod)
 
-[MODULE Linker](https://github.com/io-core/Build/Linker.Mod)
+[MODULE Linker](https://github.com/io-core/Build/blob/main/Linker.Mod)
 

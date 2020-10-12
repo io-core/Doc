@@ -1,6 +1,6 @@
-[MODULE Environments](https://github.com/io-core/Script/Environments.Mod)
+[MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)
 
-[MODULE Intrinsics](https://github.com/io-core/Script/Intrinsics.Mod)
+[MODULE Intrinsics](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
 
-[MODULE Script](https://github.com/io-core/Script/Script.Mod)
+[MODULE Script](https://github.com/io-core/Script/blob/main/Script.Mod)
 

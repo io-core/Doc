@@ -1,10 +1,10 @@
-[MODULE Display](https://github.com/io-core/Oberon/Display.Mod)
+[MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)
 
-[MODULE Viewers](https://github.com/io-core/Oberon/Viewers.Mod)
+[MODULE Viewers](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
 
-[MODULE MenuViewers](https://github.com/io-core/Oberon/MenuViewers.Mod)
+[MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
 
-[MODULE Oberon](https://github.com/io-core/Oberon/Oberon.Mod)
+[MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 
-[MODULE Input](https://github.com/io-core/Oberon/Input.Mod)
+[MODULE Input](https://github.com/io-core/Oberon/blob/main/Input.Mod)
 

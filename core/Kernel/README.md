@@ -1,4 +1,4 @@
-[MODULE Disk](https://github.com/io-core/Kernel/Disk.Mod)
+[MODULE Disk](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
 
-[MODULE Kernel](https://github.com/io-core/Kernel/Kernel.Mod)
+[MODULE Kernel](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
 
