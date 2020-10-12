@@ -6,11 +6,11 @@ Project Oberon is self-contained and provides a complete single-user computing e
 
 Integrated Oberon departs from Project Oberon by introducing features and capabilities to Oberon, taken from other systems based on pervasiveness (e.g. utf8, markdown, TTF fonts, HTML/DOM, tcp/ip) and utility (multicore and distributed computing, capability based security, the leveraging of immutable data structures and content-addressed storage for replication, deduplication, and eventual consistency, etc.)
 
-None of the above features are implemented yet. [extended oberon](https://github.com/andreaspirklbauer/Oberon-extended) begins the journey by re-introducing to 2013 Project Oberon support for Oberon-2 and other features. Integrated Oberon will start from there. 
+None of the above features are implemented yet. As [Extended Oberon](https://github.com/andreaspirklbauer/Oberon-extended) has already re-introduced to 2013 Project Oberon the support for type-bound procedurs in Oberon-2 and other needed features, Integrated Oberon will start from there. 
 
 ## Getting and Using the system
 
-To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been programmed to implmenet the [Oberon RISC architecture](https://github.com/emard/oberon).
+To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been [programmed](https://github.com/emard/oberon) to implement the [Oberon RISC5 architecture.](www.projectoberon.com)
 
 You can read more about how to get and use the system here:  [Introduction](./intro/Intro.md) to Oberon.
 
