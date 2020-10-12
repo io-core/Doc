@@ -3,12 +3,12 @@
 echo "# Core packages" > core/README.md
 echo >> core/README.md
 rm -f core/*/README.md
-echo "# Standard Library Packages" > stdlibs/README.md
-echo >> stdlibs/README.md
-rm -f stdlibs/*/README.md
-echo "# Extended Library Packages" >  extlibs/README.md
-echo >>  extlibs/README.md
-rm -f extlibs/*/README.md
+echo "# Standard Library Packages" > stdlib/README.md
+echo >> stdlib/README.md
+rm -f stdlib/*/README.md
+echo "# Extended Library Packages" >  extlib/README.md
+echo >>  extlib/README.md
+rm -f extlib/*/README.md
 for i in `ls -d ../src/github.com/io-core/*`; do 
 	for j in `ls $i/*.Pkg 2>/dev/null`; do 
 		k=`grep '^doc' $j | awk -F',' '{print $2}'`
