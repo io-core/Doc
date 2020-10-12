@@ -18,7 +18,7 @@ To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/r
 
 You can read more about how to get and use the system here:  [Introduction](./intro/Intro.md) to Oberon.
 
-## Coding with Oberon
+## Writing your own code
 
 development process described in Develop.md
 
