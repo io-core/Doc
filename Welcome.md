@@ -12,11 +12,15 @@ Integrated Oberon departs from Project Oberon by introducing features and capabi
 
 None of the above features are implemented yet. As [Extended Oberon](https://github.com/andreaspirklbauer/Oberon-extended) has already re-introduced to 2013 Project Oberon the support for type-bound procedurs in Oberon-2 and other needed features, Integrated Oberon will start from there. 
 
-## Getting and Using the system
+## Getting and Navigating the system
 
 To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been [programmed](https://github.com/emard/oberon) to implement the [Oberon RISC5 architecture.](www.projectoberon.com)
 
 You can read more about how to get and use the system here:  [Introduction](./intro/Intro.md) to Oberon.
+
+## Coding with Oberon
+
+development process described in Develop.md
 
 ## System Concepts
 
