@@ -2,27 +2,21 @@
 This package handles basic os functionality including device access and garbage collection.
 
 
+## Overview
+The Kernel package abstracts the hardware of the computing platform for the rest of Oberon.
 
-#### [MODULE Disk](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
+The current Kernel package contains two modules:
+* Kernel - core abstractions
+* Disk - a device driver for SPI flash storage
 
-Procedures:
+## Examples
+
+USAGE:
 ```
-  InitSecMap*
-
-  MarkSector*(sec: INTEGER)
-
-  FreeSector*(sec: INTEGER)
-
-  AllocSector*(hint: INTEGER; VAR sec: INTEGER)
-
-  GetSector*(src: INTEGER; VAR dst: Sector)
-
-  PutSector*(dst: INTEGER; VAR src: Sector)
-
-  Init*
-
+Kernel.Collect 
 ```
 
+## Modules
 
 #### [MODULE Kernel](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
 
@@ -43,6 +37,27 @@ Procedures:
   SetClock*(dt: INTEGER)
 
   Install*(Padr, at: INTEGER)
+
+  Init*
+
+```
+
+
+#### [MODULE Disk](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
+
+Procedures:
+```
+  InitSecMap*
+
+  MarkSector*(sec: INTEGER)
+
+  FreeSector*(sec: INTEGER)
+
+  AllocSector*(hint: INTEGER; VAR sec: INTEGER)
+
+  GetSector*(src: INTEGER; VAR dst: Sector)
+
+  PutSector*(dst: INTEGER; VAR src: Sector)
 
   Init*
 
