@@ -2,7 +2,8 @@
 
 * [What is Oberon?](https://github.com/io-core/doc#what-is-oberon)
 * [What is Integrated Oberon?](https://github.com/io-core/doc#what-is-integrated-oberon)
-* [How to get it](https://github.com/io-core/doc#how-to-get-it)
+* [What Other Oberons are there?](https://github.com/io-core/doc#what-other-oberons-are-there)
+* [How to get Integrated Oberon](https://github.com/io-core/doc#how-to-get-integrated-oberon)
 * [How to use it](https://github.com/io-core/doc#how-to-use-it)
 * [How to code for it](https://github.com/io-core/doc#how-to-code-for-it)
 * [How to contribute to it](https://github.com/io-core/doc#how-to-contribute-to-it)
@@ -22,7 +23,11 @@ Integrated Oberon departs from Project Oberon by introducing features and capabi
 
 None of the above features are implemented yet. As [Extended Oberon](https://github.com/andreaspirklbauer/Oberon-extended) has already re-introduced to 2013 Project Oberon the support for type-bound procedurs in Oberon-2 and other needed features, Integrated Oberon will start from there. 
 
-## How to get it
+#### What other Oberons are there?
+
+Oberon has a long history with many more or less compatible implementations, emulated and native, 32 and 64-bit, including currently used and developed descendents. Notable examples include: (put notable examples here!)
+
+## How to get Integrated Oberon
 
 To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been [programmed](https://github.com/emard/oberon) to implement the [Oberon RISC5 architecture.](www.projectoberon.com)
 
