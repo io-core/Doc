@@ -30,7 +30,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			echo "../src/github.com/io-core/$nam/$snam.Mod" 
 			for p in `grep "PROCEDURE" ../src/github.com/io-core/$nam/$snam.Mod | grep '*;\|*(\|* (' | sed -e 's/ *PROCEDURE \(.*\);/\1/g'|tr ' ' '~'`; do
 				echo "  `echo $p | tr '~' ' '`" >> $k/$nam/README.md
-				
+			        echo  >> $k/$nam/README.md	
 			done
                         echo '```' >> $k/$nam/README.md
 		done
