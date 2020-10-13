@@ -27,6 +27,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
                         awk '/end-package-description/{p=0};p;/begin-package-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
                         echo  >> $k/$nam/README.md
 			echo "#### [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/README.md
+                        awk '/end-module-description/{p=0};p;/begin-module-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
 			echo  >> $k/$nam/README.md
 			echo "Procedures:" >> $k/$nam/README.md
                         echo '```' >> $k/$nam/README.md
