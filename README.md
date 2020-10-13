@@ -48,9 +48,9 @@ summary and link to Language.md
 
 summary and link to [documentation of the Oberon Core packages of modules](./core/README.md)
 
-summary and link to [Standard libraries of modules](./stdlibs/README.md)
+summary and link to [Standard library of packages](./stdlib/README.md)
 
-summary and link to [Extended libraries of modules](./extlibs/README.md)
+summary and link to [Extended library of packages](./extlib/README.md)
 
 ## Repositories
 
