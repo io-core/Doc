@@ -2,8 +2,12 @@
 This package manages compiled module loading and unloading in Oberon.
 
 
+The Modules package manages the module heap, the loading and unloading of packages, etc.
+
 
 #### [MODULE Modules](https://github.com/io-core/Modules/blob/main/Modules.Mod)
+Module Modules is the heart of how separately compiled Oberon programs are loaded and linked.
+
 
 Procedures:
 ```

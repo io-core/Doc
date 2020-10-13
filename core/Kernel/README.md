@@ -19,6 +19,8 @@ Kernel.Collect
 ## Modules
 
 #### [MODULE Kernel](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
+Module Kernel provides hardware abstraction for Oberon.
+
 
 Procedures:
 ```
@@ -44,6 +46,8 @@ Procedures:
 
 
 #### [MODULE Disk](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
+Module Disk interfaces to the SPI flash storage, presenting 1024 byte sectors from two 512-byte sectors
+
 
 Procedures:
 ```
