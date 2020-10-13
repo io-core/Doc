@@ -31,6 +31,12 @@ Oberon has a long history with many more or less compatible implementations, emu
 
 To run Integrated Oberon you need a [disk image](https://github.com/io-core/io/raw/main/images/io.img) and either an [emulator](https://github.com/pdewacht/oberon-risc-emu) or an [FPGA](https://www.crowdsupply.com/radiona/ulx3s) that has been [programmed](https://github.com/emard/oberon) to implement the [Oberon RISC5 architecture.](www.projectoberon.com)
 
+To obtain the complete Integrated Oberon project including project submodules, you can do this:
+
+```
+git clone --recursive https://github.com/io-core/io
+```
+
 ## How to use it
 
 You can read more about how to get and use the system here:  [Introduction](./intro/Intro.md) to Oberon.
