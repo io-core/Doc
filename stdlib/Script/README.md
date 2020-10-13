@@ -1,4 +1,4 @@
-##The Script package allows the user to batch commands and 'script' the Oberon environment
+## The Script package allows the user to batch commands and 'script' the Oberon environment
 
 
 #### [MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)

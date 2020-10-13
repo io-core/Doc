@@ -18,7 +18,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 		#echo "$nam $ref $k $j $i"
 		echo "[$nam](./$nam/README.md) $w" >> $k/README.md
 		echo >> $k/README.md
-		echo "##The $nam package $w" >> $k/$nam/README.md
+		echo "## The $nam package $w" >> $k/$nam/README.md
 		echo >> $k/$nam/README.md
 		for l in `grep '^p,' $j | awk -F',' '{print $2}'`; do
 			snam=`echo $l | sed -e 's/\(.*\).Mod/\1/g'`

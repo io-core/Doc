@@ -1,4 +1,4 @@
-##The Paint package provides tools for viewing and manipulating bitmap images.
+## The Paint package provides tools for viewing and manipulating bitmap images.
 
 
 #### [MODULE Images](https://github.com/io-core/Paint/blob/main/Images.Mod)
