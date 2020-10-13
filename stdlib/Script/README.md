@@ -1,7 +1,10 @@
-## The Script package allows the user to batch commands and 'script' the Oberon environment
+## Script
+This package allows the user to batch commands and 'script' the Oberon environment
+
 
 
 #### [MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)
+
 Procedures:
 ```
           read*:(b: Binding; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -22,7 +25,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Intrinsics](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
+
 Procedures:
 ```
   New*(i: Intrinsic; v: INTEGER) : Intrinsic
@@ -31,7 +36,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Script](https://github.com/io-core/Script/blob/main/Script.Mod)
+
 Procedures:
 ```
   Load*

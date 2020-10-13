@@ -1,7 +1,10 @@
-## The Draw package provides line-oriented drawing primitives and a vector drawing tool.
+## Draw
+This package provides line-oriented drawing primitives and a vector drawing tool.
+
 
 
 #### [MODULE GraphTool](https://github.com/io-core/Draw/blob/main/GraphTool.Mod)
+
 Procedures:
 ```
   DecGraph*
@@ -14,7 +17,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Rectangles](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)
+
 Procedures:
 ```
   New*
@@ -23,7 +28,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Curves](https://github.com/io-core/Draw/blob/main/Curves.Mod)
+
 Procedures:
 ```
   New*
@@ -36,7 +43,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Graphics](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
+
 Procedures:
 ```
   New*(obj: Object)
@@ -107,7 +116,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE MacroTool](https://github.com/io-core/Draw/blob/main/MacroTool.Mod)
+
 Procedures:
 ```
   OpenMacro*
@@ -120,7 +131,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Draw](https://github.com/io-core/Draw/blob/main/Draw.Mod)
+
 Procedures:
 ```
   Open*
@@ -145,7 +158,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE GraphicFrames](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod)
+
 Procedures:
 ```
   Restore*(F: Frame)

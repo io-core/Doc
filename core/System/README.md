@@ -1,7 +1,10 @@
-## The System package prepares the user interface and manages viewers for the user.
+## System
+This package prepares the user interface and manages viewers for the user.
+
 
 
 #### [MODULE Batch](https://github.com/io-core/System/blob/main/Batch.Mod)
+
 Procedures:
 ```
   ClearLog*
@@ -18,7 +21,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Tools](https://github.com/io-core/System/blob/main/Tools.Mod)
+
 Procedures:
 ```
   Clear*  (*used to clear output*)
@@ -39,7 +44,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Blink](https://github.com/io-core/System/blob/main/Blink.Mod)
+
 Procedures:
 ```
   Run*
@@ -48,7 +55,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Math](https://github.com/io-core/System/blob/main/Math.Mod)
+
 Procedures:
 ```
   sqrt*(x: REAL): REAL
@@ -63,7 +72,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE PCLink1](https://github.com/io-core/System/blob/main/PCLink1.Mod)
+
 Procedures:
 ```
   Run*
@@ -72,7 +83,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE PIO](https://github.com/io-core/System/blob/main/PIO.Mod)
+
 Procedures:
 ```
   Send*(x: LONGINT)
@@ -83,7 +96,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE RS232](https://github.com/io-core/System/blob/main/RS232.Mod)
+
 Procedures:
 ```
   Send*(x: INTEGER)
@@ -110,7 +125,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Net](https://github.com/io-core/System/blob/main/Net.Mod)
+
 Procedures:
 ```
   SendFiles*
@@ -135,7 +152,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE SCC](https://github.com/io-core/System/blob/main/SCC.Mod)
+
 Procedures:
 ```
   Start*(filt: BOOLEAN)
@@ -154,12 +173,16 @@ Procedures:
 
 ```
 
+
 #### [MODULE BootLoad](https://github.com/io-core/System/blob/main/BootLoad.Mod)
+
 Procedures:
 ```
 ```
 
+
 #### [MODULE System](https://github.com/io-core/System/blob/main/System.Mod)
+
 Procedures:
 ```
   SetUser*

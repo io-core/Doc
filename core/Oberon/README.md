@@ -1,7 +1,10 @@
-## The Oberon package implements the user-interface and task loop of the system.
+## Oberon
+This package implements the user-interface and task loop of the system.
+
 
 
 #### [MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)
+
 Procedures:
 ```
   Handle*(F: Frame; VAR M: FrameMsg)
@@ -26,7 +29,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Viewers](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
+
 Procedures:
 ```
   ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer
@@ -83,7 +88,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
+
 Procedures:
 ```
   Handle* (V: Display.Frame; VAR M: Display.FrameMsg)
@@ -92,7 +99,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
+
 Procedures:
 ```
   SetUser* (VAR user, password: ARRAY OF CHAR)
@@ -187,7 +196,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Input](https://github.com/io-core/Oberon/blob/main/Input.Mod)
+
 Procedures:
 ```
   Available*(): INTEGER

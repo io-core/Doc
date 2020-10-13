@@ -1,7 +1,10 @@
-## The Edit package manages the text and font handling in Oberon.
+## Edit
+This package manages the text and font handling in Oberon.
+
 
 
 #### [MODULE TextFrames](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
+
 Procedures:
 ```
   Mark* (F: Frame; on: BOOLEAN)  (*in scroll bar*)
@@ -76,7 +79,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
+
 Procedures:
 ```
   Load* (VAR R: Files.Rider; T: Text)
@@ -139,7 +144,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
+
 Procedures:
 ```
   Open*
@@ -162,7 +169,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Fonts](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
+
 Procedures:
 ```
   GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER)

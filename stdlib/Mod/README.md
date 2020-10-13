@@ -1,7 +1,10 @@
-## The Mod package provides source code package management in Oberon.
+## Mod
+This package provides source code package management in Oberon.
+
 
 
 #### [MODULE PackageFrames](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod)
+
 Procedures:
 ```
   Restore*(f: Frame)
@@ -38,7 +41,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Mod](https://github.com/io-core/Mod/blob/main/Mod.Mod)
+
 Procedures:
 ```
   Open*
@@ -63,7 +68,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Packages](https://github.com/io-core/Mod/blob/main/Packages.Mod)
+
 Procedures:
 ```
           read*:(C: Component; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -102,7 +109,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Resources](https://github.com/io-core/Mod/blob/main/Resources.Mod)
+
 Procedures:
 ```
   New*(R: Resource; v: INTEGER) : Resource

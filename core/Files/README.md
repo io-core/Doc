@@ -1,7 +1,10 @@
-## The Files package handles persistent storage and the file and directory interface of Oberon.
+## Files
+This package handles persistent storage and the file and directory interface of Oberon.
+
 
 
 #### [MODULE FileDir](https://github.com/io-core/Files/blob/main/FileDir.Mod)
+
 Procedures:
 ```
   Search*(name: FileName; VAR A: DiskAdr)
@@ -18,7 +21,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Files](https://github.com/io-core/Files/blob/main/Files.Mod)
+
 Procedures:
 ```
   Old*(name: ARRAY OF CHAR): File

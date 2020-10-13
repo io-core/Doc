@@ -1,7 +1,10 @@
-## The Kernel package handles basic os functionality including device access and garbage collection.
+## Kernel
+This package handles basic os functionality including device access and garbage collection.
+
 
 
 #### [MODULE Disk](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
+
 Procedures:
 ```
   InitSecMap*
@@ -20,7 +23,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Kernel](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
+
 Procedures:
 ```
   New*(VAR ptr: LONGINT; tag, len, elemsize: LONGINT)

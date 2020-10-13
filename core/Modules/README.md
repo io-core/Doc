@@ -1,7 +1,10 @@
-## The Modules package manages compiled module loading and unloading in Oberon.
+## Modules
+This package manages compiled module loading and unloading in Oberon.
+
 
 
 #### [MODULE Modules](https://github.com/io-core/Modules/blob/main/Modules.Mod)
+
 Procedures:
 ```
   Load*(name: ARRAY OF CHAR; VAR newmod: Module)

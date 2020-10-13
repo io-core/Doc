@@ -1,7 +1,10 @@
-## The Paint package provides tools for viewing and manipulating bitmap images.
+## Paint
+This package provides tools for viewing and manipulating bitmap images.
+
 
 
 #### [MODULE Images](https://github.com/io-core/Paint/blob/main/Images.Mod)
+
 Procedures:
 ```
           read*:(L: Layer; VAR R: Files.Rider); (*; VAR C: Context) *)
@@ -40,7 +43,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Paint](https://github.com/io-core/Paint/blob/main/Paint.Mod)
+
 Procedures:
 ```
   Open*
@@ -65,7 +70,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE Bitmaps](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
+
 Procedures:
 ```
   New*(B: Bitmap; w, h, dpt: INTEGER) : Bitmap
@@ -100,7 +107,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE ImageFrames](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
+
 Procedures:
 ```
   Restore*(F: Frame)

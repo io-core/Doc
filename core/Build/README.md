@@ -1,14 +1,34 @@
-## The Build package provides the compiler and associated program building and debugging tools for Oberon.
+## Build
+This package provides the compiler and associated program building and debugging tools for Oberon.
 
+
+The Oberon compiler is comprised of four core packages and several additional packages:
+
+* ORP
+* ORG
+* ORB
+* ORS
+
+* ORL
+* ORX
+* ORTool
+
+USAGE:
+```
+ORP.Compile Example.Mod/s
+```
 
 #### [MODULE ORP](https://github.com/io-core/Build/blob/main/ORP.Mod)
+
 Procedures:
 ```
   Compile*
 
 ```
 
+
 #### [MODULE ORG](https://github.com/io-core/Build/blob/main/ORG.Mod)
+
 Procedures:
 ```
   CheckRegs*
@@ -181,7 +201,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
+
 Procedures:
 ```
   NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER)  (*insert new Object with name id*)
@@ -212,7 +234,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
+
 Procedures:
 ```
   CopyId*(VAR ident: Ident)
@@ -227,7 +251,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE ORL](https://github.com/io-core/Build/blob/main/ORL.Mod)
+
 Procedures:
 ```
   Link*  (*link multiple object files together and create a single boot file M.bin from them*)
@@ -242,7 +268,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE ORX](https://github.com/io-core/Build/blob/main/ORX.Mod)
+
 Procedures:
 ```
   WriteFile*  (*write code section of M.rsc in hex format to output file*)
@@ -253,7 +281,9 @@ Procedures:
 
 ```
 
+
 #### [MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)
+
 Procedures:
 ```
   DecSym*  (*decode symbol file*)
