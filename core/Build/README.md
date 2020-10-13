@@ -1,60 +1,10 @@
 ## The Build package provides the compiler and associated program building and debugging tools for Oberon.
 
 
-#### [MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
+#### [MODULE ORP](https://github.com/io-core/Build/blob/main/ORP.Mod)
 Procedures:
 ```
-  CopyId*(VAR ident: Ident)
-
-  Pos*(): LONGINT
-
-  Mark*(msg: ARRAY OF CHAR)
-
-  Get*(VAR sym: INTEGER)
-
-  Init*(T: Texts.Text; pos: LONGINT)
-
-```
-
-#### [MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)
-Procedures:
-```
-  DecSym*  (*decode symbol file*)
-
-  DecObj*   (*decode object file*)
-
-  DecMod*
-
-```
-
-#### [MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
-Procedures:
-```
-  NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER)  (*insert new Object with name id*)
-
-  thisObj*(): Object
-
-  thisimport*(mod: Object): Object
-
-  thisfield*(rec: Type): Object
-
-  FindFld*(id: ORS.Ident; rec: Type): Object  (*search id in fields of rec proper, but not its base types*)
-
-  NofMethods*(rec: Type): INTEGER  (*number of methods bound to rec and its base types*)
-
-  NewMethod*(rec: Type; VAR mth, redef: Object; id: ORS.Ident)  (*insert new method with name id*)
-
-  OpenScope*
-
-  CloseScope*
-
-  MakeFileName*(VAR FName: ORS.Ident; name, ext: ARRAY OF CHAR)
-
-  Import*(VAR modid, modid1: ORS.Ident)
-
-  Export*(VAR modid: ORS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT)
-
-  Init*
+  Compile*
 
 ```
 
@@ -231,20 +181,85 @@ Procedures:
 
 ```
 
-#### [MODULE ORP](https://github.com/io-core/Build/blob/main/ORP.Mod)
+#### [MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
 Procedures:
 ```
-  Compile*
+  NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER)  (*insert new Object with name id*)
+
+  thisObj*(): Object
+
+  thisimport*(mod: Object): Object
+
+  thisfield*(rec: Type): Object
+
+  FindFld*(id: ORS.Ident; rec: Type): Object  (*search id in fields of rec proper, but not its base types*)
+
+  NofMethods*(rec: Type): INTEGER  (*number of methods bound to rec and its base types*)
+
+  NewMethod*(rec: Type; VAR mth, redef: Object; id: ORS.Ident)  (*insert new method with name id*)
+
+  OpenScope*
+
+  CloseScope*
+
+  MakeFileName*(VAR FName: ORS.Ident; name, ext: ARRAY OF CHAR)
+
+  Import*(VAR modid, modid1: ORS.Ident)
+
+  Export*(VAR modid: ORS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT)
+
+  Init*
 
 ```
 
-#### [MODULE Linker](https://github.com/io-core/Build/blob/main/Linker.Mod)
+#### [MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
 Procedures:
 ```
-  LinkOne*(name: ARRAY OF CHAR; VAR newmod: Modules.Module)
+  CopyId*(VAR ident: Ident)
 
-  Link*
+  Pos*(): LONGINT
 
-  ThisCommand*(mod: Modules.Module; name: ARRAY OF CHAR): Modules.Command
+  Mark*(msg: ARRAY OF CHAR)
+
+  Get*(VAR sym: INTEGER)
+
+  Init*(T: Texts.Text; pos: LONGINT)
+
+```
+
+#### [MODULE ORL](https://github.com/io-core/Build/blob/main/ORL.Mod)
+Procedures:
+```
+  Link*  (*link multiple object files together and create a single boot file M.bin from them*)
+
+  Load*  (*load prelinked boot file M.bin onto the boot area of the local disk*)
+
+  RelocateLoaded*(start, dst: INTEGER)  (*relocate prelinked binary loaded at Mem[start] for execution at dst*)
+
+  Relocate*  (*relocate prelinked binary M.bin for execution at destadr and write result to output file R.bin*)
+
+  Execute*  (*load and execute prelinked binary M.bin*)
+
+```
+
+#### [MODULE ORX](https://github.com/io-core/Build/blob/main/ORX.Mod)
+Procedures:
+```
+  WriteFile*  (*write code section of M.rsc in hex format to output file*)
+
+  WriteCode*  (*write code section of M.rsc in binary format to output file*)
+
+  WriteStream*  (*convert boot file to stream format with specified block size and dest adr*)
+
+```
+
+#### [MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)
+Procedures:
+```
+  DecSym*  (*decode symbol file*)
+
+  DecObj*   (*decode object file*)
+
+  DecMod*
 
 ```
