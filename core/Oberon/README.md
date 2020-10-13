@@ -1,106 +1,14 @@
 ## Oberon
-This package implements the user-interface and task loop of the system.
+This package implements the user-interaction functionality and the task loop of the system.
 
-
-
-#### [MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)
-
-Procedures:
-```
-  Handle*(F: Frame; VAR M: FrameMsg)
-
-  Dot*(col, x, y, mode: INTEGER)
-
-  ReplConst*(col, x, y, w, h, mode: INTEGER)
-
-  CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER)  (*only for modes = paint, invert*)
-
-  CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER)  (*only for modes = paint, invert*)
-
-  CopyPattern*(col, patadr, x, y, mode: INTEGER)  (*only for modes = paint, invert*)
-
-  CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER) (*only for mode = replace*)
-
-  CopyImage*(sx, sy, sw, sh, sdepth, sspan, dx, dy, ddepth, dspan, mode: INTEGER) (*only for mode = replace*)
-
-  CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER)
-
-  ReplPattern*(col, patadr, x, y, w, h, mode: INTEGER)
-
-```
-
-
-#### [MODULE Viewers](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
-
-Procedures:
-```
-  ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer
-
-  This* (X, Y: INTEGER): Viewer  (*for backward compatibility*)
-
-  ThisDisplay* (V: Viewer): DisplayArea
-
-  Next* (V: Viewer): Viewer
-
-  Prev* (V: Viewer): Viewer
-
-  SetFocus* (D: DisplayArea; V: Viewer)
-
-  GetFocus* (D: DisplayArea): Viewer
-
-  Adjust* (F: Display.Frame; id, Y, H: INTEGER)
-
-  Open* (D: DisplayArea; V: Viewer; X, Y: INTEGER)
-
-  Validate* (V: Viewer; VAR Y, H: INTEGER)
-
-  Change* (V: Viewer; Y, H: INTEGER)
-
-  Spread* (D: DisplayArea; X, W: INTEGER) (*redistribute viewers vertically*)
-
-  Close* (V: Viewer)
-
-  Recall* (D: DisplayArea; VAR V: Viewer) (*last closed viewer*)
-
-  Flush* (D: DisplayArea) (*last closed viewer*)
-
-  Locate* (D: DisplayArea; X, H: INTEGER; VAR fil, top, bot, alt, max: Display.Frame)
-
-  Install* (parent, F: Display.Frame) (*frame F as a subframe into parent frame*)
-
-  Remove* (parent, F: Display.Frame) (*subframe F from its parent frame*)
-
-  InitTrack* (D: DisplayArea; W, H: INTEGER; Filler: Viewer)
-
-  OpenTrack* (D: DisplayArea; X, W: INTEGER; Filler: Viewer)
-
-  CloseTrack* (D: DisplayArea; X: INTEGER)
-
-  Broadcast* (VAR M: Display.FrameMsg) (*to current display*)
-
-  InitDisplay* (D: DisplayArea; W, H: INTEGER; name: ARRAY OF CHAR)
-
-  SetDisplay* (D: DisplayArea)
-
-  GetDisplay* (id: INTEGER): DisplayArea
-
-  CloseDisplay* (D: DisplayArea; hint: INTEGER) (*except last display*)
-
-```
-
-
-#### [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
-
-Procedures:
-```
-  Handle* (V: Display.Frame; VAR M: Display.FrameMsg)
-
-  New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer
-
-```
 
 
 #### [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
+Module Oberon establishes the messaging and callback system for implementing the extensible user interface of Oberon.
+
+Oberon uses SYSTEM, Kernel, Files, Modules, Input, Display, Viewers, Fonts, Texts
+
+
 
 Procedures:
 ```
@@ -197,7 +105,124 @@ Procedures:
 ```
 
 
+#### [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
+Module MenuViewers implements the top-of-pane 'menu' functionality of the Oberon user interface. 
+
+MenuViewers uses Input, Display, Viewers, Oberon
+
+
+
+Procedures:
+```
+  Handle* (V: Display.Frame; VAR M: Display.FrameMsg)
+
+  New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer
+
+```
+
+
+#### [MODULE Viewers](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
+Module Viewers implements base functionaltiy which may be extended for interacting with a pane or 'Viewer' in Oberon.
+
+Viewers uses Display
+
+
+
+Procedures:
+```
+  ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer
+
+  This* (X, Y: INTEGER): Viewer  (*for backward compatibility*)
+
+  ThisDisplay* (V: Viewer): DisplayArea
+
+  Next* (V: Viewer): Viewer
+
+  Prev* (V: Viewer): Viewer
+
+  SetFocus* (D: DisplayArea; V: Viewer)
+
+  GetFocus* (D: DisplayArea): Viewer
+
+  Adjust* (F: Display.Frame; id, Y, H: INTEGER)
+
+  Open* (D: DisplayArea; V: Viewer; X, Y: INTEGER)
+
+  Validate* (V: Viewer; VAR Y, H: INTEGER)
+
+  Change* (V: Viewer; Y, H: INTEGER)
+
+  Spread* (D: DisplayArea; X, W: INTEGER) (*redistribute viewers vertically*)
+
+  Close* (V: Viewer)
+
+  Recall* (D: DisplayArea; VAR V: Viewer) (*last closed viewer*)
+
+  Flush* (D: DisplayArea) (*last closed viewer*)
+
+  Locate* (D: DisplayArea; X, H: INTEGER; VAR fil, top, bot, alt, max: Display.Frame)
+
+  Install* (parent, F: Display.Frame) (*frame F as a subframe into parent frame*)
+
+  Remove* (parent, F: Display.Frame) (*subframe F from its parent frame*)
+
+  InitTrack* (D: DisplayArea; W, H: INTEGER; Filler: Viewer)
+
+  OpenTrack* (D: DisplayArea; X, W: INTEGER; Filler: Viewer)
+
+  CloseTrack* (D: DisplayArea; X: INTEGER)
+
+  Broadcast* (VAR M: Display.FrameMsg) (*to current display*)
+
+  InitDisplay* (D: DisplayArea; W, H: INTEGER; name: ARRAY OF CHAR)
+
+  SetDisplay* (D: DisplayArea)
+
+  GetDisplay* (id: INTEGER): DisplayArea
+
+  CloseDisplay* (D: DisplayArea; hint: INTEGER) (*except last display*)
+
+```
+
+
+#### [MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)
+Module Display implements the drawing primitives for the frame buffer device in Oberon.
+
+Display uses SYSTEM
+
+
+
+Procedures:
+```
+  Handle*(F: Frame; VAR M: FrameMsg)
+
+  Dot*(col, x, y, mode: INTEGER)
+
+  ReplConst*(col, x, y, w, h, mode: INTEGER)
+
+  CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER)  (*only for modes = paint, invert*)
+
+  CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER)  (*only for modes = paint, invert*)
+
+  CopyPattern*(col, patadr, x, y, mode: INTEGER)  (*only for modes = paint, invert*)
+
+  CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER) (*only for mode = replace*)
+
+  CopyImage*(sx, sy, sw, sh, sdepth, sspan, dx, dy, ddepth, dspan, mode: INTEGER) (*only for mode = replace*)
+
+  CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER)
+
+  ReplPattern*(col, patadr, x, y, w, h, mode: INTEGER)
+
+```
+
+
 #### [MODULE Input](https://github.com/io-core/Oberon/blob/main/Input.Mod)
+Module Input reads keyboard and mouse raw data and returns ASCII values and mouse state to Oberon.
+
+Input uses SYSTEM
+
+
 
 Procedures:
 ```

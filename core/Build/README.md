@@ -40,7 +40,7 @@ Procedures:
 #### [MODULE ORG](https://github.com/io-core/Build/blob/main/ORG.Mod)
 Module ORG generates the processor-specific instructions for executing an Oberon program. 
 
-ORP uses SYSTEM, Files, ORS, ORB
+ORG uses SYSTEM, Files, ORS, ORB
 
 
 
@@ -220,7 +220,7 @@ Procedures:
 #### [MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
 Module ORB manages the symbol table for the Oberon compiler and reads and writes 'smb' files
 
-ORP uses Files, ORS
+ORB uses Files, ORS
 
 
 
@@ -258,7 +258,7 @@ Procedures:
 #### [MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
 Module ORS does lexical analysis of the Oberon source code and defines symbols and operations
 
-ORP uses SYSTEM, Texts, Oberon
+ORS uses SYSTEM, Texts, Oberon
 
 
 
@@ -280,7 +280,7 @@ Procedures:
 #### [MODULE ORL](https://github.com/io-core/Build/blob/main/ORL.Mod)
 Module ORL links modules to create bin files that may be placed in the boot sectors of an Oberon disk image
 
-ORP uses SYSTEM, Kernel, Disk, Files, Modules, Texts, Oberon
+ORL uses SYSTEM, Kernel, Disk, Files, Modules, Texts, Oberon
 
 
 
@@ -302,7 +302,7 @@ Procedures:
 #### [MODULE ORX](https://github.com/io-core/Build/blob/main/ORX.Mod)
 Module ORX is a boot converter for RISC 
 
-ORP uses Files, Texts, Oberon
+ORX uses Files, Texts, Oberon
 
 
 
@@ -320,7 +320,7 @@ Procedures:
 #### [MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)
 Module ORTool provides symbol file, module file, and loaded module reporting tools.
 
-ORP uses SYSTEM, Files, Modules, Texts, Oberon, ORB
+ORTool uses SYSTEM, Files, Modules, Texts, Oberon, ORB
 
 
 

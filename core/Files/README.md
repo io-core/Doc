@@ -2,8 +2,26 @@
 This package handles persistent storage and the file and directory interface of Oberon.
 
 
+## Overview
+The Files package provides:
+
+* Directory operations
+* File i/o
+
+## Examples
+
+USAGE:
+```
+F := Files.New("newfile.txt")
+```
+
+## Modules
 
 #### [MODULE FileDir](https://github.com/io-core/Files/blob/main/FileDir.Mod)
+Module FileDir manages the on-disk representation if directories.
+
+Regular programs do not use FileDir but instead use the api presented by Files which uses FileDir on their behalf.
+
 
 Procedures:
 ```
@@ -23,6 +41,8 @@ Procedures:
 
 
 #### [MODULE Files](https://github.com/io-core/Files/blob/main/Files.Mod)
+Module Files manages the on-disk representation of files and the file api presented to Oberon programs.
+
 
 Procedures:
 ```
