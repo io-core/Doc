@@ -2,6 +2,47 @@
 This package manages the text and font handling in Oberon.
 
 
+## Overview
+The Edit package provides:
+
+* The 'text' abstraction for manipulating textual content
+* TextFrames for interacting with text via the GUI
+* The Edit tool for interacting with documents
+* The font mechanism in Oberon
+
+## Examples
+
+USAGE:
+```
+Edit.Open example.txt
+```
+
+## Modules
+
+#### [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
+
+Procedures:
+```
+  Open*
+
+  Store*
+
+  CopyLooks*
+
+  ChangeFont*
+
+  ChangeColor*
+
+  ChangeOffset*
+
+  Search*  (*uses global variables M, pat, d for Boyer-Moore search*)
+
+  Locate*
+
+  Recall*
+
+```
+
 
 #### [MODULE TextFrames](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
 
@@ -141,31 +182,6 @@ Procedures:
   WriteRealFix* (VAR W: Writer; x: REAL; n, k: INTEGER)
 
   WriteClock* (VAR W: Writer; d: LONGINT)
-
-```
-
-
-#### [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
-
-Procedures:
-```
-  Open*
-
-  Store*
-
-  CopyLooks*
-
-  ChangeFont*
-
-  ChangeColor*
-
-  ChangeOffset*
-
-  Search*  (*uses global variables M, pat, d for Boyer-Moore search*)
-
-  Locate*
-
-  Recall*
 
 ```
 
