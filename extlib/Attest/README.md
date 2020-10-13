@@ -1,4 +1,4 @@
-The [Attest](./Attest/README.md) package provides code provenance tools for use in Oberon.
+##The Attest package provides code provenance tools for use in Oberon.
 
 
 #### [MODULE KeySafes](https://github.com/io-core/Attest/blob/main/KeySafes.Mod)

@@ -1,4 +1,4 @@
-The [Oberon](./Oberon/README.md) package implements the user-interface and task loop of the system.
+##The Oberon package implements the user-interface and task loop of the system.
 
 
 #### [MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)

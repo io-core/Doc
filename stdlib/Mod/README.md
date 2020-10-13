@@ -1,4 +1,4 @@
-The [Mod](./Mod/README.md) package provides source code package management in Oberon.
+##The Mod package provides source code package management in Oberon.
 
 
 #### [MODULE PackageFrames](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod)
