@@ -16,16 +16,47 @@ The [Oberon](./Oberon/README.md) package implements the user-interface and task 
 
 #### [MODULE Viewers](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
 ##### Procedures:
+* ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer
+* This* (X, Y: INTEGER): Viewer  (*for backward compatibility*)
+* ThisDisplay* (V: Viewer): DisplayArea
+* Next* (V: Viewer): Viewer
+* Prev* (V: Viewer): Viewer
+* SetFocus* (D: DisplayArea; V: Viewer)
+* GetFocus* (D: DisplayArea): Viewer
+* Adjust* (F: Display.Frame; id, Y, H: INTEGER)
+* Open* (D: DisplayArea; V: Viewer; X, Y: INTEGER)
+* Validate* (V: Viewer; VAR Y, H: INTEGER)
+* Change* (V: Viewer; Y, H: INTEGER)
+* Spread* (D: DisplayArea; X, W: INTEGER) (*redistribute viewers vertically*)
+* Close* (V: Viewer)
+* Recall* (D: DisplayArea; VAR V: Viewer) (*last closed viewer*)
+* Flush* (D: DisplayArea) (*last closed viewer*)
+* Locate* (D: DisplayArea; X, H: INTEGER; VAR fil, top, bot, alt, max: Display.Frame)
+* Install* (parent, F: Display.Frame) (*frame F as a subframe into parent frame*)
+* Remove* (parent, F: Display.Frame) (*subframe F from its parent frame*)
+* InitTrack* (D: DisplayArea; W, H: INTEGER; Filler: Viewer)
+* OpenTrack* (D: DisplayArea; X, W: INTEGER; Filler: Viewer)
+* CloseTrack* (D: DisplayArea; X: INTEGER)
+* Broadcast* (VAR M: Display.FrameMsg) (*to current display*)
+* InitDisplay* (D: DisplayArea; W, H: INTEGER; name: ARRAY OF CHAR)
+* SetDisplay* (D: DisplayArea)
+* GetDisplay* (id: INTEGER): DisplayArea
+* CloseDisplay* (D: DisplayArea; hint: INTEGER) (*except last display*)
 
 #### [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
 ##### Procedures:
+* Handle* (V: Display.Frame; VAR M: Display.FrameMsg)
+* New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer
 
 #### [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 ##### Procedures:
+* SetUser* (VAR user, password: ARRAY OF CHAR)
 * Clock*(): LONGINT
+* SetClock* (d: LONGINT)
 * Time*(): LONGINT
 * DrawMouse*(m: Marker; x, y: INTEGER)
 * DrawMouseArrow*(x, y: INTEGER)
+* DrawMouseStar* (x, y: INTEGER)
 * FadeMouse*
 * MouseOn*(): BOOLEAN
 * DrawPointer*(m: Marker; x, y: INTEGER)
@@ -33,6 +64,25 @@ The [Oberon](./Oberon/README.md) package implements the user-interface and task 
 * DrawPointerStar*(x, y: INTEGER)
 * FadePointer*
 * PointerOn*(): BOOLEAN
+* RemoveMarks* (X, Y, W, H: INTEGER)
+* SetFont* (fnt: Fonts.Font)
+* SetColor* (col: INTEGER)
+* SetOffset* (voff: INTEGER)
+* OpenLog* (T: Texts.Text)
+* GetSelection* (VAR text: Texts.Text; VAR beg, end, time: LONGINT) (*from current display*)
+* InitTrack* (D: Viewers.DisplayArea; W, H: INTEGER) (*add new track to the right*)
+* OpenTrack* (D: Viewers.DisplayArea; X, W: INTEGER) (*create overlay track at X*)
+* InitDisplay* (D: Viewers.DisplayArea; name: ARRAY OF CHAR)
+* SetDisplay* (D: Viewers.DisplayArea)
+* CloseDisplay* (D: Viewers.DisplayArea; hint: INTEGER)
+* DisplayWidth* (X: INTEGER): INTEGER
+* DisplayHeight* (X: INTEGER): INTEGER
+* MarkedViewer* (): Viewers.Viewer
+* PassFocus* (V: Viewers.Viewer)
+* UserTrack* (X: INTEGER): INTEGER
+* SystemTrack* (X: INTEGER): INTEGER
+* AllocateUserViewer* (DX: INTEGER; VAR X, Y: INTEGER)
+* AllocateSystemViewer* (DX: INTEGER; VAR X, Y: INTEGER)
 * SetPar*(F: Display.Frame; T: Texts.Text; pos: LONGINT; res: INTEGER)
 * ClearPar*
 * Return*(n: INTEGER)
@@ -40,6 +90,9 @@ The [Oberon](./Oberon/README.md) package implements the user-interface and task 
 * Run*(F: Display.Frame; T: Texts.Text; pos: LONGINT)  (*execute multiple commands separated by  *)
 * Batch*
 * NewTask*(h: Handler; period: INTEGER): Task
+* Install* (T: Task)
+* Remove* (T: Task)
+* Collect* (count: INTEGER)
 * Loop*
 * Reset*
 

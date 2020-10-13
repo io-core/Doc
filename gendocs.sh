@@ -27,7 +27,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			 >> $k/$nam/README.md
 			echo "##### Procedures:" >> $k/$nam/README.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod" 
-			for p in `grep "PROCEDURE" ../src/github.com/io-core/$nam/$snam.Mod | grep '*;\|*(' | sed -e 's/ *PROCEDURE \(.*\);/\1/g'|tr ' ' '~'`; do
+			for p in `grep "PROCEDURE" ../src/github.com/io-core/$nam/$snam.Mod | grep '*;\|*(\|* (' | sed -e 's/ *PROCEDURE \(.*\);/\1/g'|tr ' ' '~'`; do
 				echo "* `echo $p | tr '~' ' '`" >> $k/$nam/README.md
 				
 			done
