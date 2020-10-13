@@ -25,12 +25,14 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			echo  >> $k/$nam/README.md
 			echo "#### [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/README.md
 			 >> $k/$nam/README.md
-			echo "##### Procedures:" >> $k/$nam/README.md
+			echo "Procedures:" >> $k/$nam/README.md
+                        echo '```' >> $k/$nam/README.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod" 
 			for p in `grep "PROCEDURE" ../src/github.com/io-core/$nam/$snam.Mod | grep '*;\|*(\|* (' | sed -e 's/ *PROCEDURE \(.*\);/\1/g'|tr ' ' '~'`; do
-				echo "* `echo $p | tr '~' ' '`" >> $k/$nam/README.md
+				echo "  `echo $p | tr '~' ' '`" >> $k/$nam/README.md
 				
 			done
+                        echo '```' >> $k/$nam/README.md
 		done
 	done
 done

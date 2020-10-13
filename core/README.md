@@ -8,7 +8,7 @@
 
 [Kernel](./Kernel/README.md) handles basic os functionality including device access and garbage collection.
 
-[Modules](./Modules/README.md) handles the loading and unloading of program code.
+[Modules](./Modules/README.md) manages the loading and unloading of compiled modules in Oberon.
 
 [Oberon](./Oberon/README.md) implements the user-interface and task loop of the system.
 
