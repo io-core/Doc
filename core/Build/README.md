@@ -3,16 +3,18 @@ This package provides the compiler and associated program building and debugging
 
 
 ## Overview
-The Oberon compiler is comprised of four core packages and several additional packages:
+Oberon uses a one-pass compiler with four parts:
 
-* ORP
-* ORG
-* ORB
-* ORS
+ * A recursive-descent parser, ORP
+ * A generator of hardware-specific opcodes, ORG
+ * A syntax table tracker, ORB
+ * A scanner and tokenizer, ORS
 
-* ORL
-* ORX
-* ORTool
+In addition, several tools link and examine the binary modules produced by the compiler:
+
+ * A linker and loader, ORL
+ * A binary modifier, ORX
+ * A tool for examining modules, ORTool
 
 ## Examples
 
