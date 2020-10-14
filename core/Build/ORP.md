@@ -6,43 +6,43 @@ ORP is a recursive descent parser that visits procedures corresponding to symbol
 
 Procedures:
 
-    Check consumes the current token if it matches the expected symbol, otherwise an error is marked.
+Check consumes the current token if it matches the expected symbol, otherwise an error is marked.
 ```
   PROCEDURE Check(s: INTEGER; msg: ARRAY OF CHAR);
 ```
-    Qualident generates a reference to a previously defined item if possible otherwise an error is marked.
+Qualident generates a reference to a previously defined item if possible otherwise an error is marked.
 ```
   PROCEDURE qualident(VAR obj: ORB.Object);
 ```
-    CheckBool marks an error if the item is not a boolean.
+CheckBool marks an error if the item is not a boolean.
 ```
   PROCEDURE CheckBool(VAR x: ORG.Item);
 ```
-    CheckInt marks an error if the item is not an Int.
+CheckInt marks an error if the item is not an Int.
 ```
   PROCEDURE CheckInt(VAR x: ORG.Item);
 ```
-    CheckReal marks an error if the item is not a Real.
+CheckReal marks an error if the item is not a Real.
 ```
   PROCEDURE CheckReal(VAR x: ORG.Item);
 ```
-    CheckSet marks an error if the item is not a Set.
+CheckSet marks an error if the item is not a Set.
 ```
   PROCEDURE CheckSet(VAR x: ORG.Item);
 ```
-    CheckSetVal marks an error if the item is not a Set Value.
+CheckSetVal marks an error if the item is not a Set Value.
 ```
   PROCEDURE CheckSetVal(VAR x: ORG.Item);
 ```
-    CheckConst marks an error if the value is not a Constant.
+CheckConst marks an error if the value is not a Constant.
 ```
   PROCEDURE CheckConst(VAR x: ORG.Item);
 ```
-    CheckReadOnly marks an error if the value is not read-only.
+CheckReadOnly marks an error if the value is not read-only.
 ```
   PROCEDURE CheckReadOnly(VAR x: ORG.Item);
 ```
-    CheckExport checks for an export symbol and marks an error if export not at top level.
+CheckExport checks for an export symbol and marks an error if export not at top level.
 ```
   PROCEDURE CheckExport(VAR expo: BOOLEAN);
 ```
