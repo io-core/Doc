@@ -17,7 +17,7 @@ USAGE:
 
 ## Modules
 
-#### [MODULE Crypto](https://github.com/io-core/doc/blob/main/Crypto/Crypto.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod)
+#### [MODULE Crypto](https://github.com/io-core/doc/blob/main/stdlib/Crypto/Crypto.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod)
 Module Crypto provides command tools for cryptographic functions.
 
 
@@ -46,7 +46,7 @@ Procedures:
 ```
 
 
-#### [MODULE VaultFrames](https://github.com/io-core/doc/blob/main/Crypto/VaultFrames.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod)
+#### [MODULE VaultFrames](https://github.com/io-core/doc/blob/main/stdlib/Crypto/VaultFrames.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod)
 Module VaultFrames provides a user-interface for manipulating secrets and vaults.
 
 
@@ -87,7 +87,7 @@ Procedures:
 ```
 
 
-#### [MODULE Vaults](https://github.com/io-core/doc/blob/main/Crypto/Vaults.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod)
+#### [MODULE Vaults](https://github.com/io-core/doc/blob/main/stdlib/Crypto/Vaults.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod)
 Module Vaults provides an infrastructure for secrets and vaults.
 
 
@@ -130,7 +130,7 @@ Procedures:
 ```
 
 
-#### [MODULE Ciphers](https://github.com/io-core/doc/blob/main/Crypto/Ciphers.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod)
+#### [MODULE Ciphers](https://github.com/io-core/doc/blob/main/stdlib/Crypto/Ciphers.Mod) [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod)
 Module Ciphers provides cryptographic interfaces and algorithms.
 
 

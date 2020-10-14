@@ -3,7 +3,7 @@ This package provides source code package management in Oberon.
 
 
 
-#### [MODULE PackageFrames](https://github.com/io-core/doc/blob/main/Mod/PackageFrames.Mod) [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod)
+#### [MODULE PackageFrames](https://github.com/io-core/doc/blob/main/stdlib/Mod/PackageFrames.Mod) [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod)
 
 Procedures:
 ```
@@ -42,7 +42,7 @@ Procedures:
 ```
 
 
-#### [MODULE Mod](https://github.com/io-core/doc/blob/main/Mod/Mod.Mod) [(source)](https://github.com/io-core/Mod/blob/main/Mod.Mod)
+#### [MODULE Mod](https://github.com/io-core/doc/blob/main/stdlib/Mod/Mod.Mod) [(source)](https://github.com/io-core/Mod/blob/main/Mod.Mod)
 
 Procedures:
 ```
@@ -69,7 +69,7 @@ Procedures:
 ```
 
 
-#### [MODULE Packages](https://github.com/io-core/doc/blob/main/Mod/Packages.Mod) [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod)
+#### [MODULE Packages](https://github.com/io-core/doc/blob/main/stdlib/Mod/Packages.Mod) [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod)
 
 Procedures:
 ```
@@ -110,7 +110,7 @@ Procedures:
 ```
 
 
-#### [MODULE Resources](https://github.com/io-core/doc/blob/main/Mod/Resources.Mod) [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod)
+#### [MODULE Resources](https://github.com/io-core/doc/blob/main/stdlib/Mod/Resources.Mod) [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod)
 
 Procedures:
 ```
