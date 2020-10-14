@@ -17,7 +17,7 @@ F := Files.New("newfile.txt")
 
 ## Modules
 
-#### [MODULE FileDir](https://github.com/io-core/Files/blob/main/FileDir.Mod)
+#### [MODULE FileDir](https://github.com/io-core/doc/blob/main/Files/FileDir.Mod) [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod)
 Module FileDir manages the on-disk representation if directories.
 
 Regular programs do not use FileDir but instead use the api presented by Files which uses FileDir on their behalf.
@@ -40,7 +40,7 @@ Procedures:
 ```
 
 
-#### [MODULE Files](https://github.com/io-core/Files/blob/main/Files.Mod)
+#### [MODULE Files](https://github.com/io-core/doc/blob/main/Files/Files.Mod) [(source)](https://github.com/io-core/Files/blob/main/Files.Mod)
 Module Files manages the on-disk representation of files and the file api presented to Oberon programs.
 
 

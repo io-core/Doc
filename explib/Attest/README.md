@@ -5,7 +5,7 @@ This package provides code provenance tools for use in Oberon.
 Module Attest provides tools and algoritms for code signing and attestation of provenance.
 
 
-#### [MODULE Attest](https://github.com/io-core/Attest/blob/main/Attest.Mod)
+#### [MODULE Attest](https://github.com/io-core/doc/blob/main/Attest/Attest.Mod) [(source)](https://github.com/io-core/Attest/blob/main/Attest.Mod)
 Module Attest provides commands for code signing and checking provenance.
 
 
@@ -34,7 +34,7 @@ Procedures:
 ```
 
 
-#### [MODULE KeySafeFrames](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod)
+#### [MODULE KeySafeFrames](https://github.com/io-core/doc/blob/main/Attest/KeySafeFrames.Mod) [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod)
 Module KeySafeFrames provides a user-interface to the keys used to sign and to trust signed code.
 
 
@@ -75,7 +75,7 @@ Procedures:
 ```
 
 
-#### [MODULE KeySafes](https://github.com/io-core/Attest/blob/main/KeySafes.Mod)
+#### [MODULE KeySafes](https://github.com/io-core/doc/blob/main/Attest/KeySafes.Mod) [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod)
 Module KeySafes keeps the secrets used to sign and trust signed code.
 
 
@@ -118,7 +118,7 @@ Procedures:
 ```
 
 
-#### [MODULE KeyPairs](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod)
+#### [MODULE KeyPairs](https://github.com/io-core/doc/blob/main/Attest/KeyPairs.Mod) [(source)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod)
 Module KeyPairs provides the data structures used by the Attest package for code provenance.
 
 

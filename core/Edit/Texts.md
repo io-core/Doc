@@ -1,5 +1,5 @@
 
-#### [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
+## [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
 
 Procedures:
 

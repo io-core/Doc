@@ -27,9 +27,9 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			echo  > $k/$nam/$snam.md
                         awk '/end-package-description/{p=0};p;/begin-package-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
                         echo  >> $k/$nam/README.md
-			echo "#### [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/README.md
+			echo "#### [MODULE $snam](https://github.com/io-core/doc/blob/main/$nam/$snam.Mod) [(source)](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/README.md
                         awk '/end-module-use-description/{p=0};p;/begin-module-use-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
-			echo "#### [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/$snam.md
+			echo "## [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/$snam.md
                         awk '/end-module-develop-description/{p=0};p;/begin-module-develop-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/$snam.md
 			echo  >> $k/$nam/README.md
 			echo  >> $k/$nam/$snam.md
