@@ -4,41 +4,41 @@
 Procedures:
 
 
-<pre>  PROCEDURE Open*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L15)
+<code>  PROCEDURE Open*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L15)
 
 
-<pre>  PROCEDURE Delete*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L36)
+<code>  PROCEDURE Delete*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L36)
 
 
-<pre>  PROCEDURE GetArg(VAR S: Texts.Scanner);</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L45)
+<code>  PROCEDURE GetArg(VAR S: Texts.Scanner);</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L45)
 
 
-<pre>  PROCEDURE SetWidth*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L54)
+<code>  PROCEDURE SetWidth*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L54)
 
 
-<pre>  PROCEDURE ChangeColor*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L60)
+<code>  PROCEDURE ChangeColor*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L60)
 
 
-<pre>  PROCEDURE ChangeWidth*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L68)
+<code>  PROCEDURE ChangeWidth*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L68)
 
 
-<pre>  PROCEDURE ChangeFont*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L76)
+<code>  PROCEDURE ChangeFont*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L76)
 
 
-<pre>  PROCEDURE Redraw(Q: BOOLEAN);</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L85)
+<code>  PROCEDURE Redraw(Q: BOOLEAN);</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L85)
 
 
-<pre>  PROCEDURE Ticks*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L96)
+<code>  PROCEDURE Ticks*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L96)
 
 
-<pre>  PROCEDURE Restore*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L100)
+<code>  PROCEDURE Restore*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L100)
 
 
-<pre>  PROCEDURE Backup (VAR name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L104)
+<code>  PROCEDURE Backup (VAR name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L104)
 
 
-<pre>  PROCEDURE Store*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L115)
+<code>  PROCEDURE Store*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L115)
 
 
-<pre>  PROCEDURE Macro*;</pre> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L142)
+<code>  PROCEDURE Macro*;</code> [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L142)
 

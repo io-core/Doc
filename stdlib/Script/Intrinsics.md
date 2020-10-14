@@ -4,8 +4,8 @@
 Procedures:
 
 
-<pre>PROCEDURE New*(i: Intrinsic; v: INTEGER) : Intrinsic;</pre> [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod#L15)
+<code>PROCEDURE New*(i: Intrinsic; v: INTEGER) : Intrinsic;</code> [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod#L15)
 
 
-<pre>PROCEDURE Clear*(i: Intrinsic);</pre> [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod#L26)
+<code>PROCEDURE Clear*(i: Intrinsic);</code> [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod#L26)
 

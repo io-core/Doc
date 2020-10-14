@@ -4,14 +4,14 @@
 Procedures:
 
 
-<pre>  PROCEDURE OpenMacro*;</pre> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L5)
+<code>  PROCEDURE OpenMacro*;</code> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L5)
 
 
-<pre>  PROCEDURE MakeMacro*;  (*lib mac*)</pre> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L19)
+<code>  PROCEDURE MakeMacro*;  (*lib mac*)</code> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L19)
 
 
-<pre>  PROCEDURE LoadLibrary*;  (*lib file name*)</pre> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L51)
+<code>  PROCEDURE LoadLibrary*;  (*lib file name*)</code> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L51)
 
 
-<pre>  PROCEDURE StoreLibrary*;  (*lib file name*)</pre> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L61)
+<code>  PROCEDURE StoreLibrary*;  (*lib file name*)</code> [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L61)
 

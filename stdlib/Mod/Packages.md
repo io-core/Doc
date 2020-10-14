@@ -4,47 +4,47 @@
 Procedures:
 
 
-<pre>  PROCEDURE New*(C: Component);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L76)
+<code>  PROCEDURE New*(C: Component);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L76)
 
 
-<pre>  PROCEDURE Add*(P: Package; C: Component);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L80)
+<code>  PROCEDURE Add*(P: Package; C: Component);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L80)
 
 
-<pre>  PROCEDURE ThisComponent*(P: Package; x, y: INTEGER): Component;</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L85)
+<code>  PROCEDURE ThisComponent*(P: Package; x, y: INTEGER): Component;</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L85)
 
 
-<pre>  PROCEDURE SelectComponent*(P: Package; C: Component);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L92)
+<code>  PROCEDURE SelectComponent*(P: Package; C: Component);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L92)
 
 
-<pre>  PROCEDURE SelectArea*(P: Package; x0, y0, x1, y1: INTEGER);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L97)
+<code>  PROCEDURE SelectArea*(P: Package; x0, y0, x1, y1: INTEGER);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L97)
 
 
-<pre>  PROCEDURE Draw*(P: Package; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L111)
+<code>  PROCEDURE Draw*(P: Package; VAR m: Msg);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L111)
 
 
-<pre>  PROCEDURE List*(P: Package);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L118)
+<code>  PROCEDURE List*(P: Package);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L118)
 
 
-<pre>  PROCEDURE Deselect*(P: Package);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L133)
+<code>  PROCEDURE Deselect*(P: Package);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L133)
 
 
-<pre>  PROCEDURE DrawSel*(P: Package; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L139)
+<code>  PROCEDURE DrawSel*(P: Package; VAR m: Msg);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L139)
 
 
-<pre>  PROCEDURE Change*(P: Package; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L148)
+<code>  PROCEDURE Change*(P: Package; VAR m: Msg);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L148)
 
 
-<pre>  PROCEDURE WriteFile*(P: Package; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L159)
+<code>  PROCEDURE WriteFile*(P: Package; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L159)
 
 
-<pre>  PROCEDURE SetWidth*(w: INTEGER);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L167)
+<code>  PROCEDURE SetWidth*(w: INTEGER);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L167)
 
 
-<pre>  PROCEDURE Open*(P: Package; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L172)
+<code>  PROCEDURE Open*(P: Package; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L172)
 
 
-<pre>  PROCEDURE Delete*(P: Package);</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L189)
+<code>  PROCEDURE Delete*(P: Package);</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L189)
 
 
-<pre>  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (C: Component; VAR msg: Msg));</pre> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L208)
+<code>  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (C: Component; VAR msg: Msg));</code> [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L208)
 

@@ -4,29 +4,29 @@
 Procedures:
 
 
-<pre>  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L13)
+<code>  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L13)
 
 
-<pre>  PROCEDURE Clear*;  (*used to clear output*)</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L24)
+<code>  PROCEDURE Clear*;  (*used to clear output*)</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L24)
 
 
-<pre>  PROCEDURE Close*;</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L29)
+<code>  PROCEDURE Close*;</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L29)
 
 
-<pre>  PROCEDURE Recall*;</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L36)
+<code>  PROCEDURE Recall*;</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L36)
 
 
-<pre>  PROCEDURE Inspect*;</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L40)
+<code>  PROCEDURE Inspect*;</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L40)
 
 
-<pre>  PROCEDURE Sector*;</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L55)
+<code>  PROCEDURE Sector*;</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L55)
 
 
-<pre>  PROCEDURE ShowFile*;</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L72)
+<code>  PROCEDURE ShowFile*;</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L72)
 
 
-<pre>  PROCEDURE Convert*;   (*convert selected text to txt-format*)</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L92)
+<code>  PROCEDURE Convert*;   (*convert selected text to txt-format*)</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L92)
 
 
-<pre>  PROCEDURE Id*;</pre> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L116)
+<code>  PROCEDURE Id*;</code> [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L116)
 

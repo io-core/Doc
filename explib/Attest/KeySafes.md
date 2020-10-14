@@ -4,47 +4,47 @@
 Procedures:
 
 
-<pre>  PROCEDURE New*(R: KeyRing);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L80)
+<code>  PROCEDURE New*(R: KeyRing);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L80)
 
 
-<pre>  PROCEDURE Add*(S: KeySafe; R: KeyRing);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L84)
+<code>  PROCEDURE Add*(S: KeySafe; R: KeyRing);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L84)
 
 
-<pre>  PROCEDURE ThisKeyRing*(S: KeySafe; x, y: INTEGER): KeyRing;</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L89)
+<code>  PROCEDURE ThisKeyRing*(S: KeySafe; x, y: INTEGER): KeyRing;</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L89)
 
 
-<pre>  PROCEDURE SelectKeyRing*(S: KeySafe; R: KeyRing);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L96)
+<code>  PROCEDURE SelectKeyRing*(S: KeySafe; R: KeyRing);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L96)
 
 
-<pre>  PROCEDURE SelectArea*(S: KeySafe; x0, y0, x1, y1: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L101)
+<code>  PROCEDURE SelectArea*(S: KeySafe; x0, y0, x1, y1: INTEGER);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L101)
 
 
-<pre>  PROCEDURE Draw*(S: KeySafe; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L115)
+<code>  PROCEDURE Draw*(S: KeySafe; VAR m: Msg);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L115)
 
 
-<pre>  PROCEDURE List*(S: KeySafe);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L122)
+<code>  PROCEDURE List*(S: KeySafe);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L122)
 
 
-<pre>  PROCEDURE Deselect*(S: KeySafe);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L137)
+<code>  PROCEDURE Deselect*(S: KeySafe);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L137)
 
 
-<pre>  PROCEDURE DrawSel*(S: KeySafe; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L143)
+<code>  PROCEDURE DrawSel*(S: KeySafe; VAR m: Msg);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L143)
 
 
-<pre>  PROCEDURE Change*(S: KeySafe; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L152)
+<code>  PROCEDURE Change*(S: KeySafe; VAR m: Msg);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L152)
 
 
-<pre>  PROCEDURE WriteFile*(S: KeySafe; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L163)
+<code>  PROCEDURE WriteFile*(S: KeySafe; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L163)
 
 
-<pre>  PROCEDURE SetWidth*(w: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L171)
+<code>  PROCEDURE SetWidth*(w: INTEGER);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L171)
 
 
-<pre>  PROCEDURE Open*(S: KeySafe; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L176)
+<code>  PROCEDURE Open*(S: KeySafe; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L176)
 
 
-<pre>  PROCEDURE Delete*(S: KeySafe);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L193)
+<code>  PROCEDURE Delete*(S: KeySafe);</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L193)
 
 
-<pre>  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (R: KeyRing; VAR msg: Msg));</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L212)
+<code>  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (R: KeyRing; VAR msg: Msg));</code> [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L212)
 

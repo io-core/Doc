@@ -4,47 +4,47 @@
 Procedures:
 
 
-<pre>  PROCEDURE New*(D: Document);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L80)
+<code>  PROCEDURE New*(D: Document);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L80)
 
 
-<pre>  PROCEDURE Add*(V: Vault; D: Document);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L84)
+<code>  PROCEDURE Add*(V: Vault; D: Document);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L84)
 
 
-<pre>  PROCEDURE ThisDocument*(V: Vault; x, y: INTEGER): Document;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L89)
+<code>  PROCEDURE ThisDocument*(V: Vault; x, y: INTEGER): Document;</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L89)
 
 
-<pre>  PROCEDURE SelectDocument*(V: Vault; D: Document);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L96)
+<code>  PROCEDURE SelectDocument*(V: Vault; D: Document);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L96)
 
 
-<pre>  PROCEDURE SelectArea*(V: Vault; x0, y0, x1, y1: INTEGER);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L101)
+<code>  PROCEDURE SelectArea*(V: Vault; x0, y0, x1, y1: INTEGER);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L101)
 
 
-<pre>  PROCEDURE Draw*(V: Vault; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L115)
+<code>  PROCEDURE Draw*(V: Vault; VAR m: Msg);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L115)
 
 
-<pre>  PROCEDURE List*(V: Vault);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L122)
+<code>  PROCEDURE List*(V: Vault);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L122)
 
 
-<pre>  PROCEDURE Deselect*(V: Vault);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L137)
+<code>  PROCEDURE Deselect*(V: Vault);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L137)
 
 
-<pre>  PROCEDURE DrawSel*(V: Vault; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L143)
+<code>  PROCEDURE DrawSel*(V: Vault; VAR m: Msg);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L143)
 
 
-<pre>  PROCEDURE Change*(V: Vault; VAR m: Msg);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L152)
+<code>  PROCEDURE Change*(V: Vault; VAR m: Msg);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L152)
 
 
-<pre>  PROCEDURE WriteFile*(V: Vault; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L163)
+<code>  PROCEDURE WriteFile*(V: Vault; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L163)
 
 
-<pre>  PROCEDURE SetWidth*(w: INTEGER);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L171)
+<code>  PROCEDURE SetWidth*(w: INTEGER);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L171)
 
 
-<pre>  PROCEDURE Open*(V: Vault; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L176)
+<code>  PROCEDURE Open*(V: Vault; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L176)
 
 
-<pre>  PROCEDURE Delete*(V: Vault);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L193)
+<code>  PROCEDURE Delete*(V: Vault);</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L193)
 
 
-<pre>  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (D: Document; VAR msg: Msg));</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L212)
+<code>  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (D: Document; VAR msg: Msg));</code> [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L212)
 
