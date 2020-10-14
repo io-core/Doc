@@ -6,9 +6,9 @@ rm -f core/*/README.md
 echo "# Standard Library Packages" > stdlib/README.md
 echo >> stdlib/README.md
 rm -f stdlib/*/README.md
-echo "# Extended Library Packages" >  extlib/README.md
-echo >>  extlib/README.md
-rm -f extlib/*/README.md
+echo "# Experimental Library Packages" >  explib/README.md
+echo >>  explib/README.md
+rm -f explib/*/README.md
 for i in `ls -d ../src/github.com/io-core/*`; do 
 	for j in `ls $i/*.Pkg 2>/dev/null`; do 
 		k=`grep '^doc' $j | awk -F',' '{print $2}'`

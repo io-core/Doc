@@ -3,11 +3,11 @@ This package provides the compiler and associated program building and debugging
 
 
 ## Overview
-Oberon uses a one-pass compiler with four parts:
+Integrated Oberon uses a one-pass compiler with four parts, each depending on the next for functionaltiy:
 
- * A recursive-descent parser, ORP
- * A generator of hardware-specific opcodes, ORG
- * A syntax table tracker, ORB
+ * A recursive-descent parser of the Oberon-2i language, ORP
+ * A generator of target-specific opcodes (RISC5), ORG
+ * A symbol table and frame tracker, ORB
  * A scanner and tokenizer, ORS
 
 In addition, several tools link and examine the binary modules produced by the compiler:
@@ -18,9 +18,30 @@ In addition, several tools link and examine the binary modules produced by the c
 
 ## Examples
 
-USAGE:
+####USAGE
+To compile the inner core:
 ```
-ORP.Compile Example.Mod/s
+ORP.Compile Kernel.Mod/s, Filedir.Mod/s, Files.Mod/s, Modules.Mod/s ~
+```
+To link the inner core modules into a bootable binary:
+```
+ORL.Link Modules ~
+```
+To Install the binary into the boot region of the current disk image:
+```
+ORL.Load Modules.bin ~
+```
+To compile an example module:
+```
+ORP.Compile Sierpinski.Mod ~
+```
+To examine the symbol file of the compiled example:
+```
+ORTool.DecSym Sierpinski.smb
+```
+To Examine the binary of the compiled example:
+```
+ORTool.DecObj Sierpinski.rsc
 ```
 
 ## Modules
