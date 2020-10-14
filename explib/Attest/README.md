@@ -6,8 +6,6 @@ Module Attest provides tools and algoritms for code signing and attestation of p
 
 
 #### [MODULE Attest](https://github.com/io-core/Attest/blob/main/Attest.Mod)
-Module Attest provides commands for code signing and checking provenance.
-
 
 Procedures:
 ```
@@ -35,8 +33,6 @@ Procedures:
 
 
 #### [MODULE KeySafeFrames](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod)
-Module KeySafeFrames provides a user-interface to the keys used to sign and to trust signed code.
-
 
 Procedures:
 ```
@@ -76,8 +72,6 @@ Procedures:
 
 
 #### [MODULE KeySafes](https://github.com/io-core/Attest/blob/main/KeySafes.Mod)
-Module KeySafes keeps the secrets used to sign and trust signed code.
-
 
 Procedures:
 ```
@@ -119,8 +113,6 @@ Procedures:
 
 
 #### [MODULE KeyPairs](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod)
-Module KeyPairs provides the data structures used by the Attest package for code provenance.
-
 
 Procedures:
 ```

@@ -20,8 +20,6 @@ Edit.Open example.txt
 ## Modules
 
 #### [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
-Module Edit provides document editing capability.
-
 
 Procedures:
 ```
@@ -47,8 +45,6 @@ Procedures:
 
 
 #### [MODULE TextFrames](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
-Module TextFrames defines the messages and default handlers for text operations in panes in the Oberon user interface.
-
 
 Procedures:
 ```
@@ -126,8 +122,6 @@ Procedures:
 
 
 #### [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
-Module Texts defines the 'text' abstract data type used pervasively in the Oberon system.
-
 
 Procedures:
 ```
@@ -193,8 +187,6 @@ Procedures:
 
 
 #### [MODULE Fonts](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
-Module Fonts provides the glyphs used by the Text system and the Graphics system to represent characters.
-
 
 Procedures:
 ```

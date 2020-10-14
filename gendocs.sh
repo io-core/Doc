@@ -24,11 +24,15 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 		for l in `grep '^p,' $j | awk -F',' '{print $2}'`; do
 			snam=`echo $l | sed -e 's/\(.*\).Mod/\1/g'`
 			echo  >> $k/$nam/README.md
+			echo  > $k/$nam/$snam.md
                         awk '/end-package-description/{p=0};p;/begin-package-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
                         echo  >> $k/$nam/README.md
 			echo "#### [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/README.md
-                        awk '/end-module-description/{p=0};p;/begin-module-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
+                        awk '/end-module-use-description/{p=0};p;/begin-module-use-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/README.md
+			echo "#### [MODULE $snam](https://github.com/io-core/$nam/blob/main/$snam.Mod)" >> $k/$nam/$snam.md
+                        awk '/end-module-develop-description/{p=0};p;/begin-module-develop-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/$snam.md
 			echo  >> $k/$nam/README.md
+			echo  >> $k/$nam/$snam.md
 			echo "Procedures:" >> $k/$nam/README.md
                         echo '```' >> $k/$nam/README.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod" 
