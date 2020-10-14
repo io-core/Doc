@@ -7,11 +7,11 @@ ORP is a recursive descent parser that visits procedures corresponding to symbol
 Procedures:
 
 ## Checking Symbols and Types
-`Check` consumes the current token if it matches the expected symbol, otherwise an error is marked.
+**Check** consumes the current token if it matches the expected symbol, otherwise an error is marked.
 
 `  PROCEDURE Check(s: INTEGER; msg: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L90)
 
-`Qualident` generates a reference to a previously defined item if possible otherwise an error is marked.
+**Qualident** generates a reference to a previously defined item if possible otherwise an error is marked.
 
 `  PROCEDURE qualident(VAR obj: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L98)
 
