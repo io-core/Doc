@@ -19,106 +19,106 @@ Procedures:
 
 `  PROCEDURE CheckBool(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L115)
 
-`CheckInt` marks an error if the item is not an Int.
+**CheckInt** marks an error if the item is not an Int.
 
 `  PROCEDURE CheckInt(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L123)
 
-`CheckReal` marks an error if the item is not a Real.
+**CheckReal** marks an error if the item is not a Real.
 
 `  PROCEDURE CheckReal(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L131)
 
-`CheckSet` marks an error if the item is not a Set.
+**CheckSet** marks an error if the item is not a Set.
 
 `  PROCEDURE CheckSet(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L139)
 
-`CheckSetVal` marks an error if the item is not a Set Value.
+**CheckSetVal** marks an error if the item is not a Set Value.
 
 `  PROCEDURE CheckSetVal(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L147)
 
-`CheckConst` marks an error if the value is not a Constant.
+**CheckConst** marks an error if the value is not a Constant.
 
 `  PROCEDURE CheckConst(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L158)
 
-`CheckReadOnly` marks an error if the value is not read-only.
+**CheckReadOnly** marks an error if the value is not read-only.
 
 `  PROCEDURE CheckReadOnly(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L166)
 
-`CheckExport` checks for an export symbol and marks an error if export not at top level.
+**CheckExport** checks for an export symbol and marks an error if export not at top level.
 
 `  PROCEDURE CheckExport(VAR expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L174)
 
-`IsExtension` determines if type t1 is an extension of t0.
+**IsExtension** determines if type t1 is an extension of t0.
 
 `  PROCEDURE IsExtension(t0, t1: ORB.Type): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L186)
 
-`CheckReceiver` ensures that an object is compatible with its receiver or marks an error.
+**CheckReceiver** ensures that an object is compatible with its receiver or marks an error.
 
 `  PROCEDURE CheckReceiver(proc: ORB.Object; deref: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L194)
 
-`DisallowedMethods` blocks methods from binding to rec and its base types.
+**DisallowedMethods** blocks methods from binding to rec and its base types.
 
 `  PROCEDURE DisallowMethods(rec: ORB.Type);  (*disallow binding methods to rec and its base types*)` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L202)
 
 ## Expressions
-`TypeTest` marks an error if the form of x is incompatible with T. If compatible, x.type is set to T.
+**TypeTest** marks an error if the form of x is incompatible with T. If compatible, x.type is set to T.
 
 `  PROCEDURE TypeTest(VAR x: ORG.Item; T: ORB.Type; guard: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L216)
 
-`selector` generates the array item, procedure, or method dereference on an array or record.
+**selector** generates the array item, procedure, or method dereference on an array or record.
 
 `  PROCEDURE selector(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L242)
 
-`EqualSignatures` verifies that a procedure may be assigned to a procedure variable.
+**EqualSignatures** verifies that a procedure may be assigned to a procedure variable.
 
 `  PROCEDURE EqualSignatures(t0, t1: ORB.Type): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L318)
 
-`CompTypes` verifies assigment compatibility by type.
+**CompTypes** verifies assigment compatibility by type.
 
 `  PROCEDURE CompTypes(t0, t1: ORB.Type; varpar: BOOLEAN): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L348)
 
-`Parameter` consumes a function call parameter and produces function call proloogue code for the parameter.
+**Parameter** consumes a function call parameter and produces function call proloogue code for the parameter.
 
 `  PROCEDURE Parameter(par: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L362)
 
-`IParameter` consumes an Interface call parameter and produces Interface call prologue code for the parameter.
+**IParameter** consumes an Interface call parameter and produces Interface call prologue code for the parameter.
 
 `  PROCEDURE IParameter(par: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L393)
 
-`ParamList` consumes the function call parameters, resulting in a function call prologue.
+**ParamList** consumes the function call parameters, resulting in a function call prologue.
 
 `  PROCEDURE ParamList(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L424)
 
-`IParamList` consumes the Interface call parameters, resulting in a Interface call prologue.
+**IParamList** consumes the Interface call parameters, resulting in a Interface call prologue.
 
 `  PROCEDURE IParamList(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L449)
 
-`StandFunc` consumes standard language functions and produces inline code for those functions.
+**StandFunc** consumes standard language functions and produces inline code for those functions.
 
 Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `SBC` `UML` `BIT` `REG` `VAL` `ADR` `SIZE` `COND` `H`
 
 `  PROCEDURE StandFunc(VAR x: ORG.Item; fct: LONGINT; restyp: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L476)
 
-`element` produces a reference to an element in a set.
+**element** produces a reference to an element in a set.
 
 `  PROCEDURE element(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L523)
 
-`set` produces a set from elements.
+**set** produces a set from elements.
 
 `  PROCEDURE set(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L535)
 
-
+**factor** generates code that produces a value from identifiers, applications of functions and procedures, etc. for use in a calculation or assignment.
 
 `  PROCEDURE factor(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L552)
 
-
+**term** combines factors via multiplication and division, resulting in a value.
 
 `  PROCEDURE term(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L587)
 
-
+**SimpleExpression** combines terms via addition, subtraction, boolean, and set operations, resulting in a value.
 
 `  PROCEDURE SimpleExpression(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L613)
 
-
+**expression0** produces code handling arbitrary arithmetic and logical operations, resulting in a value.
 
 `  PROCEDURE expression0(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L634)
 
