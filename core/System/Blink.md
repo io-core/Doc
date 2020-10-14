@@ -4,11 +4,11 @@
 Procedures:
 
 
-`  PROCEDURE Run*;` [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L6)
+<pre>  PROCEDURE Run*;</pre> [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L6)
 
 
-`  PROCEDURE Stop*;` [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L10)
+<pre>  PROCEDURE Stop*;</pre> [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L10)
 
 
-`  PROCEDURE Tick;` [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L14)
+<pre>  PROCEDURE Tick;</pre> [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L14)
 

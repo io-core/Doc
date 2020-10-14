@@ -4,41 +4,41 @@
 Procedures:
 
 
-`  PROCEDURE Open*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L36)
+<pre>  PROCEDURE Open*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L36)
 
 
-`  PROCEDURE Delete*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L57)
+<pre>  PROCEDURE Delete*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L57)
 
 
-`  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L66)
+<pre>  PROCEDURE GetArg(VAR S: Texts.Scanner);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L66)
 
 
-`  PROCEDURE SetWidth*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L75)
+<pre>  PROCEDURE SetWidth*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L75)
 
 
-`  PROCEDURE ChangeColor*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L81)
+<pre>  PROCEDURE ChangeColor*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L81)
 
 
-`  PROCEDURE ChangeWidth*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L89)
+<pre>  PROCEDURE ChangeWidth*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L89)
 
 
-`  PROCEDURE ChangeFont*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L97)
+<pre>  PROCEDURE ChangeFont*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L97)
 
 
-`  PROCEDURE Redraw(Q: BOOLEAN);` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L106)
+<pre>  PROCEDURE Redraw(Q: BOOLEAN);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L106)
 
 
-`  PROCEDURE Ticks*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L117)
+<pre>  PROCEDURE Ticks*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L117)
 
 
-`  PROCEDURE Restore*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L121)
+<pre>  PROCEDURE Restore*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L121)
 
 
-`  PROCEDURE Backup (VAR name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L125)
+<pre>  PROCEDURE Backup (VAR name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L125)
 
 
-`  PROCEDURE Store*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L136)
+<pre>  PROCEDURE Store*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L136)
 
 
-`  PROCEDURE Macro*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L163)
+<pre>  PROCEDURE Macro*;</pre> [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L163)
 

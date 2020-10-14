@@ -4,89 +4,89 @@
 Procedures:
 
 
-`  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L79)
+<pre>  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L79)
 
 
-`  PROCEDURE Restore*(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L88)
+<pre>  PROCEDURE Restore*(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L88)
 
 
-`  PROCEDURE FlipCross(X, Y: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L105)
+<pre>  PROCEDURE FlipCross(X, Y: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L105)
 
 
-`  PROCEDURE Focus*(): Frame;` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L116)
+<pre>  PROCEDURE Focus*(): Frame;</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L116)
 
 
-`  PROCEDURE Selected*(): Frame;` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L121)
+<pre>  PROCEDURE Selected*(): Frame;</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L121)
 
 
-`  PROCEDURE This*(x, y: INTEGER): Frame;` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L126)
+<pre>  PROCEDURE This*(x, y: INTEGER): Frame;</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L126)
 
 
-`  PROCEDURE Mark(f: Frame; mode: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L131)
+<pre>  PROCEDURE Mark(f: Frame; mode: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L131)
 
 
-`  PROCEDURE Draw*(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L136)
+<pre>  PROCEDURE Draw*(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L136)
 
 
-`  PROCEDURE DrawNorm(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L141)
+<pre>  PROCEDURE DrawNorm(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L141)
 
 
-`  PROCEDURE Erase*(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L146)
+<pre>  PROCEDURE Erase*(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L146)
 
 
-`  PROCEDURE DrawKeyRing*(f: Frame; L: KeySafes.KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L151)
+<pre>  PROCEDURE DrawKeyRing*(f: Frame; L: KeySafes.KeyRing);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L151)
 
 
-`  PROCEDURE EraseKeyRing*(f: Frame; R: KeySafes.KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L156)
+<pre>  PROCEDURE EraseKeyRing*(f: Frame; R: KeySafes.KeyRing);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L156)
 
 
-`  PROCEDURE Change*(f: Frame; VAR msg: KeySafes.Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L161)
+<pre>  PROCEDURE Change*(f: Frame; VAR msg: KeySafes.Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L161)
 
 
-`  PROCEDURE FlipMark(x, y: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L166)
+<pre>  PROCEDURE FlipMark(x, y: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L166)
 
 
-`  PROCEDURE Defocus*(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L172)
+<pre>  PROCEDURE Defocus*(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L172)
 
 
-`  PROCEDURE Deselect*(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L182)
+<pre>  PROCEDURE Deselect*(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L182)
 
 
-`  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L191)
+<pre>  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L191)
 
 
-`  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L286)
+<pre>  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L286)
 
 
-`  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L294)
+<pre>  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L294)
 
 
-`  PROCEDURE DeleteChar(f: Frame);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L304)
+<pre>  PROCEDURE DeleteChar(f: Frame);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L304)
 
 
-`  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L325)
+<pre>  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L325)
 
 
-`  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L335)
+<pre>  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L335)
 
 
-`  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L395)
+<pre>  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L395)
 
 
-`  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L401)
+<pre>  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L401)
 
 
-`  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L410)
+<pre>  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L410)
 
 
-`  PROCEDURE DrawLine(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L419)
+<pre>  PROCEDURE DrawLine(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L419)
 
 
-`  PROCEDURE DrawCaption(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L441)
+<pre>  PROCEDURE DrawCaption(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L441)
 
 
-`  PROCEDURE DrawMacro(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L473)
+<pre>  PROCEDURE DrawMacro(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L473)
 
 
-`  PROCEDURE Open*(f: Frame; S: KeySafes.KeySafe);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L496)
+<pre>  PROCEDURE Open*(f: Frame; S: KeySafes.KeySafe);</pre> [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L496)
 

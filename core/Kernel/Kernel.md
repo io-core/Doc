@@ -4,44 +4,44 @@
 Procedures:
 
 
-`  PROCEDURE GetBlock(VAR p: LONGINT; len: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L37)
+<pre>  PROCEDURE GetBlock(VAR p: LONGINT; len: LONGINT);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L37)
 
 
-`  PROCEDURE GetBlock128(VAR p: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L56)
+<pre>  PROCEDURE GetBlock128(VAR p: LONGINT);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L56)
 
 
-`  PROCEDURE GetBlock64(VAR p: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L65)
+<pre>  PROCEDURE GetBlock64(VAR p: LONGINT);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L65)
 
 
-`  PROCEDURE GetBlock32(VAR p: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L74)
+<pre>  PROCEDURE GetBlock32(VAR p: LONGINT);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L74)
 
 
-`  PROCEDURE New*(VAR ptr: LONGINT; tag, len, elemsize: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L83)
+<pre>  PROCEDURE New*(VAR ptr: LONGINT; tag, len, elemsize: LONGINT);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L83)
 
 
-`  PROCEDURE Mark*(pref: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L115)
+<pre>  PROCEDURE Mark*(pref: LONGINT);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L115)
 
 
-`  PROCEDURE Collect*;` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L159)
+<pre>  PROCEDURE Collect*;</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L159)
 
 
-`  PROCEDURE Scan*(typ, ptr, pvr: Handler; s: ARRAY OF CHAR; VAR resTyp, resPtr, resPvr: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L193)
+<pre>  PROCEDURE Scan*(typ, ptr, pvr: Handler; s: ARRAY OF CHAR; VAR resTyp, resPtr, resPvr: INTEGER);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L193)
 
 
-`  PROCEDURE Time*(): INTEGER;` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L258)
+<pre>  PROCEDURE Time*(): INTEGER;</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L258)
 
 
-`  PROCEDURE Clock*(): INTEGER;` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L263)
+<pre>  PROCEDURE Clock*(): INTEGER;</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L263)
 
 
-`  PROCEDURE SetClock*(dt: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L267)
+<pre>  PROCEDURE SetClock*(dt: INTEGER);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L267)
 
 
-`  PROCEDURE Install*(Padr, at: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L271)
+<pre>  PROCEDURE Install*(Padr, at: INTEGER);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L271)
 
 
-`  PROCEDURE Trap(VAR a: INTEGER; b, c, d: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L275)
+<pre>  PROCEDURE Trap(VAR a: INTEGER; b, c, d: INTEGER);</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L275)
 
 
-`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L283)
+<pre>  PROCEDURE Init*;</pre> [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L283)
 
