@@ -60,47 +60,48 @@ Procedures:
   PROCEDURE DisallowMethods(rec: ORB.Type);  (*disallow binding methods to rec and its base types*)
 ```
 ## Expressions
-
+`TypeTest` marks an error if the form of x is incompatible with T. If compatible, x.type is set to T.
 ```
   PROCEDURE TypeTest(VAR x: ORG.Item; T: ORB.Type; guard: BOOLEAN);
 ```
-
+`selector` generates the array item, procedure, or method dereference on an array or record.
 ```
   PROCEDURE selector(VAR x: ORG.Item);
 ```
-
+`EqualSignatures` verifies that a procedure may be assigned to a procedure variable.
 ```
   PROCEDURE EqualSignatures(t0, t1: ORB.Type): BOOLEAN;
 ```
-
+`CompTypes` verifies assigment compatibility by type.
 ```
   PROCEDURE CompTypes(t0, t1: ORB.Type; varpar: BOOLEAN): BOOLEAN;
 ```
-
+`Parameter` consumes a function call parameter and produces function call proloogue code for the parameter.
 ```
   PROCEDURE Parameter(par: ORB.Object);
 ```
-
+`IParameter` consumes an Interface call parameter and produces Interface call prologue code for the parameter.
 ```
   PROCEDURE IParameter(par: ORB.Object);
 ```
-
+`ParamList` consumes the function call parameters, resulting in a function call prologue.
 ```
   PROCEDURE ParamList(VAR x: ORG.Item);
 ```
-
+`IParamList` consumes the Interface call parameters, resulting in a Interface call prologue.
 ```
   PROCEDURE IParamList(VAR x: ORG.Item);
 ```
-
+`StandFunc` consumes standard language functions and produces inline code for those functions.
+Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `SBC` `UML` `BIT` `REG` `VAL` `ADR` `SIZE` `COND` `H`
 ```
   PROCEDURE StandFunc(VAR x: ORG.Item; fct: LONGINT; restyp: ORB.Type);
 ```
-
+`element` produces a reference to an element in a set.
 ```
   PROCEDURE element(VAR x: ORG.Item);
 ```
-
+`set` produces a set from elements.
 ```
   PROCEDURE set(VAR x: ORG.Item);
 ```
