@@ -3,16 +3,16 @@
 
 Procedures:
 
-[24](https://github.com/io-core/Attest/blob/main/Attest.Mod#24) `  PROCEDURE Open*;`
-[45](https://github.com/io-core/Attest/blob/main/Attest.Mod#45) `  PROCEDURE Delete*;`
-[54](https://github.com/io-core/Attest/blob/main/Attest.Mod#54) `  PROCEDURE GetArg(VAR S: Texts.Scanner);`
-[63](https://github.com/io-core/Attest/blob/main/Attest.Mod#63) `  PROCEDURE SetWidth*;`
-[69](https://github.com/io-core/Attest/blob/main/Attest.Mod#69) `  PROCEDURE ChangeColor*;`
-[77](https://github.com/io-core/Attest/blob/main/Attest.Mod#77) `  PROCEDURE ChangeWidth*;`
-[85](https://github.com/io-core/Attest/blob/main/Attest.Mod#85) `  PROCEDURE ChangeFont*;`
-[94](https://github.com/io-core/Attest/blob/main/Attest.Mod#94) `  PROCEDURE Redraw(Q: BOOLEAN);`
-[105](https://github.com/io-core/Attest/blob/main/Attest.Mod#105) `  PROCEDURE Ticks*;`
-[109](https://github.com/io-core/Attest/blob/main/Attest.Mod#109) `  PROCEDURE Restore*;`
-[113](https://github.com/io-core/Attest/blob/main/Attest.Mod#113) `  PROCEDURE Backup (VAR name: ARRAY OF CHAR);`
-[124](https://github.com/io-core/Attest/blob/main/Attest.Mod#124) `  PROCEDURE Store*;`
-[151](https://github.com/io-core/Attest/blob/main/Attest.Mod#151) `  PROCEDURE Macro*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L24) `  PROCEDURE Open*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L45) `  PROCEDURE Delete*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L54) `  PROCEDURE GetArg(VAR S: Texts.Scanner);`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L63) `  PROCEDURE SetWidth*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L69) `  PROCEDURE ChangeColor*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L77) `  PROCEDURE ChangeWidth*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L85) `  PROCEDURE ChangeFont*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L94) `  PROCEDURE Redraw(Q: BOOLEAN);`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L105) `  PROCEDURE Ticks*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L109) `  PROCEDURE Restore*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L113) `  PROCEDURE Backup (VAR name: ARRAY OF CHAR);`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L124) `  PROCEDURE Store*;`
+[](https://github.com/io-core/Attest/blob/main/Attest.Mod#L151) `  PROCEDURE Macro*;`

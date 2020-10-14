@@ -3,12 +3,12 @@
 
 Procedures:
 
-[13](https://github.com/io-core/System/blob/main/Tools.Mod#13) `  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);`
-[24](https://github.com/io-core/System/blob/main/Tools.Mod#24) `  PROCEDURE Clear*;  (*used to clear output*)`
-[29](https://github.com/io-core/System/blob/main/Tools.Mod#29) `  PROCEDURE Close*;`
-[36](https://github.com/io-core/System/blob/main/Tools.Mod#36) `  PROCEDURE Recall*;`
-[40](https://github.com/io-core/System/blob/main/Tools.Mod#40) `  PROCEDURE Inspect*;`
-[55](https://github.com/io-core/System/blob/main/Tools.Mod#55) `  PROCEDURE Sector*;`
-[72](https://github.com/io-core/System/blob/main/Tools.Mod#72) `  PROCEDURE ShowFile*;`
-[92](https://github.com/io-core/System/blob/main/Tools.Mod#92) `  PROCEDURE Convert*;   (*convert selected text to txt-format*)`
-[116](https://github.com/io-core/System/blob/main/Tools.Mod#116) `  PROCEDURE Id*;`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L13) `  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L24) `  PROCEDURE Clear*;  (*used to clear output*)`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L29) `  PROCEDURE Close*;`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L36) `  PROCEDURE Recall*;`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L40) `  PROCEDURE Inspect*;`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L55) `  PROCEDURE Sector*;`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L72) `  PROCEDURE ShowFile*;`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L92) `  PROCEDURE Convert*;   (*convert selected text to txt-format*)`
+[](https://github.com/io-core/System/blob/main/Tools.Mod#L116) `  PROCEDURE Id*;`

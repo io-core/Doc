@@ -3,61 +3,61 @@
 
 Procedures:
 
-[83](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#83) `  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;`
-[95](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#95) `  PROCEDURE SetUser* (VAR user, password: ARRAY OF CHAR);`
-[99](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#99) `  PROCEDURE Clock*(): LONGINT;`
-[103](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#103) `  PROCEDURE SetClock* (d: LONGINT);`
-[107](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#107) `  PROCEDURE Time*(): LONGINT;`
-[113](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#113) `  PROCEDURE FlipArrow (X, Y: INTEGER);`
-[124](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#124) `  PROCEDURE FlipStar (X, Y: INTEGER);`
-[135](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#135) `  PROCEDURE OpenCursor(VAR c: Cursor);`
-[139](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#139) `  PROCEDURE FadeCursor(VAR c: Cursor);`
-[143](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#143) `  PROCEDURE DrawCursor(VAR c: Cursor; m: Marker; x, y: INTEGER);`
-[153](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#153) `  PROCEDURE DrawMouse*(m: Marker; x, y: INTEGER);`
-[157](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#157) `  PROCEDURE DrawMouseArrow*(x, y: INTEGER);`
-[161](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#161) `  PROCEDURE DrawMouseStar* (x, y: INTEGER);`
-[165](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#165) `  PROCEDURE FadeMouse*;`
-[169](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#169) `  PROCEDURE MouseOn*(): BOOLEAN;`
-[173](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#173) `  PROCEDURE DrawPointer*(m: Marker; x, y: INTEGER);`
-[177](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#177) `  PROCEDURE DrawPointerArrow*(x, y: INTEGER);`
-[181](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#181) `  PROCEDURE DrawPointerStar*(x, y: INTEGER);`
-[185](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#185) `  PROCEDURE FadePointer*;`
-[189](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#189) `  PROCEDURE PointerOn*(): BOOLEAN;`
-[193](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#193) `  PROCEDURE RemoveMarks* (X, Y, W, H: INTEGER);`
-[205](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#205) `  PROCEDURE SetFont* (fnt: Fonts.Font);`
-[209](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#209) `  PROCEDURE SetColor* (col: INTEGER);`
-[213](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#213) `  PROCEDURE SetOffset* (voff: INTEGER);`
-[219](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#219) `  PROCEDURE OpenLog* (T: Texts.Text);`
-[223](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#223) `  PROCEDURE GetSelection* (VAR text: Texts.Text; VAR beg, end, time: LONGINT); (*from current display*)`
-[231](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#231) `  PROCEDURE HandleFiller (V: Display.Frame; VAR M: Display.FrameMsg);`
-[250](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#250) `  PROCEDURE InitTrack* (D: Viewers.DisplayArea; W, H: INTEGER); (*add new track to the right*)`
-[255](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#255) `  PROCEDURE OpenTrack* (D: Viewers.DisplayArea; X, W: INTEGER); (*create overlay track at X*)`
-[260](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#260) `  PROCEDURE InitDisplay* (D: Viewers.DisplayArea; name: ARRAY OF CHAR);`
-[266](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#266) `  PROCEDURE SetDisplay* (D: Viewers.DisplayArea);`
-[270](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#270) `  PROCEDURE CloseDisplay* (D: Viewers.DisplayArea; hint: INTEGER);`
-[276](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#276) `  PROCEDURE DisplayWidth* (X: INTEGER): INTEGER;`
-[280](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#280) `  PROCEDURE DisplayHeight* (X: INTEGER): INTEGER;`
-[284](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#284) `  PROCEDURE MarkedViewer* (): Viewers.Viewer;`
-[288](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#288) `  PROCEDURE PassFocus* (V: Viewers.Viewer);`
-[297](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#297) `  PROCEDURE FocusViewer(): Viewers.Viewer;`
-[303](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#303) `  PROCEDURE UserTrack* (X: INTEGER): INTEGER;`
-[307](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#307) `  PROCEDURE SystemTrack* (X: INTEGER): INTEGER;`
-[311](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#311) `  PROCEDURE UY (X: INTEGER): INTEGER;`
-[319](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#319) `  PROCEDURE AllocateUserViewer* (DX: INTEGER; VAR X, Y: INTEGER);`
-[326](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#326) `  PROCEDURE SY (X: INTEGER): INTEGER;`
-[340](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#340) `  PROCEDURE AllocateSystemViewer* (DX: INTEGER; VAR X, Y: INTEGER);`
-[349](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#349) `  PROCEDURE SetPar*(F: Display.Frame; T: Texts.Text; pos: LONGINT; res: INTEGER);`
-[353](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#353) `  PROCEDURE ClearPar*;`
-[357](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#357) `  PROCEDURE Return*(n: INTEGER);`
-[361](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#361) `  PROCEDURE Skip(VAR S: Texts.Scanner; VAR len: INTEGER);  (*count and skip white spaces*)`
-[371](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#371) `  PROCEDURE Scan(VAR S: Texts.Scanner);`
-[383](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#383) `  PROCEDURE Call*(F: Display.Frame; T: Texts.Text; pos: LONGINT; new: BOOLEAN);`
-[405](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#405) `  PROCEDURE Run*(F: Display.Frame; T: Texts.Text; pos: LONGINT);  (*execute multiple commands separated by ~*)`
-[420](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#420) `  PROCEDURE Batch*;`
-[426](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#426) `  PROCEDURE GC;`
-[443](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#443) `  PROCEDURE NewTask*(h: Handler; period: INTEGER): Task;`
-[448](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#448) `  PROCEDURE Install* (T: Task);`
-[455](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#455) `  PROCEDURE Remove* (T: Task);`
-[464](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#464) `  PROCEDURE Collect* (count: INTEGER);`
-[468](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#468) `  PROCEDURE Loop*;`
-[501](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#501) `  PROCEDURE Reset*;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L83) `  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L95) `  PROCEDURE SetUser* (VAR user, password: ARRAY OF CHAR);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L99) `  PROCEDURE Clock*(): LONGINT;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L103) `  PROCEDURE SetClock* (d: LONGINT);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L107) `  PROCEDURE Time*(): LONGINT;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L113) `  PROCEDURE FlipArrow (X, Y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L124) `  PROCEDURE FlipStar (X, Y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L135) `  PROCEDURE OpenCursor(VAR c: Cursor);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L139) `  PROCEDURE FadeCursor(VAR c: Cursor);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L143) `  PROCEDURE DrawCursor(VAR c: Cursor; m: Marker; x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L153) `  PROCEDURE DrawMouse*(m: Marker; x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L157) `  PROCEDURE DrawMouseArrow*(x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L161) `  PROCEDURE DrawMouseStar* (x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L165) `  PROCEDURE FadeMouse*;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L169) `  PROCEDURE MouseOn*(): BOOLEAN;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L173) `  PROCEDURE DrawPointer*(m: Marker; x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L177) `  PROCEDURE DrawPointerArrow*(x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L181) `  PROCEDURE DrawPointerStar*(x, y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L185) `  PROCEDURE FadePointer*;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L189) `  PROCEDURE PointerOn*(): BOOLEAN;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L193) `  PROCEDURE RemoveMarks* (X, Y, W, H: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L205) `  PROCEDURE SetFont* (fnt: Fonts.Font);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L209) `  PROCEDURE SetColor* (col: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L213) `  PROCEDURE SetOffset* (voff: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L219) `  PROCEDURE OpenLog* (T: Texts.Text);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L223) `  PROCEDURE GetSelection* (VAR text: Texts.Text; VAR beg, end, time: LONGINT); (*from current display*)`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L231) `  PROCEDURE HandleFiller (V: Display.Frame; VAR M: Display.FrameMsg);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L250) `  PROCEDURE InitTrack* (D: Viewers.DisplayArea; W, H: INTEGER); (*add new track to the right*)`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L255) `  PROCEDURE OpenTrack* (D: Viewers.DisplayArea; X, W: INTEGER); (*create overlay track at X*)`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L260) `  PROCEDURE InitDisplay* (D: Viewers.DisplayArea; name: ARRAY OF CHAR);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L266) `  PROCEDURE SetDisplay* (D: Viewers.DisplayArea);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L270) `  PROCEDURE CloseDisplay* (D: Viewers.DisplayArea; hint: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L276) `  PROCEDURE DisplayWidth* (X: INTEGER): INTEGER;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L280) `  PROCEDURE DisplayHeight* (X: INTEGER): INTEGER;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L284) `  PROCEDURE MarkedViewer* (): Viewers.Viewer;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L288) `  PROCEDURE PassFocus* (V: Viewers.Viewer);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L297) `  PROCEDURE FocusViewer(): Viewers.Viewer;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L303) `  PROCEDURE UserTrack* (X: INTEGER): INTEGER;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L307) `  PROCEDURE SystemTrack* (X: INTEGER): INTEGER;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L311) `  PROCEDURE UY (X: INTEGER): INTEGER;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L319) `  PROCEDURE AllocateUserViewer* (DX: INTEGER; VAR X, Y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L326) `  PROCEDURE SY (X: INTEGER): INTEGER;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L340) `  PROCEDURE AllocateSystemViewer* (DX: INTEGER; VAR X, Y: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L349) `  PROCEDURE SetPar*(F: Display.Frame; T: Texts.Text; pos: LONGINT; res: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L353) `  PROCEDURE ClearPar*;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L357) `  PROCEDURE Return*(n: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L361) `  PROCEDURE Skip(VAR S: Texts.Scanner; VAR len: INTEGER);  (*count and skip white spaces*)`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L371) `  PROCEDURE Scan(VAR S: Texts.Scanner);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L383) `  PROCEDURE Call*(F: Display.Frame; T: Texts.Text; pos: LONGINT; new: BOOLEAN);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L405) `  PROCEDURE Run*(F: Display.Frame; T: Texts.Text; pos: LONGINT);  (*execute multiple commands separated by ~*)`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L420) `  PROCEDURE Batch*;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L426) `  PROCEDURE GC;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L443) `  PROCEDURE NewTask*(h: Handler; period: INTEGER): Task;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L448) `  PROCEDURE Install* (T: Task);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L455) `  PROCEDURE Remove* (T: Task);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L464) `  PROCEDURE Collect* (count: INTEGER);`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L468) `  PROCEDURE Loop*;`
+[](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L501) `  PROCEDURE Reset*;`

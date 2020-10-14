@@ -3,20 +3,20 @@
 
 Procedures:
 
-[27](https://github.com/io-core/System/blob/main/SCC.Mod#27) `  PROCEDURE SPICtrl(s: SET);`
-[32](https://github.com/io-core/System/blob/main/SCC.Mod#32) `  PROCEDURE SPI(n: INTEGER);`
-[37](https://github.com/io-core/System/blob/main/SCC.Mod#37) `  PROCEDURE StartCmd(cmd: INTEGER);`
-[41](https://github.com/io-core/System/blob/main/SCC.Mod#41) `  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)`
-[45](https://github.com/io-core/System/blob/main/SCC.Mod#45) `  PROCEDURE SubRcv(dst: INTEGER);`
-[57](https://github.com/io-core/System/blob/main/SCC.Mod#57) `  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);`
-[86](https://github.com/io-core/System/blob/main/SCC.Mod#86) `  PROCEDURE Flush();`
-[90](https://github.com/io-core/System/blob/main/SCC.Mod#90) `  PROCEDURE ResetRcv;`
-[94](https://github.com/io-core/System/blob/main/SCC.Mod#94) `  PROCEDURE Listen(b: BOOLEAN);`
-[101](https://github.com/io-core/System/blob/main/SCC.Mod#101) `  PROCEDURE Start*(filt: BOOLEAN);`
-[111](https://github.com/io-core/System/blob/main/SCC.Mod#111) `  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF CHAR);`
-[133](https://github.com/io-core/System/blob/main/SCC.Mod#133) `  PROCEDURE Available*(): INTEGER;`
-[138](https://github.com/io-core/System/blob/main/SCC.Mod#138) `  PROCEDURE Receive*(VAR x: BYTE);`
-[143](https://github.com/io-core/System/blob/main/SCC.Mod#143) `  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;`
-[154](https://github.com/io-core/System/blob/main/SCC.Mod#154) `  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)`
-[172](https://github.com/io-core/System/blob/main/SCC.Mod#172) `  PROCEDURE Skip*(m: INTEGER);`
-[177](https://github.com/io-core/System/blob/main/SCC.Mod#177) `  PROCEDURE Stop*;`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L27) `  PROCEDURE SPICtrl(s: SET);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L32) `  PROCEDURE SPI(n: INTEGER);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L37) `  PROCEDURE StartCmd(cmd: INTEGER);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L41) `  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L45) `  PROCEDURE SubRcv(dst: INTEGER);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L57) `  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L86) `  PROCEDURE Flush();`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L90) `  PROCEDURE ResetRcv;`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L94) `  PROCEDURE Listen(b: BOOLEAN);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L101) `  PROCEDURE Start*(filt: BOOLEAN);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L111) `  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF CHAR);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L133) `  PROCEDURE Available*(): INTEGER;`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L138) `  PROCEDURE Receive*(VAR x: BYTE);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L143) `  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L154) `  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L172) `  PROCEDURE Skip*(m: INTEGER);`
+[](https://github.com/io-core/System/blob/main/SCC.Mod#L177) `  PROCEDURE Stop*;`

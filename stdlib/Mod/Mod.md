@@ -3,16 +3,16 @@
 
 Procedures:
 
-[15](https://github.com/io-core/Mod/blob/main/Mod.Mod#15) `  PROCEDURE Open*;`
-[36](https://github.com/io-core/Mod/blob/main/Mod.Mod#36) `  PROCEDURE Delete*;`
-[45](https://github.com/io-core/Mod/blob/main/Mod.Mod#45) `  PROCEDURE GetArg(VAR S: Texts.Scanner);`
-[54](https://github.com/io-core/Mod/blob/main/Mod.Mod#54) `  PROCEDURE SetWidth*;`
-[60](https://github.com/io-core/Mod/blob/main/Mod.Mod#60) `  PROCEDURE ChangeColor*;`
-[68](https://github.com/io-core/Mod/blob/main/Mod.Mod#68) `  PROCEDURE ChangeWidth*;`
-[76](https://github.com/io-core/Mod/blob/main/Mod.Mod#76) `  PROCEDURE ChangeFont*;`
-[85](https://github.com/io-core/Mod/blob/main/Mod.Mod#85) `  PROCEDURE Redraw(Q: BOOLEAN);`
-[96](https://github.com/io-core/Mod/blob/main/Mod.Mod#96) `  PROCEDURE Ticks*;`
-[100](https://github.com/io-core/Mod/blob/main/Mod.Mod#100) `  PROCEDURE Restore*;`
-[104](https://github.com/io-core/Mod/blob/main/Mod.Mod#104) `  PROCEDURE Backup (VAR name: ARRAY OF CHAR);`
-[115](https://github.com/io-core/Mod/blob/main/Mod.Mod#115) `  PROCEDURE Store*;`
-[142](https://github.com/io-core/Mod/blob/main/Mod.Mod#142) `  PROCEDURE Macro*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L15) `  PROCEDURE Open*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L36) `  PROCEDURE Delete*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L45) `  PROCEDURE GetArg(VAR S: Texts.Scanner);`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L54) `  PROCEDURE SetWidth*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L60) `  PROCEDURE ChangeColor*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L68) `  PROCEDURE ChangeWidth*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L76) `  PROCEDURE ChangeFont*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L85) `  PROCEDURE Redraw(Q: BOOLEAN);`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L96) `  PROCEDURE Ticks*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L100) `  PROCEDURE Restore*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L104) `  PROCEDURE Backup (VAR name: ARRAY OF CHAR);`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L115) `  PROCEDURE Store*;`
+[](https://github.com/io-core/Mod/blob/main/Mod.Mod#L142) `  PROCEDURE Macro*;`
