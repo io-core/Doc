@@ -45,7 +45,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			echo "Procedures:" >> $k/$nam/$snam.md
                         echo  >> $k/$nam/$snam.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod"
-			awk '/end-procedure-description/{p=0};p;/begin-procedure-description/{p=1};/end-section-description/{q=0};q;/begin-section-description/{q=1};/^ *PROCEDURE/{print "```";print "["NR"](https://github.com/io-core/~~~nam~~~/blob/main/~~~snam~~~.Mod#"NR") ",$0;print"```"}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e "s/~~~nam~~~/$nam/g" | sed -e "s/~~~snam~~~/$snam/g" >> $k/$nam/$snam.md	
+			awk '/end-procedure-description/{p=0};p;/begin-procedure-description/{p=1};/end-section-description/{q=0};q;/begin-section-description/{q=1};/^ *PROCEDURE/{print "["NR"](https://github.com/io-core/~~~nam~~~/blob/main/~~~snam~~~.Mod#"NR") `"$0"`"}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e "s/~~~nam~~~/$nam/g" | sed -e "s/~~~snam~~~/$snam/g" >> $k/$nam/$snam.md	
                         
 
 		done
