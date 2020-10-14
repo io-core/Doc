@@ -6,6 +6,8 @@ The Script package automates Oberon commands.
 
 
 #### [MODULE Script](https://github.com/io-core/Script/blob/main/Script.Mod)
+Module Script will implement LIL, a derivative of TCL.
+
 
 Procedures:
 ```
@@ -19,6 +21,8 @@ Procedures:
 
 
 #### [MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)
+Module Environments handles script execution context.
+
 
 Procedures:
 ```
@@ -42,6 +46,8 @@ Procedures:
 
 
 #### [MODULE Intrinsics](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
+Module Intrinsics handles pseudo-commands and operations internal to the LIL interpreter.
+
 
 Procedures:
 ```
