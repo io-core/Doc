@@ -57,11 +57,11 @@ summary and link to Concepts.md
 
 summary and link to Language.md
 
-summary and link to [documentation of the Oberon Core packages of modules](./core/README.md)
+summary and link to [the Oberon core packages of modules](./core/README.md)
 
-summary and link to [Standard library of packages](./stdlib/README.md)
+summary and link to [the library of standard packages of modules](./stdlib/README.md)
 
-summary and link to [Extended library of packages](./extlib/README.md)
+summary and link to [the library of experimental packages of modules](./explib/README.md)
 
 ## Repositories
 
