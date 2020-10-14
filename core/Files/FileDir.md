@@ -4,44 +4,44 @@
 Procedures:
 
 ```
-  PROCEDURE Search*(name: FileName; VAR A: DiskAdr);
+[80](https://github.com/io-core/Files/blob/main/FileDir.Mod#80)    PROCEDURE Search*(name: FileName; VAR A: DiskAdr);
 ```
 ```
-  PROCEDURE insert(name: FileName;
+[97](https://github.com/io-core/Files/blob/main/FileDir.Mod#97)    PROCEDURE insert(name: FileName;
 ```
 ```
-  PROCEDURE Insert*(name: FileName; fad: DiskAdr);
+[157](https://github.com/io-core/Files/blob/main/FileDir.Mod#157)    PROCEDURE Insert*(name: FileName; fad: DiskAdr);
 ```
 ```
-  PROCEDURE underflow(VAR c: DirPage;  (*ancestor page*)
+[171](https://github.com/io-core/Files/blob/main/FileDir.Mod#171)    PROCEDURE underflow(VAR c: DirPage;  (*ancestor page*)
 ```
 ```
-  PROCEDURE delete(name: FileName;
+[220](https://github.com/io-core/Files/blob/main/FileDir.Mod#220)    PROCEDURE delete(name: FileName;
 ```
 ```
-    PROCEDURE del(VAR a: DirPage; R: INTEGER; dpg1: DiskAdr; VAR h: BOOLEAN);
+[231](https://github.com/io-core/Files/blob/main/FileDir.Mod#231)      PROCEDURE del(VAR a: DirPage; R: INTEGER; dpg1: DiskAdr; VAR h: BOOLEAN);
 ```
 ```
-  PROCEDURE Delete*(name: FileName; VAR fad: DiskAdr);
+[266](https://github.com/io-core/Files/blob/main/FileDir.Mod#266)    PROCEDURE Delete*(name: FileName; VAR fad: DiskAdr);
 ```
 ```
-  PROCEDURE enumerate(prefix:   ARRAY OF CHAR;
+[280](https://github.com/io-core/Files/blob/main/FileDir.Mod#280)    PROCEDURE enumerate(prefix:   ARRAY OF CHAR;
 ```
 ```
-  PROCEDURE Enumerate*(prefix: ARRAY OF CHAR; proc: EntryHandler);
+[306](https://github.com/io-core/Files/blob/main/FileDir.Mod#306)    PROCEDURE Enumerate*(prefix: ARRAY OF CHAR; proc: EntryHandler);
 ```
 ```
-  PROCEDURE Attributes*(fad: INTEGER; VAR length, date: INTEGER);
+[311](https://github.com/io-core/Files/blob/main/FileDir.Mod#311)    PROCEDURE Attributes*(fad: INTEGER; VAR length, date: INTEGER);
 ```
 ```
-  PROCEDURE Init*;
+[318](https://github.com/io-core/Files/blob/main/FileDir.Mod#318)    PROCEDURE Init*;
 ```
 ```
-    PROCEDURE MarkSectors(VAR A: ARRAY OF DiskAdr; k: INTEGER);
+[322](https://github.com/io-core/Files/blob/main/FileDir.Mod#322)      PROCEDURE MarkSectors(VAR A: ARRAY OF DiskAdr; k: INTEGER);
 ```
 ```
-      PROCEDURE sift(VAR A: ARRAY OF DiskAdr; L, R: INTEGER);
+[327](https://github.com/io-core/Files/blob/main/FileDir.Mod#327)        PROCEDURE sift(VAR A: ARRAY OF DiskAdr; L, R: INTEGER);
 ```
 ```
-    PROCEDURE TraverseDir(VAR A: ARRAY OF DiskAdr; VAR k: INTEGER; dpg: DiskAdr);
+[361](https://github.com/io-core/Files/blob/main/FileDir.Mod#361)      PROCEDURE TraverseDir(VAR A: ARRAY OF DiskAdr; VAR k: INTEGER; dpg: DiskAdr);
 ```

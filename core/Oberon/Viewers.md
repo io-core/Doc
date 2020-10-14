@@ -4,86 +4,86 @@
 Procedures:
 
 ```
-  PROCEDURE ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer;
+[42](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#42)    PROCEDURE ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer;
 ```
 ```
-  PROCEDURE This* (X, Y: INTEGER): Viewer;  (*for backward compatibility*)
+[55](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#55)    PROCEDURE This* (X, Y: INTEGER): Viewer;  (*for backward compatibility*)
 ```
 ```
-  PROCEDURE ThisDisplay* (V: Viewer): DisplayArea;
+[62](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#62)    PROCEDURE ThisDisplay* (V: Viewer): DisplayArea;
 ```
 ```
-  PROCEDURE Next* (V: Viewer): Viewer;
+[68](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#68)    PROCEDURE Next* (V: Viewer): Viewer;
 ```
 ```
-  PROCEDURE Prev* (V: Viewer): Viewer;
+[74](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#74)    PROCEDURE Prev* (V: Viewer): Viewer;
 ```
 ```
-  PROCEDURE SetFocus* (D: DisplayArea; V: Viewer);
+[78](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#78)    PROCEDURE SetFocus* (D: DisplayArea; V: Viewer);
 ```
 ```
-  PROCEDURE GetFocus* (D: DisplayArea): Viewer;
+[83](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#83)    PROCEDURE GetFocus* (D: DisplayArea): Viewer;
 ```
 ```
-  PROCEDURE Adjust* (F: Display.Frame; id, Y, H: INTEGER);
+[87](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#87)    PROCEDURE Adjust* (F: Display.Frame; id, Y, H: INTEGER);
 ```
 ```
-  PROCEDURE Open* (D: DisplayArea; V: Viewer; X, Y: INTEGER);
+[92](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#92)    PROCEDURE Open* (D: DisplayArea; V: Viewer; X, Y: INTEGER);
 ```
 ```
-  PROCEDURE Validate* (V: Viewer; VAR Y, H: INTEGER);
+[115](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#115)    PROCEDURE Validate* (V: Viewer; VAR Y, H: INTEGER);
 ```
 ```
-  PROCEDURE Change* (V: Viewer; Y, H: INTEGER);
+[131](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#131)    PROCEDURE Change* (V: Viewer; Y, H: INTEGER);
 ```
 ```
-  PROCEDURE Spread* (D: DisplayArea; X, W: INTEGER); (*redistribute viewers vertically*)
+[170](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#170)    PROCEDURE Spread* (D: DisplayArea; X, W: INTEGER); (*redistribute viewers vertically*)
 ```
 ```
-  PROCEDURE RestoreTrack (S: Display.Frame);
+[192](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#192)    PROCEDURE RestoreTrack (S: Display.Frame);
 ```
 ```
-  PROCEDURE Close* (V: Viewer);
+[204](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#204)    PROCEDURE Close* (V: Viewer);
 ```
 ```
-  PROCEDURE Recall* (D: DisplayArea; VAR V: Viewer); (*last closed viewer*)
+[224](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#224)    PROCEDURE Recall* (D: DisplayArea; VAR V: Viewer); (*last closed viewer*)
 ```
 ```
-  PROCEDURE Flush* (D: DisplayArea); (*last closed viewer*)
+[228](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#228)    PROCEDURE Flush* (D: DisplayArea); (*last closed viewer*)
 ```
 ```
-  PROCEDURE Locate* (D: DisplayArea; X, H: INTEGER; VAR fil, top, bot, alt, max: Display.Frame);
+[232](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#232)    PROCEDURE Locate* (D: DisplayArea; X, H: INTEGER; VAR fil, top, bot, alt, max: Display.Frame);
 ```
 ```
-  PROCEDURE Install* (parent, F: Display.Frame); (*frame F as a subframe into parent frame*)
+[255](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#255)    PROCEDURE Install* (parent, F: Display.Frame); (*frame F as a subframe into parent frame*)
 ```
 ```
-  PROCEDURE Remove* (parent, F: Display.Frame); (*subframe F from its parent frame*)
+[265](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#265)    PROCEDURE Remove* (parent, F: Display.Frame); (*subframe F from its parent frame*)
 ```
 ```
-  PROCEDURE InitFiller (X, Y, W, H, minH: INTEGER; Filler: Viewer); (*except fields handle, parent, dsc*)
+[275](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#275)    PROCEDURE InitFiller (X, Y, W, H, minH: INTEGER; Filler: Viewer); (*except fields handle, parent, dsc*)
 ```
 ```
-  PROCEDURE InitTrack* (D: DisplayArea; W, H: INTEGER; Filler: Viewer);
+[280](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#280)    PROCEDURE InitTrack* (D: DisplayArea; W, H: INTEGER; Filler: Viewer);
 ```
 ```
-  PROCEDURE OpenTrack* (D: DisplayArea; X, W: INTEGER; Filler: Viewer);
+[292](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#292)    PROCEDURE OpenTrack* (D: DisplayArea; X, W: INTEGER; Filler: Viewer);
 ```
 ```
-  PROCEDURE CloseTrack* (D: DisplayArea; X: INTEGER);
+[313](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#313)    PROCEDURE CloseTrack* (D: DisplayArea; X: INTEGER);
 ```
 ```
-  PROCEDURE Broadcast* (VAR M: Display.FrameMsg); (*to current display*)
+[330](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#330)    PROCEDURE Broadcast* (VAR M: Display.FrameMsg); (*to current display*)
 ```
 ```
-  PROCEDURE InitDisplay* (D: DisplayArea; W, H: INTEGER; name: ARRAY OF CHAR);
+[343](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#343)    PROCEDURE InitDisplay* (D: DisplayArea; W, H: INTEGER; name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE SetDisplay* (D: DisplayArea);
+[355](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#355)    PROCEDURE SetDisplay* (D: DisplayArea);
 ```
 ```
-  PROCEDURE GetDisplay* (id: INTEGER): DisplayArea;
+[362](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#362)    PROCEDURE GetDisplay* (id: INTEGER): DisplayArea;
 ```
 ```
-  PROCEDURE CloseDisplay* (D: DisplayArea; hint: INTEGER); (*except last display*)
+[369](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#369)    PROCEDURE CloseDisplay* (D: DisplayArea; hint: INTEGER); (*except last display*)
 ```

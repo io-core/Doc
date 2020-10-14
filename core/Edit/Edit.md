@@ -4,41 +4,41 @@
 Procedures:
 
 ```
-  PROCEDURE Max(i, j: LONGINT): LONGINT;
+[36](https://github.com/io-core/Edit/blob/main/Edit.Mod#36)    PROCEDURE Max(i, j: LONGINT): LONGINT;
 ```
 ```
-  PROCEDURE FocusViewer(): Viewers.Viewer;  (*for Extended Oberon*)
+[42](https://github.com/io-core/Edit/blob/main/Edit.Mod#42)    PROCEDURE FocusViewer(): Viewers.Viewer;  (*for Extended Oberon*)
 ```
 ```
-  PROCEDURE Open*;
+[46](https://github.com/io-core/Edit/blob/main/Edit.Mod#46)    PROCEDURE Open*;
 ```
 ```
-  PROCEDURE Store*;
+[66](https://github.com/io-core/Edit/blob/main/Edit.Mod#66)    PROCEDURE Store*;
 ```
 ```
-    PROCEDURE Backup (VAR name: ARRAY OF CHAR);
+[73](https://github.com/io-core/Edit/blob/main/Edit.Mod#73)      PROCEDURE Backup (VAR name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE CopyLooks*;
+[99](https://github.com/io-core/Edit/blob/main/Edit.Mod#99)    PROCEDURE CopyLooks*;
 ```
 ```
-  PROCEDURE ChangeFont*;
+[116](https://github.com/io-core/Edit/blob/main/Edit.Mod#116)    PROCEDURE ChangeFont*;
 ```
 ```
-  PROCEDURE ChangeColor*;
+[128](https://github.com/io-core/Edit/blob/main/Edit.Mod#128)    PROCEDURE ChangeColor*;
 ```
 ```
-  PROCEDURE ChangeOffset*;
+[140](https://github.com/io-core/Edit/blob/main/Edit.Mod#140)    PROCEDURE ChangeOffset*;
 ```
 ```
-  PROCEDURE Search*;  (*uses global variables M, pat, d for Boyer-Moore search*)
+[152](https://github.com/io-core/Edit/blob/main/Edit.Mod#152)    PROCEDURE Search*;  (*uses global variables M, pat, d for Boyer-Moore search*)
 ```
 ```
-    PROCEDURE Forward(n: INTEGER; VAR R: Texts.Reader; VAR buf: ARRAY OF CHAR);
+[160](https://github.com/io-core/Edit/blob/main/Edit.Mod#160)      PROCEDURE Forward(n: INTEGER; VAR R: Texts.Reader; VAR buf: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Locate*;
+[201](https://github.com/io-core/Edit/blob/main/Edit.Mod#201)    PROCEDURE Locate*;
 ```
 ```
-  PROCEDURE Recall*;
+[226](https://github.com/io-core/Edit/blob/main/Edit.Mod#226)    PROCEDURE Recall*;
 ```

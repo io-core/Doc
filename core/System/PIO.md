@@ -4,14 +4,14 @@
 Procedures:
 
 ```
-  PROCEDURE del(i: INTEGER);
+[15](https://github.com/io-core/System/blob/main/PIO.Mod#15)    PROCEDURE del(i: INTEGER);
 ```
 ```
-  PROCEDURE Send*(x: LONGINT);
+[20](https://github.com/io-core/System/blob/main/PIO.Mod#20)    PROCEDURE Send*(x: LONGINT);
 ```
 ```
-  PROCEDURE Receive*(VAR x: LONGINT);
+[29](https://github.com/io-core/System/blob/main/PIO.Mod#29)    PROCEDURE Receive*(VAR x: LONGINT);
 ```
 ```
-  PROCEDURE Reset*;
+[41](https://github.com/io-core/System/blob/main/PIO.Mod#41)    PROCEDURE Reset*;
 ```

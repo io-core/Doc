@@ -4,41 +4,41 @@
 Procedures:
 
 ```
-  PROCEDURE Open*;
+[24](https://github.com/io-core/Attest/blob/main/Attest.Mod#24)    PROCEDURE Open*;
 ```
 ```
-  PROCEDURE Delete*;
+[45](https://github.com/io-core/Attest/blob/main/Attest.Mod#45)    PROCEDURE Delete*;
 ```
 ```
-  PROCEDURE GetArg(VAR S: Texts.Scanner);
+[54](https://github.com/io-core/Attest/blob/main/Attest.Mod#54)    PROCEDURE GetArg(VAR S: Texts.Scanner);
 ```
 ```
-  PROCEDURE SetWidth*;
+[63](https://github.com/io-core/Attest/blob/main/Attest.Mod#63)    PROCEDURE SetWidth*;
 ```
 ```
-  PROCEDURE ChangeColor*;
+[69](https://github.com/io-core/Attest/blob/main/Attest.Mod#69)    PROCEDURE ChangeColor*;
 ```
 ```
-  PROCEDURE ChangeWidth*;
+[77](https://github.com/io-core/Attest/blob/main/Attest.Mod#77)    PROCEDURE ChangeWidth*;
 ```
 ```
-  PROCEDURE ChangeFont*;
+[85](https://github.com/io-core/Attest/blob/main/Attest.Mod#85)    PROCEDURE ChangeFont*;
 ```
 ```
-  PROCEDURE Redraw(Q: BOOLEAN);
+[94](https://github.com/io-core/Attest/blob/main/Attest.Mod#94)    PROCEDURE Redraw(Q: BOOLEAN);
 ```
 ```
-  PROCEDURE Ticks*;
+[105](https://github.com/io-core/Attest/blob/main/Attest.Mod#105)    PROCEDURE Ticks*;
 ```
 ```
-  PROCEDURE Restore*;
+[109](https://github.com/io-core/Attest/blob/main/Attest.Mod#109)    PROCEDURE Restore*;
 ```
 ```
-  PROCEDURE Backup (VAR name: ARRAY OF CHAR);
+[113](https://github.com/io-core/Attest/blob/main/Attest.Mod#113)    PROCEDURE Backup (VAR name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Store*;
+[124](https://github.com/io-core/Attest/blob/main/Attest.Mod#124)    PROCEDURE Store*;
 ```
 ```
-  PROCEDURE Macro*;
+[151](https://github.com/io-core/Attest/blob/main/Attest.Mod#151)    PROCEDURE Macro*;
 ```

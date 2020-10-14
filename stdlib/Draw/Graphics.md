@@ -4,173 +4,173 @@
 Procedures:
 
 ```
-  PROCEDURE New*(obj: Object);
+[96](https://github.com/io-core/Draw/blob/main/Graphics.Mod#96)    PROCEDURE New*(obj: Object);
 ```
 ```
-  PROCEDURE Add*(G: Graph; obj: Object);
+[100](https://github.com/io-core/Draw/blob/main/Graphics.Mod#100)    PROCEDURE Add*(G: Graph; obj: Object);
 ```
 ```
-  PROCEDURE ThisObj*(G: Graph; x, y: INTEGER): Object;
+[105](https://github.com/io-core/Draw/blob/main/Graphics.Mod#105)    PROCEDURE ThisObj*(G: Graph; x, y: INTEGER): Object;
 ```
 ```
-  PROCEDURE SelectObj*(G: Graph; obj: Object);
+[112](https://github.com/io-core/Draw/blob/main/Graphics.Mod#112)    PROCEDURE SelectObj*(G: Graph; obj: Object);
 ```
 ```
-  PROCEDURE SelectArea*(G: Graph; x0, y0, x1, y1: INTEGER);
+[117](https://github.com/io-core/Draw/blob/main/Graphics.Mod#117)    PROCEDURE SelectArea*(G: Graph; x0, y0, x1, y1: INTEGER);
 ```
 ```
-  PROCEDURE Draw*(G: Graph; VAR M: Msg);
+[131](https://github.com/io-core/Draw/blob/main/Graphics.Mod#131)    PROCEDURE Draw*(G: Graph; VAR M: Msg);
 ```
 ```
-  PROCEDURE List*(G: Graph);
+[137](https://github.com/io-core/Draw/blob/main/Graphics.Mod#137)    PROCEDURE List*(G: Graph);
 ```
 ```
-  PROCEDURE Deselect*(G: Graph);
+[151](https://github.com/io-core/Draw/blob/main/Graphics.Mod#151)    PROCEDURE Deselect*(G: Graph);
 ```
 ```
-  PROCEDURE DrawSel*(G: Graph; VAR M: Msg);
+[157](https://github.com/io-core/Draw/blob/main/Graphics.Mod#157)    PROCEDURE DrawSel*(G: Graph; VAR M: Msg);
 ```
 ```
-  PROCEDURE Change*(G: Graph; VAR M: Msg);
+[166](https://github.com/io-core/Draw/blob/main/Graphics.Mod#166)    PROCEDURE Change*(G: Graph; VAR M: Msg);
 ```
 ```
-  PROCEDURE Move*(G: Graph; dx, dy: INTEGER);
+[175](https://github.com/io-core/Draw/blob/main/Graphics.Mod#175)    PROCEDURE Move*(G: Graph; dx, dy: INTEGER);
 ```
 ```
-  PROCEDURE Copy*(Gs, Gd: Graph; dx, dy: INTEGER);
+[216](https://github.com/io-core/Draw/blob/main/Graphics.Mod#216)    PROCEDURE Copy*(Gs, Gd: Graph; dx, dy: INTEGER);
 ```
 ```
-  PROCEDURE Delete*(G: Graph);
+[229](https://github.com/io-core/Draw/blob/main/Graphics.Mod#229)    PROCEDURE Delete*(G: Graph);
 ```
 ```
-  PROCEDURE WMsg(s0, s1: ARRAY OF CHAR);
+[245](https://github.com/io-core/Draw/blob/main/Graphics.Mod#245)    PROCEDURE WMsg(s0, s1: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE InitContext(VAR C: Context);
+[250](https://github.com/io-core/Draw/blob/main/Graphics.Mod#250)    PROCEDURE InitContext(VAR C: Context);
 ```
 ```
-  PROCEDURE FontNo*(VAR W: Files.Rider; VAR C: Context; fnt: Fonts.Font): INTEGER;
+[255](https://github.com/io-core/Draw/blob/main/Graphics.Mod#255)    PROCEDURE FontNo*(VAR W: Files.Rider; VAR C: Context; fnt: Fonts.Font): INTEGER;
 ```
 ```
-  PROCEDURE StoreElems(VAR W: Files.Rider; VAR C: Context; obj: Object);
+[266](https://github.com/io-core/Draw/blob/main/Graphics.Mod#266)    PROCEDURE StoreElems(VAR W: Files.Rider; VAR C: Context; obj: Object);
 ```
 ```
-  PROCEDURE Store*(G: Graph; VAR W: Files.Rider);
+[282](https://github.com/io-core/Draw/blob/main/Graphics.Mod#282)    PROCEDURE Store*(G: Graph; VAR W: Files.Rider);
 ```
 ```
-  PROCEDURE WriteObj*(VAR W: Files.Rider; cno: INTEGER; obj: Object);
+[287](https://github.com/io-core/Draw/blob/main/Graphics.Mod#287)    PROCEDURE WriteObj*(VAR W: Files.Rider; cno: INTEGER; obj: Object);
 ```
 ```
-  PROCEDURE WriteFile*(G: Graph; name: ARRAY OF CHAR);
+[292](https://github.com/io-core/Draw/blob/main/Graphics.Mod#292)    PROCEDURE WriteFile*(G: Graph; name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Print*(G: Graph; x0, y0: INTEGER);
+[298](https://github.com/io-core/Draw/blob/main/Graphics.Mod#298)    PROCEDURE Print*(G: Graph; x0, y0: INTEGER);
 ```
 ```
-  PROCEDURE GetClass*(module, allocator: ARRAY OF CHAR; VAR com: Modules.Command);
+[306](https://github.com/io-core/Draw/blob/main/Graphics.Mod#306)    PROCEDURE GetClass*(module, allocator: ARRAY OF CHAR; VAR com: Modules.Command);
 ```
 ```
-  PROCEDURE Font*(VAR R: Files.Rider; VAR C: Context): Fonts.Font;
+[316](https://github.com/io-core/Draw/blob/main/Graphics.Mod#316)    PROCEDURE Font*(VAR R: Files.Rider; VAR C: Context): Fonts.Font;
 ```
 ```
-  PROCEDURE ReadObj(VAR R: Files.Rider; obj: Object);
+[321](https://github.com/io-core/Draw/blob/main/Graphics.Mod#321)    PROCEDURE ReadObj(VAR R: Files.Rider; obj: Object);
 ```
 ```
-  PROCEDURE LoadElems(VAR R: Files.Rider; VAR C: Context; VAR fobj: Object);
+[328](https://github.com/io-core/Draw/blob/main/Graphics.Mod#328)    PROCEDURE LoadElems(VAR R: Files.Rider; VAR C: Context; VAR fobj: Object);
 ```
 ```
-  PROCEDURE Load*(G: Graph; VAR R: Files.Rider);
+[353](https://github.com/io-core/Draw/blob/main/Graphics.Mod#353)    PROCEDURE Load*(G: Graph; VAR R: Files.Rider);
 ```
 ```
-  PROCEDURE Open*(G: Graph; name: ARRAY OF CHAR);
+[358](https://github.com/io-core/Draw/blob/main/Graphics.Mod#358)    PROCEDURE Open*(G: Graph; name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE SetWidth*(w: INTEGER);
+[369](https://github.com/io-core/Draw/blob/main/Graphics.Mod#369)    PROCEDURE SetWidth*(w: INTEGER);
 ```
 ```
-  PROCEDURE GetLib*(name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);
+[375](https://github.com/io-core/Draw/blob/main/Graphics.Mod#375)    PROCEDURE GetLib*(name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);
 ```
 ```
-  PROCEDURE NewLib*(Lname: ARRAY OF CHAR): Library;
+[407](https://github.com/io-core/Draw/blob/main/Graphics.Mod#407)    PROCEDURE NewLib*(Lname: ARRAY OF CHAR): Library;
 ```
 ```
-  PROCEDURE StoreLib*(L: Library; Fname: ARRAY OF CHAR);
+[413](https://github.com/io-core/Draw/blob/main/Graphics.Mod#413)    PROCEDURE StoreLib*(L: Library; Fname: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE RemoveLibraries*;
+[436](https://github.com/io-core/Draw/blob/main/Graphics.Mod#436)    PROCEDURE RemoveLibraries*;
 ```
 ```
-  PROCEDURE ThisMac*(L: Library; Mname: ARRAY OF CHAR): MacHead;
+[440](https://github.com/io-core/Draw/blob/main/Graphics.Mod#440)    PROCEDURE ThisMac*(L: Library; Mname: ARRAY OF CHAR): MacHead;
 ```
 ```
-  PROCEDURE DrawMac*(mh: MacHead; VAR M: Msg);
+[447](https://github.com/io-core/Draw/blob/main/Graphics.Mod#447)    PROCEDURE DrawMac*(mh: MacHead; VAR M: Msg);
 ```
 ```
-  PROCEDURE OpenMac*(mh: MacHead; G: Graph; x, y: INTEGER);
+[455](https://github.com/io-core/Draw/blob/main/Graphics.Mod#455)    PROCEDURE OpenMac*(mh: MacHead; G: Graph; x, y: INTEGER);
 ```
 ```
-  PROCEDURE MakeMac*(G: Graph; VAR head: MacHead);
+[465](https://github.com/io-core/Draw/blob/main/Graphics.Mod#465)    PROCEDURE MakeMac*(G: Graph; VAR head: MacHead);
 ```
 ```
-  PROCEDURE InsertMac*(mh: MacHead; L: Library; VAR new: BOOLEAN);
+[488](https://github.com/io-core/Draw/blob/main/Graphics.Mod#488)    PROCEDURE InsertMac*(mh: MacHead; L: Library; VAR new: BOOLEAN);
 ```
 ```
-  PROCEDURE NewLine;
+[501](https://github.com/io-core/Draw/blob/main/Graphics.Mod#501)    PROCEDURE NewLine;
 ```
 ```
-  PROCEDURE CopyLine(src, dst: Object);
+[506](https://github.com/io-core/Draw/blob/main/Graphics.Mod#506)    PROCEDURE CopyLine(src, dst: Object);
 ```
 ```
-  PROCEDURE ChangeLine(obj: Object; VAR M: Msg);
+[510](https://github.com/io-core/Draw/blob/main/Graphics.Mod#510)    PROCEDURE ChangeLine(obj: Object; VAR M: Msg);
 ```
 ```
-  PROCEDURE LineSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
+[522](https://github.com/io-core/Draw/blob/main/Graphics.Mod#522)    PROCEDURE LineSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
 ```
 ```
-  PROCEDURE ReadLine(obj: Object; VAR R: Files.Rider; VAR C: Context);
+[527](https://github.com/io-core/Draw/blob/main/Graphics.Mod#527)    PROCEDURE ReadLine(obj: Object; VAR R: Files.Rider; VAR C: Context);
 ```
 ```
-  PROCEDURE WriteLine(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);
+[531](https://github.com/io-core/Draw/blob/main/Graphics.Mod#531)    PROCEDURE WriteLine(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);
 ```
 ```
-  PROCEDURE NewCaption;
+[544](https://github.com/io-core/Draw/blob/main/Graphics.Mod#544)    PROCEDURE NewCaption;
 ```
 ```
-  PROCEDURE CopyCaption(src, dst: Object);
+[549](https://github.com/io-core/Draw/blob/main/Graphics.Mod#549)    PROCEDURE CopyCaption(src, dst: Object);
 ```
 ```
-  PROCEDURE ChangeCaption(obj: Object;  VAR M: Msg);
+[560](https://github.com/io-core/Draw/blob/main/Graphics.Mod#560)    PROCEDURE ChangeCaption(obj: Object;  VAR M: Msg);
 ```
 ```
-  PROCEDURE CaptionSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
+[579](https://github.com/io-core/Draw/blob/main/Graphics.Mod#579)    PROCEDURE CaptionSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
 ```
 ```
-  PROCEDURE ReadCaption(obj: Object; VAR R: Files.Rider; VAR C: Context);
+[584](https://github.com/io-core/Draw/blob/main/Graphics.Mod#584)    PROCEDURE ReadCaption(obj: Object; VAR R: Files.Rider; VAR C: Context);
 ```
 ```
-  PROCEDURE WriteCaption(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);
+[592](https://github.com/io-core/Draw/blob/main/Graphics.Mod#592)    PROCEDURE WriteCaption(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);
 ```
 ```
-  PROCEDURE NewMacro;
+[622](https://github.com/io-core/Draw/blob/main/Graphics.Mod#622)    PROCEDURE NewMacro;
 ```
 ```
-  PROCEDURE CopyMacro(src, dst: Object);
+[627](https://github.com/io-core/Draw/blob/main/Graphics.Mod#627)    PROCEDURE CopyMacro(src, dst: Object);
 ```
 ```
-  PROCEDURE ChangeMacro(obj: Object; VAR M: Msg);
+[632](https://github.com/io-core/Draw/blob/main/Graphics.Mod#632)    PROCEDURE ChangeMacro(obj: Object; VAR M: Msg);
 ```
 ```
-  PROCEDURE MacroSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
+[637](https://github.com/io-core/Draw/blob/main/Graphics.Mod#637)    PROCEDURE MacroSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
 ```
 ```
-  PROCEDURE ReadMacro(obj: Object; VAR R: Files.Rider; VAR C: Context);
+[642](https://github.com/io-core/Draw/blob/main/Graphics.Mod#642)    PROCEDURE ReadMacro(obj: Object; VAR R: Files.Rider; VAR C: Context);
 ```
 ```
-  PROCEDURE WriteMacro(obj: Object; cno: INTEGER; VAR W1: Files.Rider; VAR C: Context);
+[648](https://github.com/io-core/Draw/blob/main/Graphics.Mod#648)    PROCEDURE WriteMacro(obj: Object; cno: INTEGER; VAR W1: Files.Rider; VAR C: Context);
 ```
 ```
-  PROCEDURE Notify(T: Texts.Text; op: INTEGER; beg, end: LONGINT);
+[667](https://github.com/io-core/Draw/blob/main/Graphics.Mod#667)    PROCEDURE Notify(T: Texts.Text; op: INTEGER; beg, end: LONGINT);
 ```
 ```
-  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (obj: Object; VAR msg: Msg));
+[671](https://github.com/io-core/Draw/blob/main/Graphics.Mod#671)    PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (obj: Object; VAR msg: Msg));
 ```

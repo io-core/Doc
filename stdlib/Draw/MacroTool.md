@@ -4,14 +4,14 @@
 Procedures:
 
 ```
-  PROCEDURE OpenMacro*;
+[5](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#5)    PROCEDURE OpenMacro*;
 ```
 ```
-  PROCEDURE MakeMacro*;  (*lib mac*)
+[19](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#19)    PROCEDURE MakeMacro*;  (*lib mac*)
 ```
 ```
-  PROCEDURE LoadLibrary*;  (*lib file name*)
+[51](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#51)    PROCEDURE LoadLibrary*;  (*lib file name*)
 ```
 ```
-  PROCEDURE StoreLibrary*;  (*lib file name*)
+[61](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#61)    PROCEDURE StoreLibrary*;  (*lib file name*)
 ```

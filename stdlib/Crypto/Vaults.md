@@ -4,47 +4,47 @@
 Procedures:
 
 ```
-  PROCEDURE New*(D: Document);
+[80](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#80)    PROCEDURE New*(D: Document);
 ```
 ```
-  PROCEDURE Add*(V: Vault; D: Document);
+[84](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#84)    PROCEDURE Add*(V: Vault; D: Document);
 ```
 ```
-  PROCEDURE ThisDocument*(V: Vault; x, y: INTEGER): Document;
+[89](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#89)    PROCEDURE ThisDocument*(V: Vault; x, y: INTEGER): Document;
 ```
 ```
-  PROCEDURE SelectDocument*(V: Vault; D: Document);
+[96](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#96)    PROCEDURE SelectDocument*(V: Vault; D: Document);
 ```
 ```
-  PROCEDURE SelectArea*(V: Vault; x0, y0, x1, y1: INTEGER);
+[101](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#101)    PROCEDURE SelectArea*(V: Vault; x0, y0, x1, y1: INTEGER);
 ```
 ```
-  PROCEDURE Draw*(V: Vault; VAR m: Msg);
+[115](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#115)    PROCEDURE Draw*(V: Vault; VAR m: Msg);
 ```
 ```
-  PROCEDURE List*(V: Vault);
+[122](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#122)    PROCEDURE List*(V: Vault);
 ```
 ```
-  PROCEDURE Deselect*(V: Vault);
+[137](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#137)    PROCEDURE Deselect*(V: Vault);
 ```
 ```
-  PROCEDURE DrawSel*(V: Vault; VAR m: Msg);
+[143](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#143)    PROCEDURE DrawSel*(V: Vault; VAR m: Msg);
 ```
 ```
-  PROCEDURE Change*(V: Vault; VAR m: Msg);
+[152](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#152)    PROCEDURE Change*(V: Vault; VAR m: Msg);
 ```
 ```
-  PROCEDURE WriteFile*(V: Vault; name: ARRAY OF CHAR);
+[163](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#163)    PROCEDURE WriteFile*(V: Vault; name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE SetWidth*(w: INTEGER);
+[171](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#171)    PROCEDURE SetWidth*(w: INTEGER);
 ```
 ```
-  PROCEDURE Open*(V: Vault; name: ARRAY OF CHAR);
+[176](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#176)    PROCEDURE Open*(V: Vault; name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Delete*(V: Vault);
+[193](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#193)    PROCEDURE Delete*(V: Vault);
 ```
 ```
-  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (D: Document; VAR msg: Msg));
+[212](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#212)    PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (D: Document; VAR msg: Msg));
 ```

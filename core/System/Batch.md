@@ -4,29 +4,29 @@
 Procedures:
 
 ```
-  PROCEDURE ClearLog*;
+[33](https://github.com/io-core/System/blob/main/Batch.Mod#33)    PROCEDURE ClearLog*;
 ```
 ```
-  PROCEDURE WriteLog*;
+[41](https://github.com/io-core/System/blob/main/Batch.Mod#41)    PROCEDURE WriteLog*;
 ```
 ```
-  PROCEDURE VerifyLog*;
+[74](https://github.com/io-core/System/blob/main/Batch.Mod#74)    PROCEDURE VerifyLog*;
 ```
 ```
-  PROCEDURE AddFileToList(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);
+[123](https://github.com/io-core/System/blob/main/Batch.Mod#123)    PROCEDURE AddFileToList(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);
 ```
 ```
-  PROCEDURE DeleteFiles*;
+[150](https://github.com/io-core/System/blob/main/Batch.Mod#150)    PROCEDURE DeleteFiles*;
 ```
 ```
-  PROCEDURE Collect*;
+[174](https://github.com/io-core/System/blob/main/Batch.Mod#174)    PROCEDURE Collect*;
 ```
 ```
-  PROCEDURE Continue;
+[180](https://github.com/io-core/System/blob/main/Batch.Mod#180)    PROCEDURE Continue;
 ```
 ```
-  PROCEDURE GCWait;
+[214](https://github.com/io-core/System/blob/main/Batch.Mod#214)    PROCEDURE GCWait;
 ```
 ```
-  PROCEDURE Run*;
+[230](https://github.com/io-core/System/blob/main/Batch.Mod#230)    PROCEDURE Run*;
 ```

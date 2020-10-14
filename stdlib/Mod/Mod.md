@@ -4,41 +4,41 @@
 Procedures:
 
 ```
-  PROCEDURE Open*;
+[15](https://github.com/io-core/Mod/blob/main/Mod.Mod#15)    PROCEDURE Open*;
 ```
 ```
-  PROCEDURE Delete*;
+[36](https://github.com/io-core/Mod/blob/main/Mod.Mod#36)    PROCEDURE Delete*;
 ```
 ```
-  PROCEDURE GetArg(VAR S: Texts.Scanner);
+[45](https://github.com/io-core/Mod/blob/main/Mod.Mod#45)    PROCEDURE GetArg(VAR S: Texts.Scanner);
 ```
 ```
-  PROCEDURE SetWidth*;
+[54](https://github.com/io-core/Mod/blob/main/Mod.Mod#54)    PROCEDURE SetWidth*;
 ```
 ```
-  PROCEDURE ChangeColor*;
+[60](https://github.com/io-core/Mod/blob/main/Mod.Mod#60)    PROCEDURE ChangeColor*;
 ```
 ```
-  PROCEDURE ChangeWidth*;
+[68](https://github.com/io-core/Mod/blob/main/Mod.Mod#68)    PROCEDURE ChangeWidth*;
 ```
 ```
-  PROCEDURE ChangeFont*;
+[76](https://github.com/io-core/Mod/blob/main/Mod.Mod#76)    PROCEDURE ChangeFont*;
 ```
 ```
-  PROCEDURE Redraw(Q: BOOLEAN);
+[85](https://github.com/io-core/Mod/blob/main/Mod.Mod#85)    PROCEDURE Redraw(Q: BOOLEAN);
 ```
 ```
-  PROCEDURE Ticks*;
+[96](https://github.com/io-core/Mod/blob/main/Mod.Mod#96)    PROCEDURE Ticks*;
 ```
 ```
-  PROCEDURE Restore*;
+[100](https://github.com/io-core/Mod/blob/main/Mod.Mod#100)    PROCEDURE Restore*;
 ```
 ```
-  PROCEDURE Backup (VAR name: ARRAY OF CHAR);
+[104](https://github.com/io-core/Mod/blob/main/Mod.Mod#104)    PROCEDURE Backup (VAR name: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Store*;
+[115](https://github.com/io-core/Mod/blob/main/Mod.Mod#115)    PROCEDURE Store*;
 ```
 ```
-  PROCEDURE Macro*;
+[142](https://github.com/io-core/Mod/blob/main/Mod.Mod#142)    PROCEDURE Macro*;
 ```

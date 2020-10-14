@@ -4,20 +4,20 @@
 Procedures:
 
 ```
-  PROCEDURE Rec(VAR x: BYTE);
+[15](https://github.com/io-core/System/blob/main/PCLink1.Mod#15)    PROCEDURE Rec(VAR x: BYTE);
 ```
 ```
-  PROCEDURE RecName(VAR s: ARRAY OF CHAR);
+[21](https://github.com/io-core/System/blob/main/PCLink1.Mod#21)    PROCEDURE RecName(VAR s: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Send(x: BYTE);
+[28](https://github.com/io-core/System/blob/main/PCLink1.Mod#28)    PROCEDURE Send(x: BYTE);
 ```
 ```
-  PROCEDURE Task;
+[34](https://github.com/io-core/System/blob/main/PCLink1.Mod#34)    PROCEDURE Task;
 ```
 ```
-  PROCEDURE Run*;
+[81](https://github.com/io-core/System/blob/main/PCLink1.Mod#81)    PROCEDURE Run*;
 ```
 ```
-  PROCEDURE Stop*;
+[86](https://github.com/io-core/System/blob/main/PCLink1.Mod#86)    PROCEDURE Stop*;
 ```

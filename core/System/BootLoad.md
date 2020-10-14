@@ -4,38 +4,38 @@
 Procedures:
 
 ```
-  PROCEDURE RecInt(VAR x: INTEGER);
+[19](https://github.com/io-core/System/blob/main/BootLoad.Mod#19)    PROCEDURE RecInt(VAR x: INTEGER);
 ```
 ```
-  PROCEDURE LoadFromLine;
+[29](https://github.com/io-core/System/blob/main/BootLoad.Mod#29)    PROCEDURE LoadFromLine;
 ```
 ```
-  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)
+[41](https://github.com/io-core/System/blob/main/BootLoad.Mod#41)    PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)
 ```
 ```
-  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)
+[48](https://github.com/io-core/System/blob/main/BootLoad.Mod#48)    PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)
 ```
 ```
-  PROCEDURE SPICmd(n, arg: INTEGER);
+[53](https://github.com/io-core/System/blob/main/BootLoad.Mod#53)    PROCEDURE SPICmd(n, arg: INTEGER);
 ```
 ```
-  PROCEDURE InitSPI;
+[65](https://github.com/io-core/System/blob/main/BootLoad.Mod#65)    PROCEDURE InitSPI;
 ```
 ```
-  PROCEDURE SDShift(VAR n: INTEGER);
+[82](https://github.com/io-core/System/blob/main/BootLoad.Mod#82)    PROCEDURE SDShift(VAR n: INTEGER);
 ```
 ```
-  PROCEDURE ReadSD(src, dst: INTEGER);
+[90](https://github.com/io-core/System/blob/main/BootLoad.Mod#90)    PROCEDURE ReadSD(src, dst: INTEGER);
 ```
 ```
-  PROCEDURE LoadFromDisk;
+[104](https://github.com/io-core/System/blob/main/BootLoad.Mod#104)    PROCEDURE LoadFromDisk;
 ```
 ```
-  PROCEDURE RecInt(VAR x: INTEGER);
+[131](https://github.com/io-core/System/blob/main/BootLoad.Mod#131)    PROCEDURE RecInt(VAR x: INTEGER);
 ```
 ```
-  PROCEDURE Load;
+[141](https://github.com/io-core/System/blob/main/BootLoad.Mod#141)    PROCEDURE Load;
 ```
 ```
-  PROCEDURE* Int; (*interrupt every millisecond*)
+[190](https://github.com/io-core/System/blob/main/BootLoad.Mod#190)    PROCEDURE* Int; (*interrupt every millisecond*)
 ```

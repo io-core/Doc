@@ -4,29 +4,29 @@
 Procedures:
 
 ```
-  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);
+[13](https://github.com/io-core/System/blob/main/Tools.Mod#13)    PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);
 ```
 ```
-  PROCEDURE Clear*;  (*used to clear output*)
+[24](https://github.com/io-core/System/blob/main/Tools.Mod#24)    PROCEDURE Clear*;  (*used to clear output*)
 ```
 ```
-  PROCEDURE Close*;
+[29](https://github.com/io-core/System/blob/main/Tools.Mod#29)    PROCEDURE Close*;
 ```
 ```
-  PROCEDURE Recall*;
+[36](https://github.com/io-core/System/blob/main/Tools.Mod#36)    PROCEDURE Recall*;
 ```
 ```
-  PROCEDURE Inspect*;
+[40](https://github.com/io-core/System/blob/main/Tools.Mod#40)    PROCEDURE Inspect*;
 ```
 ```
-  PROCEDURE Sector*;
+[55](https://github.com/io-core/System/blob/main/Tools.Mod#55)    PROCEDURE Sector*;
 ```
 ```
-  PROCEDURE ShowFile*;
+[72](https://github.com/io-core/System/blob/main/Tools.Mod#72)    PROCEDURE ShowFile*;
 ```
 ```
-  PROCEDURE Convert*;   (*convert selected text to txt-format*)
+[92](https://github.com/io-core/System/blob/main/Tools.Mod#92)    PROCEDURE Convert*;   (*convert selected text to txt-format*)
 ```
 ```
-  PROCEDURE Id*;
+[116](https://github.com/io-core/System/blob/main/Tools.Mod#116)    PROCEDURE Id*;
 ```

@@ -4,32 +4,32 @@
 Procedures:
 
 ```
-  PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);
+[14](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#14)    PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);
 ```
 ```
-  PROCEDURE Restore (V: Viewer);
+[22](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#22)    PROCEDURE Restore (V: Viewer);
 ```
 ```
-  PROCEDURE Modify (V: Viewer; Y, H: INTEGER);
+[37](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#37)    PROCEDURE Modify (V: Viewer; Y, H: INTEGER);
 ```
 ```
-  PROCEDURE Suspend (V: Viewer);
+[59](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#59)    PROCEDURE Suspend (V: Viewer);
 ```
 ```
-  PROCEDURE Move (V: Viewer; X, Y: INTEGER; Keys: SET);
+[66](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#66)    PROCEDURE Move (V: Viewer; X, Y: INTEGER; Keys: SET);
 ```
 ```
-  PROCEDURE Change (V: Viewer; X, Y: INTEGER; Keys: SET);
+[90](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#90)    PROCEDURE Change (V: Viewer; X, Y: INTEGER; Keys: SET);
 ```
 ```
-  PROCEDURE Expand (V: Viewers.Viewer);
+[105](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#105)    PROCEDURE Expand (V: Viewers.Viewer);
 ```
 ```
-  PROCEDURE Copy (V: Viewer; VAR V1: Viewer);
+[111](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#111)    PROCEDURE Copy (V: Viewer; VAR V1: Viewer);
 ```
 ```
-  PROCEDURE Handle* (V: Display.Frame; VAR M: Display.FrameMsg);
+[119](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#119)    PROCEDURE Handle* (V: Display.Frame; VAR M: Display.FrameMsg);
 ```
 ```
-  PROCEDURE New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer;
+[160](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#160)    PROCEDURE New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer;
 ```

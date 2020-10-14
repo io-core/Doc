@@ -4,347 +4,347 @@
 Procedures:
 
 ```
-  PROCEDURE incR;
+[67](https://github.com/io-core/Build/blob/main/ORG.Mod#67)    PROCEDURE incR;
 ```
 ```
-  PROCEDURE Put0(op, a, b, c: LONGINT);
+[72](https://github.com/io-core/Build/blob/main/ORG.Mod#72)    PROCEDURE Put0(op, a, b, c: LONGINT);
 ```
 ```
-  PROCEDURE Put1(op, a, b, im: LONGINT);
+[77](https://github.com/io-core/Build/blob/main/ORG.Mod#77)    PROCEDURE Put1(op, a, b, im: LONGINT);
 ```
 ```
-  PROCEDURE Put1a(op, a, b, im: LONGINT);
+[83](https://github.com/io-core/Build/blob/main/ORG.Mod#83)    PROCEDURE Put1a(op, a, b, im: LONGINT);
 ```
 ```
-  PROCEDURE Put1b(r, mno, off, disp: LONGINT);
+[99](https://github.com/io-core/Build/blob/main/ORG.Mod#99)    PROCEDURE Put1b(r, mno, off, disp: LONGINT);
 ```
 ```
-  PROCEDURE Put2(op, a, b, off: LONGINT);
+[104](https://github.com/io-core/Build/blob/main/ORG.Mod#104)    PROCEDURE Put2(op, a, b, off: LONGINT);
 ```
 ```
-  PROCEDURE Put3(op, cond, off: LONGINT);
+[109](https://github.com/io-core/Build/blob/main/ORG.Mod#109)    PROCEDURE Put3(op, cond, off: LONGINT);
 ```
 ```
-  PROCEDURE Put3a(op, mno, pno, disp: LONGINT);
+[114](https://github.com/io-core/Build/blob/main/ORG.Mod#114)    PROCEDURE Put3a(op, mno, pno, disp: LONGINT);
 ```
 ```
-  PROCEDURE PutPair(base, op, a, b, off, format: LONGINT);
+[119](https://github.com/io-core/Build/blob/main/ORG.Mod#119)    PROCEDURE PutPair(base, op, a, b, off, format: LONGINT);
 ```
 ```
-  PROCEDURE CheckRegs*;
+[131](https://github.com/io-core/Build/blob/main/ORG.Mod#131)    PROCEDURE CheckRegs*;
 ```
 ```
-  PROCEDURE SetCC(VAR x: Item; n: LONGINT);
+[138](https://github.com/io-core/Build/blob/main/ORG.Mod#138)    PROCEDURE SetCC(VAR x: Item; n: LONGINT);
 ```
 ```
-  PROCEDURE Trap(cond, num: LONGINT);
+[142](https://github.com/io-core/Build/blob/main/ORG.Mod#142)    PROCEDURE Trap(cond, num: LONGINT);
 ```
 ```
-  PROCEDURE NilCheck;
+[146](https://github.com/io-core/Build/blob/main/ORG.Mod#146)    PROCEDURE NilCheck;
 ```
 ```
-  PROCEDURE negated(cond: LONGINT): LONGINT;
+[152](https://github.com/io-core/Build/blob/main/ORG.Mod#152)    PROCEDURE negated(cond: LONGINT): LONGINT;
 ```
 ```
-  PROCEDURE fix(at, with: LONGINT);
+[158](https://github.com/io-core/Build/blob/main/ORG.Mod#158)    PROCEDURE fix(at, with: LONGINT);
 ```
 ```
-  PROCEDURE fix1(at, with: LONGINT);
+[163](https://github.com/io-core/Build/blob/main/ORG.Mod#163)    PROCEDURE fix1(at, with: LONGINT);
 ```
 ```
-  PROCEDURE FixLinkWith(L, x: LONGINT); (*fixup with offset to x*)
+[170](https://github.com/io-core/Build/blob/main/ORG.Mod#170)    PROCEDURE FixLinkWith(L, x: LONGINT); (*fixup with offset to x*)
 ```
 ```
-  PROCEDURE FixLink*(L: LONGINT); (*fixup with offset to pc*)
+[183](https://github.com/io-core/Build/blob/main/ORG.Mod#183)    PROCEDURE FixLink*(L: LONGINT); (*fixup with offset to pc*)
 ```
 ```
-  PROCEDURE FixLinkPair(L, adr: LONGINT);
+[187](https://github.com/io-core/Build/blob/main/ORG.Mod#187)    PROCEDURE FixLinkPair(L, adr: LONGINT);
 ```
 ```
-  PROCEDURE merged(L0, L1: LONGINT): LONGINT;
+[198](https://github.com/io-core/Build/blob/main/ORG.Mod#198)    PROCEDURE merged(L0, L1: LONGINT): LONGINT;
 ```
 ```
-  PROCEDURE load(VAR x: Item);
+[210](https://github.com/io-core/Build/blob/main/ORG.Mod#210)    PROCEDURE load(VAR x: Item);
 ```
 ```
-  PROCEDURE loadAdr(VAR x: Item);
+[239](https://github.com/io-core/Build/blob/main/ORG.Mod#239)    PROCEDURE loadAdr(VAR x: Item);
 ```
 ```
-  PROCEDURE loadCond(VAR x: Item);
+[254](https://github.com/io-core/Build/blob/main/ORG.Mod#254)    PROCEDURE loadCond(VAR x: Item);
 ```
 ```
-  PROCEDURE loadTypTagAdr(T: ORB.Type);
+[269](https://github.com/io-core/Build/blob/main/ORG.Mod#269)    PROCEDURE loadTypTagAdr(T: ORB.Type);
 ```
 ```
-  PROCEDURE loadStringAdr(VAR x: Item);
+[277](https://github.com/io-core/Build/blob/main/ORG.Mod#277)    PROCEDURE loadStringAdr(VAR x: Item);
 ```
 ```
-  PROCEDURE MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT);
+[285](https://github.com/io-core/Build/blob/main/ORG.Mod#285)    PROCEDURE MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT);
 ```
 ```
-  PROCEDURE MakeRealItem*(VAR x: Item; val: REAL);
+[289](https://github.com/io-core/Build/blob/main/ORG.Mod#289)    PROCEDURE MakeRealItem*(VAR x: Item; val: REAL);
 ```
 ```
-  PROCEDURE MakeStringItem*(VAR x: Item; len: LONGINT);  (*copies string from ORS-buffer to ORG-string array*)
+[293](https://github.com/io-core/Build/blob/main/ORG.Mod#293)    PROCEDURE MakeStringItem*(VAR x: Item; len: LONGINT);  (*copies string from ORS-buffer to ORG-string array*)
 ```
 ```
-  PROCEDURE MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT);
+[303](https://github.com/io-core/Build/blob/main/ORG.Mod#303)    PROCEDURE MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT);
 ```
 ```
-  PROCEDURE Field*(VAR x: Item; y: ORB.Object);   (* x := x.y *)
+[314](https://github.com/io-core/Build/blob/main/ORG.Mod#314)    PROCEDURE Field*(VAR x: Item; y: ORB.Object);   (* x := x.y *)
 ```
 ```
-  PROCEDURE Index*(VAR x, y: Item);   (* x := x[y] *)
+[325](https://github.com/io-core/Build/blob/main/ORG.Mod#325)    PROCEDURE Index*(VAR x, y: Item);   (* x := x[y] *)
 ```
 ```
-  PROCEDURE DeRef*(VAR x: Item);
+[360](https://github.com/io-core/Build/blob/main/ORG.Mod#360)    PROCEDURE DeRef*(VAR x: Item);
 ```
 ```
-  PROCEDURE Method*(VAR x: Item; y: ORB.Object; wasderef, super: BOOLEAN);
+[374](https://github.com/io-core/Build/blob/main/ORG.Mod#374)    PROCEDURE Method*(VAR x: Item; y: ORB.Object; wasderef, super: BOOLEAN);
 ```
 ```
-  PROCEDURE Q(T: ORB.Type; VAR tdw: LONGINT);
+[382](https://github.com/io-core/Build/blob/main/ORG.Mod#382)    PROCEDURE Q(T: ORB.Type; VAR tdw: LONGINT);
 ```
 ```
-  PROCEDURE FindRefFlds(ftyp: SET; typ: ORB.Type; off: LONGINT; VAR tdw: LONGINT);
+[390](https://github.com/io-core/Build/blob/main/ORG.Mod#390)    PROCEDURE FindRefFlds(ftyp: SET; typ: ORB.Type; off: LONGINT; VAR tdw: LONGINT);
 ```
 ```
-  PROCEDURE BuildTD(T: ORB.Type; VAR tdw: LONGINT);
+[401](https://github.com/io-core/Build/blob/main/ORG.Mod#401)    PROCEDURE BuildTD(T: ORB.Type; VAR tdw: LONGINT);
 ```
 ```
-  PROCEDURE TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN);
+[435](https://github.com/io-core/Build/blob/main/ORG.Mod#435)    PROCEDURE TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN);
 ```
 ```
-  PROCEDURE Not*(VAR x: Item);   (* x := ~x *)
+[461](https://github.com/io-core/Build/blob/main/ORG.Mod#461)    PROCEDURE Not*(VAR x: Item);   (* x := ~x *)
 ```
 ```
-  PROCEDURE And1*(VAR x: Item);   (* x := x & *)
+[466](https://github.com/io-core/Build/blob/main/ORG.Mod#466)    PROCEDURE And1*(VAR x: Item);   (* x := x & *)
 ```
 ```
-  PROCEDURE And2*(VAR x, y: Item);
+[470](https://github.com/io-core/Build/blob/main/ORG.Mod#470)    PROCEDURE And2*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Or1*(VAR x: Item);   (* x := x OR *)
+[474](https://github.com/io-core/Build/blob/main/ORG.Mod#474)    PROCEDURE Or1*(VAR x: Item);   (* x := x OR *)
 ```
 ```
-  PROCEDURE Or2*(VAR x, y: Item);
+[478](https://github.com/io-core/Build/blob/main/ORG.Mod#478)    PROCEDURE Or2*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Neg*(VAR x: Item);   (* x := -x *)
+[484](https://github.com/io-core/Build/blob/main/ORG.Mod#484)    PROCEDURE Neg*(VAR x: Item);   (* x := -x *)
 ```
 ```
-  PROCEDURE AddOp*(op: LONGINT; VAR x, y: Item);   (* x := x +- y *)
+[501](https://github.com/io-core/Build/blob/main/ORG.Mod#501)    PROCEDURE AddOp*(op: LONGINT; VAR x, y: Item);   (* x := x +- y *)
 ```
 ```
-  PROCEDURE log2(m: LONGINT; VAR e: LONGINT): LONGINT;
+[518](https://github.com/io-core/Build/blob/main/ORG.Mod#518)    PROCEDURE log2(m: LONGINT; VAR e: LONGINT): LONGINT;
 ```
 ```
-  PROCEDURE MulOp*(VAR x, y: Item);   (* x := x * y *)
+[524](https://github.com/io-core/Build/blob/main/ORG.Mod#524)    PROCEDURE MulOp*(VAR x, y: Item);   (* x := x * y *)
 ```
 ```
-  PROCEDURE DivOp*(op: LONGINT; VAR x, y: Item);   (* x := x op y *)
+[536](https://github.com/io-core/Build/blob/main/ORG.Mod#536)    PROCEDURE DivOp*(op: LONGINT; VAR x, y: Item);   (* x := x op y *)
 ```
 ```
-  PROCEDURE RealOp*(op: INTEGER; VAR x, y: Item);   (* x := x op y *)
+[565](https://github.com/io-core/Build/blob/main/ORG.Mod#565)    PROCEDURE RealOp*(op: INTEGER; VAR x, y: Item);   (* x := x op y *)
 ```
 ```
-  PROCEDURE Singleton*(VAR x: Item);  (* x := {x} *)
+[577](https://github.com/io-core/Build/blob/main/ORG.Mod#577)    PROCEDURE Singleton*(VAR x: Item);  (* x := {x} *)
 ```
 ```
-  PROCEDURE Set*(VAR x, y: Item);   (* x := {x .. y} *)
+[584](https://github.com/io-core/Build/blob/main/ORG.Mod#584)    PROCEDURE Set*(VAR x, y: Item);   (* x := {x .. y} *)
 ```
 ```
-  PROCEDURE In*(VAR x, y: Item);  (* x := x IN y *)
+[604](https://github.com/io-core/Build/blob/main/ORG.Mod#604)    PROCEDURE In*(VAR x, y: Item);  (* x := x IN y *)
 ```
 ```
-  PROCEDURE SetOp*(op: LONGINT; VAR x, y: Item);   (* x := x op y *)
+[612](https://github.com/io-core/Build/blob/main/ORG.Mod#612)    PROCEDURE SetOp*(op: LONGINT; VAR x, y: Item);   (* x := x op y *)
 ```
 ```
-  PROCEDURE IntRelation*(op: INTEGER; VAR x, y: Item);   (* x := x < y *)
+[642](https://github.com/io-core/Build/blob/main/ORG.Mod#642)    PROCEDURE IntRelation*(op: INTEGER; VAR x, y: Item);   (* x := x < y *)
 ```
 ```
-  PROCEDURE RealRelation*(op: INTEGER; VAR x, y: Item);   (* x := x < y *)
+[655](https://github.com/io-core/Build/blob/main/ORG.Mod#655)    PROCEDURE RealRelation*(op: INTEGER; VAR x, y: Item);   (* x := x < y *)
 ```
 ```
-  PROCEDURE StringRelation*(op: INTEGER; VAR x, y: Item);   (* x := x < y *)
+[663](https://github.com/io-core/Build/blob/main/ORG.Mod#663)    PROCEDURE StringRelation*(op: INTEGER; VAR x, y: Item);   (* x := x < y *)
 ```
 ```
-  PROCEDURE StrToChar*(VAR x: Item);
+[677](https://github.com/io-core/Build/blob/main/ORG.Mod#677)    PROCEDURE StrToChar*(VAR x: Item);
 ```
 ```
-  PROCEDURE Store*(VAR x, y: Item); (* x := y *)
+[681](https://github.com/io-core/Build/blob/main/ORG.Mod#681)    PROCEDURE Store*(VAR x, y: Item); (* x := y *)
 ```
 ```
-  PROCEDURE StoreStruct*(VAR x, y: Item); (* x := y, frame = 0 *)
+[694](https://github.com/io-core/Build/blob/main/ORG.Mod#694)    PROCEDURE StoreStruct*(VAR x, y: Item); (* x := y, frame = 0 *)
 ```
 ```
-  PROCEDURE StoreToInterface*(VAR x, y: Item); (* x.type.form = ORB.Interface, y.type.form = ORB.Pointer *) (* TODO: Build interface table *)
+[723](https://github.com/io-core/Build/blob/main/ORG.Mod#723)    PROCEDURE StoreToInterface*(VAR x, y: Item); (* x.type.form = ORB.Interface, y.type.form = ORB.Pointer *) (* TODO: Build interface table *)
 ```
 ```
-  PROCEDURE CopyString*(VAR x, y: Item);  (* x := y, frame = 0 *) 
+[736](https://github.com/io-core/Build/blob/main/ORG.Mod#736)    PROCEDURE CopyString*(VAR x, y: Item);  (* x := y, frame = 0 *) 
 ```
 ```
-  PROCEDURE OpenArrayParam*(VAR x: Item);
+[753](https://github.com/io-core/Build/blob/main/ORG.Mod#753)    PROCEDURE OpenArrayParam*(VAR x: Item);
 ```
 ```
-  PROCEDURE VarParam*(VAR x: Item; ftype: ORB.Type);
+[762](https://github.com/io-core/Build/blob/main/ORG.Mod#762)    PROCEDURE VarParam*(VAR x: Item; ftype: ORB.Type);
 ```
 ```
-  PROCEDURE ValueParam*(VAR x: Item);
+[776](https://github.com/io-core/Build/blob/main/ORG.Mod#776)    PROCEDURE ValueParam*(VAR x: Item);
 ```
 ```
-  PROCEDURE StringParam*(VAR x: Item);
+[780](https://github.com/io-core/Build/blob/main/ORG.Mod#780)    PROCEDURE StringParam*(VAR x: Item);
 ```
 ```
-  PROCEDURE ReceiverParam*(VAR x: Item; par: ORB.Object);
+[784](https://github.com/io-core/Build/blob/main/ORG.Mod#784)    PROCEDURE ReceiverParam*(VAR x: Item; par: ORB.Object);
 ```
 ```
-  PROCEDURE For0*(VAR x, y: Item);
+[793](https://github.com/io-core/Build/blob/main/ORG.Mod#793)    PROCEDURE For0*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE For1*(VAR x, y, z, w: Item; VAR L: LONGINT);
+[797](https://github.com/io-core/Build/blob/main/ORG.Mod#797)    PROCEDURE For1*(VAR x, y, z, w: Item; VAR L: LONGINT);
 ```
 ```
-  PROCEDURE For2*(VAR x, y, w: Item);
+[810](https://github.com/io-core/Build/blob/main/ORG.Mod#810)    PROCEDURE For2*(VAR x, y, w: Item);
 ```
 ```
-  PROCEDURE Here*(): LONGINT;
+[816](https://github.com/io-core/Build/blob/main/ORG.Mod#816)    PROCEDURE Here*(): LONGINT;
 ```
 ```
-  PROCEDURE FJump*(VAR L: LONGINT);
+[820](https://github.com/io-core/Build/blob/main/ORG.Mod#820)    PROCEDURE FJump*(VAR L: LONGINT);
 ```
 ```
-  PROCEDURE CFJump*(VAR x: Item);
+[824](https://github.com/io-core/Build/blob/main/ORG.Mod#824)    PROCEDURE CFJump*(VAR x: Item);
 ```
 ```
-  PROCEDURE BJump*(L: LONGINT);
+[828](https://github.com/io-core/Build/blob/main/ORG.Mod#828)    PROCEDURE BJump*(L: LONGINT);
 ```
 ```
-  PROCEDURE CBJump*(VAR x: Item; L: LONGINT);
+[832](https://github.com/io-core/Build/blob/main/ORG.Mod#832)    PROCEDURE CBJump*(VAR x: Item; L: LONGINT);
 ```
 ```
-  PROCEDURE Fixup*(VAR x: Item);
+[836](https://github.com/io-core/Build/blob/main/ORG.Mod#836)    PROCEDURE Fixup*(VAR x: Item);
 ```
 ```
-  PROCEDURE SaveRegs(r: LONGINT);  (* R[0 .. r-1]*)
+[840](https://github.com/io-core/Build/blob/main/ORG.Mod#840)    PROCEDURE SaveRegs(r: LONGINT);  (* R[0 .. r-1]*)
 ```
 ```
-  PROCEDURE RestoreRegs(r: LONGINT); (*R[0 .. r-1]*)
+[847](https://github.com/io-core/Build/blob/main/ORG.Mod#847)    PROCEDURE RestoreRegs(r: LONGINT); (*R[0 .. r-1]*)
 ```
 ```
-  PROCEDURE PrepCall*(VAR x: Item; VAR r: LONGINT);
+[854](https://github.com/io-core/Build/blob/main/ORG.Mod#854)    PROCEDURE PrepCall*(VAR x: Item; VAR r: LONGINT);
 ```
 ```
-  PROCEDURE Call*(VAR x: Item; r: LONGINT);
+[861](https://github.com/io-core/Build/blob/main/ORG.Mod#861)    PROCEDURE Call*(VAR x: Item; r: LONGINT);
 ```
 ```
-  PROCEDURE Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN);
+[891](https://github.com/io-core/Build/blob/main/ORG.Mod#891)    PROCEDURE Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN);
 ```
 ```
-  PROCEDURE Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN);
+[905](https://github.com/io-core/Build/blob/main/ORG.Mod#905)    PROCEDURE Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN);
 ```
 ```
-  PROCEDURE CaseHead*(VAR x: Item; VAR L0: LONGINT);
+[919](https://github.com/io-core/Build/blob/main/ORG.Mod#919)    PROCEDURE CaseHead*(VAR x: Item; VAR L0: LONGINT);
 ```
 ```
-  PROCEDURE CaseTail*(L0, L1: LONGINT; n: INTEGER; VAR tab: ARRAY OF LabelRange);  (*L1 = label for else*)
+[929](https://github.com/io-core/Build/blob/main/ORG.Mod#929)    PROCEDURE CaseTail*(L0, L1: LONGINT; n: INTEGER; VAR tab: ARRAY OF LabelRange);  (*L1 = label for else*)
 ```
 ```
-  PROCEDURE Increment*(upordown: LONGINT; VAR x, y: Item);
+[945](https://github.com/io-core/Build/blob/main/ORG.Mod#945)    PROCEDURE Increment*(upordown: LONGINT; VAR x, y: Item);
 ```
 ```
-  PROCEDURE Include*(inorex: LONGINT; VAR x, y: Item);
+[961](https://github.com/io-core/Build/blob/main/ORG.Mod#961)    PROCEDURE Include*(inorex: LONGINT; VAR x, y: Item);
 ```
 ```
-  PROCEDURE Assert*(VAR x: Item);
+[971](https://github.com/io-core/Build/blob/main/ORG.Mod#971)    PROCEDURE Assert*(VAR x: Item);
 ```
 ```
-  PROCEDURE New*(VAR x, y: Item);
+[980](https://github.com/io-core/Build/blob/main/ORG.Mod#980)    PROCEDURE New*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Pack*(VAR x, y: Item);
+[1001](https://github.com/io-core/Build/blob/main/ORG.Mod#1001)    PROCEDURE Pack*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Unpk*(VAR x, y: Item);
+[1007](https://github.com/io-core/Build/blob/main/ORG.Mod#1007)    PROCEDURE Unpk*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Led*(VAR x: Item);
+[1014](https://github.com/io-core/Build/blob/main/ORG.Mod#1014)    PROCEDURE Led*(VAR x: Item);
 ```
 ```
-  PROCEDURE Get*(VAR x, y: Item);
+[1018](https://github.com/io-core/Build/blob/main/ORG.Mod#1018)    PROCEDURE Get*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Put*(VAR x, y: Item);
+[1022](https://github.com/io-core/Build/blob/main/ORG.Mod#1022)    PROCEDURE Put*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Copy*(VAR x, y, z: Item);
+[1026](https://github.com/io-core/Build/blob/main/ORG.Mod#1026)    PROCEDURE Copy*(VAR x, y, z: Item);
 ```
 ```
-  PROCEDURE LDPSR*(VAR x: Item);
+[1039](https://github.com/io-core/Build/blob/main/ORG.Mod#1039)    PROCEDURE LDPSR*(VAR x: Item);
 ```
 ```
-  PROCEDURE LDREG*(VAR x, y: Item);
+[1043](https://github.com/io-core/Build/blob/main/ORG.Mod#1043)    PROCEDURE LDREG*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Abs*(VAR x: Item);
+[1052](https://github.com/io-core/Build/blob/main/ORG.Mod#1052)    PROCEDURE Abs*(VAR x: Item);
 ```
 ```
-  PROCEDURE Odd*(VAR x: Item);
+[1062](https://github.com/io-core/Build/blob/main/ORG.Mod#1062)    PROCEDURE Odd*(VAR x: Item);
 ```
 ```
-  PROCEDURE Floor*(VAR x: Item);
+[1066](https://github.com/io-core/Build/blob/main/ORG.Mod#1066)    PROCEDURE Floor*(VAR x: Item);
 ```
 ```
-  PROCEDURE Float*(VAR x: Item);
+[1070](https://github.com/io-core/Build/blob/main/ORG.Mod#1070)    PROCEDURE Float*(VAR x: Item);
 ```
 ```
-  PROCEDURE Ord*(VAR x: Item);
+[1074](https://github.com/io-core/Build/blob/main/ORG.Mod#1074)    PROCEDURE Ord*(VAR x: Item);
 ```
 ```
-  PROCEDURE Len*(VAR x: Item);
+[1081](https://github.com/io-core/Build/blob/main/ORG.Mod#1081)    PROCEDURE Len*(VAR x: Item);
 ```
 ```
-  PROCEDURE Shift*(fct: LONGINT; VAR x, y: Item);
+[1092](https://github.com/io-core/Build/blob/main/ORG.Mod#1092)    PROCEDURE Shift*(fct: LONGINT; VAR x, y: Item);
 ```
 ```
-  PROCEDURE ADC*(VAR x, y: Item);
+[1101](https://github.com/io-core/Build/blob/main/ORG.Mod#1101)    PROCEDURE ADC*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE SBC*(VAR x, y: Item);
+[1105](https://github.com/io-core/Build/blob/main/ORG.Mod#1105)    PROCEDURE SBC*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE UML*(VAR x, y: Item);
+[1109](https://github.com/io-core/Build/blob/main/ORG.Mod#1109)    PROCEDURE UML*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Bit*(VAR x, y: Item);
+[1113](https://github.com/io-core/Build/blob/main/ORG.Mod#1113)    PROCEDURE Bit*(VAR x, y: Item);
 ```
 ```
-  PROCEDURE Register*(VAR x: Item);
+[1121](https://github.com/io-core/Build/blob/main/ORG.Mod#1121)    PROCEDURE Register*(VAR x: Item);
 ```
 ```
-  PROCEDURE H*(VAR x: Item);
+[1126](https://github.com/io-core/Build/blob/main/ORG.Mod#1126)    PROCEDURE H*(VAR x: Item);
 ```
 ```
-  PROCEDURE Adr*(VAR x: Item);
+[1131](https://github.com/io-core/Build/blob/main/ORG.Mod#1131)    PROCEDURE Adr*(VAR x: Item);
 ```
 ```
-  PROCEDURE Condition*(VAR x: Item);
+[1140](https://github.com/io-core/Build/blob/main/ORG.Mod#1140)    PROCEDURE Condition*(VAR x: Item);
 ```
 ```
-  PROCEDURE Open*(v: INTEGER);
+[1144](https://github.com/io-core/Build/blob/main/ORG.Mod#1144)    PROCEDURE Open*(v: INTEGER);
 ```
 ```
-  PROCEDURE SetDataSize*(dc: LONGINT);
+[1151](https://github.com/io-core/Build/blob/main/ORG.Mod#1151)    PROCEDURE SetDataSize*(dc: LONGINT);
 ```
 ```
-  PROCEDURE Header*;
+[1155](https://github.com/io-core/Build/blob/main/ORG.Mod#1155)    PROCEDURE Header*;
 ```
 ```
-  PROCEDURE NofRefs(ftyp: SET; typ: ORB.Type): LONGINT;
+[1162](https://github.com/io-core/Build/blob/main/ORG.Mod#1162)    PROCEDURE NofRefs(ftyp: SET; typ: ORB.Type): LONGINT;
 ```
 ```
-  PROCEDURE FindRefs(VAR R: Files.Rider; ftyp: SET; typ: ORB.Type; off: LONGINT);
+[1174](https://github.com/io-core/Build/blob/main/ORG.Mod#1174)    PROCEDURE FindRefs(VAR R: Files.Rider; ftyp: SET; typ: ORB.Type; off: LONGINT);
 ```
 ```
-  PROCEDURE Close*(VAR modid: ORS.Ident; key, nofent: LONGINT);
+[1185](https://github.com/io-core/Build/blob/main/ORG.Mod#1185)    PROCEDURE Close*(VAR modid: ORS.Ident; key, nofent: LONGINT);
 ```
