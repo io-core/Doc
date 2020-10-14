@@ -6,6 +6,7 @@ ORP is a recursive descent parser that visits procedures corresponding to symbol
 
 Procedures:
 
+## Symbol Check Procedures
 Check consumes the current token if it matches the expected symbol, otherwise an error is marked.
 ```
   PROCEDURE Check(s: INTEGER; msg: ARRAY OF CHAR);
@@ -58,6 +59,7 @@ CheckExport checks for an export symbol and marks an error if export not at top 
 ```
   PROCEDURE DisallowMethods(rec: ORB.Type);  (*disallow binding methods to rec and its base types*)
 ```
+## Expressions
 
 ```
   PROCEDURE TypeTest(VAR x: ORG.Item; T: ORB.Type; guard: BOOLEAN);
@@ -118,6 +120,7 @@ CheckExport checks for an export symbol and marks an error if export not at top 
 ```
   PROCEDURE expression0(VAR x: ORG.Item);
 ```
+## Statements
 
 ```
   PROCEDURE StandProc(pno: LONGINT);
@@ -149,6 +152,7 @@ CheckExport checks for an export symbol and marks an error if export not at top 
     PROCEDURE NumericCasePart;
 ```
 
+## Types and Declarations
 
 ```
   PROCEDURE IdentList(class: INTEGER; VAR first: ORB.Object);

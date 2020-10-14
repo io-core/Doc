@@ -41,6 +41,13 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			        echo  >> $k/$nam/README.md	
 			done
                         echo '```' >> $k/$nam/README.md
+
+			echo "Procedures:" >> $k/$nam/$snam.md
+                        echo  >> $k/$nam/$snam.md
+			echo "../src/github.com/io-core/$nam/$snam.Mod"
+		        awk '/end-procedure-description/{p=0};p;/begin-procedure-description/{p=1};/end-section-description/{q=0};q;/begin-section-description/{q=1};/^ *PROCEDURE/{print "```";print;print"```"}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/$snam.md	
+                        
+
 		done
 	done
 done
