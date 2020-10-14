@@ -4,38 +4,38 @@
 Procedures:
 
 
-<code>  PROCEDURE RecInt(VAR x: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L19)
+`  PROCEDURE RecInt(VAR x: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L19)
 
 
-<code>  PROCEDURE LoadFromLine;</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L29)
+`  PROCEDURE LoadFromLine;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L29)
 
 
-<code>  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L41)
+`  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L41)
 
 
-<code>  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L48)
+`  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L48)
 
 
-<code>  PROCEDURE SPICmd(n, arg: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L53)
+`  PROCEDURE SPICmd(n, arg: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L53)
 
 
-<code>  PROCEDURE InitSPI;</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L65)
+`  PROCEDURE InitSPI;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L65)
 
 
-<code>  PROCEDURE SDShift(VAR n: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L82)
+`  PROCEDURE SDShift(VAR n: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L82)
 
 
-<code>  PROCEDURE ReadSD(src, dst: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L90)
+`  PROCEDURE ReadSD(src, dst: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L90)
 
 
-<code>  PROCEDURE LoadFromDisk;</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L104)
+`  PROCEDURE LoadFromDisk;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L104)
 
 
-<code>  PROCEDURE RecInt(VAR x: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L131)
+`  PROCEDURE RecInt(VAR x: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L131)
 
 
-<code>  PROCEDURE Load;</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L141)
+`  PROCEDURE Load;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L141)
 
 
-<code>  PROCEDURE* Int; (*interrupt every millisecond*)</code> [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L190)
+`  PROCEDURE* Int; (*interrupt every millisecond*)` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L190)
 

@@ -4,20 +4,20 @@
 Procedures:
 
 
-<code>  PROCEDURE New*(b: Binding);</code> [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L49)
+`  PROCEDURE New*(b: Binding);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L49)
 
 
-<code>  PROCEDURE Prepare*(VAR e: Env; VAR T: Text);</code> [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L54)
+`  PROCEDURE Prepare*(VAR e: Env; VAR T: Text);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L54)
 
 
-<code>  PROCEDURE Set*(e: Env; b: Binding);</code> [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L60)
+`  PROCEDURE Set*(e: Env; b: Binding);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L60)
 
 
-<code>  PROCEDURE Save*(e: Env; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L66)
+`  PROCEDURE Save*(e: Env; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L66)
 
 
-<code>  PROCEDURE Resume*(e: Env; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L74)
+`  PROCEDURE Resume*(e: Env; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L74)
 
 
-<code>  PROCEDURE Unset*(e: Env);</code> [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L90)
+`  PROCEDURE Unset*(e: Env);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L90)
 

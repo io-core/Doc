@@ -4,68 +4,68 @@
 Procedures:
 
 
-<code>  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L42)
+`  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L42)
 
 
-<code>  PROCEDURE ThisSmb(name: ARRAY OF CHAR): Files.File;</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L51)
+`  PROCEDURE ThisSmb(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L51)
 
 
-<code>  PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L60)
+`  PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L60)
 
 
-<code>  PROCEDURE check(s: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L64)
+`  PROCEDURE check(s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L64)
 
 
-<code>  PROCEDURE Load*(name: ARRAY OF CHAR; VAR newmod: Module);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L75)
+`  PROCEDURE Load*(name: ARRAY OF CHAR; VAR newmod: Module);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L75)
 
 
-<code>  PROCEDURE ThisCommand*(mod: Module; name: ARRAY OF CHAR): Command;</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L256)
+`  PROCEDURE ThisCommand*(mod: Module; name: ARRAY OF CHAR): Command;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L256)
 
 
-<code>  PROCEDURE Call*(name: ARRAY OF CHAR; VAR err: INTEGER);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L276)
+`  PROCEDURE Call*(name: ARRAY OF CHAR; VAR err: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L276)
 
 
-<code>  PROCEDURE select(mod: Module; clients, imports: BOOLEAN);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L320)
+`  PROCEDURE select(mod: Module; clients, imports: BOOLEAN);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L320)
 
 
-<code>  PROCEDURE Select*(name: ARRAY OF CHAR; on, this, clients, imports: BOOLEAN);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L340)
+`  PROCEDURE Select*(name: ARRAY OF CHAR; on, this, clients, imports: BOOLEAN);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L340)
 
 
-<code>  PROCEDURE Deselect*; (*all modules*)</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L360)
+`  PROCEDURE Deselect*; (*all modules*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L360)
 
 
-<code>  PROCEDURE FindClients*(client: ClientHandler; VAR res: INTEGER);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L368)
+`  PROCEDURE FindClients*(client: ClientHandler; VAR res: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L368)
 
 
-<code>  PROCEDURE FindDynamicReferences*(typ, ptr, pvr: RefHandler; VAR resTyp, resPtr, resPvr: INTEGER; all: BOOLEAN);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L386)
+`  PROCEDURE FindDynamicReferences*(typ, ptr, pvr: RefHandler; VAR resTyp, resPtr, resPvr: INTEGER; all: BOOLEAN);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L386)
 
 
-<code>  PROCEDURE FindStaticReferences*(ptr, pvr: RefHandler; VAR resPtr, resPvr: INTEGER);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L398)
+`  PROCEDURE FindStaticReferences*(ptr, pvr: RefHandler; VAR resPtr, resPvr: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L398)
 
 
-<code>  PROCEDURE HandleClient(mod, imp: Module; VAR continue: BOOLEAN): INTEGER;</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L420)
+`  PROCEDURE HandleClient(mod, imp: Module; VAR continue: BOOLEAN): INTEGER;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L420)
 
 
-<code>  PROCEDURE HandleRef(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L424)
+`  PROCEDURE HandleRef(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L424)
 
 
-<code>  PROCEDURE Check*(VAR res: INTEGER);</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L434)
+`  PROCEDURE Check*(VAR res: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L434)
 
 
-<code>  PROCEDURE Unload(mod: Module); (*module and selected imports from memory*)</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L458)
+`  PROCEDURE Unload(mod: Module); (*module and selected imports from memory*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L458)
 
 
-<code>  PROCEDURE Hide(mod: Module); (*module from module list*)</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L474)
+`  PROCEDURE Hide(mod: Module); (*module from module list*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L474)
 
 
-<code>  PROCEDURE FreeSelection*(hide: BOOLEAN); (*unload or hide selected modules; res is set by Check*)</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L483)
+`  PROCEDURE FreeSelection*(hide: BOOLEAN); (*unload or hide selected modules; res is set by Check*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L483)
 
 
-<code>  PROCEDURE Free*(name: ARRAY OF CHAR; hide: BOOLEAN); (*unload or hide specified module; res is set by Check*)</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L501)
+`  PROCEDURE Free*(name: ARRAY OF CHAR; hide: BOOLEAN); (*unload or hide specified module; res is set by Check*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L501)
 
 
-<code>  PROCEDURE Collect*; (*no longer referenced hidden modules*)</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L515)
+`  PROCEDURE Collect*; (*no longer referenced hidden modules*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L515)
 
 
-<code>  PROCEDURE Init*;</code> [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L575)
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L575)
 

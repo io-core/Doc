@@ -4,11 +4,11 @@
 Procedures:
 
 
-<code>PROCEDURE New*(R: Resource; v: INTEGER) : Resource;</code> [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L11)
+`PROCEDURE New*(R: Resource; v: INTEGER) : Resource;` [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L11)
 
 
-<code>PROCEDURE Get*(R: Resource; x: INTEGER): INTEGER;</code> [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L21)
+`PROCEDURE Get*(R: Resource; x: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L21)
 
 
-<code>PROCEDURE Clear*(R: Resource);</code> [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L32)
+`PROCEDURE Clear*(R: Resource);` [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L32)
 

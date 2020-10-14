@@ -4,74 +4,74 @@
 Procedures:
 
 
-<code>  PROCEDURE SetPartner(name: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L22)
+`  PROCEDURE SetPartner(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L22)
 
 
-<code>  PROCEDURE Send(t: BYTE; L: INTEGER; data: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L26)
+`  PROCEDURE Send(t: BYTE; L: INTEGER; data: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L26)
 
 
-<code>  PROCEDURE ReceiveHead(timeout: LONGINT);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L30)
+`  PROCEDURE ReceiveHead(timeout: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L30)
 
 
-<code>  PROCEDURE FindPartner(name: ARRAY OF CHAR; VAR res: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L42)
+`  PROCEDURE FindPartner(name: ARRAY OF CHAR; VAR res: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L42)
 
 
-<code>  PROCEDURE AppendS(s: ARRAY OF CHAR; VAR d: ARRAY OF CHAR; VAR k: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L61)
+`  PROCEDURE AppendS(s: ARRAY OF CHAR; VAR d: ARRAY OF CHAR; VAR k: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L61)
 
 
-<code>  PROCEDURE AppendW(s: LONGINT; VAR d: ARRAY OF CHAR; n: INTEGER; VAR k: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L67)
+`  PROCEDURE AppendW(s: LONGINT; VAR d: ARRAY OF CHAR; n: INTEGER; VAR k: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L67)
 
 
-<code>  PROCEDURE PickS(VAR s: ARRAY OF CHAR);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L73)
+`  PROCEDURE PickS(VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L73)
 
 
-<code>  PROCEDURE PickQ(VAR w: LONGINT);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L79)
+`  PROCEDURE PickQ(VAR w: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L79)
 
 
-<code>  PROCEDURE SendData(F: Files.File);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L85)
+`  PROCEDURE SendData(F: Files.File);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L85)
 
 
-<code>  PROCEDURE ReceiveData(F: Files.File; VAR done: BOOLEAN);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L106)
+`  PROCEDURE ReceiveData(F: Files.File; VAR done: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L106)
 
 
-<code>  PROCEDURE reply(msg: INTEGER);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L131)
+`  PROCEDURE reply(msg: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L131)
 
 
-<code>  PROCEDURE Serve;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L143)
+`  PROCEDURE Serve;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L143)
 
 
-<code>  PROCEDURE GetPar1(VAR S: Texts.Scanner);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L203)
+`  PROCEDURE GetPar1(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L203)
 
 
-<code>  PROCEDURE GetPar(VAR S: Texts.Scanner; VAR end: LONGINT);</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L207)
+`  PROCEDURE GetPar(VAR S: Texts.Scanner; VAR end: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L207)
 
 
-<code>  PROCEDURE SendFiles*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L217)
+`  PROCEDURE SendFiles*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L217)
 
 
-<code>  PROCEDURE ReceiveFiles*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L258)
+`  PROCEDURE ReceiveFiles*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L258)
 
 
-<code>  PROCEDURE SendMsg*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L301)
+`  PROCEDURE SendMsg*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L301)
 
 
-<code>  PROCEDURE GetTime*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L320)
+`  PROCEDURE GetTime*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L320)
 
 
-<code>  PROCEDURE StartServer*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L336)
+`  PROCEDURE StartServer*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L336)
 
 
-<code>  PROCEDURE Unprotect*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L343)
+`  PROCEDURE Unprotect*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L343)
 
 
-<code>  PROCEDURE WProtect*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L347)
+`  PROCEDURE WProtect*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L347)
 
 
-<code>  PROCEDURE Reset*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L351)
+`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L351)
 
 
-<code>  PROCEDURE StopServer*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L355)
+`  PROCEDURE StopServer*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L355)
 
 
-<code>  PROCEDURE SCCStatus*;</code> [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L360)
+`  PROCEDURE SCCStatus*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L360)
 

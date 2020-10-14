@@ -4,11 +4,11 @@
 Procedures:
 
 
-<code>  PROCEDURE Load*;</code> [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L19)
+`  PROCEDURE Load*;` [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L19)
 
 
-<code>  PROCEDURE Open*;</code> [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L34)
+`  PROCEDURE Open*;` [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L34)
 
 
-<code>  PROCEDURE Run*;</code> [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L54)
+`  PROCEDURE Run*;` [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L54)
 
