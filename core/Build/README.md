@@ -18,7 +18,6 @@ In addition, several tools link and examine the binary modules produced by the c
 
 ## Examples
 
-####USAGE
 To compile the inner core:
 ```
 ORP.Compile Kernel.Mod/s, Filedir.Mod/s, Files.Mod/s, Modules.Mod/s ~
@@ -47,10 +46,8 @@ ORTool.DecObj Sierpinski.rsc
 ## Modules
 
 #### [MODULE ORP](https://github.com/io-core/Build/blob/main/ORP.Mod)
+
 Module ORP reads the source code of an Oberon program and produces an executable binary module.
-
-ORP uses ORG, ORB, and ORS.
-
 
 
 Procedures:
