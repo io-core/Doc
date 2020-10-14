@@ -4,41 +4,41 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L15) `  PROCEDURE Open*;`
+`  PROCEDURE Open*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L15)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L36) `  PROCEDURE Delete*;`
+`  PROCEDURE Delete*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L36)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L45) `  PROCEDURE GetArg(VAR S: Texts.Scanner);`
+`  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L45)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L54) `  PROCEDURE SetWidth*;`
+`  PROCEDURE SetWidth*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L54)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L60) `  PROCEDURE ChangeColor*;`
+`  PROCEDURE ChangeColor*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L60)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L68) `  PROCEDURE ChangeWidth*;`
+`  PROCEDURE ChangeWidth*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L68)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L76) `  PROCEDURE ChangeFont*;`
+`  PROCEDURE ChangeFont*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L76)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L85) `  PROCEDURE Redraw(Q: BOOLEAN);`
+`  PROCEDURE Redraw(Q: BOOLEAN);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L85)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L96) `  PROCEDURE Ticks*;`
+`  PROCEDURE Ticks*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L96)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L100) `  PROCEDURE Restore*;`
+`  PROCEDURE Restore*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L100)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L104) `  PROCEDURE Backup (VAR name: ARRAY OF CHAR);`
+`  PROCEDURE Backup (VAR name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L104)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L115) `  PROCEDURE Store*;`
+`  PROCEDURE Store*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L115)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L142) `  PROCEDURE Macro*;`
+`  PROCEDURE Macro*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L142)
 

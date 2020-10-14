@@ -4,11 +4,11 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L15) `PROCEDURE New*(C: Cipher; v: INTEGER) : Cipher;`
+`PROCEDURE New*(C: Cipher; v: INTEGER) : Cipher;` [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L15)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L25) `PROCEDURE Get*(C: Cipher; x: INTEGER): INTEGER;`
+`PROCEDURE Get*(C: Cipher; x: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L25)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L36) `PROCEDURE Clear*(C: Cipher);`
+`PROCEDURE Clear*(C: Cipher);` [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L36)
 

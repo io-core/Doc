@@ -4,20 +4,20 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L15) `  PROCEDURE Rec(VAR x: BYTE);`
+`  PROCEDURE Rec(VAR x: BYTE);` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L15)
 
 
-[(src)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L21) `  PROCEDURE RecName(VAR s: ARRAY OF CHAR);`
+`  PROCEDURE RecName(VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L21)
 
 
-[(src)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L28) `  PROCEDURE Send(x: BYTE);`
+`  PROCEDURE Send(x: BYTE);` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L28)
 
 
-[(src)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L34) `  PROCEDURE Task;`
+`  PROCEDURE Task;` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L34)
 
 
-[(src)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L81) `  PROCEDURE Run*;`
+`  PROCEDURE Run*;` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L81)
 
 
-[(src)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L86) `  PROCEDURE Stop*;`
+`  PROCEDURE Stop*;` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L86)
 

@@ -4,71 +4,71 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L79) `  PROCEDURE NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER);  (*insert new Object with name id*)`
+`  PROCEDURE NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER);  (*insert new Object with name id*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L79)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L90) `  PROCEDURE thisObj*(): Object;`
+`  PROCEDURE thisObj*(): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L90)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L100) `  PROCEDURE thisimport*(mod: Object): Object;`
+`  PROCEDURE thisimport*(mod: Object): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L100)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L114) `  PROCEDURE thisfield*(rec: Type): Object;`
+`  PROCEDURE thisfield*(rec: Type): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L114)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L121) `  PROCEDURE FindFld*(id: ORS.Ident; rec: Type): Object;  (*search id in fields of rec proper, but not its base types*)`
+`  PROCEDURE FindFld*(id: ORS.Ident; rec: Type): Object;  (*search id in fields of rec proper, but not its base types*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L121)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L130) `  PROCEDURE NofMethods*(rec: Type): INTEGER;  (*number of methods bound to rec and its base types*)`
+`  PROCEDURE NofMethods*(rec: Type): INTEGER;  (*number of methods bound to rec and its base types*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L130)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L140) `  PROCEDURE NewMethod*(rec: Type; VAR mth, redef: Object; id: ORS.Ident);  (*insert new method with name id*)`
+`  PROCEDURE NewMethod*(rec: Type; VAR mth, redef: Object; id: ORS.Ident);  (*insert new method with name id*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L140)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L143) `    PROCEDURE UpdateLinks(rec: Type; new, bot: Object);  (*between field lists of extensions*)`
+`    PROCEDURE UpdateLinks(rec: Type; new, bot: Object);  (*between field lists of extensions*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L143)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L177) `  PROCEDURE OpenScope*;`
+`  PROCEDURE OpenScope*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L177)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L182) `  PROCEDURE CloseScope*;`
+`  PROCEDURE CloseScope*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L182)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L188) `  PROCEDURE MakeFileName*(VAR FName: ORS.Ident; name, ext: ARRAY OF CHAR);`
+`  PROCEDURE MakeFileName*(VAR FName: ORS.Ident; name, ext: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L188)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L196) `  PROCEDURE ThisModule(name, orgname: ORS.Ident; decl: BOOLEAN; key: LONGINT): Object;`
+`  PROCEDURE ThisModule(name, orgname: ORS.Ident; decl: BOOLEAN; key: LONGINT): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L196)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L218) `  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);`
+`  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L218)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L224) `  PROCEDURE InType(VAR R: Files.Rider; thismod: Object; VAR T: Type);`
+`  PROCEDURE InType(VAR R: Files.Rider; thismod: Object; VAR T: Type);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L224)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L286) `  PROCEDURE Import*(VAR modid, modid1: ORS.Ident);`
+`  PROCEDURE Import*(VAR modid, modid1: ORS.Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L286)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L319) `  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);`
+`  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L319)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L323) `  PROCEDURE OutType(VAR R: Files.Rider; t: Type);`
+`  PROCEDURE OutType(VAR R: Files.Rider; t: Type);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L323)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L326) `    PROCEDURE OutPar(VAR R: Files.Rider; par: Object; n: INTEGER);`
+`    PROCEDURE OutPar(VAR R: Files.Rider; par: Object; n: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L326)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L337) `    PROCEDURE FindHiddenFields(VAR R: Files.Rider; typ: Type; off: LONGINT);  (*pointers or procedures*)`
+`    PROCEDURE FindHiddenFields(VAR R: Files.Rider; typ: Type; off: LONGINT);  (*pointers or procedures*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L337)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L391) `  PROCEDURE Export*(VAR modid: ORS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT);`
+`  PROCEDURE Export*(VAR modid: ORS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L391)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L433) `  PROCEDURE Init*;`
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L433)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L437) `  PROCEDURE type(ref, form: INTEGER; size: LONGINT): Type;`
+`  PROCEDURE type(ref, form: INTEGER; size: LONGINT): Type;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L437)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORB.Mod#L443) `  PROCEDURE enter(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);`
+`  PROCEDURE enter(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L443)
 

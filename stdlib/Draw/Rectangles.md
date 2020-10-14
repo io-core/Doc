@@ -4,32 +4,32 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L13) `  PROCEDURE New*;`
+`  PROCEDURE New*;` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L13)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L18) `  PROCEDURE Copy(src, dst: Graphics.Object);`
+`  PROCEDURE Copy(src, dst: Graphics.Object);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L18)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L23) `  PROCEDURE mark(f: GraphicFrames.Frame; col, x, y: INTEGER);`
+`  PROCEDURE mark(f: GraphicFrames.Frame; col, x, y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L23)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L27) `  PROCEDURE Draw(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE Draw(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L27)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L30) `    PROCEDURE draw(f: GraphicFrames.Frame; col, x, y, w, h, lw: INTEGER);`
+`    PROCEDURE draw(f: GraphicFrames.Frame; col, x, y, w, h, lw: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L30)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L55) `  PROCEDURE Selectable(obj: Graphics.Object; x, y: INTEGER): BOOLEAN;`
+`  PROCEDURE Selectable(obj: Graphics.Object; x, y: INTEGER): BOOLEAN;` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L55)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L60) `  PROCEDURE Change(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE Change(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L60)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L69) `  PROCEDURE Read(obj: Graphics.Object; VAR R: Files.Rider; VAR C: Graphics.Context);`
+`  PROCEDURE Read(obj: Graphics.Object; VAR R: Files.Rider; VAR C: Graphics.Context);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L69)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L76) `  PROCEDURE Write(obj: Graphics.Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Graphics.Context);`
+`  PROCEDURE Write(obj: Graphics.Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Graphics.Context);` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L76)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L92) `  PROCEDURE Make*;  (*command*)`
+`  PROCEDURE Make*;  (*command*)` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L92)
 

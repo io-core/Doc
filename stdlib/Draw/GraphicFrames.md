@@ -4,98 +4,98 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L76) `  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)`
+`  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L76)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L85) `  PROCEDURE Restore*(F: Frame);`
+`  PROCEDURE Restore*(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L85)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L102) `  PROCEDURE FlipCross(X, Y: INTEGER);`
+`  PROCEDURE FlipCross(X, Y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L102)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L113) `  PROCEDURE Focus*(): Frame;`
+`  PROCEDURE Focus*(): Frame;` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L113)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L118) `  PROCEDURE Selected*(): Frame;`
+`  PROCEDURE Selected*(): Frame;` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L118)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L123) `  PROCEDURE This*(x, y: INTEGER): Frame;`
+`  PROCEDURE This*(x, y: INTEGER): Frame;` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L123)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L128) `  PROCEDURE Mark(F: Frame; mode: INTEGER);`
+`  PROCEDURE Mark(F: Frame; mode: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L128)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L133) `  PROCEDURE Draw*(F: Frame);`
+`  PROCEDURE Draw*(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L133)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L138) `  PROCEDURE DrawNorm(F: Frame);`
+`  PROCEDURE DrawNorm(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L138)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L143) `  PROCEDURE Erase*(F: Frame);`
+`  PROCEDURE Erase*(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L143)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L148) `  PROCEDURE DrawObj*(F: Frame; obj: Graphics.Object);`
+`  PROCEDURE DrawObj*(F: Frame; obj: Graphics.Object);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L148)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L153) `  PROCEDURE EraseObj*(F: Frame; obj: Graphics.Object);`
+`  PROCEDURE EraseObj*(F: Frame; obj: Graphics.Object);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L153)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L158) `  PROCEDURE Change*(F: Frame; VAR msg: Graphics.Msg);`
+`  PROCEDURE Change*(F: Frame; VAR msg: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L158)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L163) `  PROCEDURE FlipMark(x, y: INTEGER);`
+`  PROCEDURE FlipMark(x, y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L163)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L169) `  PROCEDURE Defocus*(F: Frame);`
+`  PROCEDURE Defocus*(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L169)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L179) `  PROCEDURE Deselect*(F: Frame);`
+`  PROCEDURE Deselect*(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L179)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L188) `  PROCEDURE Macro*(Lname, Mname: ARRAY OF CHAR);`
+`  PROCEDURE Macro*(Lname, Mname: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L188)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L211) `  PROCEDURE CaptionCopy(F: Frame;`
+`  PROCEDURE CaptionCopy(F: Frame;` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L211)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L232) `  PROCEDURE NewLine(F: Frame; G: Graphics.Graph; x, y, w, h: INTEGER);`
+`  PROCEDURE NewLine(F: Frame; G: Graphics.Graph; x, y, w, h: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L232)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L239) `  PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);`
+`  PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L239)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L324) `  PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);`
+`  PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L324)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L332) `  PROCEDURE InsertChar(F: Frame; ch: CHAR);`
+`  PROCEDURE InsertChar(F: Frame; ch: CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L332)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L342) `  PROCEDURE DeleteChar(F: Frame);`
+`  PROCEDURE DeleteChar(F: Frame);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L342)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L357) `  PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);`
+`  PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L357)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L367) `  PROCEDURE Handle*(G: Display.Frame; VAR M: Display.FrameMsg);`
+`  PROCEDURE Handle*(G: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L367)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L425) `  PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);`
+`  PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L425)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L431) `  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L431)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L440) `  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L440)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L449) `  PROCEDURE DrawLine(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE DrawLine(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L449)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L469) `  PROCEDURE DrawCaption(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE DrawCaption(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L469)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L498) `  PROCEDURE DrawMacro(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE DrawMacro(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L498)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L518) `  PROCEDURE Open*(G: Frame; graph: Graphics.Graph); `
+`  PROCEDURE Open*(G: Frame; graph: Graphics.Graph); ` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L518)
 

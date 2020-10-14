@@ -4,29 +4,29 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L33) `  PROCEDURE ClearLog*;`
+`  PROCEDURE ClearLog*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L33)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L41) `  PROCEDURE WriteLog*;`
+`  PROCEDURE WriteLog*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L41)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L74) `  PROCEDURE VerifyLog*;`
+`  PROCEDURE VerifyLog*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L74)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L123) `  PROCEDURE AddFileToList(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);`
+`  PROCEDURE AddFileToList(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L123)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L150) `  PROCEDURE DeleteFiles*;`
+`  PROCEDURE DeleteFiles*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L150)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L174) `  PROCEDURE Collect*;`
+`  PROCEDURE Collect*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L174)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L180) `  PROCEDURE Continue;`
+`  PROCEDURE Continue;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L180)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L214) `  PROCEDURE GCWait;`
+`  PROCEDURE GCWait;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L214)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Batch.Mod#L230) `  PROCEDURE Run*;`
+`  PROCEDURE Run*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L230)
 

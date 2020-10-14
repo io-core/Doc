@@ -4,41 +4,41 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L19) `  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)`
+`  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L19)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L27) `  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)`
+`  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L27)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L33) `  PROCEDURE SPICmd(n, arg: INTEGER);`
+`  PROCEDURE SPICmd(n, arg: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L33)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L45) `  PROCEDURE SDShift(VAR n: INTEGER);`
+`  PROCEDURE SDShift(VAR n: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L45)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L53) `  PROCEDURE ReadSD(src, dst: INTEGER);`
+`  PROCEDURE ReadSD(src, dst: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L53)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L67) `  PROCEDURE WriteSD(dst, src: INTEGER);`
+`  PROCEDURE WriteSD(dst, src: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L67)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L81) `  PROCEDURE InitSecMap*;`
+`  PROCEDURE InitSecMap*;` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L81)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L87) `  PROCEDURE MarkSector*(sec: INTEGER);`
+`  PROCEDURE MarkSector*(sec: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L87)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L92) `  PROCEDURE FreeSector*(sec: INTEGER);`
+`  PROCEDURE FreeSector*(sec: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L92)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L97) `  PROCEDURE AllocSector*(hint: INTEGER; VAR sec: INTEGER);`
+`  PROCEDURE AllocSector*(hint: INTEGER; VAR sec: INTEGER);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L97)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L107) `  PROCEDURE GetSector*(src: INTEGER; VAR dst: Sector);`
+`  PROCEDURE GetSector*(src: INTEGER; VAR dst: Sector);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L107)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L113) `  PROCEDURE PutSector*(dst: INTEGER; VAR src: Sector);`
+`  PROCEDURE PutSector*(dst: INTEGER; VAR src: Sector);` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L113)
 
 
-[(src)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L119) `  PROCEDURE Init*;`
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L119)
 

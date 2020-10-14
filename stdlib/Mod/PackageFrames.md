@@ -4,89 +4,89 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L75) `  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)`
+`  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L75)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L84) `  PROCEDURE Restore*(f: Frame);`
+`  PROCEDURE Restore*(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L84)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L101) `  PROCEDURE FlipCross(X, Y: INTEGER);`
+`  PROCEDURE FlipCross(X, Y: INTEGER);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L101)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L112) `  PROCEDURE Focus*(): Frame;`
+`  PROCEDURE Focus*(): Frame;` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L112)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L117) `  PROCEDURE Selected*(): Frame;`
+`  PROCEDURE Selected*(): Frame;` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L117)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L122) `  PROCEDURE This*(x, y: INTEGER): Frame;`
+`  PROCEDURE This*(x, y: INTEGER): Frame;` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L122)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L127) `  PROCEDURE Mark(f: Frame; mode: INTEGER);`
+`  PROCEDURE Mark(f: Frame; mode: INTEGER);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L127)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L132) `  PROCEDURE Draw*(f: Frame);`
+`  PROCEDURE Draw*(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L132)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L137) `  PROCEDURE DrawNorm(f: Frame);`
+`  PROCEDURE DrawNorm(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L137)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L142) `  PROCEDURE Erase*(f: Frame);`
+`  PROCEDURE Erase*(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L142)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L147) `  PROCEDURE DrawComponent*(f: Frame; L: Packages.Component);`
+`  PROCEDURE DrawComponent*(f: Frame; L: Packages.Component);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L147)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L152) `  PROCEDURE EraseComponent*(f: Frame; C: Packages.Component);`
+`  PROCEDURE EraseComponent*(f: Frame; C: Packages.Component);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L152)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L157) `  PROCEDURE Change*(f: Frame; VAR msg: Packages.Msg);`
+`  PROCEDURE Change*(f: Frame; VAR msg: Packages.Msg);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L157)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L162) `  PROCEDURE FlipMark(x, y: INTEGER);`
+`  PROCEDURE FlipMark(x, y: INTEGER);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L162)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L168) `  PROCEDURE Defocus*(f: Frame);`
+`  PROCEDURE Defocus*(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L168)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L178) `  PROCEDURE Deselect*(f: Frame);`
+`  PROCEDURE Deselect*(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L178)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L187) `  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);`
+`  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L187)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L282) `  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);`
+`  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L282)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L290) `  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);`
+`  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L290)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L300) `  PROCEDURE DeleteChar(f: Frame);`
+`  PROCEDURE DeleteChar(f: Frame);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L300)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L321) `  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);`
+`  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L321)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L331) `  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);`
+`  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L331)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L391) `  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);`
+`  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L391)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L397) `  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L397)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L406) `  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L406)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L415) `  PROCEDURE DrawLine(obj: Packages.Component; VAR m: Packages.Msg);`
+`  PROCEDURE DrawLine(obj: Packages.Component; VAR m: Packages.Msg);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L415)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L437) `  PROCEDURE DrawCaption(obj: Packages.Component; VAR m: Packages.Msg);`
+`  PROCEDURE DrawCaption(obj: Packages.Component; VAR m: Packages.Msg);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L437)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L469) `  PROCEDURE DrawMacro(obj: Packages.Component; VAR m: Packages.Msg);`
+`  PROCEDURE DrawMacro(obj: Packages.Component; VAR m: Packages.Msg);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L469)
 
 
-[(src)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L492) `  PROCEDURE Open*(f: Frame; P: Packages.Package);`
+`  PROCEDURE Open*(f: Frame; P: Packages.Package);` [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod#L492)
 

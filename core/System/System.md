@@ -4,200 +4,200 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L25) `  PROCEDURE GetArg(VAR S: Texts.Scanner);`
+`  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L25)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L34) `  PROCEDURE EndLine;`
+`  PROCEDURE EndLine;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L34)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L40) `  PROCEDURE SetUser*;`
+`  PROCEDURE SetUser*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L40)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L51) `  PROCEDURE SetFont*;`
+`  PROCEDURE SetFont*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L51)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L57) `  PROCEDURE SetColor*;`
+`  PROCEDURE SetColor*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L57)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L63) `  PROCEDURE SetOffset*;`
+`  PROCEDURE SetOffset*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L63)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L69) `  PROCEDURE Date*;`
+`  PROCEDURE Date*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L69)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L83) `  PROCEDURE Collect*;`
+`  PROCEDURE Collect*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L83)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L89) `  PROCEDURE Open*;  (*open viewer in system track*)`
+`  PROCEDURE Open*;  (*open viewer in system track*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L89)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L102) `  PROCEDURE OpenLog*;  (*open another viewer for Log*)`
+`  PROCEDURE OpenLog*;  (*open another viewer for Log*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L102)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L111) `  PROCEDURE Clear*;  (*clear Log*)`
+`  PROCEDURE Clear*;  (*clear Log*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L111)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L119) `  PROCEDURE Close*;  (*viewer*)`
+`  PROCEDURE Close*;  (*viewer*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L119)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L128) `  PROCEDURE CloseTrack*;`
+`  PROCEDURE CloseTrack*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L128)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L133) `  PROCEDURE Flush*;  (*clear the last closed viewer of the current display*)`
+`  PROCEDURE Flush*;  (*clear the last closed viewer of the current display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L133)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L137) `  PROCEDURE Recall*;  (*recover the last closed viewer of the current display*)`
+`  PROCEDURE Recall*;  (*recover the last closed viewer of the current display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L137)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L145) `  PROCEDURE RecallFocus*;  (*recover the focus viewer of the current display*)`
+`  PROCEDURE RecallFocus*;  (*recover the focus viewer of the current display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L145)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L153) `  PROCEDURE Copy*;  (*create a copy of the viewer in the current display*)`
+`  PROCEDURE Copy*;  (*create a copy of the viewer in the current display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L153)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L160) `  PROCEDURE Grow*;  (*create a copy of the viewer in a newly created overlaying track*)`
+`  PROCEDURE Grow*;  (*create a copy of the viewer in a newly created overlaying track*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L160)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L173) `  PROCEDURE Expand*;  (*expand the viewer vertically as much as possible*)`
+`  PROCEDURE Expand*;  (*expand the viewer vertically as much as possible*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L173)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L179) `  PROCEDURE Spread*;  (*redistribute viewers vertically*)`
+`  PROCEDURE Spread*;  (*redistribute viewers vertically*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L179)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L184) `  PROCEDURE MakeDisplayName(prefix: ARRAY OF CHAR; id: INTEGER; VAR name: ARRAY OF CHAR);  (*0 <= id < 10^5*)`
+`  PROCEDURE MakeDisplayName(prefix: ARRAY OF CHAR; id: INTEGER; VAR name: ARRAY OF CHAR);  (*0 <= id < 10^5*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L184)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L193) `  PROCEDURE OpenViewers;  (*open log and system tool viewer in system track of current display*)`
+`  PROCEDURE OpenViewers;  (*open log and system tool viewer in system track of current display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L193)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L213) `  PROCEDURE CreateDisplay(name: ARRAY OF CHAR);`
+`  PROCEDURE CreateDisplay(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L213)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L218) `  PROCEDURE OpenDisplay*;  (*display name is provided as parameter*)`
+`  PROCEDURE OpenDisplay*;  (*display name is provided as parameter*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L218)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L227) `  PROCEDURE Clone*;  (*create a copy of the viewer in a newly created display*)`
+`  PROCEDURE Clone*;  (*create a copy of the viewer in a newly created display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L227)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L243) `  PROCEDURE ExtendDisplay*;  (*extend the current display to the right*)`
+`  PROCEDURE ExtendDisplay*;  (*extend the current display to the right*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L243)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L261) `  PROCEDURE CloseDisplay*;  (*display id and (optionally) a hint for the display to switch to are provided as parameters*)`
+`  PROCEDURE CloseDisplay*;  (*display id and (optionally) a hint for the display to switch to are provided as parameters*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L261)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L282) `  PROCEDURE SwitchDisplay(D: Viewers.DisplayArea);  (*switch to the specified display*)`
+`  PROCEDURE SwitchDisplay(D: Viewers.DisplayArea);  (*switch to the specified display*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L282)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L291) `  PROCEDURE SetDisplay*;  (*display id is provided as parameter*)`
+`  PROCEDURE SetDisplay*;  (*display id is provided as parameter*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L291)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L297) `  PROCEDURE NextDisplay*;  (*switch to display on the "right"*)`
+`  PROCEDURE NextDisplay*;  (*switch to display on the "right"*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L297)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L302) `  PROCEDURE PrevDisplay*;  (*switch to display on the "left"*)`
+`  PROCEDURE PrevDisplay*;  (*switch to display on the "left"*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L302)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L307) `  PROCEDURE SetDisplayName*;  (*display id and name are provided as parameters*)`
+`  PROCEDURE SetDisplayName*;  (*display id and name are provided as parameters*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L307)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L323) `  PROCEDURE ThisDisplay*;`
+`  PROCEDURE ThisDisplay*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L323)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L329) `  PROCEDURE ShowDisplays*;`
+`  PROCEDURE ShowDisplays*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L329)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L341) `  PROCEDURE Select(VAR S: Texts.Scanner; on, this, clients, imports: BOOLEAN; handle: Handler);  (*modules*)`
+`  PROCEDURE Select(VAR S: Texts.Scanner; on, this, clients, imports: BOOLEAN; handle: Handler);  (*modules*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L341)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L360) `  PROCEDURE WriteName(name: ARRAY OF CHAR);  (*write the name of a module*)`
+`  PROCEDURE WriteName(name: ARRAY OF CHAR);  (*write the name of a module*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L360)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L364) `  PROCEDURE WriteSelection;  (*write the names of modules previously selected by Select*)`
+`  PROCEDURE WriteSelection;  (*write the names of modules previously selected by Select*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L364)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L373) `  PROCEDURE WriteRef(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;  (*write one reference*)`
+`  PROCEDURE WriteRef(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;  (*write one reference*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L373)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L398) `  PROCEDURE WriteReferences;  (*write references from each unselected module to any of the selected modules*)`
+`  PROCEDURE WriteReferences;  (*write references from each unselected module to any of the selected modules*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L398)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L409) `  PROCEDURE ShowRefs(name: ARRAY OF CHAR);`
+`  PROCEDURE ShowRefs(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L409)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L414) `  PROCEDURE ShowReferences*;  (*show references from all modules to any of the specified modules individually*)`
+`  PROCEDURE ShowReferences*;  (*show references from all modules to any of the specified modules individually*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L414)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L420) `  PROCEDURE ShowGroupReferences*;  (*show references from all modules outside the group to the specified module group*)`
+`  PROCEDURE ShowGroupReferences*;  (*show references from all modules outside the group to the specified module group*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L420)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L427) `  PROCEDURE Show(this, clients, imports: BOOLEAN);`
+`  PROCEDURE Show(this, clients, imports: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L427)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L433) `  PROCEDURE ShowLoaded*;  (*show the specified modules if they are loaded*)`
+`  PROCEDURE ShowLoaded*;  (*show the specified modules if they are loaded*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L433)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L437) `  PROCEDURE ShowImports*;  (*show the specified modules and all their direct and indirect imports*)`
+`  PROCEDURE ShowImports*;  (*show the specified modules and all their direct and indirect imports*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L437)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L441) `  PROCEDURE ShowClients*;  (*show the specified modules and all their direct and indirect clients*)`
+`  PROCEDURE ShowClients*;  (*show the specified modules and all their direct and indirect clients*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L441)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L445) `  PROCEDURE WriteClient(mod, imp: Modules.Module; VAR continue: BOOLEAN): INTEGER;`
+`  PROCEDURE WriteClient(mod, imp: Modules.Module; VAR continue: BOOLEAN): INTEGER;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L445)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L453) `  PROCEDURE FreeModules(this, clients, imports: BOOLEAN);`
+`  PROCEDURE FreeModules(this, clients, imports: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L453)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L471) `  PROCEDURE Free*;  (*free the specified modules as a group; if refs exist and the /f option is specified, hide the modules*)`
+`  PROCEDURE Free*;  (*free the specified modules as a group; if refs exist and the /f option is specified, hide the modules*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L471)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L475) `  PROCEDURE FreeImports*;  (*free the specified modules and all their direct and indirect imports as a group*)`
+`  PROCEDURE FreeImports*;  (*free the specified modules and all their direct and indirect imports as a group*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L475)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L479) `  PROCEDURE FreeClients*;  (*free the specified modules and all their direct and indirect clients as a group*)`
+`  PROCEDURE FreeClients*;  (*free the specified modules and all their direct and indirect clients as a group*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L479)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L483) `  PROCEDURE FreeFonts*;`
+`  PROCEDURE FreeFonts*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L483)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L489) `  PROCEDURE List(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);`
+`  PROCEDURE List(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L489)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L516) `  PROCEDURE Directory*;`
+`  PROCEDURE Directory*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L516)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L549) `  PROCEDURE CopyFiles*;`
+`  PROCEDURE CopyFiles*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L549)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L577) `  PROCEDURE RenameFiles*;`
+`  PROCEDURE RenameFiles*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L577)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L599) `  PROCEDURE DeleteFiles*;`
+`  PROCEDURE DeleteFiles*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L599)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L613) `  PROCEDURE Watch*;`
+`  PROCEDURE Watch*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L613)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L624) `  PROCEDURE ShowModules*;`
+`  PROCEDURE ShowModules*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L624)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L646) `  PROCEDURE ShowCommands*;`
+`  PROCEDURE ShowCommands*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L646)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L673) `  PROCEDURE ShowFonts*;`
+`  PROCEDURE ShowFonts*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L673)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L682) `  PROCEDURE Run(name: ARRAY OF CHAR);  (*execute multiple commands separated by ~ in the specified batch file*)`
+`  PROCEDURE Run(name: ARRAY OF CHAR);  (*execute multiple commands separated by ~ in the specified batch file*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L682)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L696) `  PROCEDURE Batch*;`
+`  PROCEDURE Batch*;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L696)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L705) `  PROCEDURE Trap(VAR a: INTEGER; b, c, d: INTEGER);`
+`  PROCEDURE Trap(VAR a: INTEGER; b, c, d: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L705)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L727) `  PROCEDURE Abort;`
+`  PROCEDURE Abort;` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L727)
 
 
-[(src)](https://github.com/io-core/System/blob/main/System.Mod#L742) `  PROCEDURE Deferred;  (*handle trap/abort as soon as the garbage collector has freed up enough heap space*)`
+`  PROCEDURE Deferred;  (*handle trap/abort as soon as the garbage collector has freed up enough heap space*)` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L742)
 

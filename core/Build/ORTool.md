@@ -4,26 +4,26 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L14) `  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);`
+`  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L14)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L20) `  PROCEDURE ReadType(VAR R: Files.Rider);`
+`  PROCEDURE ReadType(VAR R: Files.Rider);` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L20)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L70) `  PROCEDURE DecSym*;  (*decode symbol file*)`
+`  PROCEDURE DecSym*;  (*decode symbol file*)` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L70)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L111) `  PROCEDURE WriteReg(r: LONGINT);`
+`  PROCEDURE WriteReg(r: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L111)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L120) `  PROCEDURE opcode(w: LONGINT; fixP, fixD: BOOLEAN);`
+`  PROCEDURE opcode(w: LONGINT; fixP, fixD: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L120)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L171) `  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);`
+`  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L171)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L175) `  PROCEDURE DecObj*;   (*decode object file*)`
+`  PROCEDURE DecObj*;   (*decode object file*)` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L175)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L273) `  PROCEDURE DecMod*;`
+`  PROCEDURE DecMod*;` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L273)
 

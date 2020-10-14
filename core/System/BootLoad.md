@@ -4,38 +4,38 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L19) `  PROCEDURE RecInt(VAR x: INTEGER);`
+`  PROCEDURE RecInt(VAR x: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L19)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L29) `  PROCEDURE LoadFromLine;`
+`  PROCEDURE LoadFromLine;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L29)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L41) `  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)`
+`  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L41)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L48) `  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)`
+`  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L48)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L53) `  PROCEDURE SPICmd(n, arg: INTEGER);`
+`  PROCEDURE SPICmd(n, arg: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L53)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L65) `  PROCEDURE InitSPI;`
+`  PROCEDURE InitSPI;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L65)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L82) `  PROCEDURE SDShift(VAR n: INTEGER);`
+`  PROCEDURE SDShift(VAR n: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L82)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L90) `  PROCEDURE ReadSD(src, dst: INTEGER);`
+`  PROCEDURE ReadSD(src, dst: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L90)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L104) `  PROCEDURE LoadFromDisk;`
+`  PROCEDURE LoadFromDisk;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L104)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L131) `  PROCEDURE RecInt(VAR x: INTEGER);`
+`  PROCEDURE RecInt(VAR x: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L131)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L141) `  PROCEDURE Load;`
+`  PROCEDURE Load;` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L141)
 
 
-[(src)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L190) `  PROCEDURE* Int; (*interrupt every millisecond*)`
+`  PROCEDURE* Int; (*interrupt every millisecond*)` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L190)
 

@@ -4,23 +4,23 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L25) `  PROCEDURE Peek();`
+`  PROCEDURE Peek();` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L25)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L41) `  PROCEDURE Available*(): INTEGER;`
+`  PROCEDURE Available*(): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L41)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L46) `  PROCEDURE Read*(VAR ch: CHAR);`
+`  PROCEDURE Read*(VAR ch: CHAR);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L46)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L56) `  PROCEDURE Mouse*(VAR keys: SET; VAR x, y: INTEGER);`
+`  PROCEDURE Mouse*(VAR keys: SET; VAR x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L56)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L64) `  PROCEDURE Mouse*(VAR keys: SET; VAR x, y: INTEGER);`
+`  PROCEDURE Mouse*(VAR keys: SET; VAR x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L64)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L73) `  PROCEDURE SetMouseLimits*(w, h: INTEGER);`
+`  PROCEDURE SetMouseLimits*(w, h: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L73)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L77) `  PROCEDURE Init*;`
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L77)
 

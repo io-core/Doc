@@ -4,35 +4,35 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L38) `  PROCEDURE MakeFileName(VAR FName: ARRAY OF CHAR; name, ext: ARRAY OF CHAR);`
+`  PROCEDURE MakeFileName(VAR FName: ARRAY OF CHAR; name, ext: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L38)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L46) `  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;`
+`  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L46)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L52) `  PROCEDURE ThisSmb(name: ARRAY OF CHAR): Files.File;`
+`  PROCEDURE ThisSmb(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L52)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L61) `  PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);`
+`  PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L61)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L65) `  PROCEDURE Check(s: ARRAY OF CHAR);`
+`  PROCEDURE Check(s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L65)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L76) `  PROCEDURE LinkOne(name: ARRAY OF CHAR; VAR newmod: Module);`
+`  PROCEDURE LinkOne(name: ARRAY OF CHAR; VAR newmod: Module);` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L76)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L254) `  PROCEDURE Link*;  (*link multiple object files together and create a single boot file M.bin from them*)`
+`  PROCEDURE Link*;  (*link multiple object files together and create a single boot file M.bin from them*)` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L254)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L308) `  PROCEDURE Load*;  (*load prelinked boot file M.bin onto the boot area of the local disk*)`
+`  PROCEDURE Load*;  (*load prelinked boot file M.bin onto the boot area of the local disk*)` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L308)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L333) `  PROCEDURE RelocateLoaded*(start, dst: INTEGER);  (*relocate prelinked binary loaded at Mem[start] for execution at dst*)`
+`  PROCEDURE RelocateLoaded*(start, dst: INTEGER);  (*relocate prelinked binary loaded at Mem[start] for execution at dst*)` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L333)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L385) `  PROCEDURE Relocate*;  (*relocate prelinked binary M.bin for execution at destadr and write result to output file R.bin*)`
+`  PROCEDURE Relocate*;  (*relocate prelinked binary M.bin for execution at destadr and write result to output file R.bin*)` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L385)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORL.Mod#L425) `  PROCEDURE Execute*;  (*load and execute prelinked binary M.bin*)`
+`  PROCEDURE Execute*;  (*load and execute prelinked binary M.bin*)` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L425)
 

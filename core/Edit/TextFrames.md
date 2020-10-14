@@ -4,182 +4,182 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L62) `  PROCEDURE Min (i, j: INTEGER): INTEGER;`
+`  PROCEDURE Min (i, j: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L62)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L67) `  PROCEDURE Max (i, j: INTEGER): INTEGER;`
+`  PROCEDURE Max (i, j: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L67)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L72) `  PROCEDURE NewLine (F: Frame; VAR L: Line);  (*reuse line from line pool if possible*)`
+`  PROCEDURE NewLine (F: Frame; VAR L: Line);  (*reuse line from line pool if possible*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L72)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L76) `  PROCEDURE PoolLines (F: Frame; L, L1: Line);  (*move lines from L.next to L1 to line pool*)`
+`  PROCEDURE PoolLines (F: Frame; L, L1: Line);  (*move lines from L.next to L1 to line pool*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L76)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L81) `  PROCEDURE LastLine (F: Frame; L: Line);  (*move all lines after L to line pool*)`
+`  PROCEDURE LastLine (F: Frame; L: Line);  (*move all lines after L to line pool*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L81)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L90) `  PROCEDURE ReplConst (col: INTEGER; F: Frame; X, Y, W, H: INTEGER; mode: INTEGER);`
+`  PROCEDURE ReplConst (col: INTEGER; F: Frame; X, Y, W, H: INTEGER; mode: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L90)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L104) `  PROCEDURE FlipSM(X, Y: INTEGER);`
+`  PROCEDURE FlipSM(X, Y: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L104)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L116) `  PROCEDURE UpdateMark (F: Frame);  (*in scroll bar*)`
+`  PROCEDURE UpdateMark (F: Frame);  (*in scroll bar*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L116)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L125) `  PROCEDURE Mark* (F: Frame; on: BOOLEAN);  (*in scroll bar*)`
+`  PROCEDURE Mark* (F: Frame; on: BOOLEAN);  (*in scroll bar*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L125)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L134) `  PROCEDURE SetChangeMark (F: Frame; on: BOOLEAN);  (*in corner*)`
+`  PROCEDURE SetChangeMark (F: Frame; on: BOOLEAN);  (*in corner*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L134)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L143) `  PROCEDURE Width (VAR R: Texts.Reader; len: LONGINT): INTEGER;`
+`  PROCEDURE Width (VAR R: Texts.Reader; len: LONGINT): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L143)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L153) `  PROCEDURE MeasureLine (VAR l: LineDesc; VAR R: Texts.Reader);`
+`  PROCEDURE MeasureLine (VAR l: LineDesc; VAR R: Texts.Reader);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L153)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L165) `  PROCEDURE PrepareLine (L: Line; VAR R: Texts.Reader);  (*pass 1*)`
+`  PROCEDURE PrepareLine (L: Line; VAR R: Texts.Reader);  (*pass 1*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L165)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L169) `  PROCEDURE DisplayLine (F: Frame; L: Line;  (*pass 2*)`
+`  PROCEDURE DisplayLine (F: Frame; L: Line;  (*pass 2*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L169)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L187) `  PROCEDURE Validate (T: Texts.Text; VAR pos: LONGINT);`
+`  PROCEDURE Validate (T: Texts.Text; VAR pos: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L187)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L200) `  PROCEDURE Restore* (F: Frame);`
+`  PROCEDURE Restore* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L200)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L223) `  PROCEDURE Suspend* (F: Frame);`
+`  PROCEDURE Suspend* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L223)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L227) `  PROCEDURE Extend* (F: Frame; newY: INTEGER);`
+`  PROCEDURE Extend* (F: Frame; newY: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L227)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L259) `  PROCEDURE Reduce* (F: Frame; newY: INTEGER);`
+`  PROCEDURE Reduce* (F: Frame; newY: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L259)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L277) `  PROCEDURE ScrollDown (F: Frame; org: LONGINT; voff, dY: INTEGER; lines: ARRAY OF LineDesc; beg, end: INTEGER);`
+`  PROCEDURE ScrollDown (F: Frame; org: LONGINT; voff, dY: INTEGER; lines: ARRAY OF LineDesc; beg, end: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L277)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L306) `  PROCEDURE ScrollUp (F: Frame; org: LONGINT; voff, dY: INTEGER; skipto: Line);`
+`  PROCEDURE ScrollUp (F: Frame; org: LONGINT; voff, dY: INTEGER; skipto: Line);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L306)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L333) `  PROCEDURE Scroll* (F: Frame; dY: INTEGER);  (*scroll displayed text dY pixels up or down*)`
+`  PROCEDURE Scroll* (F: Frame; dY: INTEGER);  (*scroll displayed text dY pixels up or down*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L333)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L384) `  PROCEDURE Show* (F: Frame; pos: LONGINT);  (*scroll specified text position to the top*)`
+`  PROCEDURE Show* (F: Frame; pos: LONGINT);  (*scroll specified text position to the top*)` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L384)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L419) `  PROCEDURE LocateLine (F: Frame; y: INTEGER; VAR loc: Location);`
+`  PROCEDURE LocateLine (F: Frame; y: INTEGER; VAR loc: Location);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L419)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L428) `  PROCEDURE LocateString (F: Frame; x, y: INTEGER; VAR loc: Location);`
+`  PROCEDURE LocateString (F: Frame; x, y: INTEGER; VAR loc: Location);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L428)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L457) `  PROCEDURE LocateChar (F: Frame; x, y: INTEGER; VAR loc: Location);`
+`  PROCEDURE LocateChar (F: Frame; x, y: INTEGER; VAR loc: Location);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L457)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L477) `  PROCEDURE LocatePos (F: Frame; pos: LONGINT; VAR loc: Location);`
+`  PROCEDURE LocatePos (F: Frame; pos: LONGINT; VAR loc: Location);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L477)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L492) `  PROCEDURE Pos* (F: Frame; X, Y: INTEGER): LONGINT;`
+`  PROCEDURE Pos* (F: Frame; X, Y: INTEGER): LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L492)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L499) `  PROCEDURE FlipCaret (F: Frame);`
+`  PROCEDURE FlipCaret (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L499)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L506) `  PROCEDURE SetCaret* (F: Frame; pos: LONGINT);`
+`  PROCEDURE SetCaret* (F: Frame; pos: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L506)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L510) `  PROCEDURE TrackCaret* (F: Frame; X, Y: INTEGER; VAR keysum: SET);`
+`  PROCEDURE TrackCaret* (F: Frame; X, Y: INTEGER; VAR keysum: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L510)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L525) `  PROCEDURE RemoveCaret* (F: Frame);`
+`  PROCEDURE RemoveCaret* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L525)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L529) `  PROCEDURE FlipSelection (F: Frame; VAR beg, end: Location);`
+`  PROCEDURE FlipSelection (F: Frame; VAR beg, end: Location);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L529)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L556) `  PROCEDURE SetSelection* (F: Frame; beg, end: LONGINT);`
+`  PROCEDURE SetSelection* (F: Frame; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L556)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L565) `  PROCEDURE TrackSelection* (F: Frame; X, Y: INTEGER; VAR keysum: SET);`
+`  PROCEDURE TrackSelection* (F: Frame; X, Y: INTEGER; VAR keysum: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L565)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L619) `  PROCEDURE RemoveSelection* (F: Frame);`
+`  PROCEDURE RemoveSelection* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L619)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L623) `  PROCEDURE TrackLine* (F: Frame; X, Y: INTEGER; VAR org: LONGINT; VAR keysum: SET);`
+`  PROCEDURE TrackLine* (F: Frame; X, Y: INTEGER; VAR org: LONGINT; VAR keysum: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L623)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L646) `  PROCEDURE TrackWord* (F: Frame; X, Y: INTEGER; VAR pos: LONGINT; VAR keysum: SET);`
+`  PROCEDURE TrackWord* (F: Frame; X, Y: INTEGER; VAR pos: LONGINT; VAR keysum: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L646)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L671) `  PROCEDURE Replace* (F: Frame; beg, end: LONGINT);`
+`  PROCEDURE Replace* (F: Frame; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L671)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L707) `  PROCEDURE Insert* (F: Frame; beg, end: LONGINT);`
+`  PROCEDURE Insert* (F: Frame; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L707)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L753) `  PROCEDURE Delete* (F: Frame; beg, end: LONGINT);`
+`  PROCEDURE Delete* (F: Frame; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L753)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L814) `  PROCEDURE Recall*(VAR B: Texts.Buffer);`
+`  PROCEDURE Recall*(VAR B: Texts.Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L814)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L820) `  PROCEDURE RemoveMarks (F: Frame);`
+`  PROCEDURE RemoveMarks (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L820)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L824) `  PROCEDURE NotifyDisplay* (T: Texts.Text; op: INTEGER; beg, end: LONGINT);`
+`  PROCEDURE NotifyDisplay* (T: Texts.Text; op: INTEGER; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L824)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L829) `  PROCEDURE Call* (F: Frame; pos: LONGINT; new: BOOLEAN);`
+`  PROCEDURE Call* (F: Frame; pos: LONGINT; new: BOOLEAN);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L829)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L833) `  PROCEDURE Write* (F: Frame; ch: CHAR; fnt: Fonts.Font; col, voff: INTEGER);`
+`  PROCEDURE Write* (F: Frame; ch: CHAR; fnt: Fonts.Font; col, voff: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L833)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L871) `  PROCEDURE Defocus* (F: Frame);`
+`  PROCEDURE Defocus* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L871)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L875) `  PROCEDURE Neutralize* (F: Frame);`
+`  PROCEDURE Neutralize* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L875)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L879) `  PROCEDURE Modify* (F: Frame; id, Y, H: INTEGER);`
+`  PROCEDURE Modify* (F: Frame; id, Y, H: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L879)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L897) `  PROCEDURE Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT;`
+`  PROCEDURE Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L897)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L908) `  PROCEDURE Copy* (F: Frame; VAR F1: Frame);`
+`  PROCEDURE Copy* (F: Frame; VAR F1: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L908)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L913) `  PROCEDURE CopyOver(F: Frame; text: Texts.Text; beg, end: LONGINT);`
+`  PROCEDURE CopyOver(F: Frame; text: Texts.Text; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L913)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L923) `  PROCEDURE GetSelection* (F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);`
+`  PROCEDURE GetSelection* (F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L923)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L935) `  PROCEDURE Update* (F: Frame; VAR M: UpdateMsg);`
+`  PROCEDURE Update* (F: Frame; VAR M: UpdateMsg);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L935)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L945) `  PROCEDURE Edit* (F: Frame; X, Y: INTEGER; Keys: SET);`
+`  PROCEDURE Edit* (F: Frame; X, Y: INTEGER; Keys: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L945)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1040) `  PROCEDURE Handle* (F: Display.Frame; VAR M: Display.FrameMsg);`
+`  PROCEDURE Handle* (F: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1040)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1066) `  PROCEDURE Menu (name, commands: ARRAY OF CHAR): Texts.Text;`
+`  PROCEDURE Menu (name, commands: ARRAY OF CHAR): Texts.Text;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1066)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1073) `  PROCEDURE Text* (name: ARRAY OF CHAR): Texts.Text;`
+`  PROCEDURE Text* (name: ARRAY OF CHAR): Texts.Text;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1073)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1078) `  PROCEDURE NewMenu* (name, commands: ARRAY OF CHAR): Frame;`
+`  PROCEDURE NewMenu* (name, commands: ARRAY OF CHAR): Frame;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1078)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1084) `  PROCEDURE NewText* (text: Texts.Text; pos: LONGINT): Frame;`
+`  PROCEDURE NewText* (text: Texts.Text; pos: LONGINT): Frame;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1084)
 

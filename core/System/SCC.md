@@ -4,53 +4,53 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L27) `  PROCEDURE SPICtrl(s: SET);`
+`  PROCEDURE SPICtrl(s: SET);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L27)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L32) `  PROCEDURE SPI(n: INTEGER);`
+`  PROCEDURE SPI(n: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L32)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L37) `  PROCEDURE StartCmd(cmd: INTEGER);`
+`  PROCEDURE StartCmd(cmd: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L37)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L41) `  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)`
+`  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L41)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L45) `  PROCEDURE SubRcv(dst: INTEGER);`
+`  PROCEDURE SubRcv(dst: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L45)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L57) `  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);`
+`  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L57)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L86) `  PROCEDURE Flush();`
+`  PROCEDURE Flush();` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L86)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L90) `  PROCEDURE ResetRcv;`
+`  PROCEDURE ResetRcv;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L90)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L94) `  PROCEDURE Listen(b: BOOLEAN);`
+`  PROCEDURE Listen(b: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L94)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L101) `  PROCEDURE Start*(filt: BOOLEAN);`
+`  PROCEDURE Start*(filt: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L101)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L111) `  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF CHAR);`
+`  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L111)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L133) `  PROCEDURE Available*(): INTEGER;`
+`  PROCEDURE Available*(): INTEGER;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L133)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L138) `  PROCEDURE Receive*(VAR x: BYTE);`
+`  PROCEDURE Receive*(VAR x: BYTE);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L138)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L143) `  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;`
+`  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L143)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L154) `  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)`
+`  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L154)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L172) `  PROCEDURE Skip*(m: INTEGER);`
+`  PROCEDURE Skip*(m: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L172)
 
 
-[(src)](https://github.com/io-core/System/blob/main/SCC.Mod#L177) `  PROCEDURE Stop*;`
+`  PROCEDURE Stop*;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L177)
 

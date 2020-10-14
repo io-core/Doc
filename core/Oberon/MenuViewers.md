@@ -4,32 +4,32 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L14) `  PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);`
+`  PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L14)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L22) `  PROCEDURE Restore (V: Viewer);`
+`  PROCEDURE Restore (V: Viewer);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L22)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L37) `  PROCEDURE Modify (V: Viewer; Y, H: INTEGER);`
+`  PROCEDURE Modify (V: Viewer; Y, H: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L37)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L59) `  PROCEDURE Suspend (V: Viewer);`
+`  PROCEDURE Suspend (V: Viewer);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L59)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L66) `  PROCEDURE Move (V: Viewer; X, Y: INTEGER; Keys: SET);`
+`  PROCEDURE Move (V: Viewer; X, Y: INTEGER; Keys: SET);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L66)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L90) `  PROCEDURE Change (V: Viewer; X, Y: INTEGER; Keys: SET);`
+`  PROCEDURE Change (V: Viewer; X, Y: INTEGER; Keys: SET);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L90)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L105) `  PROCEDURE Expand (V: Viewers.Viewer);`
+`  PROCEDURE Expand (V: Viewers.Viewer);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L105)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L111) `  PROCEDURE Copy (V: Viewer; VAR V1: Viewer);`
+`  PROCEDURE Copy (V: Viewer; VAR V1: Viewer);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L111)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L119) `  PROCEDURE Handle* (V: Display.Frame; VAR M: Display.FrameMsg);`
+`  PROCEDURE Handle* (V: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L119)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L160) `  PROCEDURE New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer;`
+`  PROCEDURE New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer;` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L160)
 

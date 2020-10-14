@@ -4,11 +4,11 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L15) `PROCEDURE New*(P: KeyPair; v: INTEGER) : KeyPair;`
+`PROCEDURE New*(P: KeyPair; v: INTEGER) : KeyPair;` [(source)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L15)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L25) `PROCEDURE Get*(P: KeyPair; x: INTEGER): INTEGER;`
+`PROCEDURE Get*(P: KeyPair; x: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L25)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L36) `PROCEDURE Clear*(P: KeyPair);`
+`PROCEDURE Clear*(P: KeyPair);` [(source)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L36)
 

@@ -4,17 +4,17 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/Math.Mod#L7) `  PROCEDURE sqrt*(x: REAL): REAL;`
+`  PROCEDURE sqrt*(x: REAL): REAL;` [(source)](https://github.com/io-core/System/blob/main/Math.Mod#L7)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Math.Mod#L26) `  PROCEDURE exp*(x: REAL): REAL;`
+`  PROCEDURE exp*(x: REAL): REAL;` [(source)](https://github.com/io-core/System/blob/main/Math.Mod#L26)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Math.Mod#L43) `  PROCEDURE ln*(x: REAL): REAL;`
+`  PROCEDURE ln*(x: REAL): REAL;` [(source)](https://github.com/io-core/System/blob/main/Math.Mod#L43)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Math.Mod#L61) `  PROCEDURE sin*(x: REAL): REAL;`
+`  PROCEDURE sin*(x: REAL): REAL;` [(source)](https://github.com/io-core/System/blob/main/Math.Mod#L61)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Math.Mod#L89) `  PROCEDURE cos*(x: REAL): REAL;`
+`  PROCEDURE cos*(x: REAL): REAL;` [(source)](https://github.com/io-core/System/blob/main/Math.Mod#L89)
 

@@ -4,47 +4,47 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L80) `  PROCEDURE New*(R: KeyRing);`
+`  PROCEDURE New*(R: KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L80)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L84) `  PROCEDURE Add*(S: KeySafe; R: KeyRing);`
+`  PROCEDURE Add*(S: KeySafe; R: KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L84)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L89) `  PROCEDURE ThisKeyRing*(S: KeySafe; x, y: INTEGER): KeyRing;`
+`  PROCEDURE ThisKeyRing*(S: KeySafe; x, y: INTEGER): KeyRing;` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L89)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L96) `  PROCEDURE SelectKeyRing*(S: KeySafe; R: KeyRing);`
+`  PROCEDURE SelectKeyRing*(S: KeySafe; R: KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L96)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L101) `  PROCEDURE SelectArea*(S: KeySafe; x0, y0, x1, y1: INTEGER);`
+`  PROCEDURE SelectArea*(S: KeySafe; x0, y0, x1, y1: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L101)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L115) `  PROCEDURE Draw*(S: KeySafe; VAR m: Msg);`
+`  PROCEDURE Draw*(S: KeySafe; VAR m: Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L115)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L122) `  PROCEDURE List*(S: KeySafe);`
+`  PROCEDURE List*(S: KeySafe);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L122)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L137) `  PROCEDURE Deselect*(S: KeySafe);`
+`  PROCEDURE Deselect*(S: KeySafe);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L137)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L143) `  PROCEDURE DrawSel*(S: KeySafe; VAR m: Msg);`
+`  PROCEDURE DrawSel*(S: KeySafe; VAR m: Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L143)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L152) `  PROCEDURE Change*(S: KeySafe; VAR m: Msg);`
+`  PROCEDURE Change*(S: KeySafe; VAR m: Msg);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L152)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L163) `  PROCEDURE WriteFile*(S: KeySafe; name: ARRAY OF CHAR);`
+`  PROCEDURE WriteFile*(S: KeySafe; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L163)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L171) `  PROCEDURE SetWidth*(w: INTEGER);`
+`  PROCEDURE SetWidth*(w: INTEGER);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L171)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L176) `  PROCEDURE Open*(S: KeySafe; name: ARRAY OF CHAR);`
+`  PROCEDURE Open*(S: KeySafe; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L176)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L193) `  PROCEDURE Delete*(S: KeySafe);`
+`  PROCEDURE Delete*(S: KeySafe);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L193)
 
 
-[(src)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L212) `  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (R: KeyRing; VAR msg: Msg));`
+`  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (R: KeyRing; VAR msg: Msg));` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L212)
 

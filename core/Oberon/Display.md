@@ -4,35 +4,35 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L27) `  PROCEDURE Handle*(F: Frame; VAR M: FrameMsg);`
+`  PROCEDURE Handle*(F: Frame; VAR M: FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L27)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L34) `  PROCEDURE Dot*(col, x, y, mode: INTEGER);`
+`  PROCEDURE Dot*(col, x, y, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L34)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L50) `  PROCEDURE ReplConst*(col, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplConst*(col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L50)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L92) `  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)`
+`  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L92)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L121) `  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)`
+`  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L121)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L168) `  PROCEDURE CopyPattern*(col, patadr, x, y, mode: INTEGER);  (*only for modes = paint, invert*)`
+`  PROCEDURE CopyPattern*(col, patadr, x, y, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L168)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L173) `  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER); (*only for mode = replace*)`
+`  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER); (*only for mode = replace*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L173)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L230) `  PROCEDURE CopyImage*(sx, sy, sw, sh, sdepth, sspan, dx, dy, ddepth, dspan, mode: INTEGER); (*only for mode = replace*)`
+`  PROCEDURE CopyImage*(sx, sy, sw, sh, sdepth, sspan, dx, dy, ddepth, dspan, mode: INTEGER); (*only for mode = replace*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L230)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L286) `  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER);`
+`  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L286)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L291) `  PROCEDURE ReplPattern*(col, patadr, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplPattern*(col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L291)
 
 
-[(src)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L319) `  PROCEDURE InitResolution;`
+`  PROCEDURE InitResolution;` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L319)
 

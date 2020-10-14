@@ -4,38 +4,38 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L57) `  PROCEDURE CopyId*(VAR ident: Ident);`
+`  PROCEDURE CopyId*(VAR ident: Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L57)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L61) `  PROCEDURE Pos*(): LONGINT;`
+`  PROCEDURE Pos*(): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L61)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L65) `  PROCEDURE Mark*(msg: ARRAY OF CHAR);`
+`  PROCEDURE Mark*(msg: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L65)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L75) `  PROCEDURE Identifier(VAR sym: INTEGER);`
+`  PROCEDURE Identifier(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L75)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L90) `  PROCEDURE String;`
+`  PROCEDURE String;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L90)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L102) `  PROCEDURE HexString;`
+`  PROCEDURE HexString;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L102)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L122) `  PROCEDURE Ten(e: LONGINT): REAL;`
+`  PROCEDURE Ten(e: LONGINT): REAL;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L122)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L132) `  PROCEDURE Number(VAR sym: INTEGER);`
+`  PROCEDURE Number(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L132)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L201) `  PROCEDURE comment;`
+`  PROCEDURE comment;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L201)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L215) `  PROCEDURE Get*(VAR sym: INTEGER);`
+`  PROCEDURE Get*(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L215)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L270) `  PROCEDURE Init*(T: Texts.Text; pos: LONGINT);`
+`  PROCEDURE Init*(T: Texts.Text; pos: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L270)
 
 
-[(src)](https://github.com/io-core/Build/blob/main/ORS.Mod#L274) `  PROCEDURE EnterKW(sym: INTEGER; name: ARRAY OF CHAR);`
+`  PROCEDURE EnterKW(sym: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L274)
 

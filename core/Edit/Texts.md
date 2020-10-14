@@ -4,104 +4,104 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L81) `  PROCEDURE Trailer(): Piece;`
+`  PROCEDURE Trailer(): Piece;` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L81)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L87) `  PROCEDURE Load* (VAR R: Files.Rider; T: Text);`
+`  PROCEDURE Load* (VAR R: Files.Rider; T: Text);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L87)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L113) `  PROCEDURE Open* (T: Text; name: ARRAY OF CHAR);`
+`  PROCEDURE Open* (T: Text; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L113)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L131) `  PROCEDURE Store* (VAR W: Files.Rider; T: Text);`
+`  PROCEDURE Store* (VAR W: Files.Rider; T: Text);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L131)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L165) `  PROCEDURE Close*(T: Text; name: ARRAY OF CHAR);`
+`  PROCEDURE Close*(T: Text; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L165)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L173) `  PROCEDURE OpenBuf* (B: Buffer);`
+`  PROCEDURE OpenBuf* (B: Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L173)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L178) `  PROCEDURE FindPiece (T: Text; pos: LONGINT; VAR org: LONGINT; VAR pce: Piece);`
+`  PROCEDURE FindPiece (T: Text; pos: LONGINT; VAR org: LONGINT; VAR pce: Piece);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L178)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L190) `  PROCEDURE SplitPiece (p: Piece; off: LONGINT; VAR pr: Piece);`
+`  PROCEDURE SplitPiece (p: Piece; off: LONGINT; VAR pr: Piece);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L190)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L205) `  PROCEDURE Save* (T: Text; beg, end: LONGINT; B: Buffer);`
+`  PROCEDURE Save* (T: Text; beg, end: LONGINT; B: Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L205)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L223) `  PROCEDURE Copy* (SB, DB: Buffer);`
+`  PROCEDURE Copy* (SB, DB: Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L223)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L232) `  PROCEDURE Insert* (T: Text; pos: LONGINT; B: Buffer);`
+`  PROCEDURE Insert* (T: Text; pos: LONGINT; B: Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L232)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L251) `  PROCEDURE Append* (T: Text; B: Buffer);`
+`  PROCEDURE Append* (T: Text; B: Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L251)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L255) `  PROCEDURE Delete* (T: Text; beg, end: LONGINT; B: Buffer);`
+`  PROCEDURE Delete* (T: Text; beg, end: LONGINT; B: Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L255)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L273) `  PROCEDURE ChangeLooks* (T: Text; beg, end: LONGINT; sel: SET; fnt: Fonts.Font; col, voff: INTEGER);`
+`  PROCEDURE ChangeLooks* (T: Text; beg, end: LONGINT; sel: SET; fnt: Fonts.Font; col, voff: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L273)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L290) `  PROCEDURE Attributes*(T: Text; pos: LONGINT; VAR fnt: Fonts.Font; VAR col, voff: INTEGER);`
+`  PROCEDURE Attributes*(T: Text; pos: LONGINT; VAR fnt: Fonts.Font; VAR col, voff: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L290)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L297) `  PROCEDURE OpenReader* (VAR R: Reader; T: Text; pos: LONGINT);`
+`  PROCEDURE OpenReader* (VAR R: Reader; T: Text; pos: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L297)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L304) `  PROCEDURE Read* (VAR R: Reader; VAR ch: CHAR);`
+`  PROCEDURE Read* (VAR R: Reader; VAR ch: CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L304)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L315) `  PROCEDURE Pos* (VAR R: Reader): LONGINT;`
+`  PROCEDURE Pos* (VAR R: Reader): LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L315)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L321) `  PROCEDURE OpenScanner* (VAR S: Scanner; T: Text; pos: LONGINT);`
+`  PROCEDURE OpenScanner* (VAR S: Scanner; T: Text; pos: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L321)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L329) `  PROCEDURE Ten(n: INTEGER): REAL;`
+`  PROCEDURE Ten(n: INTEGER): REAL;` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L329)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L339) `  PROCEDURE Scan* (VAR S: Scanner);`
+`  PROCEDURE Scan* (VAR S: Scanner);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L339)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L406) `  PROCEDURE OpenWriter* (VAR W: Writer);`
+`  PROCEDURE OpenWriter* (VAR W: Writer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L406)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L412) `  PROCEDURE SetFont* (VAR W: Writer; fnt: Fonts.Font);`
+`  PROCEDURE SetFont* (VAR W: Writer; fnt: Fonts.Font);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L412)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L416) `  PROCEDURE SetColor* (VAR W: Writer; col: INTEGER);`
+`  PROCEDURE SetColor* (VAR W: Writer; col: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L416)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L420) `  PROCEDURE SetOffset* (VAR W: Writer; voff: INTEGER);`
+`  PROCEDURE SetOffset* (VAR W: Writer; voff: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L420)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L424) `  PROCEDURE Write* (VAR W: Writer; ch: CHAR);`
+`  PROCEDURE Write* (VAR W: Writer; ch: CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L424)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L437) `  PROCEDURE WriteLn* (VAR W: Writer);`
+`  PROCEDURE WriteLn* (VAR W: Writer);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L437)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L441) `  PROCEDURE WriteString* (VAR W: Writer; s: ARRAY OF CHAR);`
+`  PROCEDURE WriteString* (VAR W: Writer; s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L441)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L447) `  PROCEDURE WriteInt* (VAR W: Writer; x, n: LONGINT);`
+`  PROCEDURE WriteInt* (VAR W: Writer; x, n: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L447)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L463) `  PROCEDURE WriteHex* (VAR W: Writer; x: LONGINT);`
+`  PROCEDURE WriteHex* (VAR W: Writer; x: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L463)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L474) ` PROCEDURE WriteReal* (VAR W: Writer; x: REAL; n: INTEGER);`
+` PROCEDURE WriteReal* (VAR W: Writer; x: REAL; n: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L474)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L504) `  PROCEDURE WriteRealFix* (VAR W: Writer; x: REAL; n, k: INTEGER);`
+`  PROCEDURE WriteRealFix* (VAR W: Writer; x: REAL; n, k: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L504)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L525) `  PROCEDURE WritePair(VAR W: Writer; ch: CHAR; x: LONGINT);`
+`  PROCEDURE WritePair(VAR W: Writer; ch: CHAR; x: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L525)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L530) `  PROCEDURE WriteClock* (VAR W: Writer; d: LONGINT);`
+`  PROCEDURE WriteClock* (VAR W: Writer; d: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L530)
 

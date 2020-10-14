@@ -4,47 +4,47 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L15) `  PROCEDURE Dot(f: GraphicFrames.Frame; col, x, y: INTEGER);`
+`  PROCEDURE Dot(f: GraphicFrames.Frame; col, x, y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L15)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L20) `  PROCEDURE mark(f: GraphicFrames.Frame; col, x, y: INTEGER);`
+`  PROCEDURE mark(f: GraphicFrames.Frame; col, x, y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L20)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L29) `  PROCEDURE line(f: GraphicFrames.Frame; col: INTEGER; x, y, w, h, d: LONGINT);`
+`  PROCEDURE line(f: GraphicFrames.Frame; col: INTEGER; x, y, w, h, d: LONGINT);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L29)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L48) `  PROCEDURE circle(f: GraphicFrames.Frame; col: INTEGER; x0, y0, r: LONGINT);`
+`  PROCEDURE circle(f: GraphicFrames.Frame; col: INTEGER; x0, y0, r: LONGINT);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L48)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L65) `  PROCEDURE ellipse(f: GraphicFrames.Frame; col: INTEGER; x0, y0, a, b: LONGINT);`
+`  PROCEDURE ellipse(f: GraphicFrames.Frame; col: INTEGER; x0, y0, a, b: LONGINT);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L65)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L90) `  PROCEDURE New*;`
+`  PROCEDURE New*;` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L90)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L95) `  PROCEDURE Copy(src, dst: Graphics.Object);`
+`  PROCEDURE Copy(src, dst: Graphics.Object);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L95)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L100) `  PROCEDURE Draw(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE Draw(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L100)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L146) `  PROCEDURE Selectable(obj: Graphics.Object; x, y: INTEGER): BOOLEAN;`
+`  PROCEDURE Selectable(obj: Graphics.Object; x, y: INTEGER): BOOLEAN;` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L146)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L160) `  PROCEDURE Change(obj: Graphics.Object; VAR M: Graphics.Msg);`
+`  PROCEDURE Change(obj: Graphics.Object; VAR M: Graphics.Msg);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L160)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L165) `  PROCEDURE Read(obj: Graphics.Object; VAR R: Files.Rider; VAR C: Graphics.Context);`
+`  PROCEDURE Read(obj: Graphics.Object; VAR R: Files.Rider; VAR C: Graphics.Context);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L165)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L171) `  PROCEDURE Write(obj: Graphics.Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Graphics.Context);`
+`  PROCEDURE Write(obj: Graphics.Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Graphics.Context);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L171)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L176) `  PROCEDURE MakeLine*;  (*command*)`
+`  PROCEDURE MakeLine*;  (*command*)` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L176)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L197) `  PROCEDURE MakeCircle*;  (*command*)`
+`  PROCEDURE MakeCircle*;  (*command*)` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L197)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L215) `  PROCEDURE MakeEllipse*;  (*command*)`
+`  PROCEDURE MakeEllipse*;  (*command*)` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L215)
 

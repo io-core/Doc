@@ -4,41 +4,41 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L36) `  PROCEDURE Max(i, j: LONGINT): LONGINT;`
+`  PROCEDURE Max(i, j: LONGINT): LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L36)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L42) `  PROCEDURE FocusViewer(): Viewers.Viewer;  (*for Extended Oberon*)`
+`  PROCEDURE FocusViewer(): Viewers.Viewer;  (*for Extended Oberon*)` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L42)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L46) `  PROCEDURE Open*;`
+`  PROCEDURE Open*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L46)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L66) `  PROCEDURE Store*;`
+`  PROCEDURE Store*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L66)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L73) `    PROCEDURE Backup (VAR name: ARRAY OF CHAR);`
+`    PROCEDURE Backup (VAR name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L73)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L99) `  PROCEDURE CopyLooks*;`
+`  PROCEDURE CopyLooks*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L99)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L116) `  PROCEDURE ChangeFont*;`
+`  PROCEDURE ChangeFont*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L116)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L128) `  PROCEDURE ChangeColor*;`
+`  PROCEDURE ChangeColor*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L128)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L140) `  PROCEDURE ChangeOffset*;`
+`  PROCEDURE ChangeOffset*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L140)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L152) `  PROCEDURE Search*;  (*uses global variables M, pat, d for Boyer-Moore search*)`
+`  PROCEDURE Search*;  (*uses global variables M, pat, d for Boyer-Moore search*)` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L152)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L160) `    PROCEDURE Forward(n: INTEGER; VAR R: Texts.Reader; VAR buf: ARRAY OF CHAR);`
+`    PROCEDURE Forward(n: INTEGER; VAR R: Texts.Reader; VAR buf: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L160)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L201) `  PROCEDURE Locate*;`
+`  PROCEDURE Locate*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L201)
 
 
-[(src)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L226) `  PROCEDURE Recall*;`
+`  PROCEDURE Recall*;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L226)
 

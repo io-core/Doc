@@ -4,29 +4,29 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L13) `  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);`
+`  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L13)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L24) `  PROCEDURE Clear*;  (*used to clear output*)`
+`  PROCEDURE Clear*;  (*used to clear output*)` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L24)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L29) `  PROCEDURE Close*;`
+`  PROCEDURE Close*;` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L29)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L36) `  PROCEDURE Recall*;`
+`  PROCEDURE Recall*;` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L36)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L40) `  PROCEDURE Inspect*;`
+`  PROCEDURE Inspect*;` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L40)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L55) `  PROCEDURE Sector*;`
+`  PROCEDURE Sector*;` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L55)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L72) `  PROCEDURE ShowFile*;`
+`  PROCEDURE ShowFile*;` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L72)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L92) `  PROCEDURE Convert*;   (*convert selected text to txt-format*)`
+`  PROCEDURE Convert*;   (*convert selected text to txt-format*)` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L92)
 
 
-[(src)](https://github.com/io-core/System/blob/main/Tools.Mod#L116) `  PROCEDURE Id*;`
+`  PROCEDURE Id*;` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L116)
 

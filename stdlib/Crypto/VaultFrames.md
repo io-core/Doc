@@ -4,89 +4,89 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L79) `  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)`
+`  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L79)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L88) `  PROCEDURE Restore*(f: Frame);`
+`  PROCEDURE Restore*(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L88)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L105) `  PROCEDURE FlipCross(X, Y: INTEGER);`
+`  PROCEDURE FlipCross(X, Y: INTEGER);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L105)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L116) `  PROCEDURE Focus*(): Frame;`
+`  PROCEDURE Focus*(): Frame;` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L116)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L121) `  PROCEDURE Selected*(): Frame;`
+`  PROCEDURE Selected*(): Frame;` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L121)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L126) `  PROCEDURE This*(x, y: INTEGER): Frame;`
+`  PROCEDURE This*(x, y: INTEGER): Frame;` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L126)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L131) `  PROCEDURE Mark(f: Frame; mode: INTEGER);`
+`  PROCEDURE Mark(f: Frame; mode: INTEGER);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L131)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L136) `  PROCEDURE Draw*(f: Frame);`
+`  PROCEDURE Draw*(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L136)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L141) `  PROCEDURE DrawNorm(f: Frame);`
+`  PROCEDURE DrawNorm(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L141)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L146) `  PROCEDURE Erase*(f: Frame);`
+`  PROCEDURE Erase*(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L146)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L151) `  PROCEDURE DrawDocument*(f: Frame; L: Vaults.Document);`
+`  PROCEDURE DrawDocument*(f: Frame; L: Vaults.Document);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L151)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L156) `  PROCEDURE EraseDocument*(f: Frame; D: Vaults.Document);`
+`  PROCEDURE EraseDocument*(f: Frame; D: Vaults.Document);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L156)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L161) `  PROCEDURE Change*(f: Frame; VAR msg: Vaults.Msg);`
+`  PROCEDURE Change*(f: Frame; VAR msg: Vaults.Msg);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L161)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L166) `  PROCEDURE FlipMark(x, y: INTEGER);`
+`  PROCEDURE FlipMark(x, y: INTEGER);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L166)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L172) `  PROCEDURE Defocus*(f: Frame);`
+`  PROCEDURE Defocus*(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L172)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L182) `  PROCEDURE Deselect*(f: Frame);`
+`  PROCEDURE Deselect*(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L182)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L191) `  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);`
+`  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L191)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L286) `  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);`
+`  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L286)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L294) `  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);`
+`  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L294)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L304) `  PROCEDURE DeleteChar(f: Frame);`
+`  PROCEDURE DeleteChar(f: Frame);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L304)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L325) `  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);`
+`  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L325)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L335) `  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);`
+`  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L335)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L395) `  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);`
+`  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L395)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L401) `  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L401)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L410) `  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);`
+`  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L410)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L419) `  PROCEDURE DrawLine(obj: Vaults.Document; VAR m: Vaults.Msg);`
+`  PROCEDURE DrawLine(obj: Vaults.Document; VAR m: Vaults.Msg);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L419)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L441) `  PROCEDURE DrawCaption(obj: Vaults.Document; VAR m: Vaults.Msg);`
+`  PROCEDURE DrawCaption(obj: Vaults.Document; VAR m: Vaults.Msg);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L441)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L473) `  PROCEDURE DrawMacro(obj: Vaults.Document; VAR m: Vaults.Msg);`
+`  PROCEDURE DrawMacro(obj: Vaults.Document; VAR m: Vaults.Msg);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L473)
 
 
-[(src)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L496) `  PROCEDURE Open*(f: Frame; V: Vaults.Vault);`
+`  PROCEDURE Open*(f: Frame; V: Vaults.Vault);` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L496)
 

@@ -4,17 +4,17 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L7) `  PROCEDURE DecGraph*;`
+`  PROCEDURE DecGraph*;` [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L7)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L57) `  PROCEDURE DecGraph1*;`
+`  PROCEDURE DecGraph1*;` [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L57)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L108) `  PROCEDURE DecLibrary1*;`
+`  PROCEDURE DecLibrary1*;` [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L108)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L162) `  PROCEDURE ConvertFontname(VAR x: ARRAY OF CHAR);`
+`  PROCEDURE ConvertFontname(VAR x: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L162)
 
 
-[(src)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L169) `  PROCEDURE ConvertLibrary*;`
+`  PROCEDURE ConvertLibrary*;` [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L169)
 

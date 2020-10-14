@@ -4,59 +4,59 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L93) `  PROCEDURE New*(L: Layer);`
+`  PROCEDURE New*(L: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L93)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L97) `  PROCEDURE Add*(I: Image; L: Layer);`
+`  PROCEDURE Add*(I: Image; L: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L97)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L102) `  PROCEDURE ThisLayer*(I: Image; x, y: INTEGER): Layer;`
+`  PROCEDURE ThisLayer*(I: Image; x, y: INTEGER): Layer;` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L102)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L109) `  PROCEDURE SelectLayer*(I: Image; L: Layer);`
+`  PROCEDURE SelectLayer*(I: Image; L: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L109)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L114) `  PROCEDURE SelectArea*(I: Image; x0, y0, x1, y1: INTEGER);`
+`  PROCEDURE SelectArea*(I: Image; x0, y0, x1, y1: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L114)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L128) `  PROCEDURE Draw*(I: Image; VAR M: Msg);`
+`  PROCEDURE Draw*(I: Image; VAR M: Msg);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L128)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L135) `  PROCEDURE List*(I: Image);`
+`  PROCEDURE List*(I: Image);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L135)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L150) `  PROCEDURE Deselect*(I: Image);`
+`  PROCEDURE Deselect*(I: Image);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L150)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L156) `  PROCEDURE DrawSel*(I: Image; VAR M: Msg);`
+`  PROCEDURE DrawSel*(I: Image; VAR M: Msg);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L156)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L165) `  PROCEDURE Change*(I: Image; VAR M: Msg);`
+`  PROCEDURE Change*(I: Image; VAR M: Msg);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L165)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L176) `  PROCEDURE WriteFile*(I: Image; name: ARRAY OF CHAR);`
+`  PROCEDURE WriteFile*(I: Image; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L176)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L184) `  PROCEDURE SetWidth*(w: INTEGER);`
+`  PROCEDURE SetWidth*(w: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L184)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L189) `  PROCEDURE LoadBmpLayer(VAR R: Files.Rider; VAR flyr: Layer);`
+`  PROCEDURE LoadBmpLayer(VAR R: Files.Rider; VAR flyr: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L189)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L195) `  PROCEDURE LoadJpgLayer(VAR R: Files.Rider; VAR flyr: Layer);`
+`  PROCEDURE LoadJpgLayer(VAR R: Files.Rider; VAR flyr: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L195)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L201) `  PROCEDURE LoadPngLayer(VAR R: Files.Rider; VAR flyr: Layer);`
+`  PROCEDURE LoadPngLayer(VAR R: Files.Rider; VAR flyr: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L201)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L207) `  PROCEDURE LoadPctLayer(VAR R: Files.Rider; VAR flyr: Layer);`
+`  PROCEDURE LoadPctLayer(VAR R: Files.Rider; VAR flyr: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L207)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L213) `  PROCEDURE Open*(I: Image; name: ARRAY OF CHAR);`
+`  PROCEDURE Open*(I: Image; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L213)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L238) `  PROCEDURE Delete*(I: Image);`
+`  PROCEDURE Delete*(I: Image);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L238)
 
 
-[(src)](https://github.com/io-core/Paint/blob/main/Images.Mod#L257) `  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (L: Layer; VAR msg: Msg));`
+`  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (L: Layer; VAR msg: Msg));` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L257)
 

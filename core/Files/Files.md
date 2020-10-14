@@ -4,119 +4,119 @@
 Procedures:
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L65) `  PROCEDURE Check(s: ARRAY OF CHAR;`
+`  PROCEDURE Check(s: ARRAY OF CHAR;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L65)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L83) `  PROCEDURE Old*(name: ARRAY OF CHAR): File;`
+`  PROCEDURE Old*(name: ARRAY OF CHAR): File;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L83)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L118) `  PROCEDURE New*(name: ARRAY OF CHAR): File;`
+`  PROCEDURE New*(name: ARRAY OF CHAR): File;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L118)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L142) `  PROCEDURE UpdateHeader(f: File; VAR F: FileDir.FileHeader);`
+`  PROCEDURE UpdateHeader(f: File; VAR F: FileDir.FileHeader);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L142)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L149) `  PROCEDURE ReadBuf(f: File; buf: Buffer; pos: INTEGER);`
+`  PROCEDURE ReadBuf(f: File; buf: Buffer; pos: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L149)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L160) `  PROCEDURE WriteBuf(f: File; buf: Buffer);`
+`  PROCEDURE WriteBuf(f: File; buf: Buffer);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L160)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L186) `  PROCEDURE Buf(f: File; pos: INTEGER): Buffer;`
+`  PROCEDURE Buf(f: File; pos: INTEGER): Buffer;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L186)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L194) `  PROCEDURE GetBuf(f: File; pos: INTEGER): Buffer;`
+`  PROCEDURE GetBuf(f: File; pos: INTEGER): Buffer;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L194)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L209) `  PROCEDURE Unbuffer(f: File);`
+`  PROCEDURE Unbuffer(f: File);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L209)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L235) `  PROCEDURE Register*(f: File);`
+`  PROCEDURE Register*(f: File);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L235)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L245) `  PROCEDURE Close*(f: File);`
+`  PROCEDURE Close*(f: File);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L245)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L250) `  PROCEDURE Purge*(f: File);`
+`  PROCEDURE Purge*(f: File);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L250)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L267) `  PROCEDURE Delete*(name: ARRAY OF CHAR; VAR res: INTEGER);`
+`  PROCEDURE Delete*(name: ARRAY OF CHAR; VAR res: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L267)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L277) `  PROCEDURE Rename*(old, new: ARRAY OF CHAR; VAR res: INTEGER);`
+`  PROCEDURE Rename*(old, new: ARRAY OF CHAR; VAR res: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L277)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L295) `  PROCEDURE Length*(f: File): INTEGER;`
+`  PROCEDURE Length*(f: File): INTEGER;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L295)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L299) `  PROCEDURE Date*(f: File): INTEGER;`
+`  PROCEDURE Date*(f: File): INTEGER;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L299)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L305) `  PROCEDURE Set*(VAR r: Rider; f: File; pos: INTEGER);`
+`  PROCEDURE Set*(VAR r: Rider; f: File; pos: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L305)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L319) `  PROCEDURE Pos*(VAR r: Rider): INTEGER;`
+`  PROCEDURE Pos*(VAR r: Rider): INTEGER;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L319)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L323) `  PROCEDURE Base*(VAR r: Rider): File;`
+`  PROCEDURE Base*(VAR r: Rider): File;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L323)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L327) `  PROCEDURE ReadByte*(VAR r: Rider; VAR x: BYTE);`
+`  PROCEDURE ReadByte*(VAR r: Rider; VAR x: BYTE);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L327)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L344) `  PROCEDURE ReadBytes*(VAR r: Rider; VAR x: ARRAY OF BYTE; n: INTEGER);`
+`  PROCEDURE ReadBytes*(VAR r: Rider; VAR x: ARRAY OF BYTE; n: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L344)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L350) `  PROCEDURE Read*(VAR r: Rider; VAR ch: CHAR);`
+`  PROCEDURE Read*(VAR r: Rider; VAR ch: CHAR);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L350)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L367) `  PROCEDURE ReadInt*(VAR R: Rider; VAR x: INTEGER);`
+`  PROCEDURE ReadInt*(VAR R: Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L367)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L373) `  PROCEDURE ReadSet*(VAR R: Rider; VAR s: SET);`
+`  PROCEDURE ReadSet*(VAR R: Rider; VAR s: SET);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L373)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L378) `  PROCEDURE ReadReal*(VAR R: Rider; VAR x: REAL);`
+`  PROCEDURE ReadReal*(VAR R: Rider; VAR x: REAL);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L378)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L383) `  PROCEDURE ReadString*(VAR R: Rider; VAR x: ARRAY OF CHAR);`
+`  PROCEDURE ReadString*(VAR R: Rider; VAR x: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L383)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L393) `  PROCEDURE ReadNum*(VAR R: Rider; VAR x: INTEGER);`
+`  PROCEDURE ReadNum*(VAR R: Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L393)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L402) `  PROCEDURE NewExt(f: File);`
+`  PROCEDURE NewExt(f: File);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L402)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L409) `  PROCEDURE WriteByte*(VAR r: Rider; x: BYTE);`
+`  PROCEDURE WriteByte*(VAR r: Rider; x: BYTE);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L409)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L430) `  PROCEDURE WriteBytes*(VAR r: Rider; x: ARRAY OF BYTE; n: INTEGER);`
+`  PROCEDURE WriteBytes*(VAR r: Rider; x: ARRAY OF BYTE; n: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L430)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L436) `  PROCEDURE Write*(VAR r: Rider; ch: CHAR);`
+`  PROCEDURE Write*(VAR r: Rider; ch: CHAR);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L436)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L457) `  PROCEDURE WriteInt*(VAR R: Rider; x: INTEGER);`
+`  PROCEDURE WriteInt*(VAR R: Rider; x: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L457)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L464) `  PROCEDURE WriteSet*(VAR R: Rider; s: SET);`
+`  PROCEDURE WriteSet*(VAR R: Rider; s: SET);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L464)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L468) `  PROCEDURE WriteReal*(VAR R: Rider; x: REAL);`
+`  PROCEDURE WriteReal*(VAR R: Rider; x: REAL);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L468)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L472) `  PROCEDURE WriteString*(VAR R: Rider; x: ARRAY OF CHAR);`
+`  PROCEDURE WriteString*(VAR R: Rider; x: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L472)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L478) `  PROCEDURE WriteNum*(VAR R: Rider; x: INTEGER);`
+`  PROCEDURE WriteNum*(VAR R: Rider; x: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L478)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L486) `  PROCEDURE Init*;`
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L486)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L490) `  PROCEDURE RestoreList*; (*after mark phase of garbage collection*)`
+`  PROCEDURE RestoreList*; (*after mark phase of garbage collection*)` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L490)
 
 
-[(src)](https://github.com/io-core/Files/blob/main/Files.Mod#L493) `    PROCEDURE mark(f: INTEGER): INTEGER;`
+`    PROCEDURE mark(f: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L493)
 
