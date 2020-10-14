@@ -49,6 +49,23 @@ development process described in Develop.md
 
 Links to the repo, the wiki, some guidelines, etc.
 
+## How to report issues
+
+File general issues in the
+* [IO Project Issue Tracker](https://github.com/io-core/io/issues)
+
+or in sub-project issue trackers for the following sub-projects:
+* [doc](https://github.com/io-core/doc/issues)
+* [Kernel](https://github.com/io-core/Kernel/issues)
+* [Files](https://github.com/io-core/Files/issues)
+* [Modules](https://github.com/io-core/Modules/issues)
+* [Edit](https://github.com/io-core/Edit/issues)
+* [Oberon](https://github.com/io-core/Oberon/issues)
+* [System](https://github.com/io-core/System/issues)
+* [Build](https://github.com/io-core/Build/issues)
+* [Draw](https://github.com/io-core/Draw/issues)
+
+
 ## System Concepts
 
 summary and link to Concepts.md
