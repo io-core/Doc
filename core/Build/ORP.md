@@ -93,6 +93,7 @@ Procedures:
   PROCEDURE IParamList(VAR x: ORG.Item);
 ```
 `StandFunc` consumes standard language functions and produces inline code for those functions.
+
 Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `SBC` `UML` `BIT` `REG` `VAL` `ADR` `SIZE` `COND` `H`
 ```
   PROCEDURE StandFunc(VAR x: ORG.Item; fct: LONGINT; restyp: ORB.Type);
