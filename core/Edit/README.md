@@ -19,7 +19,7 @@ Edit.Open example.txt
 
 ## Modules
 
-#### [MODULE Edit](https://github.com/io-core/doc/blob/main/core/Edit/Edit.Mod) [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod)
+#### [MODULE Edit](https://github.com/io-core/doc/blob/main/core/Edit/Edit.md) [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod)
 Module Edit provides document editing capability.
 
 
@@ -46,7 +46,7 @@ Procedures:
 ```
 
 
-#### [MODULE TextFrames](https://github.com/io-core/doc/blob/main/core/Edit/TextFrames.Mod) [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
+#### [MODULE TextFrames](https://github.com/io-core/doc/blob/main/core/Edit/TextFrames.md) [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
 Module TextFrames defines the messages and default handlers for text operations in panes in the Oberon user interface.
 
 
@@ -125,7 +125,7 @@ Procedures:
 ```
 
 
-#### [MODULE Texts](https://github.com/io-core/doc/blob/main/core/Edit/Texts.Mod) [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod)
+#### [MODULE Texts](https://github.com/io-core/doc/blob/main/core/Edit/Texts.md) [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod)
 Module Texts defines the 'text' abstract data type used pervasively in the Oberon system.
 
 
@@ -192,7 +192,7 @@ Procedures:
 ```
 
 
-#### [MODULE Fonts](https://github.com/io-core/doc/blob/main/core/Edit/Fonts.Mod) [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
+#### [MODULE Fonts](https://github.com/io-core/doc/blob/main/core/Edit/Fonts.md) [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
 Module Fonts provides the glyphs used by the Text system and the Graphics system to represent characters.
 
 

@@ -3,7 +3,7 @@ This package provides tools for viewing and manipulating bitmap images.
 
 
 
-#### [MODULE Images](https://github.com/io-core/doc/blob/main/stdlib/Paint/Images.Mod) [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod)
+#### [MODULE Images](https://github.com/io-core/doc/blob/main/stdlib/Paint/Images.md) [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
 Procedures:
 ```
@@ -44,7 +44,7 @@ Procedures:
 ```
 
 
-#### [MODULE Paint](https://github.com/io-core/doc/blob/main/stdlib/Paint/Paint.Mod) [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod)
+#### [MODULE Paint](https://github.com/io-core/doc/blob/main/stdlib/Paint/Paint.md) [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod)
 
 Procedures:
 ```
@@ -71,7 +71,7 @@ Procedures:
 ```
 
 
-#### [MODULE Bitmaps](https://github.com/io-core/doc/blob/main/stdlib/Paint/Bitmaps.Mod) [(source)](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
+#### [MODULE Bitmaps](https://github.com/io-core/doc/blob/main/stdlib/Paint/Bitmaps.md) [(source)](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
 
 Procedures:
 ```
@@ -108,7 +108,7 @@ Procedures:
 ```
 
 
-#### [MODULE ImageFrames](https://github.com/io-core/doc/blob/main/stdlib/Paint/ImageFrames.Mod) [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
+#### [MODULE ImageFrames](https://github.com/io-core/doc/blob/main/stdlib/Paint/ImageFrames.md) [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
 
 Procedures:
 ```

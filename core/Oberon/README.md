@@ -3,7 +3,7 @@ This package implements the user-interaction functionality and the task loop of 
 
 
 
-#### [MODULE Oberon](https://github.com/io-core/doc/blob/main/core/Oberon/Oberon.Mod) [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
+#### [MODULE Oberon](https://github.com/io-core/doc/blob/main/core/Oberon/Oberon.md) [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 Module Oberon establishes the messaging and callback system for implementing the extensible user interface of Oberon.
 
 Oberon uses SYSTEM, Kernel, Files, Modules, Input, Display, Viewers, Fonts, Texts
@@ -105,7 +105,7 @@ Procedures:
 ```
 
 
-#### [MODULE MenuViewers](https://github.com/io-core/doc/blob/main/core/Oberon/MenuViewers.Mod) [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
+#### [MODULE MenuViewers](https://github.com/io-core/doc/blob/main/core/Oberon/MenuViewers.md) [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
 Module MenuViewers implements the top-of-pane 'menu' functionality of the Oberon user interface. 
 
 MenuViewers uses Input, Display, Viewers, Oberon
@@ -121,7 +121,7 @@ Procedures:
 ```
 
 
-#### [MODULE Viewers](https://github.com/io-core/doc/blob/main/core/Oberon/Viewers.Mod) [(source)](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
+#### [MODULE Viewers](https://github.com/io-core/doc/blob/main/core/Oberon/Viewers.md) [(source)](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
 Module Viewers implements base functionaltiy which may be extended for interacting with a pane or 'Viewer' in Oberon.
 
 Viewers uses Display
@@ -185,7 +185,7 @@ Procedures:
 ```
 
 
-#### [MODULE Display](https://github.com/io-core/doc/blob/main/core/Oberon/Display.Mod) [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod)
+#### [MODULE Display](https://github.com/io-core/doc/blob/main/core/Oberon/Display.md) [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod)
 Module Display implements the drawing primitives for the frame buffer device in Oberon.
 
 Display uses SYSTEM
@@ -217,7 +217,7 @@ Procedures:
 ```
 
 
-#### [MODULE Input](https://github.com/io-core/doc/blob/main/core/Oberon/Input.Mod) [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod)
+#### [MODULE Input](https://github.com/io-core/doc/blob/main/core/Oberon/Input.md) [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod)
 Module Input reads keyboard and mouse raw data and returns ASCII values and mouse state to Oberon.
 
 Input uses SYSTEM

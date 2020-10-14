@@ -3,7 +3,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 
 
-#### [MODULE GraphTool](https://github.com/io-core/doc/blob/main/stdlib/Draw/GraphTool.Mod) [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod)
+#### [MODULE GraphTool](https://github.com/io-core/doc/blob/main/stdlib/Draw/GraphTool.md) [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod)
 
 Procedures:
 ```
@@ -18,7 +18,7 @@ Procedures:
 ```
 
 
-#### [MODULE Rectangles](https://github.com/io-core/doc/blob/main/stdlib/Draw/Rectangles.Mod) [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)
+#### [MODULE Rectangles](https://github.com/io-core/doc/blob/main/stdlib/Draw/Rectangles.md) [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)
 
 Procedures:
 ```
@@ -29,7 +29,7 @@ Procedures:
 ```
 
 
-#### [MODULE Curves](https://github.com/io-core/doc/blob/main/stdlib/Draw/Curves.Mod) [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod)
+#### [MODULE Curves](https://github.com/io-core/doc/blob/main/stdlib/Draw/Curves.md) [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod)
 
 Procedures:
 ```
@@ -44,7 +44,7 @@ Procedures:
 ```
 
 
-#### [MODULE Graphics](https://github.com/io-core/doc/blob/main/stdlib/Draw/Graphics.Mod) [(source)](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
+#### [MODULE Graphics](https://github.com/io-core/doc/blob/main/stdlib/Draw/Graphics.md) [(source)](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
 
 Procedures:
 ```
@@ -117,7 +117,7 @@ Procedures:
 ```
 
 
-#### [MODULE MacroTool](https://github.com/io-core/doc/blob/main/stdlib/Draw/MacroTool.Mod) [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod)
+#### [MODULE MacroTool](https://github.com/io-core/doc/blob/main/stdlib/Draw/MacroTool.md) [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod)
 
 Procedures:
 ```
@@ -132,7 +132,7 @@ Procedures:
 ```
 
 
-#### [MODULE Draw](https://github.com/io-core/doc/blob/main/stdlib/Draw/Draw.Mod) [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod)
+#### [MODULE Draw](https://github.com/io-core/doc/blob/main/stdlib/Draw/Draw.md) [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod)
 
 Procedures:
 ```
@@ -159,7 +159,7 @@ Procedures:
 ```
 
 
-#### [MODULE GraphicFrames](https://github.com/io-core/doc/blob/main/stdlib/Draw/GraphicFrames.Mod) [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod)
+#### [MODULE GraphicFrames](https://github.com/io-core/doc/blob/main/stdlib/Draw/GraphicFrames.md) [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod)
 
 Procedures:
 ```

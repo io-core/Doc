@@ -5,7 +5,7 @@ This package allows the user to batch commands and 'script' the Oberon environme
 The Script package automates Oberon commands.
 
 
-#### [MODULE Script](https://github.com/io-core/doc/blob/main/stdlib/Script/Script.Mod) [(source)](https://github.com/io-core/Script/blob/main/Script.Mod)
+#### [MODULE Script](https://github.com/io-core/doc/blob/main/stdlib/Script/Script.md) [(source)](https://github.com/io-core/Script/blob/main/Script.Mod)
 Module Script will implement LIL, a derivative of TCL.
 
 
@@ -20,7 +20,7 @@ Procedures:
 ```
 
 
-#### [MODULE Environments](https://github.com/io-core/doc/blob/main/stdlib/Script/Environments.Mod) [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod)
+#### [MODULE Environments](https://github.com/io-core/doc/blob/main/stdlib/Script/Environments.md) [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod)
 Module Environments handles script execution context.
 
 
@@ -45,7 +45,7 @@ Procedures:
 ```
 
 
-#### [MODULE Intrinsics](https://github.com/io-core/doc/blob/main/stdlib/Script/Intrinsics.Mod) [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
+#### [MODULE Intrinsics](https://github.com/io-core/doc/blob/main/stdlib/Script/Intrinsics.md) [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
 Module Intrinsics handles pseudo-commands and operations internal to the LIL interpreter.
 
 
