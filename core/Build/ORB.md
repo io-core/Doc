@@ -3,7 +3,7 @@
 
 (NW 25.6.2014  / AP 4.3.2020 / 5.3.2019  in Oberon-07 / AP 24.4.20 Extended Oberon / CP 10.20 Integrated Oberon)
 
-**ORG** is called from ORP and generates machine code various Oberon-2i language constructs for the Oberon RISC5 architeture.
+**ORB** is called from ORP and ORG and tracks the state of identifiers and objects as code compilation progresses.
 
 
   ## Imports:
