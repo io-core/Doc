@@ -4,6 +4,12 @@
   ## Imports:
 ` SYSTEM Files Modules Input Fonts (*Printer*) Texts Oberon`
 
+  ## Constants:
+```
+ NameLen* = 32; GraphFileId = 0FAX; LibFileId = 0FBX;
+    TAB = Input.TAB; CR = Input.CR;
+
+```
 ## Procedures:
 ---
 

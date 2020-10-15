@@ -45,7 +45,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 
 			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/## Imports\:\n`/g' | tr -d ',' | sed -e 's/;/`\n/g' >> $k/$nam/$snam.md
 			awk '/TYPE/{p=0};p;/CONST/{p=1};/CONST/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/CONST/## Constants\:\n```\n/g' >> $k/$nam/$snam.md
-			echo "```" >> $k/$nam/$snam.md
+			echo '```' >> $k/$nam/$snam.md
 			echo "## Procedures:" >> $k/$nam/$snam.md
                         echo "---" >> $k/$nam/$snam.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod"

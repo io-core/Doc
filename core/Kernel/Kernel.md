@@ -4,6 +4,11 @@
   ## Imports:
 ` SYSTEM`
 
+  ## Constants:
+```
+ TrapAdr* = 04H; timer = -64;
+
+```
 ## Procedures:
 ---
 

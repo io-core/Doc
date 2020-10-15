@@ -4,6 +4,15 @@
   ## Imports:
 ` SYSTEM Kernel Disk FileDir`
 
+  ## Constants:
+```
+ MaxBufs    = 4;
+      HS        = FileDir.HeaderSize;
+      SS        = FileDir.SectorSize;
+      STS       = FileDir.SecTabSize;
+      XS        = FileDir.IndexSize;
+
+```
 ## Procedures:
 ---
 

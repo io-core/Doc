@@ -4,6 +4,11 @@
   ## Imports:
 ` Files`
 
+  ## Constants:
+```
+ FontFileId = 0DBH; A = 512;
+
+```
 ## Procedures:
 ---
 

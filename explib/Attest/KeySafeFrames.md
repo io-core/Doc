@@ -4,6 +4,15 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers`
 
+  ## Constants:
+```
+ (*update message ids*)
+    drawkeyring = 1; drawkeyrings = 2; drawkeyringd = 3;
+    drawnorm = 4; drawsel = 5; drawdel = 6;
+
+    markW = 5;
+
+```
 ## Procedures:
 ---
 

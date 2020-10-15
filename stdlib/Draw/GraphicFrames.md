@@ -4,6 +4,17 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Graphics Oberon`
 
+  ## Constants:
+```
+ (*update message ids*)
+    drawobj = 1; drawobjs = 2; drawobjd = 3;
+    drawnorm = 4; drawsel = 5; drawdel = 6;
+
+    markW = 5;
+
+    CR = Input.CR;
+
+```
 ## Procedures:
 ---
 

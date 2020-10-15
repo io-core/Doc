@@ -3,6 +3,15 @@
 
   ## Imports:
 ` SYSTEM Kernel Disk FileDir Files Modules
+  ## Constants:
+```
+ Version* = "Extended Oberon System  AP 6.9.20";
+    StandardMenu = "System.Close System.Copy System.Grow Edit.Search Edit.Store | System.Expand System.Spread System.Clone";
+    LogMenu = "Edit.Locate Edit.Search System.Copy System.Grow System.Clear | System.Expand System.Spread System.Clone";
+    SystemLog = "System.Log"; SystemTool = "System.Tool"; SystemBatch = "System.Batch";
+    TAB = Input.TAB; CR = Input.CR; LNK = 15; TaskPeriod = 500; (*ms*)
+
+```
 ## Procedures:
 ---
 

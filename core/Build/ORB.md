@@ -4,6 +4,20 @@
   ## Imports:
 ` Files ORS`
 
+  ## Constants:
+```
+ versionkey* = 1; maxTypTab = 64; C20 = 100000H;
+    (* class values*) Head* = 0;
+      Const* = 1; Var* = 2; Par* = 3; Fld* = 4; Typ* = 5;
+      SProc* = 6; SFunc* = 7; Mod* = 8;
+
+    (* form values*)
+      Byte* = 1; Bool* = 2; Char* = 3; Int* = 4; Real* = 5; Set* = 6;
+      Pointer* = 7; Interface* = 8; NilTyp* = 9; NoTyp* = 10; Proc* = 11;
+      String* = 12; Array* = 13; Record* = 14; TProc* = 15;
+      Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
+
+```
 ## Procedures:
 ---
 

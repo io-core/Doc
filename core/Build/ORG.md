@@ -4,6 +4,28 @@
   ## Imports:
 ` SYSTEM Files ORS ORB`
 
+  ## Constants:
+```
+ WordSize* = 4;
+    StkOrg0 = -64; VarOrg0 = 0;  (*for RISC-0 only*)
+    TR = 13; SP = 14; LNK = 15;   (*dedicated registers*)
+    maxCode = 8800; maxStrx = 3200; maxTD = 160; maxSet = WordSize*8;
+    Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
+    Zero = 0; D = 4B00H; (*denormalized zero with an exponent of 127 + 24 = 151, used for FLOOR/FLT conversions*)
+    F2 = -2;  (*F2 memory instruction*)
+    F3 = -1; BCT = 0E7000000H; RTI = 10H; STI = 20H;  (*F3 branch instructions*)
+    C4 = 10H; C6 = 40H; C8 = 100H; C10 = 400H; C12 = 1000H; C14 = 4000H; C16 = 10000H; C18 = 40000H;
+    C20 = 100000H; C22 = 400000H; C24 = 1000000H; C26 = 4000000H; C28 = 10000000H; C30 = 40000000H;
+
+  (*frequently used opcodes*)  U = 2000H; V = 1000H;
+    Mov = 0; Lsl = 1; Asr = 2; Ror= 3; And = 4; Ann = 5; Ior = 6; Xor = 7;
+    Add = 8; Sub = 9; Cmp = 9; Mul = 10; Div = 11;
+    Fad = 12; Fsb = 13; Fml = 14; Fdv = 15;
+    Ldr = 8; Str = 10;
+    BR = 0; BLR = 1; BC = 2; BL = 3;
+    MI = 0; PL = 8; EQ = 1; NE = 9; CS = 2; CC = 10; LT = 5; GE = 13; LE = 6; GT = 14;
+
+```
 ## Procedures:
 ---
 

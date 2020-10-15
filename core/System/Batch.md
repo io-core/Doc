@@ -4,6 +4,16 @@
   ## Imports:
 ` Kernel FileDir Files Display Texts TextFrames Viewers Oberon`
 
+  ## Constants:
+```
+
+    BatchStopped = 0;
+    BatchRunning = 1;
+    BatchWaitGC = 2;
+    BatchFailed = 3;
+    OberonVerifyVersion = "OR Compiler 22.7.2018";
+
+```
 ## Procedures:
 ---
 

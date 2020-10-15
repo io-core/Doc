@@ -4,6 +4,15 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Packages Oberon MenuViewers`
 
+  ## Constants:
+```
+ (*update message ids*)
+    drawcomponent = 1; drawcomponents = 2; drawcomponentd = 3;
+    drawnorm = 4; drawsel = 5; drawdel = 6;
+
+    markW = 5;
+
+```
 ## Procedures:
 ---
 

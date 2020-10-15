@@ -4,6 +4,12 @@
   ## Imports:
 ` SYSTEM Files Intrinsics Texts`
 
+  ## Constants:
+```
+ 
+    replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+
+```
 ## Procedures:
 ---
 

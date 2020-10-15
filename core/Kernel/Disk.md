@@ -4,6 +4,15 @@
   ## Imports:
 ` SYSTEM`
 
+  ## Constants:
+```
+ SectorLength* = 1024;
+    spiData = -48; spiCtrl = -44;
+    CARD0 = 1; SPIFAST = 4;
+    FSoffset = 80000H; (*256MB in 512-byte blocks*)
+    mapsize = 10000H; (*1K sectors, 64MB*)
+
+```
 ## Procedures:
 ---
 

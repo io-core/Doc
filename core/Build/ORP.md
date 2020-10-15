@@ -10,8 +10,8 @@ The structure of the parser is derived from the structure of the language, with 
 encompassing construct. Each procedure consumes and validates a part of the program source text while populating the 
 symbol table and execution context and also generating machine code faithfully representing that language construct.
 
-This module (ORP) relies on module ORG for code generation, ORB for the symbol table and execution context tracking, and ORS
-for lexical parsing, built-in type identification, and reserved symbols definition.
+This module (ORP) relies on module ORG for code generation, ORB for the symbol table, execution context tracking and reserved words, and ORS
+for lexical parsing and built-in type identification.
 
 Oberon-2i is an extension of Oberon-2, adding interfaces (a.k.a dynamic traits) to the language. Oberon-2 is an extension of Oberon, adding type-bound
 procedures and open arrays to the language. Oberon is both an extension and a refinement of Modula-2, which added seperate compilation
@@ -21,6 +21,11 @@ among other features to Pascal, which was developed as a reaction to and refinem
   ## Imports:
 ` Texts Oberon ORS ORB ORG`
 
+  ## Constants:
+```
+ NofCases = 256; C20 = 100000H;
+
+```
 ## Procedures:
 ---
 ## Checking Symbols and Types

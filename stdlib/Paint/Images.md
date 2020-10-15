@@ -4,6 +4,17 @@
   ## Imports:
 ` SYSTEM Files Fonts Bitmaps`
 
+  ## Constants:
+```
+ BmpFileId = 04D42H;
+        JpgFileId = 0D8FFH;
+	PngFileId = 08950H;
+        PctFileId = 0F003H;
+
+    bmp* = 0; jpg* = 1; png* = 2; pct* = 3; (*filetypes*)
+    replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+
+```
 ## Procedures:
 ---
 

@@ -4,6 +4,13 @@
   ## Imports:
 ` SYSTEM`
 
+  ## Constants:
+```
+  
+    replace* = 0; paint* = 1; invert* = 2;  (*modes*)
+    (* base = 0E7F00H;  adr of 1024 x 768 pixel, monocolor display frame*)
+
+```
 ## Procedures:
 ---
 

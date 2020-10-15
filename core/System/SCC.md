@@ -4,6 +4,15 @@
   ## Imports:
 ` SYSTEM Kernel`
 
+  ## Constants:
+```
+
+    swi = -60; spiData = -48; spiCtrl = -44;
+    netSelect = 1; spiFast = 2; netEnable = 3;
+    HdrSize = 8; MaxPayload = 512; SubPacket = 32; Wait = 50; SendTries = 50;
+    MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket * SubPacket;
+
+```
 ## Procedures:
 ---
 
