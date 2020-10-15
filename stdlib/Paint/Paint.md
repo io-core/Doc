@@ -3,7 +3,7 @@
 
   ## Imports:
 ` Files Fonts Viewers Texts Oberon
-  ## Constants:
+## Constants:
 ```
  Menu = "System.Close  System.Copy  System.Grow  Paint.Delete  Paint.Ticks  Paint.Restore  Paint.Store";
 

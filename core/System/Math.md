@@ -1,7 +1,7 @@
 
 ## [MODULE Math](https://github.com/io-core/System/blob/main/Math.Mod)
 
-    ## Constants:
+## Constants:
 ```
  c1 = 0.70710680;   (* 1/sqrt(2) *)
       c2 = 0.590162067;
@@ -22,10 +22,7 @@
   END sqrt;
 
   PROCEDURE exp*(x: REAL): REAL;
-    ## Constants:
-```
-
-    ## Constants:
+## Constants:
 ```
 
       c1 = 1.4426951;  (*1/ln(2) *)
@@ -44,10 +41,7 @@
   END exp;
 
   PROCEDURE ln*(x: REAL): REAL;
-    ## Constants:
-```
- c1 = 0.70710680;  (* 1/sqrt(2) *)
-    ## Constants:
+## Constants:
 ```
  c1 = 0.70710680;  (* 1/sqrt(2) *)
       c2 =  0.69314720;  (* ln(2) *)
@@ -67,10 +61,7 @@
   END ln;
 
   PROCEDURE sin*(x: REAL): REAL;
-    ## Constants:
-```
-
-    ## Constants:
+## Constants:
 ```
 
       c1 =  6.3661977E-1; (*2/pi*)
@@ -100,10 +91,7 @@
   END sin;
 
   PROCEDURE cos*(x: REAL): REAL;
-    ## Constants:
-```
-
-    ## Constants:
+## Constants:
 ```
 
       c1 =  6.3661977E-1; (*2/pi*)

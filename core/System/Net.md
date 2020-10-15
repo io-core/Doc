@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM SCC Files Texts Oberon`
 
-  ## Constants:
+## Constants:
 ```
  PakSize = 512;
     (*T0 = 300; T1 = 1000; (*timeouts*)*)

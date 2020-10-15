@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Graphics Oberon`
 
-  ## Constants:
+## Constants:
 ```
  (*update message ids*)
     drawobj = 1; drawobjs = 2; drawobjd = 3;
@@ -14,8 +14,9 @@
 
     CR = Input.CR;
 
+  TYPE
 ```
-  ## Types:
+## Types:
 ```
 
     Frame* = POINTER TO FrameDesc;
@@ -70,6 +71,7 @@
         graph: Graphics.Graph
       END ;
 
+  VAR Crosshair*: Oberon.Marker;
 ```
 ## Variables:
 ```

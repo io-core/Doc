@@ -3,7 +3,7 @@
 
   ## Imports:
 ` SYSTEM Kernel Disk FileDir Files Modules
-  ## Constants:
+## Constants:
 ```
  Version* = "Extended Oberon System  AP 6.9.20";
     StandardMenu = "System.Close System.Copy System.Grow Edit.Search Edit.Store | System.Expand System.Spread System.Clone";
@@ -11,11 +11,13 @@
     SystemLog = "System.Log"; SystemTool = "System.Tool"; SystemBatch = "System.Batch";
     TAB = Input.TAB; CR = Input.CR; LNK = 15; TaskPeriod = 500; (*ms*)
 
+  TYPE Handler = PROCEDURE(name: ARRAY OF CHAR);
 ```
-  ## Types:
+## Types:
 ```
  Handler = PROCEDURE(name: ARRAY OF CHAR);
 
+  VAR W: Texts.Writer; M: Modules.Module; T: Oberon.Task; ref, last: INTEGER; defer: BOOLEAN;
 ```
 ## Variables:
 ```

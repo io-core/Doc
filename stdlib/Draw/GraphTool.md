@@ -4,7 +4,7 @@
   ## Imports:
 ` Files Texts Oberon`
 
-  ## Constants:
+## Constants:
 ```
  Context = 0; Line = 1; Caption = 2; Macro = 3; Rectangles = 4;
   VAR W: Texts.Writer;

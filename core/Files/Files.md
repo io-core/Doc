@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Kernel Disk FileDir`
 
-  ## Constants:
+## Constants:
 ```
  MaxBufs    = 4;
       HS        = FileDir.HeaderSize;
@@ -12,8 +12,9 @@
       STS       = FileDir.SecTabSize;
       XS        = FileDir.IndexSize;
 
+  TYPE  DiskAdr = INTEGER;
 ```
-  ## Types:
+## Types:
 ```
   DiskAdr = INTEGER;
       File*    = POINTER TO FileDesc;
@@ -59,6 +60,7 @@
       0 <= apos <= aleng < PgTabSize
       (apos < aleng) & (lim = SS) OR (apos = aleng) *)
 
+  VAR root: INTEGER (*File*);  (*list of open files*)
 ```
 ## Variables:
 ```

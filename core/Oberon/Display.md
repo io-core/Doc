@@ -4,17 +4,19 @@
   ## Imports:
 ` SYSTEM`
 
-  ## Constants:
+## Constants:
 ```
   
     replace* = 0; paint* = 1; invert* = 2;  (*modes*)
     (* base = 0E7F00H;  adr of 1024 x 768 pixel, monocolor display frame*)
 
+  TYPE Frame* = POINTER TO FrameDesc;
 ```
-  ## Types:
+## Types:
 ```
  Frame* = POINTER TO FrameDesc;
     FrameMsg* = RECORD END ;
+    Handler* = PROCEDURE (F: Frame; VAR M: FrameMsg);
 ```
     Handler* = PROCEDURE (F: Frame; VAR M: FrameMsg);
     FrameDesc* = RECORD next*, dsc*: Frame;

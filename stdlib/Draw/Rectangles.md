@@ -5,7 +5,7 @@
 ` SYSTEM Display Files Input Texts Oberon Graphics GraphicFrames`
 
 ```
-  ## Types:
+## Types:
 ```
 
     Rectangle* = POINTER TO RectDesc;
@@ -13,6 +13,7 @@
         lw*, vers*: INTEGER
       END ;
 
+  VAR method*: Graphics.Method;
 ```
 ## Variables:
 ```

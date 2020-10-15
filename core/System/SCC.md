@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Kernel`
 
-  ## Constants:
+## Constants:
 ```
 
     swi = -60; spiData = -48; spiCtrl = -44;
@@ -12,8 +12,9 @@
     HdrSize = 8; MaxPayload = 512; SubPacket = 32; Wait = 50; SendTries = 50;
     MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket * SubPacket;
 
+  TYPE Header* =
 ```
-  ## Types:
+## Types:
 ```
  Header* =
     RECORD valid*: BOOLEAN;
@@ -21,6 +22,7 @@
       len*: INTEGER (*of data following header*)
     END ;
 
+  VAR
 ```
 ## Variables:
 ```

@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM`
 
-  ## Constants:
+## Constants:
 ```
  msAdr = -40; kbdAdr = -36;
    (*ascii codes*) NUL* = 0X; BS* = 08X; TAB* = 09X; LF* = 0AX; CR* = 0DX; SUB* = 1AX; ESC* = 1BX; SPC* = 20X; DEL* = 7FX;

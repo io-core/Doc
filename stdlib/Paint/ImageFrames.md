@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers`
 
-  ## Constants:
+## Constants:
 ```
  (*update message ids*)
     drawlayer = 1; drawlayers = 2; drawlayerd = 3;
@@ -12,8 +12,9 @@
 
     markW = 5;
 
+  TYPE
 ```
-  ## Types:
+## Types:
 ```
 
     Frame* = POINTER TO FrameDesc;
@@ -68,6 +69,7 @@
         image: Images.Image
       END ;
 
+  VAR Crosshair*: Oberon.Marker;
 ```
 ## Variables:
 ```

@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Kernel Disk Files Modules Texts Oberon`
 
-  ## Constants:
+## Constants:
 ```
  versionkey = 1X; versionkey0 = 0X; DescSize = 96; MnLength = 32; BootSec = 2; FPrint = 12345678H;
     noerr* = 0; nofile* = 1; badversion* = 2; badkey* = 3; badfile* = 4; nospace* = 5;
@@ -16,8 +16,9 @@
     C4 = 10H; C6 = 40H; C8 = 100H; C10 = 400H; C12 = 1000H; C14 = 4000H; C16 = 10000H; C18 = 40000H;
     C20 = 100000H; C22 = 400000H; C24 = 1000000H; C26 = 4000000H; C28 = 10000000H; C30 = 40000000H;
 
+  TYPE  (*copied from Modules for use as cross linker/loader*)
 ```
-  ## Types:
+## Types:
 ```
   (*copied from Modules for use as cross linker/loader*)
     Module* = POINTER TO ModDesc;
@@ -32,6 +33,7 @@
       smb*: INTEGER
     END ;
 
+  VAR root: Module;
 ```
 ## Variables:
 ```

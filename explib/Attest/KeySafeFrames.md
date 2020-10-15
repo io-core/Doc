@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers`
 
-  ## Constants:
+## Constants:
 ```
  (*update message ids*)
     drawkeyring = 1; drawkeyrings = 2; drawkeyringd = 3;
@@ -12,8 +12,9 @@
 
     markW = 5;
 
+  TYPE
 ```
-  ## Types:
+## Types:
 ```
 
     Frame* = POINTER TO FrameDesc;
@@ -68,6 +69,7 @@
         keysafe: KeySafes.KeySafe
       END ;
 
+  VAR Crosshair*: Oberon.Marker;
 ```
 ## Variables:
 ```

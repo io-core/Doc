@@ -21,18 +21,20 @@ among other features to Pascal, which was developed as a reaction to and refinem
   ## Imports:
 ` Texts Oberon ORS ORB ORG`
 
-  ## Constants:
+## Constants:
 ```
  NofCases = 256; C20 = 100000H;
 
+  TYPE PtrBase = POINTER TO PtrBaseDesc;
 ```
-  ## Types:
+## Types:
 ```
  PtrBase = POINTER TO PtrBaseDesc;
     PtrBaseDesc = RECORD  (*list of names of pointer base types*)
       name: ORS.Ident; type: ORB.Type; next: PtrBase
     END ;
   
+  VAR sym: INTEGER;   (*last symbol read*)
 ```
 ## Variables:
 ```

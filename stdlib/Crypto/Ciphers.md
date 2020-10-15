@@ -25,6 +25,7 @@ BEGIN
 END New;
 
 PROCEDURE Get*(C: Cipher; x: INTEGER): INTEGER;
+  VAR r,i: INTEGER; C1:Cipher;
 ```
 ## Variables:
 ```

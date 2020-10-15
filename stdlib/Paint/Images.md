@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Files Fonts Bitmaps`
 
-  ## Constants:
+## Constants:
 ```
  BmpFileId = 04D42H;
         JpgFileId = 0D8FFH;
@@ -14,8 +14,9 @@
     bmp* = 0; jpg* = 1; png* = 2; pct* = 3; (*filetypes*)
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
+  TYPE 
 ```
-  ## Types:
+## Types:
 ```
  
     Method* = POINTER TO MethodDesc;
@@ -82,6 +83,7 @@
 (*        module*, allocator*: Name;
         new*: Modules.Command;             *)
         copy*: PROCEDURE (from, to: Layer);
+        draw*, change*: PROCEDURE (L: Layer; VAR msg: Msg);
 ```
         draw*, change*: PROCEDURE (L: Layer; VAR msg: Msg);
         selectable*: PROCEDURE (L: Layer; x, y: INTEGER): BOOLEAN;

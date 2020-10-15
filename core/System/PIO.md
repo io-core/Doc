@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM`
 
-  ## Constants:
+## Constants:
 ```
  gpio = -32; gpoc = -28;  (*I/O addresses*)
 

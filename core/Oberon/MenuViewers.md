@@ -5,7 +5,7 @@
 ` Input Display Viewers Oberon`
 
 ```
-  ## Types:
+## Types:
 ```
  Viewer* = POINTER TO ViewerDesc;
     ViewerDesc* = RECORD (Viewers.ViewerDesc) menuH*: INTEGER END;
@@ -19,6 +19,7 @@
   END Draw;
 
   PROCEDURE Restore (V: Viewer);
+    VAR Menu, Main: Display.Frame;
 ```
 ## Variables:
 ```

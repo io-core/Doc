@@ -9,7 +9,7 @@
   ## Imports:
 ` Files ORS`
 
-  ## Constants:
+## Constants:
 ```
  versionkey* = 1; maxTypTab = 64; C20 = 100000H;
     (* class values*) Head* = 0;
@@ -22,8 +22,9 @@
       String* = 12; Array* = 13; Record* = 14; TProc* = 15;
       Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
 
+  TYPE Object* = POINTER TO ObjDesc;
 ```
-  ## Types:
+## Types:
 ```
  Object* = POINTER TO ObjDesc;
     Module* = POINTER TO ModDesc;
@@ -70,6 +71,7 @@
     Array    -        type of elements
     Record   fields   extension *)
 
+  VAR topScope*, universe, system*: Object;
 ```
 ## Variables:
 ```

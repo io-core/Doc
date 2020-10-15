@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Files Modules Texts Oberon ORB`
 
-  ## Constants:
+## Constants:
 ```
  TAB = 09X;  (*copied from Input for use as cross development tool*)
   VAR W: Texts.Writer;

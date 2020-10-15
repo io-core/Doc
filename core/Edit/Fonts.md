@@ -4,12 +4,13 @@
   ## Imports:
 ` Files`
 
-  ## Constants:
+## Constants:
 ```
  FontFileId = 0DBH; A = 512;
 
+  TYPE Raster = POINTER TO RasterDesc;
 ```
-  ## Types:
+## Types:
 ```
  Raster = POINTER TO RasterDesc;
     RasterDesc = ARRAY OF BYTE;
@@ -28,6 +29,7 @@
   (* raster sizes: Syntax8 1367, Syntax10 1628, Syntax12 1688, Syntax14 1843, Syntax14b 1983,
       Syntax16 2271, Syntax20 3034, Syntac24 4274, Syntax24b 4302  *)
 
+  VAR Default*, root*: Font;
 ```
 ## Variables:
 ```

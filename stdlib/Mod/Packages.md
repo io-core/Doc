@@ -4,13 +4,14 @@
   ## Imports:
 ` SYSTEM Files Fonts Resources`
 
-  ## Constants:
+## Constants:
 ```
  
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
+  TYPE 
 ```
-  ## Types:
+## Types:
 ```
  
     Method* = POINTER TO MethodDesc;
@@ -65,6 +66,7 @@
 (*        module*, allocator*: Name;
         new*: Modules.Command;             *)
         copy*: PROCEDURE (from, to: Component);
+        draw*, change*: PROCEDURE (C: Component; VAR msg: Msg);
 ```
         draw*, change*: PROCEDURE (C: Component; VAR msg: Msg);
         selectable*: PROCEDURE (C: Component; x, y: INTEGER): BOOLEAN;

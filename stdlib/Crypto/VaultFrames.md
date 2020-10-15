@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers`
 
-  ## Constants:
+## Constants:
 ```
  (*update message ids*)
     drawdocument = 1; drawdocuments = 2; drawdocumentd = 3;
@@ -12,8 +12,9 @@
 
     markW = 5;
 
+  TYPE
 ```
-  ## Types:
+## Types:
 ```
 
     Frame* = POINTER TO FrameDesc;
@@ -68,6 +69,7 @@
         vault: Vaults.Vault
       END ;
 
+  VAR Crosshair*: Oberon.Marker;
 ```
 ## Variables:
 ```

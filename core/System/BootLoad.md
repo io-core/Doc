@@ -10,7 +10,7 @@
   ## Imports:
 ` SYSTEM`
 
-  ## Constants:
+## Constants:
 ```
  TR = 13; SP = 14; LNK = 15;
     TrapAdr = 04H; MemLim = 0E7EF0H; stackOrg = 80000H;
@@ -128,10 +128,7 @@ ORG.WriteFile BootLoad.rsc "Spartan" "D:/Verilog/RISC5/scripts/ins1.mem"~
 
 MODULE* BootLoad;  (*NW 10.2.2013, boot from line only / AP 13.3.20*)
   IMPORT SYSTEM;
-  ## Constants:
-```
- TR = 13; SP = 14; TrapAdr = 04H; StkOrg = 0FFFE7F00H;
-  ## Constants:
+## Constants:
 ```
  TR = 13; SP = 14; TrapAdr = 04H; StkOrg = 0FFFE7F00H;
     swi = -60; led = -60; data = -56; stat = -52;

@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM`
 
-  ## Constants:
+## Constants:
 ```
  SectorLength* = 1024;
     spiData = -48; spiCtrl = -44;
@@ -12,11 +12,13 @@
     FSoffset = 80000H; (*256MB in 512-byte blocks*)
     mapsize = 10000H; (*1K sectors, 64MB*)
 
+  TYPE Sector* = ARRAY SectorLength OF BYTE;
 ```
-  ## Types:
+## Types:
 ```
  Sector* = ARRAY SectorLength OF BYTE;
 
+  VAR NofSectors*: INTEGER;
 ```
 ## Variables:
 ```

@@ -5,7 +5,7 @@
 ` Display Files Oberon Graphics GraphicFrames`
 
 ```
-  ## Types:
+## Types:
 ```
 
     Curve* = POINTER TO CurveDesc;
@@ -16,6 +16,7 @@
 
   (*kind: 0 = up-line, 1 = down-line, 2 = circle, 3 = ellipse*)
 
+  VAR method*: Graphics.Method;
 ```
 ## Variables:
 ```

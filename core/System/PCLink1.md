@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Files Texts Oberon`
 
-  ## Constants:
+## Constants:
 ```
  data = -56; stat = -52;
     BlkLen = 255;

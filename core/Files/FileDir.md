@@ -4,7 +4,7 @@
   ## Imports:
 ` Disk`
 
-  ## Constants:
+## Constants:
 ```
  FnLength*    = 32;
         SecTabSize*   = 64;
@@ -19,13 +19,15 @@
         HeaderMark* = 9BA71D86H;
         FillerSize = 52;
 
+  TYPE DiskAdr      = INTEGER;
 ```
-  ## Types:
+## Types:
 ```
  DiskAdr      = INTEGER;
     FileName*       = ARRAY FnLength OF CHAR;
     SectorTable*    = ARRAY SecTabSize OF DiskAdr;
     ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
+    EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
 ```
     EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
 

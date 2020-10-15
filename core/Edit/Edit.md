@@ -4,7 +4,7 @@
   ## Imports:
 ` Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames`
 
-  ## Constants:
+## Constants:
 ```
  CR = Input.CR; maxlen = 32;
     StandardMenu = "System.Close System.Copy System.Grow Edit.Search Edit.Store | System.Expand System.Spread System.Clone";

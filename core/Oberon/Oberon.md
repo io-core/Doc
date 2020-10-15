@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts`
 
-  ## Constants:
+## Constants:
 ```
  (*message ids*)
     consume* = 0; track* = 1; defocus* = 0; neutralize* = 1; mark* = 2;
@@ -12,8 +12,9 @@
     BasicCycle = 20;
     TAB = Input.TAB; CR = Input.CR; ESC = Input.ESC; SETSTAR = 1AX;
 
+  TYPE Painter* = PROCEDURE (x, y: INTEGER);
 ```
-  ## Types:
+## Types:
 ```
  Painter* = PROCEDURE (x, y: INTEGER);
     Marker* = RECORD Fade*, Draw*: Painter END;
@@ -55,6 +56,7 @@
       handle: Handler
     END;
 
+  VAR User*: ARRAY 8 OF CHAR; Password*: LONGINT;
 ```
 ## Variables:
 ```

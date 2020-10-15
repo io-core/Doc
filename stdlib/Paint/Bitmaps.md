@@ -27,6 +27,7 @@ BEGIN (*
 END New;
 
 PROCEDURE Get*(B: Bitmap; x, y: INTEGER): INTEGER;
+  VAR ofs, wd: INTEGER; bt: BYTE;
 ```
 ## Variables:
 ```

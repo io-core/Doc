@@ -4,7 +4,7 @@
   ## Imports:
 ` SYSTEM Kernel Disk Files Modules Input Texts Viewers Oberon MenuViewers TextFrames`
 
-  ## Constants:
+## Constants:
 ```
  StandardMenu = "Tools.Close System.Copy System.Grow Edit.Search Edit.Store | System.Expand System.Spread System.Clone";
     BS = Input.BS; TAB = Input.TAB; LF = Input.LF; CR = Input.CR; DEL = Input.DEL;
