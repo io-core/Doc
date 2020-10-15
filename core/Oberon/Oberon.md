@@ -56,6 +56,302 @@
     END;
 
 ```
+  ## Variables:
+```
+ User*: ARRAY 8 OF CHAR; Password*: LONGINT;
+    Arrow*, Star*: Marker; (*predefined markers representing an arrow pointing to the NW and a star symbol*)
+    Mouse, Pointer: Cursor; (*predefined cursors representing a mouse and a global system pointer*)
+    Log*: Texts.Text;
+  PROCEDURE Code(## Variables:
+```
+ s: ARRAY OF CHAR): LONGINT;
+    ## Variables:
+```
+ i: INTEGER; a, b, c: LONGINT;
+    ## Variables:
+```
+ i: INTEGER; a, b, c: LONGINT;
+  BEGIN
+    a := 0; b := 0; i := 0;
+    WHILE s[i] # 0X DO
+      c := b; b := a; a := (c MOD 509 + 1) * 127 + ORD(s[i]);
+      INC(i)
+    END;
+    IF b >= 32768 THEN b := b - 65536 END;
+    RETURN b * 65536 + a
+  END Code;
+  PROCEDURE SetUser* (## Variables:
+```
+ user, password: ARRAY OF CHAR);
+  BEGIN User := user; Password := Code(password)
+  END SetUser;
+  PROCEDURE OpenCursor(## Variables:
+```
+ c: Cursor);
+  BEGIN c.on := FALSE; c.X := 0; c.Y := 0
+  END OpenCursor;
+ 
+  PROCEDURE FadeCursor(## Variables:
+```
+ c: Cursor);
+  PROCEDURE FadeCursor(## Variables:
+```
+ c: Cursor);
+  BEGIN IF c.on THEN c.marker.Fade(c.X, c.Y); c.on := FALSE END
+  END FadeCursor;
+  PROCEDURE DrawCursor(## Variables:
+```
+ c: Cursor; m: Marker; x, y: INTEGER);
+  BEGIN
+    IF c.on & ((x # c.X) OR (y # c.Y) OR (m.Draw # c.marker.Draw)) THEN
+      c.marker.Fade(c.X, c.Y); c.on := FALSE
+    END;
+    IF ~c.on THEN
+      m.Draw(x, y); c.marker := m; c.X := x; c.Y := y; c.on := TRUE
+    END
+  END DrawCursor;
+  PROCEDURE GetSelection* (## Variables:
+```
+ text: Texts.Text; ## Variables:
+```
+ beg, end, time: LONGINT); (*from current display*)
+    ## Variables:
+```
+ M: SelectionMsg;
+    ## Variables:
+```
+ M: SelectionMsg;
+  BEGIN M.time := -1; Viewers.Broadcast(M); time := M.time;
+    IF time >= 0 THEN text := M.text; beg := M.beg; end := M.end END
+  END GetSelection;
+  PROCEDURE HandleFiller (V: Display.Frame; ## Variables:
+```
+ M: Display.FrameMsg);
+  BEGIN
+    CASE M OF
+    InputMsg: IF M.id = track THEN DrawMouseArrow(M.X, M.Y) END |
+    ControlMsg: IF M.id = mark THEN DrawPointerStar(M.X, M.Y) END |
+    Viewers.ViewerMsg:
+      IF (M.id = Viewers.restore) & (V.W > 0) & (V.H > 0) THEN
+        RemoveMarks(V.X, V.Y, V.W, V.H);
+        Display.ReplConst(Display.black, V.X, V.Y, V.W, V.H, Display.replace)
+      ELSIF M.id = Viewers.modify THEN
+        IF M.Y < V.Y THEN
+          RemoveMarks(V.X, M.Y, V.W, V.Y - M.Y);
+          Display.ReplConst(Display.black, V.X, M.Y, V.W, V.Y - M.Y, Display.replace)
+        ELSIF M.Y > V.Y THEN RemoveMarks(V.X, V.Y, V.W, M.Y - V.Y)
+        END
+      END
+    END
+  END HandleFiller;
+    ## Variables:
+```
+ Filler: Viewers.Viewer;
+  BEGIN NEW(Filler); Filler.handle := HandleFiller; Viewers.InitTrack(D, W, H, Filler)
+  END InitTrack;
+    ## Variables:
+```
+ Filler: Viewers.Viewer;
+  BEGIN NEW(Filler); Filler.handle := HandleFiller; Viewers.OpenTrack(D, X, W, Filler)
+  END OpenTrack;
+    ## Variables:
+```
+ prev: Viewers.DisplayArea;
+  BEGIN prev := Viewers.CurDisplay; Viewers.CloseDisplay(D, hint);
+    IF Viewers.CurDisplay # prev THEN Input.SetMouseLimits(Viewers.CurDisplay.curW, Viewers.CurDisplay.H) END
+  END CloseDisplay;
+    ## Variables:
+```
+ M: ControlMsg;
+  BEGIN
+    IF Viewers.FocusViewer # NIL  THEN
+      M.id := defocus; Viewers.FocusViewer.handle(Viewers.FocusViewer, M)
+    END ;
+    Viewers.SetFocus(Viewers.ThisDisplay(V), V)
+  END PassFocus;
+    ## Variables:
+```
+ y: INTEGER;
+      fil, top, bot, alt, max: Display.Frame;
+  BEGIN Viewers.Locate(Viewers.CurDisplay, X, 0, fil, top, bot, alt, max);
+    IF fil.H >= DH DIV 8 THEN y := DH ELSE y := max.Y + max.H DIV 2 END ;
+    RETURN y
+  END UY;
+  PROCEDURE AllocateUserViewer* (DX: INTEGER; ## Variables:
+```
+ X, Y: INTEGER);
+  BEGIN
+    IF PointerOn() THEN X := Pointer.X; Y := Pointer.Y
+    ELSE X := DX DIV DW * DW; Y := UY(X)
+    END
+  END AllocateUserViewer;
+    ## Variables:
+```
+ H0, H1, H2, H3, y: INTEGER;
+      fil, top, bot, alt, max: Display.Frame;
+  BEGIN H3 := DH - DH DIV 3; H2 := H3 - H3 DIV 2; H1 := DH DIV 5; H0 := DH DIV 10;
+    Viewers.Locate(Viewers.CurDisplay, X, DH, fil, top, bot, alt, max);
+    IF fil.H >= DH DIV 8 THEN y := DH
+    ELSIF max.H >= DH - H0 THEN y := max.Y + H3
+    ELSIF max.H >= H3 - H0 THEN y := max.Y + H2
+    ELSIF max.H >= H2 - H0 THEN y := max.Y + H1
+    ELSE y := max.Y + max.H DIV 2
+    END ;
+    RETURN y
+  END SY;
+  PROCEDURE AllocateSystemViewer* (DX: INTEGER; ## Variables:
+```
+ X, Y: INTEGER);
+  BEGIN
+    IF PointerOn() THEN X := Pointer.X; Y := Pointer.Y
+    ELSE X := DX DIV DW * DW + DW DIV 8 * 5; Y := SY(X)
+    END
+  END AllocateSystemViewer;
+  PROCEDURE Skip(## Variables:
+```
+ S: Texts.Scanner; ## Variables:
+```
+ len: INTEGER);  (*count and skip white spaces*)
+    ## Variables:
+```
+ ch: CHAR; i: INTEGER;
+    ## Variables:
+```
+ ch: CHAR; i: INTEGER;
+  BEGIN Texts.Read(S, ch); i := 0;
+    WHILE (ch = " ") OR (ch = TAB) OR (ch = CR) DO
+      IF ch = CR THEN INC(S.line) END ;
+      Texts.Read(S, ch); INC(i)
+    END ;
+    S.nextCh := ch; len := i
+  END Skip;
+  PROCEDURE Scan(## Variables:
+```
+ S: Texts.Scanner);
+    ## Variables:
+```
+ ch: CHAR; i: INTEGER;
+    ## Variables:
+```
+ ch: CHAR; i: INTEGER;
+  BEGIN ch := S.nextCh; i := 0;
+    IF ("A" <= ch) & (ch <= "Z") OR ("a" <= ch) & (ch <= "z") OR (ch = "*") OR ("0" <= ch) & (ch <= "9") THEN (*command*)
+      REPEAT S.s[i] := ch; INC(i); Texts.Read(S, ch)
+      UNTIL ((ch < "0") & (ch # ".") & (ch # "*") OR ("9" < ch) & (ch < "A") OR ("Z" < ch) & (ch < "a") OR ("z" < ch)) OR (i = 31);
+      S.s[i] := 0X; S.len := i; S.class := Texts.Name
+    ELSE S.class := Texts.Inval
+    END ;
+    S.nextCh := ch
+  END Scan;
+    ## Variables:
+```
+ S: Texts.Scanner; res, len: INTEGER;
+  BEGIN Texts.OpenScanner(S, T, pos); Skip(S, len); Scan(S);
+    IF (S.class = Texts.Name) & (S.line = 0) THEN
+      SetPar(F, T, pos + len + S.len, 0); Modules.Call(S.s, res);
+      IF (res > Modules.noerr) & (res < Modules.clients) & (Log # NIL) THEN Texts.WriteString(W, "Call error: ");
+        CASE res OF
+           Modules.nofile: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " module not found")
+         | Modules.badversion: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " bad version")
+         | Modules.badkey: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " imports ");
+             Texts.WriteString(W, Modules.imported); Texts.WriteString(W, " with bad key")
+         | Modules.badfile: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " corrupted obj file")
+         | Modules.nospace: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " insufficient space")
+         | Modules.nocmd: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " command not found")
+         | Modules.badcmd: Texts.WriteString(W, S.s); Texts.WriteString(W, " invalid command")
+         | Modules.nomod: Texts.WriteString(W, Modules.importing); Texts.WriteString(W, " module not found")
+        END ;
+        Par.res := res; Texts.WriteLn(W); Texts.Append(Log, W.buf)
+      END
+    END
+  END Call;
+    ## Variables:
+```
+ S: Texts.Scanner; len: LONGINT; continue: BOOLEAN; 
+  BEGIN continue := pos >= 0;
+    WHILE continue DO
+      Texts.OpenScanner(S, T, pos); Skip(S, len); Scan(S); continue := FALSE;
+      IF S.class = Texts.Name THEN S.line := 0;
+        Call(F, T, pos + len, FALSE);
+        IF Par.res = 0 THEN
+          REPEAT Texts.Scan(S) UNTIL S.eot OR (S.class = Texts.Char) & (S.c = "~");
+          IF ~S.eot THEN pos := Texts.Pos(S); continue := TRUE END
+        END
+      END
+    END
+  END Run;
+    ## Variables:
+```
+ mod: Modules.Module;
+  BEGIN
+    IF (ActCnt <= 0) OR (Kernel.allocated >= Kernel.heapLim - Kernel.heapOrg - 10000H) THEN
+      mod := Modules.root; LED(21H);
+      WHILE mod # NIL DO
+        IF mod.name[0] # 0X THEN Kernel.Mark(mod.ptr) END ;
+        mod := mod.next
+      END ;
+      LED(23H);
+      Files.RestoreList; LED(27H);
+      Kernel.Collect; LED(20H);
+      Modules.Collect;
+      ActCnt := BasicCycle
+    END
+  END GC;
+    ## Variables:
+```
+ t: Task;
+  BEGIN NEW(t); t.state := off; t.next := t; t.handle := h; t.period := period; RETURN t
+  END NewTask;
+  
+  PROCEDURE Install* (T: Task);
+  BEGIN
+    IF T.state = off THEN
+      T.next := CurTask.next; CurTask.next := T; T.state := idle; T.nextTime := 0; INC(NofTasks)
+    END
+  END Install;
+    ## Variables:
+```
+ t: Task;
+  BEGIN
+    IF T.state # off THEN t := T;
+      WHILE t.next # T DO t := t.next END ;
+      t.next := T.next; T.state := off; T.next := NIL; CurTask := t; DEC(NofTasks)
+    END
+  END Remove;
+    ## Variables:
+```
+ V: Viewers.Viewer; M: InputMsg; N: ControlMsg;
+      prevX, prevY, X, Y, t: INTEGER; keys: SET; ch: CHAR;
+  BEGIN
+    REPEAT
+      Input.Mouse(keys, X, Y);
+      IF Input.Available() > 0 THEN Input.Read(ch);
+        IF ch = ESC THEN
+          N.id := neutralize; Viewers.Broadcast(N); FadePointer; LED(0)
+        ELSIF ch = SETSTAR THEN
+          N.id := mark; N.X := X; N.Y := Y; V := Viewers.This(X, Y); V.handle(V, N)
+        ELSE M.id := consume; M.ch := ch; M.fnt := CurFnt; M.col := CurCol; M.voff := CurOff;
+          V := Viewers.FocusViewer; V.handle(V, M); DEC(ActCnt)
+        END
+      ELSIF keys # {} THEN
+        M.id := track; M.X := X; M.Y := Y; M.keys := keys;
+        REPEAT V := Viewers.This(M.X, M.Y); V.handle(V, M); Input.Mouse(M.keys, M.X, M.Y)
+        UNTIL M.keys = {};
+        DEC(ActCnt)
+      ELSE
+        IF (X # prevX) OR (Y # prevY) OR ~MouseOn() THEN
+          M.id := track; M.X := X;
+          IF Y >= DH THEN Y := DH END ;
+          M.Y := Y; M.keys := keys; V := Viewers.This(X, Y); V.handle(V, M); prevX := X; prevY := Y
+        END ;
+        CurTask := CurTask.next; t := Kernel.Time();
+        IF t >= CurTask.nextTime THEN
+          CurTask.nextTime := t + CurTask.period; CurTask.state := active; CurTask.handle; CurTask.state := idle
+        END
+      END
+    UNTIL FALSE
+  END Loop;
+```
 ## Procedures:
 ---
 

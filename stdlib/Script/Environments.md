@@ -40,6 +40,79 @@
         
         selectable*: PROCEDURE (b: Binding; x, y: INTEGER): BOOLEAN;
 ```
+        read*: PROCEDURE (b: Binding; ## Variables:
+```
+ r: Files.Rider); (*; ## Variables:
+```
+ c: Context); *)
+        write*: PROCEDURE (b: Binding; cno: INTEGER; ## Variables:
+```
+ r: Files.Rider); (*; ## Variables:
+```
+ c: Context);*)
+        write*: PROCEDURE (b: Binding; cno: INTEGER; ## Variables:
+```
+ r: Files.Rider); (*; ## Variables:
+```
+ c: Context);*)
+        print*: PROCEDURE (b: Binding; x, y: INTEGER)
+      END ;
+## Variables:
+```
+ 
+ 
+  top*: Env;
+  new*: Binding; 
+  PROCEDURE Prepare*(## Variables:
+```
+ e: Env; ## Variables:
+```
+ T: Text);
+    ## Variables:
+```
+ t: Text;
+    ## Variables:
+```
+ t: Text;
+  BEGIN   t := T
+  END Prepare;
+    ## Variables:
+```
+ f: Files.File; w: Files.Rider; 
+  BEGIN f := Files.New(name); Files.Set(w, f, 0); 
+  (*  Files.Write(w, GraphFileId); InitContext(c); StoreElems(w, c, e.first);  *)
+    Files.Register(f)
+  END Save;
+    ## Variables:
+```
+ tag: CHAR;
+          y: BYTE;
+          i: INTEGER;
+      f: Files.File; r: Files.Rider; 
+  BEGIN e.first := NIL; e.sel := NIL; e.changed := FALSE; f := Files.Old(name);
+    IF f # NIL THEN
+      Files.Set(r, f, 0);
+      Files.ReadByte(r, y); i:=y;
+      Files.ReadByte(r, y); i:=i+(y*100H);
+     
+    ELSE 
+    END
+  END Resume;
+    ## Variables:
+```
+ b, pred: Binding;
+  BEGIN e.sel := NIL; e.changed := TRUE; b := e.first;
+    WHILE (b # NIL) & b.selected DO b := b.next END ;
+    e.first := b;
+    IF b # NIL THEN
+      pred := b; b := b.next;
+      WHILE b # NIL DO
+        IF b.selected THEN pred.next := b.next ELSE pred := b END ;
+        b := b.next
+      END
+    END
+  END Unset;
+```
 ## Procedures:
 ---
 

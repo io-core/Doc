@@ -48,6 +48,9 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			echo '```' >> $k/$nam/$snam.md
 			awk '/VAR/{p=0};p;/TYPE/{p=1};/TYPE/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/TYPE/## Types\:\n```\n/g' >> $k/$nam/$snam.md
 			echo '```' >> $k/$nam/$snam.md
+                        awk '/^$/{p=0};p;/VAR/{p=1};/VAR/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/VAR/## Variables\:\n```\n/g' >> $k/$nam/$snam.md
+                        echo '```' >> $k/$nam/$snam.md
+			
 			echo "## Procedures:" >> $k/$nam/$snam.md
                         echo "---" >> $k/$nam/$snam.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod"

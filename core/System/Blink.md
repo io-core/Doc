@@ -6,6 +6,15 @@
 
 ```
 ```
+  ## Variables:
+```
+ z: INTEGER;
+    T: Oberon.Task;
+  
+  PROCEDURE Run*;
+  BEGIN Oberon.Install(T)
+  END Run;
+```
 ## Procedures:
 ---
 

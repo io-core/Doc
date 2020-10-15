@@ -134,6 +134,68 @@
 END Math.
 ```
 ```
+    ## Variables:
+```
+ s: REAL; e: INTEGER;
+  BEGIN ASSERT(x >= 0.0);
+    IF x > 0.0 THEN
+      UNPK(x, e);
+      s := c2*(x+c1);
+      s := s + (x/s);
+      s := 0.25*s + x/s;
+      s := 0.5 * (s + x/s);
+      IF ODD(e) THEN s := c3*s END ;
+      PACK(s, e DIV 2)
+    ELSE s := 0.0
+    END ;
+    RETURN s
+  END sqrt;
+    ## Variables:
+```
+ n: INTEGER; p, y, yy: REAL;
+  BEGIN y := c1*x;
+    n := FLOOR(y + 0.5); y := y - FLT(n);
+    yy := y*y;
+    p := ((p2*yy + p1)*yy + p0)*y;
+    p := p/((yy + q1)*yy + q0 - p) + 0.5;
+    PACK(p, n+1); RETURN p
+  END exp;
+    ## Variables:
+```
+ e: INTEGER; xx, y: REAL;
+  BEGIN ASSERT(x > 0.0); UNPK(x, e);
+    IF x < c1 THEN x := x*2.0; e := e-1 END ;
+    x := (x-1.0)/(x+1.0);
+    xx := x;
+    y := c2*FLT(e) + x*((p2*xx + p1)*xx + p0) / (((xx + q2)*xx + q1)*xx + q0);
+    RETURN y
+  END ln;
+    ## Variables:
+```
+ n: INTEGER; y, yy, f: REAL;
+  BEGIN y := c1*x;
+    IF y >= 0.0 THEN n := FLOOR(y + 0.5) ELSE n := FLOOR(y - 0.5) END ;
+    y := (y - FLT(n)) * 2.0; yy := y*y;
+    IF ODD(n) THEN f := (((((q6*yy + q5)*yy + q4)*yy + q3)*yy + q2)*yy + q1)*yy + q0
+    ELSE f := ((((((p6*yy + p5)*yy + p4)*yy + p3)*yy + p2)*yy + p1)*yy + p0)*y
+    END ;
+    IF ODD(n DIV 2) THEN f := -f END ;
+    RETURN f
+  END sin;
+    ## Variables:
+```
+ n: INTEGER; y, yy, f: REAL;
+  BEGIN y := c1*x;
+    IF y >= 0.0 THEN n := FLOOR(y + 0.5) ELSE n := FLOOR(y - 0.5) END ;
+    y := (y - FLT(n)) * 2.0; yy := y*y;
+    IF ~ODD(n) THEN f := (((((q6*yy + q5)*yy + q4)*yy + q3)*yy + q2)*yy + q1)*yy + q0
+    ELSE f := ((((((p6*yy + p5)*yy + p4)*yy + p3)*yy + p2)*yy + p1)*yy + p0)*y
+    END ;
+    IF ODD((n+1) DIV 2) THEN f := -f END ;
+    RETURN f
+  END cos;
+END Math.
+```
 ## Procedures:
 ---
 

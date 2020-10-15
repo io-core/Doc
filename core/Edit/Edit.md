@@ -240,6 +240,191 @@ END Edit.
 
 ```
 ```
+  ## Variables:
+```
+ W: Texts.Writer;
+    time: LONGINT;
+    M: INTEGER;
+    pat: ARRAY maxlen OF CHAR;
+    d: ARRAY 256 OF INTEGER;
+    ## Variables:
+```
+ m: LONGINT;
+  BEGIN IF i >= j THEN m := i ELSE m := j END ;
+    RETURN m
+  END Max;
+    ## Variables:
+```
+ T: Texts.Text;
+    S: Texts.Scanner;
+    V: Viewers.Viewer;
+    X, Y: INTEGER;
+    beg, end, time: LONGINT;
+  BEGIN Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
+    IF (S.class = Texts.Char) & (S.c = "^") OR (S.line # 0) THEN
+      Oberon.GetSelection(T, beg, end, time);
+      IF time >= 0 THEN Texts.OpenScanner(S, T, beg); Texts.Scan(S) END
+    END;
+    IF S.class = Texts.Name THEN
+      Oberon.AllocateUserViewer(Oberon.Par.vwr.X, X, Y);
+      V := MenuViewers.New(
+        TextFrames.NewMenu(S.s, StandardMenu),
+        TextFrames.NewText(TextFrames.Text(S.s), 0),
+        TextFrames.menuH, X, Y)
+    END
+  END Open;
+    ## Variables:
+```
+ V: Viewers.Viewer;
+      Text: TextFrames.Frame;
+      T: Texts.Text;
+      S: Texts.Scanner;
+      beg, end, time, len: LONGINT;
+    PROCEDURE Backup (## Variables:
+```
+ name: ARRAY OF CHAR);
+      ## Variables:
+```
+ res, i: INTEGER; bak: ARRAY 32 OF CHAR;
+      ## Variables:
+```
+ res, i: INTEGER; bak: ARRAY 32 OF CHAR;
+    BEGIN i := 0;
+      WHILE (i < 27) & (name[i] # 0X) DO bak[i] := name[i]; INC(i) END;
+      bak[i] := "."; bak[i+1] := "B"; bak[i+2] := "a"; bak[i+3] := "k"; bak[i+4] := 0X;
+      Files.Rename(name, bak, res)
+    END Backup;
+    ## Variables:
+```
+ T: Texts.Text;
+      F: TextFrames.Frame;
+      v: Viewers.Viewer;
+      beg, end, time: LONGINT;
+      fnt: Fonts.Font; col, voff: INTEGER;
+  BEGIN Oberon.GetSelection(T, beg, end, time);
+    IF time >= 0 THEN
+      v := FocusViewer();
+      IF (v # NIL) & (v.dsc # NIL) & (v.dsc.next IS TextFrames.Frame) THEN
+        F := v.dsc.next(TextFrames.Frame);
+        Texts.Attributes(F.text, F.carloc.pos, fnt, col, voff);
+        Texts.ChangeLooks(T, beg, end, {0,1,2}, fnt, col, voff)
+      END
+    END
+  END CopyLooks; 
+    ## Variables:
+```
+ S: Texts.Scanner; T: Texts.Text; beg, end: LONGINT;
+  BEGIN
+    Oberon.GetSelection(T, beg, end, time);
+    IF time >= 0 THEN
+      Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
+      IF S.class = Texts.Name THEN
+        Texts.ChangeLooks(T, beg, end, {0}, Fonts.Load(S.s), 0, 0)
+      END
+    END
+  END ChangeFont;
+    ## Variables:
+```
+ S: Texts.Scanner;
+      T: Texts.Text;
+      col: INTEGER;
+      beg, end, time: LONGINT;
+  BEGIN Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
+    IF S.class = Texts.Int THEN
+      col := S.i; Oberon.GetSelection(T, beg, end, time);
+      IF time >= 0 THEN Texts.ChangeLooks(T, beg, end, {1}, NIL, col, 0) END
+    END
+  END ChangeColor;
+    ## Variables:
+```
+ S: Texts.Scanner;
+      T: Texts.Text;
+      voff: INTEGER; ch: CHAR;
+      beg, end, time: LONGINT;
+  BEGIN Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
+    IF S.class = Texts.Int THEN
+      voff := S.i; Oberon.GetSelection(T, beg, end, time);
+      IF time >= 0 THEN Texts.ChangeLooks(T, beg, end, {2}, NIL, voff, 0) END
+    END
+  END ChangeOffset;
+    ## Variables:
+```
+ Text: TextFrames.Frame;
+      V: Viewers.Viewer;
+      R: Texts.Reader;
+      T: Texts.Text;
+      pos, beg, end, prevTime, len: LONGINT; n, i, j: INTEGER;
+      buf: ARRAY 32 OF CHAR;
+    PROCEDURE Forward(n: INTEGER; ## Variables:
+```
+ R: Texts.Reader; ## Variables:
+```
+ buf: ARRAY OF CHAR);
+      ## Variables:
+```
+ m: INTEGER; j: INTEGER;
+      ## Variables:
+```
+ m: INTEGER; j: INTEGER;
+    BEGIN m := M - n; j := 0;
+      WHILE j # m DO buf[j] := buf[n + j]; INC(j) END;
+      WHILE j # M DO Texts.Read(R, buf[j]); INC(j) END
+    END Forward;
+    ## Variables:
+```
+ Text: TextFrames.Frame;
+      T: Texts.Text; S: Texts.Scanner;
+      V: Viewers.Viewer;
+      beg, end, time: LONGINT;
+  BEGIN
+    V := FocusViewer();
+    IF (V.dsc # NIL) & (V.dsc.next IS TextFrames.Frame) THEN
+      Text := V.dsc.next(TextFrames.Frame);
+      Oberon.GetSelection(T, beg, end, time);
+      IF time >= 0 THEN
+        Texts.OpenScanner(S, T, beg);
+        REPEAT Texts.Scan(S) UNTIL (S.class >= Texts.Int); (*skip names*)
+        IF S.class = Texts.Int THEN
+          TextFrames.RemoveSelection(Text);
+          TextFrames.RemoveCaret(Text);
+          Oberon.RemoveMarks(Text.X, Text.Y, Text.W, Text.H);
+          TextFrames.Show(Text, Max(0, S.i - 200));
+          Oberon.PassFocus(V);
+          TextFrames.SetCaret(Text, S.i)
+        END
+      END
+    END
+  END Locate;
+    ## Variables:
+```
+ Menu, Main: Display.Frame;
+      buf: Texts.Buffer;
+      V: Viewers.Viewer;
+      pos: LONGINT;
+      M: TextFrames.Frame;
+  BEGIN V := FocusViewer();
+    IF (V # NIL) & (V IS MenuViewers.Viewer) THEN
+      Menu := V.dsc; Main := V.dsc.next;
+      IF Main IS TextFrames.Frame THEN
+        M := Main(TextFrames.Frame);
+        IF M.hasCar THEN
+          TextFrames.Recall(buf);
+          pos := M.carloc.pos + buf.len;
+          Texts.Insert(M.text, M.carloc.pos, buf);
+          TextFrames.SetCaret(M, pos)
+        END
+      ELSIF Menu IS TextFrames.Frame THEN
+        M := Menu(TextFrames.Frame);
+        IF M.hasCar THEN
+          TextFrames.Recall(buf);
+          pos := M.carloc.pos + buf.len;
+          Texts.Insert(M.text, M.carloc.pos, buf);
+          TextFrames.SetCaret(M, pos)
+        END
+      END
+    END
+  END Recall;
+```
 ## Procedures:
 ---
 

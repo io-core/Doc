@@ -97,6 +97,70 @@ BEGIN Init
 END Input.
 ```
 ```
+  ## Variables:
+```
+ kbdCode: BYTE; (*last keyboard code read*)
+    Recd, Up, Shift, Ctrl, Ext: BOOLEAN;
+    KTabAdr: INTEGER;  (*keyboard code translation table*)
+    MW, MH, MX, MY: INTEGER; (*mouse limits and coords*)
+    MK: SET; (*mouse keys*)
+  PROCEDURE Read*(## Variables:
+```
+ ch: CHAR);
+  BEGIN
+    WHILE ~Recd DO Peek() END ;
+    IF Shift OR Ctrl THEN INC(kbdCode, 80H) END; (*ctrl implies shift*)
+  (* ch := kbdTab[kbdCode]; *)
+    SYSTEM.GET(KTabAdr + kbdCode, ch);
+    IF Ctrl THEN ch := CHR(ORD(ch) MOD 20H) END;
+    Recd := FALSE
+  END Read;
+(*
+  PROCEDURE Mouse*(## Variables:
+```
+ keys: SET; ## Variables:
+```
+ x, y: INTEGER);
+  PROCEDURE Mouse*(## Variables:
+```
+ keys: SET; ## Variables:
+```
+ x, y: INTEGER);
+    ## Variables:
+```
+ w: INTEGER;
+    ## Variables:
+```
+ w: INTEGER;
+  BEGIN SYSTEM.GET(msAdr, w);
+    keys := SYSTEM.VAL(SET, w DIV 1000000H MOD 8);
+    x := w MOD 400H; y := (w DIV 1000H) MOD 400H;
+    IF y >= MH THEN y := MH-1 END
+  END Mouse;
+*)
+  PROCEDURE Mouse*(## Variables:
+```
+ keys: SET; ## Variables:
+```
+ x, y: INTEGER);
+  PROCEDURE Mouse*(## Variables:
+```
+ keys: SET; ## Variables:
+```
+ x, y: INTEGER);
+    ## Variables:
+```
+ w: INTEGER;
+    ## Variables:
+```
+ w: INTEGER;
+  BEGIN SYSTEM.GET(msAdr, w);
+    keys := SYSTEM.VAL(SET, w DIV 1000000H MOD 8);
+    x := w MOD 1000H; y := (w DIV 1000H) MOD 1000H;
+    IF x >= MW THEN x := MW-1 END;
+    IF y >= MH THEN y := MH-1 END
+  END Mouse;
+```
 ## Procedures:
 ---
 
