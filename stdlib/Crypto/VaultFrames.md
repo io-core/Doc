@@ -1,8 +1,9 @@
 
 ## [MODULE VaultFrames](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod)
 
-  ## imports:
+  ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers`
+
 ## Procedures:
 ---
 

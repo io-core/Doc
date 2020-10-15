@@ -112,6 +112,7 @@ Module Batch provides for automatic sequential execution of Oberon commands.
 
 
   **imports:** ` Kernel FileDir Files Display Texts TextFrames Viewers Oberon`
+
 **Procedures:**
 ```
   ClearLog*
@@ -134,6 +135,7 @@ Module Tools provides commands for inspecting memory, disk, etc.
 
 
   **imports:** ` SYSTEM Kernel Disk Files Modules Input Texts Viewers Oberon MenuViewers TextFrames`
+
 **Procedures:**
 ```
   Clear*  (*used to clear output*)
@@ -158,6 +160,7 @@ Module Tools provides commands for inspecting memory, disk, etc.
 #### [MODULE Blink](https://github.com/io-core/doc/blob/main/core/System/Blink.md) [(source)](https://github.com/io-core/System/blob/main/Blink.Mod)
 
   **imports:** ` SYSTEM Oberon`
+
 **Procedures:**
 ```
   Run*
@@ -191,6 +194,7 @@ Module PCLink1 provides for serial connection between Oberon machines or Oberon 
 
 
   **imports:** ` SYSTEM Files Texts Oberon`
+
 **Procedures:**
 ```
   Run*
@@ -205,6 +209,7 @@ Module PIO implements PIC input/output for RISC Oberon.
 
 
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
   Send*(x: LONGINT)
@@ -221,6 +226,7 @@ Module RS232 provides for serial communications in RISC Oberon.
 
 
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
   Send*(x: INTEGER)
@@ -253,6 +259,7 @@ Module Net provides for client-server communication in Oberon.
 
 
   **imports:** ` SYSTEM SCC Files Texts Oberon`
+
 **Procedures:**
 ```
   SendFiles*
@@ -283,6 +290,7 @@ Module SCC provides for wireless communication in RISC Oberon.
 
 
   **imports:** ` SYSTEM Kernel`
+
 **Procedures:**
 ```
   Start*(filt: BOOLEAN)
@@ -307,8 +315,11 @@ Module BootLoad compiles to a binary to be placed in the firmware of a system th
 
 
   **imports:** ` SYSTEM`
+
   **imports:** ` SYSTEM`
+
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
 ```

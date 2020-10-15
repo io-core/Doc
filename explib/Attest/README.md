@@ -40,6 +40,7 @@ Module KeySafeFrames provides a user-interface to the keys used to sign and to t
 
 
   **imports:** ` SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers`
+
 **Procedures:**
 ```
   Restore*(f: Frame)
@@ -82,6 +83,7 @@ Module KeySafes keeps the secrets used to sign and trust signed code.
 
 
   **imports:** ` SYSTEM Files Fonts KeyPairs`
+
 **Procedures:**
 ```
           read*:(R: KeyRing; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -126,6 +128,7 @@ Module KeyPairs provides the data structures used by the Attest package for code
 
 
 **imports:** ` SYSTEM Kernel Oberon`
+
 **Procedures:**
 ```
   New*(P: KeyPair; v: INTEGER) : KeyPair

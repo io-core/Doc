@@ -10,6 +10,7 @@ Module Modules is the heart of how separately compiled Oberon programs are loade
 
 
   **imports:** ` SYSTEM Kernel Files`
+
 **Procedures:**
 ```
   Load*(name: ARRAY OF CHAR; VAR newmod: Module)

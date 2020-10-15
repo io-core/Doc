@@ -1,8 +1,9 @@
 
 ## [MODULE ImageFrames](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
 
-  ## imports:
+  ## Imports:
 ` SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers`
+
 ## Procedures:
 ---
 

@@ -1,8 +1,9 @@
 
 ## [MODULE Intrinsics](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
 
-## imports:
+## Imports:
 ` SYSTEM Kernel Oberon`
+
 ## Procedures:
 ---
 

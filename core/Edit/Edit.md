@@ -1,8 +1,9 @@
 
 ## [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
 
-  ## imports:
+  ## Imports:
 ` Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames`
+
 ## Procedures:
 ---
 

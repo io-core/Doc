@@ -6,6 +6,7 @@ This package provides tools for viewing and manipulating bitmap images.
 #### [MODULE Images](https://github.com/io-core/doc/blob/main/stdlib/Paint/Images.md) [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
   **imports:** ` SYSTEM Files Fonts Bitmaps`
+
 **Procedures:**
 ```
           read*:(L: Layer; VAR R: Files.Rider); (*; VAR C: Context) *)
@@ -76,6 +77,7 @@ This package provides tools for viewing and manipulating bitmap images.
 #### [MODULE Bitmaps](https://github.com/io-core/doc/blob/main/stdlib/Paint/Bitmaps.md) [(source)](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
 
 **imports:** ` SYSTEM Kernel Oberon`
+
 **Procedures:**
 ```
   New*(B: Bitmap; w, h, dpt: INTEGER) : Bitmap
@@ -114,6 +116,7 @@ This package provides tools for viewing and manipulating bitmap images.
 #### [MODULE ImageFrames](https://github.com/io-core/doc/blob/main/stdlib/Paint/ImageFrames.md) [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
 
   **imports:** ` SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers`
+
 **Procedures:**
 ```
   Restore*(F: Frame)

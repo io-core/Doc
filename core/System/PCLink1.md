@@ -1,8 +1,9 @@
 
 ## [MODULE PCLink1](https://github.com/io-core/System/blob/main/PCLink1.Mod)
 
-  ## imports:
+  ## Imports:
 ` SYSTEM Files Texts Oberon`
+
 ## Procedures:
 ---
 

@@ -26,6 +26,7 @@ Module Environments handles script execution context.
 
 
   **imports:** ` SYSTEM Files Intrinsics Texts`
+
 **Procedures:**
 ```
           read*:(b: Binding; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -52,6 +53,7 @@ Module Intrinsics handles pseudo-commands and operations internal to the LIL int
 
 
 **imports:** ` SYSTEM Kernel Oberon`
+
 **Procedures:**
 ```
   New*(i: Intrinsic; v: INTEGER) : Intrinsic

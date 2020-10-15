@@ -1,8 +1,9 @@
 
 ## [MODULE Graphics](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
 
-  ## imports:
+  ## Imports:
 ` SYSTEM Files Modules Input Fonts (*Printer*) Texts Oberon`
+
 ## Procedures:
 ---
 

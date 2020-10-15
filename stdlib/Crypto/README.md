@@ -52,6 +52,7 @@ Module VaultFrames provides a user-interface for manipulating secrets and vaults
 
 
   **imports:** ` SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers`
+
 **Procedures:**
 ```
   Restore*(f: Frame)
@@ -94,6 +95,7 @@ Module Vaults provides an infrastructure for secrets and vaults.
 
 
   **imports:** ` SYSTEM Files Fonts Ciphers`
+
 **Procedures:**
 ```
           read*:(D: Document; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -138,6 +140,7 @@ Module Ciphers provides cryptographic interfaces and algorithms.
 
 
 **imports:** ` SYSTEM Kernel Oberon`
+
 **Procedures:**
 ```
   New*(C: Cipher; v: INTEGER) : Cipher

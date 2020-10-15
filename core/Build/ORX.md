@@ -1,8 +1,9 @@
 
 ## [MODULE ORX](https://github.com/io-core/Build/blob/main/ORX.Mod)
 
-  ## imports:
+  ## Imports:
 ` Files Texts Oberon`
+
 ## Procedures:
 ---
 

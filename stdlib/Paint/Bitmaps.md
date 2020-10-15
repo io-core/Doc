@@ -1,8 +1,9 @@
 
 ## [MODULE Bitmaps](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
 
-## imports:
+## Imports:
 ` SYSTEM Kernel Oberon`
+
 ## Procedures:
 ---
 

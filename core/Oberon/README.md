@@ -11,6 +11,7 @@ Oberon uses SYSTEM, Kernel, Files, Modules, Input, Display, Viewers, Fonts, Text
 
 
   **imports:** ` SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts`
+
 **Procedures:**
 ```
   SetUser* (VAR user, password: ARRAY OF CHAR)
@@ -114,6 +115,7 @@ MenuViewers uses Input, Display, Viewers, Oberon
 
 
   **imports:** ` Input Display Viewers Oberon`
+
 **Procedures:**
 ```
   Handle* (V: Display.Frame; VAR M: Display.FrameMsg)
@@ -131,6 +133,7 @@ Viewers uses Display
 
 
   **imports:** ` Display`
+
 **Procedures:**
 ```
   ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer
@@ -196,6 +199,7 @@ Display uses SYSTEM
 
 
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
   Handle*(F: Frame; VAR M: FrameMsg)
@@ -229,6 +233,7 @@ Input uses SYSTEM
 
 
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
   Available*(): INTEGER

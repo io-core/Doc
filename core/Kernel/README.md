@@ -23,6 +23,7 @@ Module Kernel provides hardware abstraction for Oberon.
 
 
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
   New*(VAR ptr: LONGINT; tag, len, elemsize: LONGINT)
@@ -51,6 +52,7 @@ Module Disk interfaces to the SPI flash storage, presenting 1024 byte sectors fr
 
 
   **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
   InitSecMap*

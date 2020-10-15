@@ -33,7 +33,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
                         awk '/end-module-develop-description/{p=0};p;/begin-module-develop-description/{p=1}' ../src/github.com/io-core/$nam/$snam.Mod >> $k/$nam/$snam.md
 			echo  >> $k/$nam/README.md
 			echo  >> $k/$nam/$snam.md
-			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/**imports:** `/g' | tr -d ',' | tr ';' '`\n' >> $k/$nam/README.md
+			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/**imports\:** `/g' | tr -d ',' | sed -e 's/;/`\n/g' >> $k/$nam/README.md
 			echo "**Procedures:**" >> $k/$nam/README.md
                         echo '```' >> $k/$nam/README.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod" 
@@ -43,7 +43,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			done
                         echo '```' >> $k/$nam/README.md
 
-			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/## imports:\n`/g' | tr -d ',' | tr ';' '`\n'>> $k/$nam/$snam.md
+			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/## Imports\:\n`/g' | tr -d ',' | sed -e 's/;/`\n/g' >> $k/$nam/$snam.md
 			echo "## Procedures:" >> $k/$nam/$snam.md
                         echo "---" >> $k/$nam/$snam.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod"

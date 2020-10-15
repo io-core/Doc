@@ -24,6 +24,7 @@ Regular programs do not use FileDir but instead use the api presented by Files w
 
 
   **imports:** ` Disk`
+
 **Procedures:**
 ```
   Search*(name: FileName; VAR A: DiskAdr)
@@ -46,6 +47,7 @@ Module Files manages the on-disk representation of files and the file api presen
 
 
   **imports:** ` SYSTEM Kernel Disk FileDir`
+
 **Procedures:**
 ```
   Old*(name: ARRAY OF CHAR): File

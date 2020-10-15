@@ -1,8 +1,9 @@
 
 ## [MODULE TextFrames](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
 
-  ## imports:
+  ## Imports:
 ` Input Display Viewers Fonts Texts Oberon`
+
 ## Procedures:
 ---
 

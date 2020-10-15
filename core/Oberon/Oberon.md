@@ -1,8 +1,9 @@
 
 ## [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 
-  ## imports:
+  ## Imports:
 ` SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts`
+
 ## Procedures:
 ---
 
