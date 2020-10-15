@@ -1,9 +1,9 @@
 
 ## [MODULE Disk](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
 
-  ## imports
- SYSTEM
-## Procedures
+  ## imports:
+` SYSTEM`
+## Procedures:
 ---
 
 `  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)` [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod#L19)

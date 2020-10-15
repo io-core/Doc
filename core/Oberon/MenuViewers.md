@@ -1,9 +1,9 @@
 
 ## [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
 
-  ## imports
- Input Display Viewers Oberon
-## Procedures
+  ## imports:
+` Input Display Viewers Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L14)

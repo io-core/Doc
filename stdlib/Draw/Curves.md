@@ -1,9 +1,9 @@
 
 ## [MODULE Curves](https://github.com/io-core/Draw/blob/main/Curves.Mod)
 
-  ## imports
- Display Files Oberon Graphics GraphicFrames
-## Procedures
+  ## imports:
+` Display Files Oberon Graphics GraphicFrames`
+## Procedures:
 ---
 
 `  PROCEDURE Dot(f: GraphicFrames.Frame; col, x, y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L15)

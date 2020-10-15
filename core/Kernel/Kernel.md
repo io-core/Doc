@@ -1,9 +1,9 @@
 
 ## [MODULE Kernel](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
 
-  ## imports
- SYSTEM
-## Procedures
+  ## imports:
+` SYSTEM`
+## Procedures:
 ---
 
 `  PROCEDURE GetBlock(VAR p: LONGINT; len: LONGINT);` [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod#L37)

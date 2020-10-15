@@ -1,9 +1,9 @@
 
 ## [MODULE SCC](https://github.com/io-core/System/blob/main/SCC.Mod)
 
-  ## imports
- SYSTEM Kernel
-## Procedures
+  ## imports:
+` SYSTEM Kernel`
+## Procedures:
 ---
 
 `  PROCEDURE SPICtrl(s: SET);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L27)

@@ -1,9 +1,9 @@
 
 ## [MODULE Blink](https://github.com/io-core/System/blob/main/Blink.Mod)
 
-  ## imports
- SYSTEM Oberon
-## Procedures
+  ## imports:
+` SYSTEM Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE Run*;` [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L6)

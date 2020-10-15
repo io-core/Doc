@@ -1,9 +1,9 @@
 
 ## [MODULE Images](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
-  ## imports
- SYSTEM Files Fonts Bitmaps
-## Procedures
+  ## imports:
+` SYSTEM Files Fonts Bitmaps`
+## Procedures:
 ---
 
 `  PROCEDURE New*(L: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L93)

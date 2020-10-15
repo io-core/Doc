@@ -9,7 +9,7 @@ The System package collects the expected set of modules and tools that allows th
 Module System presents the Oberon user with tools and commands for interacting Displays and Tracks and Files and other miscelaneous features.
 
 
-  **imports** SYSTEM Kernel Disk FileDir Files Modules
+  **imports:** ` SYSTEM Kernel Disk FileDir Files Modules
 **Procedures:**
 ```
   SetUser*
@@ -111,7 +111,7 @@ Module System presents the Oberon user with tools and commands for interacting D
 Module Batch provides for automatic sequential execution of Oberon commands.
 
 
-  **imports** Kernel FileDir Files Display Texts TextFrames Viewers Oberon
+  **imports:** ` Kernel FileDir Files Display Texts TextFrames Viewers Oberon`
 **Procedures:**
 ```
   ClearLog*
@@ -133,7 +133,7 @@ Module Batch provides for automatic sequential execution of Oberon commands.
 Module Tools provides commands for inspecting memory, disk, etc.
 
 
-  **imports** SYSTEM Kernel Disk Files Modules Input Texts Viewers Oberon MenuViewers TextFrames
+  **imports:** ` SYSTEM Kernel Disk Files Modules Input Texts Viewers Oberon MenuViewers TextFrames`
 **Procedures:**
 ```
   Clear*  (*used to clear output*)
@@ -157,7 +157,7 @@ Module Tools provides commands for inspecting memory, disk, etc.
 
 #### [MODULE Blink](https://github.com/io-core/doc/blob/main/core/System/Blink.md) [(source)](https://github.com/io-core/System/blob/main/Blink.Mod)
 
-  **imports** SYSTEM Oberon
+  **imports:** ` SYSTEM Oberon`
 **Procedures:**
 ```
   Run*
@@ -190,7 +190,7 @@ Module Math provides standard math functions in Oberon.
 Module PCLink1 provides for serial connection between Oberon machines or Oberon and a host computer.
 
 
-  **imports** SYSTEM Files Texts Oberon
+  **imports:** ` SYSTEM Files Texts Oberon`
 **Procedures:**
 ```
   Run*
@@ -204,7 +204,7 @@ Module PCLink1 provides for serial connection between Oberon machines or Oberon 
 Module PIO implements PIC input/output for RISC Oberon.
 
 
-  **imports** SYSTEM
+  **imports:** ` SYSTEM`
 **Procedures:**
 ```
   Send*(x: LONGINT)
@@ -220,7 +220,7 @@ Module PIO implements PIC input/output for RISC Oberon.
 Module RS232 provides for serial communications in RISC Oberon.
 
 
-  **imports** SYSTEM
+  **imports:** ` SYSTEM`
 **Procedures:**
 ```
   Send*(x: INTEGER)
@@ -252,7 +252,7 @@ Module RS232 provides for serial communications in RISC Oberon.
 Module Net provides for client-server communication in Oberon.
 
 
-  **imports** SYSTEM SCC Files Texts Oberon
+  **imports:** ` SYSTEM SCC Files Texts Oberon`
 **Procedures:**
 ```
   SendFiles*
@@ -282,7 +282,7 @@ Module Net provides for client-server communication in Oberon.
 Module SCC provides for wireless communication in RISC Oberon.
 
 
-  **imports** SYSTEM Kernel
+  **imports:** ` SYSTEM Kernel`
 **Procedures:**
 ```
   Start*(filt: BOOLEAN)
@@ -306,9 +306,9 @@ Module SCC provides for wireless communication in RISC Oberon.
 Module BootLoad compiles to a binary to be placed in the firmware of a system that will boot to Oberon.
 
 
-  **imports** SYSTEM
-  **imports** SYSTEM
-  **imports** SYSTEM
+  **imports:** ` SYSTEM`
+  **imports:** ` SYSTEM`
+  **imports:** ` SYSTEM`
 **Procedures:**
 ```
 ```

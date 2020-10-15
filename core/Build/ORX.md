@@ -1,9 +1,9 @@
 
 ## [MODULE ORX](https://github.com/io-core/Build/blob/main/ORX.Mod)
 
-  ## imports
- Files Texts Oberon
-## Procedures
+  ## imports:
+` Files Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE WriteHex(VAR R: Files.Rider; x: LONGINT);  (*write a 4 byte LONGINT in 8 digit hex format*)` [(source)](https://github.com/io-core/Build/blob/main/ORX.Mod#L17)

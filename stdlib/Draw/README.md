@@ -5,7 +5,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE GraphTool](https://github.com/io-core/doc/blob/main/stdlib/Draw/GraphTool.md) [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod)
 
-  **imports** Files Texts Oberon
+  **imports:** ` Files Texts Oberon`
 **Procedures:**
 ```
   DecGraph*
@@ -21,7 +21,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE Rectangles](https://github.com/io-core/doc/blob/main/stdlib/Draw/Rectangles.md) [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)
 
-  **imports** SYSTEM Display Files Input Texts Oberon Graphics GraphicFrames
+  **imports:** ` SYSTEM Display Files Input Texts Oberon Graphics GraphicFrames`
 **Procedures:**
 ```
   New*
@@ -33,7 +33,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE Curves](https://github.com/io-core/doc/blob/main/stdlib/Draw/Curves.md) [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod)
 
-  **imports** Display Files Oberon Graphics GraphicFrames
+  **imports:** ` Display Files Oberon Graphics GraphicFrames`
 **Procedures:**
 ```
   New*
@@ -49,7 +49,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE Graphics](https://github.com/io-core/doc/blob/main/stdlib/Draw/Graphics.md) [(source)](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
 
-  **imports** SYSTEM Files Modules Input Fonts (*Printer*) Texts Oberon
+  **imports:** ` SYSTEM Files Modules Input Fonts (*Printer*) Texts Oberon`
 **Procedures:**
 ```
   New*(obj: Object)
@@ -123,7 +123,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE MacroTool](https://github.com/io-core/doc/blob/main/stdlib/Draw/MacroTool.md) [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod)
 
-  **imports** Texts Oberon Graphics GraphicFrames
+  **imports:** ` Texts Oberon Graphics GraphicFrames`
 **Procedures:**
 ```
   OpenMacro*
@@ -139,7 +139,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE Draw](https://github.com/io-core/doc/blob/main/stdlib/Draw/Draw.md) [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod)
 
-  **imports** Files Fonts Viewers Texts Oberon
+  **imports:** ` Files Fonts Viewers Texts Oberon
 **Procedures:**
 ```
   Open*
@@ -167,7 +167,7 @@ This package provides line-oriented drawing primitives and a vector drawing tool
 
 #### [MODULE GraphicFrames](https://github.com/io-core/doc/blob/main/stdlib/Draw/GraphicFrames.md) [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod)
 
-  **imports** SYSTEM Display Viewers Input Fonts Texts Graphics Oberon
+  **imports:** ` SYSTEM Display Viewers Input Fonts Texts Graphics Oberon`
 **Procedures:**
 ```
   Restore*(F: Frame)

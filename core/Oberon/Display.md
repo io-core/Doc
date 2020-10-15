@@ -1,9 +1,9 @@
 
 ## [MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)
 
-  ## imports
- SYSTEM
-## Procedures
+  ## imports:
+` SYSTEM`
+## Procedures:
 ---
 
 `  PROCEDURE Handle*(F: Frame; VAR M: FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L27)

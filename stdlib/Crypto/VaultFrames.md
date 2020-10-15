@@ -1,9 +1,9 @@
 
 ## [MODULE VaultFrames](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod)
 
-  ## imports
- SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers
-## Procedures
+  ## imports:
+` SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers`
+## Procedures:
 ---
 
 `  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Crypto/blob/main/VaultFrames.Mod#L79)

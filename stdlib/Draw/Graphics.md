@@ -1,9 +1,9 @@
 
 ## [MODULE Graphics](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
 
-  ## imports
- SYSTEM Files Modules Input Fonts (*Printer*) Texts Oberon
-## Procedures
+  ## imports:
+` SYSTEM Files Modules Input Fonts (*Printer*) Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE New*(obj: Object);` [(source)](https://github.com/io-core/Draw/blob/main/Graphics.Mod#L96)

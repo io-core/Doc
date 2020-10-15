@@ -1,9 +1,9 @@
 
 ## [MODULE MacroTool](https://github.com/io-core/Draw/blob/main/MacroTool.Mod)
 
-  ## imports
- Texts Oberon Graphics GraphicFrames
-## Procedures
+  ## imports:
+` Texts Oberon Graphics GraphicFrames`
+## Procedures:
 ---
 
 `  PROCEDURE OpenMacro*;` [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L5)

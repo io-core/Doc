@@ -1,9 +1,9 @@
 
 ## [MODULE System](https://github.com/io-core/System/blob/main/System.Mod)
 
-  ## imports
- SYSTEM Kernel Disk FileDir Files Modules
-## Procedures
+  ## imports:
+` SYSTEM Kernel Disk FileDir Files Modules
+## Procedures:
 ---
 
 `  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L25)

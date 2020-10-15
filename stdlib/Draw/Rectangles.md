@@ -1,9 +1,9 @@
 
 ## [MODULE Rectangles](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)
 
-  ## imports
- SYSTEM Display Files Input Texts Oberon Graphics GraphicFrames
-## Procedures
+  ## imports:
+` SYSTEM Display Files Input Texts Oberon Graphics GraphicFrames`
+## Procedures:
 ---
 
 `  PROCEDURE New*;` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L13)

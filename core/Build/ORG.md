@@ -1,9 +1,9 @@
 
 ## [MODULE ORG](https://github.com/io-core/Build/blob/main/ORG.Mod)
 
-  ## imports
- SYSTEM Files ORS ORB
-## Procedures
+  ## imports:
+` SYSTEM Files ORS ORB`
+## Procedures:
 ---
 
 `  PROCEDURE incR;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L67)

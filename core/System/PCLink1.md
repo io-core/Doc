@@ -1,9 +1,9 @@
 
 ## [MODULE PCLink1](https://github.com/io-core/System/blob/main/PCLink1.Mod)
 
-  ## imports
- SYSTEM Files Texts Oberon
-## Procedures
+  ## imports:
+` SYSTEM Files Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE Rec(VAR x: BYTE);` [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod#L15)

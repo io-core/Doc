@@ -23,7 +23,7 @@ Module FileDir manages the on-disk representation if directories.
 Regular programs do not use FileDir but instead use the api presented by Files which uses FileDir on their behalf.
 
 
-  **imports** Disk
+  **imports:** ` Disk`
 **Procedures:**
 ```
   Search*(name: FileName; VAR A: DiskAdr)
@@ -45,7 +45,7 @@ Regular programs do not use FileDir but instead use the api presented by Files w
 Module Files manages the on-disk representation of files and the file api presented to Oberon programs.
 
 
-  **imports** SYSTEM Kernel Disk FileDir
+  **imports:** ` SYSTEM Kernel Disk FileDir`
 **Procedures:**
 ```
   Old*(name: ARRAY OF CHAR): File

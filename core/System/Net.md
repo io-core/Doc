@@ -1,9 +1,9 @@
 
 ## [MODULE Net](https://github.com/io-core/System/blob/main/Net.Mod)
 
-  ## imports
- SYSTEM SCC Files Texts Oberon
-## Procedures
+  ## imports:
+` SYSTEM SCC Files Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE SetPartner(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L22)

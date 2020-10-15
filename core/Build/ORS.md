@@ -1,9 +1,9 @@
 
 ## [MODULE ORS](https://github.com/io-core/Build/blob/main/ORS.Mod)
 
-  ## imports
- SYSTEM Texts Oberon
-## Procedures
+  ## imports:
+` SYSTEM Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE CopyId*(VAR ident: Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L57)

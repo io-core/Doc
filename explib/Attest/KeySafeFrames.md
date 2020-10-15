@@ -1,9 +1,9 @@
 
 ## [MODULE KeySafeFrames](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod)
 
-  ## imports
- SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers
-## Procedures
+  ## imports:
+` SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers`
+## Procedures:
 ---
 
 `  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod#L79)

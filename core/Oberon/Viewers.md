@@ -1,9 +1,9 @@
 
 ## [MODULE Viewers](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
 
-  ## imports
- Display
-## Procedures
+  ## imports:
+` Display`
+## Procedures:
 ---
 
 `  PROCEDURE ThisViewer* (D: DisplayArea; X, Y: INTEGER): Viewer;` [(source)](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#L42)

@@ -1,9 +1,9 @@
 
 ## [MODULE Paint](https://github.com/io-core/Paint/blob/main/Paint.Mod)
 
-  ## imports
- Files Fonts Viewers Texts Oberon
-## Procedures
+  ## imports:
+` Files Fonts Viewers Texts Oberon
+## Procedures:
 ---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L15)

@@ -1,9 +1,9 @@
 
 ## [MODULE ImageFrames](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
 
-  ## imports
- SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers
-## Procedures
+  ## imports:
+` SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers`
+## Procedures:
 ---
 
 `  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L75)

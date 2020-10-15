@@ -9,7 +9,7 @@ The Script package automates Oberon commands.
 Module Script will implement LIL, a derivative of TCL.
 
 
-  **imports** Files Fonts Viewers Texts Oberon
+  **imports:** ` Files Fonts Viewers Texts Oberon
 **Procedures:**
 ```
   Load*
@@ -25,7 +25,7 @@ Module Script will implement LIL, a derivative of TCL.
 Module Environments handles script execution context.
 
 
-  **imports** SYSTEM Files Intrinsics Texts
+  **imports:** ` SYSTEM Files Intrinsics Texts`
 **Procedures:**
 ```
           read*:(b: Binding; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -51,7 +51,7 @@ Module Environments handles script execution context.
 Module Intrinsics handles pseudo-commands and operations internal to the LIL interpreter.
 
 
-**imports** SYSTEM Kernel Oberon
+**imports:** ` SYSTEM Kernel Oberon`
 **Procedures:**
 ```
   New*(i: Intrinsic; v: INTEGER) : Intrinsic

@@ -1,9 +1,9 @@
 
 ## [MODULE ORTool](https://github.com/io-core/Build/blob/main/ORTool.Mod)
 
-  ## imports
- SYSTEM Files Modules Texts Oberon ORB
-## Procedures
+  ## imports:
+` SYSTEM Files Modules Texts Oberon ORB`
+## Procedures:
 ---
 
 `  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORTool.Mod#L14)

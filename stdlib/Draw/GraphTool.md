@@ -1,9 +1,9 @@
 
 ## [MODULE GraphTool](https://github.com/io-core/Draw/blob/main/GraphTool.Mod)
 
-  ## imports
- Files Texts Oberon
-## Procedures
+  ## imports:
+` Files Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE DecGraph*;` [(source)](https://github.com/io-core/Draw/blob/main/GraphTool.Mod#L7)

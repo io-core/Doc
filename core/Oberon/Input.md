@@ -1,9 +1,9 @@
 
 ## [MODULE Input](https://github.com/io-core/Oberon/blob/main/Input.Mod)
 
-  ## imports
- SYSTEM
-## Procedures
+  ## imports:
+` SYSTEM`
+## Procedures:
 ---
 
 `  PROCEDURE Peek();` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L25)

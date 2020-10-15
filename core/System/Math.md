@@ -1,7 +1,7 @@
 
 ## [MODULE Math](https://github.com/io-core/System/blob/main/Math.Mod)
 
-## Procedures
+## Procedures:
 ---
 
 `  PROCEDURE sqrt*(x: REAL): REAL;` [(source)](https://github.com/io-core/System/blob/main/Math.Mod#L7)

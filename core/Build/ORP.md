@@ -18,9 +18,9 @@ procedures and open arrays to the language. Oberon is both an extension and a re
 among other features to Pascal, which was developed as a reaction to and refinement of Algol-68.
 
 
-  ## imports
- Texts Oberon ORS ORB ORG
-## Procedures
+  ## imports:
+` Texts Oberon ORS ORB ORG`
+## Procedures:
 ---
 ## Checking Symbols and Types
 ---

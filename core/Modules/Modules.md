@@ -1,9 +1,9 @@
 
 ## [MODULE Modules](https://github.com/io-core/Modules/blob/main/Modules.Mod)
 
-  ## imports
- SYSTEM Kernel Files
-## Procedures
+  ## imports:
+` SYSTEM Kernel Files`
+## Procedures:
 ---
 
 `  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L42)

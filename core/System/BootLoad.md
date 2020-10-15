@@ -1,13 +1,13 @@
 
 ## [MODULE BootLoad](https://github.com/io-core/System/blob/main/BootLoad.Mod)
 
-  ## imports
- SYSTEM
-  ## imports
- SYSTEM
-  ## imports
- SYSTEM
-## Procedures
+  ## imports:
+` SYSTEM`
+  ## imports:
+` SYSTEM`
+  ## imports:
+` SYSTEM`
+## Procedures:
 ---
 
 `  PROCEDURE RecInt(VAR x: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L19)

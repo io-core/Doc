@@ -21,7 +21,7 @@ USAGE:
 Module Crypto provides command tools for cryptographic functions.
 
 
-  **imports** Files Fonts Viewers Texts Oberon
+  **imports:** ` Files Fonts Viewers Texts Oberon
 **Procedures:**
 ```
   Open*
@@ -51,7 +51,7 @@ Module Crypto provides command tools for cryptographic functions.
 Module VaultFrames provides a user-interface for manipulating secrets and vaults.
 
 
-  **imports** SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers
+  **imports:** ` SYSTEM Display Viewers Input Fonts Texts Vaults Oberon MenuViewers`
 **Procedures:**
 ```
   Restore*(f: Frame)
@@ -93,7 +93,7 @@ Module VaultFrames provides a user-interface for manipulating secrets and vaults
 Module Vaults provides an infrastructure for secrets and vaults.
 
 
-  **imports** SYSTEM Files Fonts Ciphers
+  **imports:** ` SYSTEM Files Fonts Ciphers`
 **Procedures:**
 ```
           read*:(D: Document; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -137,7 +137,7 @@ Module Vaults provides an infrastructure for secrets and vaults.
 Module Ciphers provides cryptographic interfaces and algorithms.
 
 
-**imports** SYSTEM Kernel Oberon
+**imports:** ` SYSTEM Kernel Oberon`
 **Procedures:**
 ```
   New*(C: Cipher; v: INTEGER) : Cipher

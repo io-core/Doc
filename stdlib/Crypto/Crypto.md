@@ -1,9 +1,9 @@
 
 ## [MODULE Crypto](https://github.com/io-core/Crypto/blob/main/Crypto.Mod)
 
-  ## imports
- Files Fonts Viewers Texts Oberon
-## Procedures
+  ## imports:
+` Files Fonts Viewers Texts Oberon
+## Procedures:
 ---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Crypto/blob/main/Crypto.Mod#L36)

@@ -1,9 +1,9 @@
 
 ## [MODULE Packages](https://github.com/io-core/Mod/blob/main/Packages.Mod)
 
-  ## imports
- SYSTEM Files Fonts Resources
-## Procedures
+  ## imports:
+` SYSTEM Files Fonts Resources`
+## Procedures:
 ---
 
 `  PROCEDURE New*(C: Component);` [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L76)

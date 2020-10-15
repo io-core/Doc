@@ -1,9 +1,9 @@
 
 ## [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
 
-  ## imports
- Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames
-## Procedures
+  ## imports:
+` Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames`
+## Procedures:
 ---
 
 `  PROCEDURE Max(i, j: LONGINT): LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L36)

@@ -1,9 +1,9 @@
 
 ## [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 
-  ## imports
- SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts
-## Procedures
+  ## imports:
+` SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts`
+## Procedures:
 ---
 
 `  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L83)

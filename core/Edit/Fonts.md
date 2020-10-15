@@ -1,9 +1,9 @@
 
 ## [MODULE Fonts](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
 
-  ## imports
- Files
-## Procedures
+  ## imports:
+` Files`
+## Procedures:
 ---
 
 `  PROCEDURE Put(r: Raster; i, x: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L28)

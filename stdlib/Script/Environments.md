@@ -1,9 +1,9 @@
 
 ## [MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)
 
-  ## imports
- SYSTEM Files Intrinsics Texts
-## Procedures
+  ## imports:
+` SYSTEM Files Intrinsics Texts`
+## Procedures:
 ---
 
 `  PROCEDURE New*(b: Binding);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L49)

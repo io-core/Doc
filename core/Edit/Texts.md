@@ -1,9 +1,9 @@
 
 ## [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
 
-  ## imports
- Files Input Fonts
-## Procedures
+  ## imports:
+` Files Input Fonts`
+## Procedures:
 ---
 
 `  PROCEDURE Trailer(): Piece;` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L81)

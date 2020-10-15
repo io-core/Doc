@@ -1,9 +1,9 @@
 
 ## [MODULE Vaults](https://github.com/io-core/Crypto/blob/main/Vaults.Mod)
 
-  ## imports
- SYSTEM Files Fonts Ciphers
-## Procedures
+  ## imports:
+` SYSTEM Files Fonts Ciphers`
+## Procedures:
 ---
 
 `  PROCEDURE New*(D: Document);` [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L80)

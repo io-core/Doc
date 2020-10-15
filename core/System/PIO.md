@@ -1,9 +1,9 @@
 
 ## [MODULE PIO](https://github.com/io-core/System/blob/main/PIO.Mod)
 
-  ## imports
- SYSTEM
-## Procedures
+  ## imports:
+` SYSTEM`
+## Procedures:
 ---
 
 `  PROCEDURE del(i: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/PIO.Mod#L15)

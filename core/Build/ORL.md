@@ -1,9 +1,9 @@
 
 ## [MODULE ORL](https://github.com/io-core/Build/blob/main/ORL.Mod)
 
-  ## imports
- SYSTEM Kernel Disk Files Modules Texts Oberon
-## Procedures
+  ## imports:
+` SYSTEM Kernel Disk Files Modules Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE MakeFileName(VAR FName: ARRAY OF CHAR; name, ext: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORL.Mod#L38)

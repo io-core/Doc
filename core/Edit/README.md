@@ -23,7 +23,7 @@ Edit.Open example.txt
 Module Edit provides document editing capability.
 
 
-  **imports** Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames
+  **imports:** ` Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames`
 **Procedures:**
 ```
   Open*
@@ -51,7 +51,7 @@ Module Edit provides document editing capability.
 Module TextFrames defines the messages and default handlers for text operations in panes in the Oberon user interface.
 
 
-  **imports** Input Display Viewers Fonts Texts Oberon
+  **imports:** ` Input Display Viewers Fonts Texts Oberon`
 **Procedures:**
 ```
   Mark* (F: Frame; on: BOOLEAN)  (*in scroll bar*)
@@ -131,7 +131,7 @@ Module TextFrames defines the messages and default handlers for text operations 
 Module Texts defines the 'text' abstract data type used pervasively in the Oberon system.
 
 
-  **imports** Files Input Fonts
+  **imports:** ` Files Input Fonts`
 **Procedures:**
 ```
   Load* (VAR R: Files.Rider; T: Text)
@@ -199,7 +199,7 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
 Module Fonts provides the glyphs used by the Text system and the Graphics system to represent characters.
 
 
-  **imports** Files
+  **imports:** ` Files`
 **Procedures:**
 ```
   GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER)

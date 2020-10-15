@@ -1,9 +1,9 @@
 
 ## [MODULE KeySafes](https://github.com/io-core/Attest/blob/main/KeySafes.Mod)
 
-  ## imports
- SYSTEM Files Fonts KeyPairs
-## Procedures
+  ## imports:
+` SYSTEM Files Fonts KeyPairs`
+## Procedures:
 ---
 
 `  PROCEDURE New*(R: KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L80)

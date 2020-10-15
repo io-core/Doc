@@ -1,9 +1,9 @@
 
 ## [MODULE Ciphers](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod)
 
-## imports
- SYSTEM Kernel Oberon
-## Procedures
+## imports:
+` SYSTEM Kernel Oberon`
+## Procedures:
 ---
 
 `PROCEDURE New*(C: Cipher; v: INTEGER) : Cipher;` [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L15)

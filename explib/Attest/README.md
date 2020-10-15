@@ -9,7 +9,7 @@ Module Attest provides tools and algoritms for code signing and attestation of p
 Module Attest provides commands for code signing and checking provenance.
 
 
-  **imports** Files Fonts Viewers Texts Oberon
+  **imports:** ` Files Fonts Viewers Texts Oberon
 **Procedures:**
 ```
   Open*
@@ -39,7 +39,7 @@ Module Attest provides commands for code signing and checking provenance.
 Module KeySafeFrames provides a user-interface to the keys used to sign and to trust signed code.
 
 
-  **imports** SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers
+  **imports:** ` SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers`
 **Procedures:**
 ```
   Restore*(f: Frame)
@@ -81,7 +81,7 @@ Module KeySafeFrames provides a user-interface to the keys used to sign and to t
 Module KeySafes keeps the secrets used to sign and trust signed code.
 
 
-  **imports** SYSTEM Files Fonts KeyPairs
+  **imports:** ` SYSTEM Files Fonts KeyPairs`
 **Procedures:**
 ```
           read*:(R: KeyRing; VAR r: Files.Rider); (*; VAR c: Context) *)
@@ -125,7 +125,7 @@ Module KeySafes keeps the secrets used to sign and trust signed code.
 Module KeyPairs provides the data structures used by the Attest package for code provenance.
 
 
-**imports** SYSTEM Kernel Oberon
+**imports:** ` SYSTEM Kernel Oberon`
 **Procedures:**
 ```
   New*(P: KeyPair; v: INTEGER) : KeyPair

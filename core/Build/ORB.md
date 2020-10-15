@@ -1,9 +1,9 @@
 
 ## [MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
 
-  ## imports
- Files ORS
-## Procedures
+  ## imports:
+` Files ORS`
+## Procedures:
 ---
 
 `  PROCEDURE NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER);  (*insert new Object with name id*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L79)

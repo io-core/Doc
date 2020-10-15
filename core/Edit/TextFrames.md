@@ -1,9 +1,9 @@
 
 ## [MODULE TextFrames](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
 
-  ## imports
- Input Display Viewers Fonts Texts Oberon
-## Procedures
+  ## imports:
+` Input Display Viewers Fonts Texts Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE Min (i, j: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L62)

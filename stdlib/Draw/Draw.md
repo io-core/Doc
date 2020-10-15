@@ -1,9 +1,9 @@
 
 ## [MODULE Draw](https://github.com/io-core/Draw/blob/main/Draw.Mod)
 
-  ## imports
- Files Fonts Viewers Texts Oberon
-## Procedures
+  ## imports:
+` Files Fonts Viewers Texts Oberon
+## Procedures:
 ---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L15)

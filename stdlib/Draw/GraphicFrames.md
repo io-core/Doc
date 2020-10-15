@@ -1,9 +1,9 @@
 
 ## [MODULE GraphicFrames](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod)
 
-  ## imports
- SYSTEM Display Viewers Input Fonts Texts Graphics Oberon
-## Procedures
+  ## imports:
+` SYSTEM Display Viewers Input Fonts Texts Graphics Oberon`
+## Procedures:
 ---
 
 `  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod#L76)
