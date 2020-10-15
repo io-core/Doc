@@ -1,7 +1,8 @@
 
 ## [MODULE Resources](https://github.com/io-core/Mod/blob/main/Resources.Mod)
 
-**imports** SYSTEM Kernel Oberon
+## imports
+ SYSTEM Kernel Oberon
 ## Procedures
 ---
 

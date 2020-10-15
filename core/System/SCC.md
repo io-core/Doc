@@ -1,7 +1,8 @@
 
 ## [MODULE SCC](https://github.com/io-core/System/blob/main/SCC.Mod)
 
-  **imports** SYSTEM Kernel
+  ## imports
+ SYSTEM Kernel
 ## Procedures
 ---
 

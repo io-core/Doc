@@ -1,7 +1,8 @@
 
 ## [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
 
-  **imports** Files Input Fonts
+  ## imports
+ Files Input Fonts
 ## Procedures
 ---
 

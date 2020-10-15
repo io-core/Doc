@@ -5,7 +5,8 @@ This package provides source code package management in Oberon.
 
 #### [MODULE PackageFrames](https://github.com/io-core/doc/blob/main/stdlib/Mod/PackageFrames.md) [(source)](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod)
 
-Procedures:
+  **imports** SYSTEM Display Viewers Input Fonts Texts Packages Oberon MenuViewers
+**Procedures:**
 ```
   Restore*(f: Frame)
 
@@ -44,7 +45,8 @@ Procedures:
 
 #### [MODULE Mod](https://github.com/io-core/doc/blob/main/stdlib/Mod/Mod.md) [(source)](https://github.com/io-core/Mod/blob/main/Mod.Mod)
 
-Procedures:
+  **imports** Files Fonts Viewers Texts Oberon
+**Procedures:**
 ```
   Open*
 
@@ -71,7 +73,8 @@ Procedures:
 
 #### [MODULE Packages](https://github.com/io-core/doc/blob/main/stdlib/Mod/Packages.md) [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod)
 
-Procedures:
+  **imports** SYSTEM Files Fonts Resources
+**Procedures:**
 ```
           read*:(C: Component; VAR r: Files.Rider); (*; VAR c: Context) *)
 
@@ -112,7 +115,8 @@ Procedures:
 
 #### [MODULE Resources](https://github.com/io-core/doc/blob/main/stdlib/Mod/Resources.md) [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod)
 
-Procedures:
+**imports** SYSTEM Kernel Oberon
+**Procedures:**
 ```
   New*(R: Resource; v: INTEGER) : Resource
 

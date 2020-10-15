@@ -1,7 +1,8 @@
 
 ## [MODULE Images](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
-  **imports** SYSTEM Files Fonts Bitmaps
+  ## imports
+ SYSTEM Files Fonts Bitmaps
 ## Procedures
 ---
 

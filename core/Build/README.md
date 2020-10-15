@@ -50,7 +50,8 @@ ORTool.DecObj Sierpinski.rsc
 Module ORP reads the source code of an Oberon program and produces an executable binary module.
 
 
-Procedures:
+  **imports** Texts Oberon ORS ORB ORG
+**Procedures:**
 ```
   Compile*
 
@@ -64,7 +65,8 @@ ORG uses SYSTEM, Files, ORS, ORB
 
 
 
-Procedures:
+  **imports** SYSTEM Files ORS ORB
+**Procedures:**
 ```
   CheckRegs*
 
@@ -244,7 +246,8 @@ ORB uses Files, ORS
 
 
 
-Procedures:
+  **imports** Files ORS
+**Procedures:**
 ```
   NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER)  (*insert new Object with name id*)
 
@@ -282,7 +285,8 @@ ORS uses SYSTEM, Texts, Oberon
 
 
 
-Procedures:
+  **imports** SYSTEM Texts Oberon
+**Procedures:**
 ```
   CopyId*(VAR ident: Ident)
 
@@ -304,7 +308,8 @@ ORL uses SYSTEM, Kernel, Disk, Files, Modules, Texts, Oberon
 
 
 
-Procedures:
+  **imports** SYSTEM Kernel Disk Files Modules Texts Oberon
+**Procedures:**
 ```
   Link*  (*link multiple object files together and create a single boot file M.bin from them*)
 
@@ -326,7 +331,8 @@ ORX uses Files, Texts, Oberon
 
 
 
-Procedures:
+  **imports** Files Texts Oberon
+**Procedures:**
 ```
   WriteFile*  (*write code section of M.rsc in hex format to output file*)
 
@@ -344,7 +350,8 @@ ORTool uses SYSTEM, Files, Modules, Texts, Oberon, ORB
 
 
 
-Procedures:
+  **imports** SYSTEM Files Modules Texts Oberon ORB
+**Procedures:**
 ```
   DecSym*  (*decode symbol file*)
 

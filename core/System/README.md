@@ -9,7 +9,8 @@ The System package collects the expected set of modules and tools that allows th
 Module System presents the Oberon user with tools and commands for interacting Displays and Tracks and Files and other miscelaneous features.
 
 
-Procedures:
+  **imports** SYSTEM Kernel Disk FileDir Files Modules
+**Procedures:**
 ```
   SetUser*
 
@@ -110,7 +111,8 @@ Procedures:
 Module Batch provides for automatic sequential execution of Oberon commands.
 
 
-Procedures:
+  **imports** Kernel FileDir Files Display Texts TextFrames Viewers Oberon
+**Procedures:**
 ```
   ClearLog*
 
@@ -131,7 +133,8 @@ Procedures:
 Module Tools provides commands for inspecting memory, disk, etc.
 
 
-Procedures:
+  **imports** SYSTEM Kernel Disk Files Modules Input Texts Viewers Oberon MenuViewers TextFrames
+**Procedures:**
 ```
   Clear*  (*used to clear output*)
 
@@ -154,7 +157,8 @@ Procedures:
 
 #### [MODULE Blink](https://github.com/io-core/doc/blob/main/core/System/Blink.md) [(source)](https://github.com/io-core/System/blob/main/Blink.Mod)
 
-Procedures:
+  **imports** SYSTEM Oberon
+**Procedures:**
 ```
   Run*
 
@@ -167,7 +171,7 @@ Procedures:
 Module Math provides standard math functions in Oberon.
 
 
-Procedures:
+**Procedures:**
 ```
   sqrt*(x: REAL): REAL
 
@@ -186,7 +190,8 @@ Procedures:
 Module PCLink1 provides for serial connection between Oberon machines or Oberon and a host computer.
 
 
-Procedures:
+  **imports** SYSTEM Files Texts Oberon
+**Procedures:**
 ```
   Run*
 
@@ -199,7 +204,8 @@ Procedures:
 Module PIO implements PIC input/output for RISC Oberon.
 
 
-Procedures:
+  **imports** SYSTEM
+**Procedures:**
 ```
   Send*(x: LONGINT)
 
@@ -214,7 +220,8 @@ Procedures:
 Module RS232 provides for serial communications in RISC Oberon.
 
 
-Procedures:
+  **imports** SYSTEM
+**Procedures:**
 ```
   Send*(x: INTEGER)
 
@@ -245,7 +252,8 @@ Procedures:
 Module Net provides for client-server communication in Oberon.
 
 
-Procedures:
+  **imports** SYSTEM SCC Files Texts Oberon
+**Procedures:**
 ```
   SendFiles*
 
@@ -274,7 +282,8 @@ Procedures:
 Module SCC provides for wireless communication in RISC Oberon.
 
 
-Procedures:
+  **imports** SYSTEM Kernel
+**Procedures:**
 ```
   Start*(filt: BOOLEAN)
 
@@ -297,6 +306,9 @@ Procedures:
 Module BootLoad compiles to a binary to be placed in the firmware of a system that will boot to Oberon.
 
 
-Procedures:
+  **imports** SYSTEM
+  **imports** SYSTEM
+  **imports** SYSTEM
+**Procedures:**
 ```
 ```

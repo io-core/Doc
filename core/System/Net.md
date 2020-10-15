@@ -1,7 +1,8 @@
 
 ## [MODULE Net](https://github.com/io-core/System/blob/main/Net.Mod)
 
-  **imports** SYSTEM SCC Files Texts Oberon
+  ## imports
+ SYSTEM SCC Files Texts Oberon
 ## Procedures
 ---
 

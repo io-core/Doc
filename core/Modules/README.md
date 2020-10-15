@@ -9,7 +9,8 @@ The Modules package manages the module heap, the loading and unloading of packag
 Module Modules is the heart of how separately compiled Oberon programs are loaded and linked.
 
 
-Procedures:
+  **imports** SYSTEM Kernel Files
+**Procedures:**
 ```
   Load*(name: ARRAY OF CHAR; VAR newmod: Module)
 

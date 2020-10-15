@@ -1,7 +1,8 @@
 
 ## [MODULE Script](https://github.com/io-core/Script/blob/main/Script.Mod)
 
-  **imports** Files Fonts Viewers Texts Oberon
+  ## imports
+ Files Fonts Viewers Texts Oberon
 ## Procedures
 ---
 

@@ -5,7 +5,8 @@ This package provides tools for viewing and manipulating bitmap images.
 
 #### [MODULE Images](https://github.com/io-core/doc/blob/main/stdlib/Paint/Images.md) [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
-Procedures:
+  **imports** SYSTEM Files Fonts Bitmaps
+**Procedures:**
 ```
           read*:(L: Layer; VAR R: Files.Rider); (*; VAR C: Context) *)
 
@@ -46,7 +47,8 @@ Procedures:
 
 #### [MODULE Paint](https://github.com/io-core/doc/blob/main/stdlib/Paint/Paint.md) [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod)
 
-Procedures:
+  **imports** Files Fonts Viewers Texts Oberon
+**Procedures:**
 ```
   Open*
 
@@ -73,7 +75,8 @@ Procedures:
 
 #### [MODULE Bitmaps](https://github.com/io-core/doc/blob/main/stdlib/Paint/Bitmaps.md) [(source)](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
 
-Procedures:
+**imports** SYSTEM Kernel Oberon
+**Procedures:**
 ```
   New*(B: Bitmap; w, h, dpt: INTEGER) : Bitmap
 
@@ -110,7 +113,8 @@ Procedures:
 
 #### [MODULE ImageFrames](https://github.com/io-core/doc/blob/main/stdlib/Paint/ImageFrames.md) [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod)
 
-Procedures:
+  **imports** SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers
+**Procedures:**
 ```
   Restore*(F: Frame)
 

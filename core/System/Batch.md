@@ -1,7 +1,8 @@
 
 ## [MODULE Batch](https://github.com/io-core/System/blob/main/Batch.Mod)
 
-  **imports** Kernel FileDir Files Display Texts TextFrames Viewers Oberon
+  ## imports
+ Kernel FileDir Files Display Texts TextFrames Viewers Oberon
 ## Procedures
 ---
 

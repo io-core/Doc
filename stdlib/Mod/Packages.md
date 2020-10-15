@@ -1,7 +1,8 @@
 
 ## [MODULE Packages](https://github.com/io-core/Mod/blob/main/Packages.Mod)
 
-  **imports** SYSTEM Files Fonts Resources
+  ## imports
+ SYSTEM Files Fonts Resources
 ## Procedures
 ---
 

@@ -1,7 +1,8 @@
 
 ## [MODULE Crypto](https://github.com/io-core/Crypto/blob/main/Crypto.Mod)
 
-  **imports** Files Fonts Viewers Texts Oberon
+  ## imports
+ Files Fonts Viewers Texts Oberon
 ## Procedures
 ---
 

@@ -1,7 +1,8 @@
 
 ## [MODULE PackageFrames](https://github.com/io-core/Mod/blob/main/PackageFrames.Mod)
 
-  **imports** SYSTEM Display Viewers Input Fonts Texts Packages Oberon MenuViewers
+  ## imports
+ SYSTEM Display Viewers Input Fonts Texts Packages Oberon MenuViewers
 ## Procedures
 ---
 

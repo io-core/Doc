@@ -1,7 +1,8 @@
 
 ## [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
 
-  **imports** Input Display Viewers Oberon
+  ## imports
+ Input Display Viewers Oberon
 ## Procedures
 ---
 

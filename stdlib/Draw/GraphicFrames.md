@@ -1,7 +1,8 @@
 
 ## [MODULE GraphicFrames](https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod)
 
-  **imports** SYSTEM Display Viewers Input Fonts Texts Graphics Oberon
+  ## imports
+ SYSTEM Display Viewers Input Fonts Texts Graphics Oberon
 ## Procedures
 ---
 
