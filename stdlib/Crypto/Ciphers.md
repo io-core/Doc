@@ -1,6 +1,7 @@
 
 ## [MODULE Ciphers](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod)
 
+**imports** SYSTEM Kernel Oberon
 ## Procedures
 ---
 

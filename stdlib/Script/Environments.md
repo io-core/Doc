@@ -1,6 +1,7 @@
 
 ## [MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)
 
+  **imports** SYSTEM Files Intrinsics Texts
 ## Procedures
 ---
 

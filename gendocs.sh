@@ -42,6 +42,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 			done
                         echo '```' >> $k/$nam/README.md
 
+			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/**imports**/g' | tr -d ',' | tr -d ';' >> $k/$nam/$snam.md
 			echo "## Procedures" >> $k/$nam/$snam.md
                         echo "---" >> $k/$nam/$snam.md
 			echo "../src/github.com/io-core/$nam/$snam.Mod"
