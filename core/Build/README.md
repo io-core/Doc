@@ -2,7 +2,7 @@
 This package provides the compiler and associated program building and debugging tools for Oberon.
 
 
-## Overview
+## Package Overview:
 Integrated Oberon uses a one-pass compiler with four parts, each depending on the next for functionaltiy:
 
  * A recursive-descent parser of the Oberon-2i language, ORP
@@ -16,7 +16,7 @@ In addition, several tools link and examine the binary modules produced by the c
  * A binary modifier, ORX
  * A tool for examining modules, ORTool
 
-## Examples
+## Package Use:
 
 To compile the inner core:
 ```
@@ -43,7 +43,7 @@ To Examine the binary of the compiled example:
 ORTool.DecObj Sierpinski.rsc
 ```
 
-## Modules
+## Modules in this package:
 
 #### [MODULE ORP](https://github.com/io-core/doc/blob/main/core/Build/ORP.md) [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod)
 

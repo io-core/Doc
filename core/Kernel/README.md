@@ -2,21 +2,21 @@
 This package handles basic os functionality including device access and garbage collection.
 
 
-## Overview
+## Package Overview:
 The Kernel package abstracts the hardware of the computing platform for the rest of Oberon.
 
 The current Kernel package contains two modules:
 * Kernel - core abstractions
 * Disk - a device driver for SPI flash storage
 
-## Examples
+## Package Use:
 
 USAGE:
 ```
 Kernel.Collect 
 ```
 
-## Modules
+## Modules in this package:
 
 #### [MODULE Kernel](https://github.com/io-core/doc/blob/main/core/Kernel/Kernel.md) [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
 Module Kernel provides hardware abstraction for Oberon.

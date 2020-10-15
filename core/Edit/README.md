@@ -2,7 +2,7 @@
 This package manages the text and font handling in Oberon.
 
 
-## Overview
+## Package Overview:
 The Edit package provides:
 
 * The 'text' abstraction for manipulating textual content
@@ -10,14 +10,14 @@ The Edit package provides:
 * The Edit tool for interacting with documents
 * The font mechanism in Oberon
 
-## Examples
+## Package Use:
 
 USAGE:
 ```
 Edit.Open example.txt
 ```
 
-## Modules
+## Modules in this package:
 
 #### [MODULE Edit](https://github.com/io-core/doc/blob/main/core/Edit/Edit.md) [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod)
 Module Edit provides document editing capability.
