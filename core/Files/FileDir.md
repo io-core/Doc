@@ -1,8 +1,8 @@
 
 ## [MODULE FileDir](https://github.com/io-core/Files/blob/main/FileDir.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Search*(name: FileName; VAR A: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L80)
 

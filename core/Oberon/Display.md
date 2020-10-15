@@ -1,8 +1,8 @@
 
 ## [MODULE Display](https://github.com/io-core/Oberon/blob/main/Display.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Handle*(F: Frame; VAR M: FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L27)
 

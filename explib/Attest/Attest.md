@@ -1,8 +1,8 @@
 
 ## [MODULE Attest](https://github.com/io-core/Attest/blob/main/Attest.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Attest/blob/main/Attest.Mod#L24)
 

@@ -1,8 +1,8 @@
 
 ## [MODULE Images](https://github.com/io-core/Paint/blob/main/Images.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*(L: Layer);` [(source)](https://github.com/io-core/Paint/blob/main/Images.Mod#L93)
 

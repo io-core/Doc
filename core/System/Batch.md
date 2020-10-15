@@ -1,8 +1,8 @@
 
 ## [MODULE Batch](https://github.com/io-core/System/blob/main/Batch.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE ClearLog*;` [(source)](https://github.com/io-core/System/blob/main/Batch.Mod#L33)
 

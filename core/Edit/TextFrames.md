@@ -1,8 +1,8 @@
 
 ## [MODULE TextFrames](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Min (i, j: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L62)
 

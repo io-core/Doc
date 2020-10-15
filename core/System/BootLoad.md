@@ -1,8 +1,8 @@
 
 ## [MODULE BootLoad](https://github.com/io-core/System/blob/main/BootLoad.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE RecInt(VAR x: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod#L19)
 

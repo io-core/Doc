@@ -1,8 +1,8 @@
 
 ## [MODULE KeyPairs](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `PROCEDURE New*(P: KeyPair; v: INTEGER) : KeyPair;` [(source)](https://github.com/io-core/Attest/blob/main/KeyPairs.Mod#L15)
 

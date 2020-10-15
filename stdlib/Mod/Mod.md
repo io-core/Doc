@@ -1,8 +1,8 @@
 
 ## [MODULE Mod](https://github.com/io-core/Mod/blob/main/Mod.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Mod/blob/main/Mod.Mod#L15)
 

@@ -1,8 +1,8 @@
 
 ## [MODULE Intrinsics](https://github.com/io-core/Script/blob/main/Intrinsics.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `PROCEDURE New*(i: Intrinsic; v: INTEGER) : Intrinsic;` [(source)](https://github.com/io-core/Script/blob/main/Intrinsics.Mod#L15)
 

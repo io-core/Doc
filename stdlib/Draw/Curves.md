@@ -1,8 +1,8 @@
 
 ## [MODULE Curves](https://github.com/io-core/Draw/blob/main/Curves.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Dot(f: GraphicFrames.Frame; col, x, y: INTEGER);` [(source)](https://github.com/io-core/Draw/blob/main/Curves.Mod#L15)
 

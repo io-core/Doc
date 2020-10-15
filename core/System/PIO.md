@@ -1,8 +1,8 @@
 
 ## [MODULE PIO](https://github.com/io-core/System/blob/main/PIO.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE del(i: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/PIO.Mod#L15)
 

@@ -1,8 +1,8 @@
 
 ## [MODULE Packages](https://github.com/io-core/Mod/blob/main/Packages.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*(C: Component);` [(source)](https://github.com/io-core/Mod/blob/main/Packages.Mod#L76)
 

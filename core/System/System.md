@@ -1,8 +1,8 @@
 
 ## [MODULE System](https://github.com/io-core/System/blob/main/System.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/System/blob/main/System.Mod#L25)
 

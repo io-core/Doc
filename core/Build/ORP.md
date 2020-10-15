@@ -18,8 +18,8 @@ procedures and open arrays to the language. Oberon is both an extension and a re
 among other features to Pascal, which was developed as a reaction to and refinement of Algol-68.
 
 
-Procedures:
-
+## Procedures
+---
 ## Checking Symbols and Types
 ---
 **Check** consumes the current token if it matches the expected symbol, otherwise an error is marked.

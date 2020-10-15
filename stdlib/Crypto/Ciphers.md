@@ -1,8 +1,8 @@
 
 ## [MODULE Ciphers](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `PROCEDURE New*(C: Cipher; v: INTEGER) : Cipher;` [(source)](https://github.com/io-core/Crypto/blob/main/Ciphers.Mod#L15)
 

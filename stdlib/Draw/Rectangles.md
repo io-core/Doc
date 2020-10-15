@@ -1,8 +1,8 @@
 
 ## [MODULE Rectangles](https://github.com/io-core/Draw/blob/main/Rectangles.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*;` [(source)](https://github.com/io-core/Draw/blob/main/Rectangles.Mod#L13)
 

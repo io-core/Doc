@@ -1,8 +1,8 @@
 
 ## [MODULE KeySafes](https://github.com/io-core/Attest/blob/main/KeySafes.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*(R: KeyRing);` [(source)](https://github.com/io-core/Attest/blob/main/KeySafes.Mod#L80)
 

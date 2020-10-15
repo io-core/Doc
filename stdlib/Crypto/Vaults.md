@@ -1,8 +1,8 @@
 
 ## [MODULE Vaults](https://github.com/io-core/Crypto/blob/main/Vaults.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*(D: Document);` [(source)](https://github.com/io-core/Crypto/blob/main/Vaults.Mod#L80)
 

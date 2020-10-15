@@ -1,8 +1,8 @@
 
 ## [MODULE MacroTool](https://github.com/io-core/Draw/blob/main/MacroTool.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE OpenMacro*;` [(source)](https://github.com/io-core/Draw/blob/main/MacroTool.Mod#L5)
 

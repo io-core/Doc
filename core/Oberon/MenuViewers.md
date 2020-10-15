@@ -1,8 +1,8 @@
 
 ## [MODULE MenuViewers](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/MenuViewers.Mod#L14)
 

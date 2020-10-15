@@ -1,8 +1,8 @@
 
 ## [MODULE Graphics](https://github.com/io-core/Draw/blob/main/Graphics.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*(obj: Object);` [(source)](https://github.com/io-core/Draw/blob/main/Graphics.Mod#L96)
 

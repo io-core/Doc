@@ -1,8 +1,8 @@
 
 ## [MODULE Resources](https://github.com/io-core/Mod/blob/main/Resources.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `PROCEDURE New*(R: Resource; v: INTEGER) : Resource;` [(source)](https://github.com/io-core/Mod/blob/main/Resources.Mod#L11)
 

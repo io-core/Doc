@@ -1,8 +1,8 @@
 
 ## [MODULE Edit](https://github.com/io-core/Edit/blob/main/Edit.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Max(i, j: LONGINT): LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod#L36)
 

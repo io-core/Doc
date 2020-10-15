@@ -1,8 +1,8 @@
 
 ## [MODULE Blink](https://github.com/io-core/System/blob/main/Blink.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Run*;` [(source)](https://github.com/io-core/System/blob/main/Blink.Mod#L6)
 

@@ -1,8 +1,8 @@
 
 ## [MODULE Bitmaps](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `PROCEDURE New*(B: Bitmap; w, h, dpt: INTEGER) : Bitmap;` [(source)](https://github.com/io-core/Paint/blob/main/Bitmaps.Mod#L11)
 

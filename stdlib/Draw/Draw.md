@@ -1,8 +1,8 @@
 
 ## [MODULE Draw](https://github.com/io-core/Draw/blob/main/Draw.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L15)
 

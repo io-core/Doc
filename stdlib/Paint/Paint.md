@@ -1,8 +1,8 @@
 
 ## [MODULE Paint](https://github.com/io-core/Paint/blob/main/Paint.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Open*;` [(source)](https://github.com/io-core/Paint/blob/main/Paint.Mod#L15)
 

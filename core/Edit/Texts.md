@@ -1,8 +1,8 @@
 
 ## [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Trailer(): Piece;` [(source)](https://github.com/io-core/Edit/blob/main/Texts.Mod#L81)
 

@@ -1,8 +1,8 @@
 
 ## [MODULE Input](https://github.com/io-core/Oberon/blob/main/Input.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Peek();` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L25)
 

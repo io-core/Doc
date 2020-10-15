@@ -1,8 +1,8 @@
 
 ## [MODULE Script](https://github.com/io-core/Script/blob/main/Script.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Load*;` [(source)](https://github.com/io-core/Script/blob/main/Script.Mod#L19)
 

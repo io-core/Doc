@@ -1,8 +1,8 @@
 
 ## [MODULE Tools](https://github.com/io-core/System/blob/main/Tools.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Tools.Mod#L13)
 

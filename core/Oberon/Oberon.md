@@ -1,8 +1,8 @@
 
 ## [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L83)
 

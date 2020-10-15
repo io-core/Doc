@@ -1,8 +1,8 @@
 
 ## [MODULE Files](https://github.com/io-core/Files/blob/main/Files.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE Check(s: ARRAY OF CHAR;` [(source)](https://github.com/io-core/Files/blob/main/Files.Mod#L65)
 

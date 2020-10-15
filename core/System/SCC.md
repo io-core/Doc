@@ -1,8 +1,8 @@
 
 ## [MODULE SCC](https://github.com/io-core/System/blob/main/SCC.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE SPICtrl(s: SET);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L27)
 

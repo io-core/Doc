@@ -1,8 +1,8 @@
 
 ## [MODULE Environments](https://github.com/io-core/Script/blob/main/Environments.Mod)
 
-Procedures:
-
+## Procedures
+---
 
 `  PROCEDURE New*(b: Binding);` [(source)](https://github.com/io-core/Script/blob/main/Environments.Mod#L49)
 
