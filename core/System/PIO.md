@@ -42,6 +42,17 @@ BEGIN Reset
 END PIO.
 ```
 ```
+## Variables:
+```
+ i: INTEGER;
+  BEGIN (*send byte*)
+    FOR i := 0 TO 7 DO
+      SYSTEM.PUT(gpio, x MOD 2 + 2); del(60); SYSTEM.PUT(gpio, x MOD 2); del(25); x := x DIV 2
+    END ;
+    SYSTEM.PUT(gpio, 0); del(100)
+  END Send;
+
+```
 ## Procedures:
 ---
 

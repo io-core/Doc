@@ -291,6 +291,13 @@ END Viewers.
     END;
 
 ```
+## Variables:
+```
+ CurDisplay*, root*: DisplayArea;
+    FocusViewer*: Viewer;
+    nextId: INTEGER;
+
+```
 ## Procedures:
 ---
 

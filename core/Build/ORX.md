@@ -14,6 +14,9 @@
  Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
 
 ```
+  TYPE Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
+
+```
 ## Procedures:
 ---
 

@@ -33,6 +33,10 @@
     END ;
 
 ```
+    ClientHandler* = PROCEDURE(mod, imp: Module; VAR continue: BOOLEAN): INTEGER;
+    RefHandler* = PROCEDURE(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;
+
+```
 ## Procedures:
 ---
 

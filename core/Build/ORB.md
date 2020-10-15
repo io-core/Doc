@@ -66,6 +66,15 @@
     Record   fields   extension *)
 
 ```
+## Variables:
+```
+ topScope*, universe, system*: Object;
+    byteType*, boolType*, charType*: Type;
+    intType*, realType*, setType*, nilType*, noType*, strType*: Type;
+    nofmod, Ref: INTEGER;
+    typtab: ARRAY maxTypTab OF Type;
+
+```
 ## Procedures:
 ---
 

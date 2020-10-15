@@ -323,6 +323,12 @@ BEGIN Texts.OpenWriter(W); Texts.WriteString(W, "ORTool 18.2.2013 / AP 27.4.20")
 END ORTool.
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+    mnemo0, mnemo1: ARRAY 16, 4 OF CHAR;  (*mnemonics*)
+
+```
 ## Procedures:
 ---
 

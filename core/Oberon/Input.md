@@ -97,6 +97,15 @@ BEGIN Init
 END Input.
 ```
 ```
+## Variables:
+```
+ kbdCode: BYTE; (*last keyboard code read*)
+    Recd, Up, Shift, Ctrl, Ext: BOOLEAN;
+    KTabAdr: INTEGER;  (*keyboard code translation table*)
+    MW, MH, MX, MY: INTEGER; (*mouse limits and coords*)
+    MK: SET; (*mouse keys*)
+
+```
 ## Procedures:
 ---
 

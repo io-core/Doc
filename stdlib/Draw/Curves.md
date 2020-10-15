@@ -17,6 +17,11 @@
   (*kind: 0 = up-line, 1 = down-line, 2 = circle, 3 = ellipse*)
 
 ```
+## Variables:
+```
+ method*: Graphics.Method;
+
+```
 ## Procedures:
 ---
 

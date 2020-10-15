@@ -283,6 +283,11 @@ END Texts.
     END;     
 
 ```
+## Variables:
+```
+ TrailerFile: Files.File;
+
+```
 ## Procedures:
 ---
 

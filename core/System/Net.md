@@ -370,6 +370,15 @@ BEGIN Texts.OpenWriter(W); Server := Oberon.NewTask(Serve, 500)
 END Net.
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+     Server: Oberon.Task;
+     head0, head1: SCC.Header;
+     partner, dmy: ARRAY 8 OF CHAR;
+     protected: BOOLEAN; (*write-protection*)
+
+```
 ## Procedures:
 ---
 

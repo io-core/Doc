@@ -22,6 +22,16 @@
     END ;
 
 ```
+## Variables:
+```
+
+    filter*: BOOLEAN; Adr*: BYTE; rcvd: INTEGER;
+    rx: RECORD
+      hd: Header;
+      dat: ARRAY MaxPacket-HdrSize OF BYTE
+    END;
+
+```
 ## Procedures:
 ---
 

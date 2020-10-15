@@ -18,6 +18,13 @@
  Sector* = ARRAY SectorLength OF BYTE;
 
 ```
+## Variables:
+```
+ NofSectors*: INTEGER;
+    data: INTEGER; (*SPI data in*)
+    sectorMap: ARRAY mapsize DIV 32 OF SET;
+
+```
 ## Procedures:
 ---
 

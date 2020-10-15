@@ -56,6 +56,14 @@
     END;
 
 ```
+## Variables:
+```
+ User*: ARRAY 8 OF CHAR; Password*: LONGINT;
+    Arrow*, Star*: Marker; (*predefined markers representing an arrow pointing to the NW and a star symbol*)
+    Mouse, Pointer: Cursor; (*predefined cursors representing a mouse and a global system pointer*)
+    Log*: Texts.Text;
+
+```
 ## Procedures:
 ---
 

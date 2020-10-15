@@ -60,6 +60,11 @@
       (apos < aleng) & (lim = SS) OR (apos = aleng) *)
 
 ```
+## Variables:
+```
+ root: INTEGER (*File*);  (*list of open files*)
+
+```
 ## Procedures:
 ---
 

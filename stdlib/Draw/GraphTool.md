@@ -233,6 +233,11 @@ BEGIN Texts.OpenWriter(W); Texts.WriteString(W, "GraphTool 8.8.2013");
 END GraphTool.
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

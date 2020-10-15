@@ -242,6 +242,15 @@ END ORS.
   KWX[9] := k
 END ORS.
 ```
+## Variables:
+```
+ ival*, slen*: LONGINT;  (*results of Get*)
+    rval*: REAL;
+    id*: Ident;  (*for identifiers*)
+    str*: ARRAY stringBufSize OF CHAR;
+    errcnt*: INTEGER;
+
+```
 ## Procedures:
 ---
 

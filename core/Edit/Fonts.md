@@ -29,6 +29,11 @@
       Syntax16 2271, Syntax20 3034, Syntac24 4274, Syntax24b 4302  *)
 
 ```
+## Variables:
+```
+ Default*, root*: Font;
+
+```
 ## Procedures:
 ---
 

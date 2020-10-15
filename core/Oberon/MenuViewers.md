@@ -20,6 +20,23 @@
 
   PROCEDURE Restore (V: Viewer);
 ```
+## Variables:
+```
+ Menu, Main: Display.Frame;
+  BEGIN Menu := V.dsc; Main := V.dsc.next;
+    Oberon.RemoveMarks(V.X, V.Y, V.W, V.H); Draw(V, V.Y, V.H, Display.white);
+    IF V.H > V.menuH + 1 THEN
+      Main.X := V.X + 1; Main.Y := V.Y + 1; Main.W := V.W - 2; Main.H := V.H - V.menuH - 1;
+      Menu.X := V.X + 1; Menu.Y := V.Y + V.H - V.menuH; Menu.W := V.W - 2; Menu.H := V.menuH - 1;
+      Viewers.Adjust(Menu, Viewers.restore, Menu.Y, Menu.H);
+      Viewers.Adjust(Main, Viewers.restore, Main.Y, Main.H)
+    ELSE
+      Menu.X := V.X + 1; Menu.Y := V.Y + 1; Menu.W := V.W - 2; Menu.H := V.H - 2;
+      Viewers.Adjust(Menu, Viewers.restore, Menu.Y, Menu.H)
+    END
+  END Restore;
+
+```
 ## Procedures:
 ---
 

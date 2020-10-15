@@ -74,6 +74,14 @@
         new*: Modules.Command;
         copy*: PROCEDURE (from, to: Object);
 ```
+        draw*, change*: PROCEDURE (obj: Object; VAR msg: Msg);
+        selectable*: PROCEDURE (obj: Object; x, y: INTEGER): BOOLEAN;
+        read*: PROCEDURE (obj: Object; VAR R: Files.Rider; VAR C: Context);
+        write*: PROCEDURE (obj: Object; cno: INTEGER; VAR R: Files.Rider; VAR C: Context);
+        print*: PROCEDURE (obj: Object; x, y: INTEGER)
+      END ;
+
+```
 ## Procedures:
 ---
 

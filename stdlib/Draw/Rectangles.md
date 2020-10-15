@@ -14,6 +14,12 @@
       END ;
 
 ```
+## Variables:
+```
+ method*: Graphics.Method;
+    tack*, grey*: INTEGER;
+
+```
 ## Procedures:
 ---
 

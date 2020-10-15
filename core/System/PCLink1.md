@@ -93,6 +93,12 @@ BEGIN Texts.OpenWriter(W); T := Oberon.NewTask(Task, 0)
 END PCLink1.
 ```
 ```
+## Variables:
+```
+ T: Oberon.Task;
+    W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

@@ -79,6 +79,11 @@ END Script.
 
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

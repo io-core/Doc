@@ -26,6 +26,19 @@ END New;
 
 PROCEDURE Get*(P: KeyPair; x: INTEGER): INTEGER;
 ```
+## Variables:
+```
+ r,i: INTEGER; P1:KeyPair;
+BEGIN i:=0;r:=0;
+  P1:=P; WHILE P1 # NIL DO 
+    IF i = x THEN r := P1.value END;
+    P1:=P1.next;
+    INC(i)
+  END
+  RETURN r 
+END Get;
+
+```
 ## Procedures:
 ---
 

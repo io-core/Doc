@@ -240,6 +240,15 @@ END Edit.
 
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+    time: LONGINT;
+    M: INTEGER;
+    pat: ARRAY maxlen OF CHAR;
+    d: ARRAY 256 OF INTEGER;
+
+```
 ## Procedures:
 ---
 

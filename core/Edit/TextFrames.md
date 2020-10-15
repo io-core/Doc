@@ -833,6 +833,16 @@ END TextFrames.
     END;
 
 ```
+## Variables:
+```
+ TBuf*, DelBuf: Texts.Buffer;
+    menuH*, barW*, left*, right*, top*, bot*, lsp*: INTEGER;  (*standard sizes*)
+    asr, dsr, selH, markW, eolW: INTEGER;
+    nextCh: CHAR;
+    ScrollMarker: Oberon.Marker;
+    W, KW: Texts.Writer;  (*keyboard writer*)
+
+```
 ## Procedures:
 ---
 

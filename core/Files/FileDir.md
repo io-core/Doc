@@ -27,6 +27,9 @@
     SectorTable*    = ARRAY SecTabSize OF DiskAdr;
     ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
 ```
+    EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
+
+```
 ## Procedures:
 ---
 

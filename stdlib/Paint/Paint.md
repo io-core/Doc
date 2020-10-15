@@ -159,6 +159,11 @@ END Paint.
 
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

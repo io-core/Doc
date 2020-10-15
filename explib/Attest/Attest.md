@@ -159,6 +159,11 @@ END Attest.
 
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

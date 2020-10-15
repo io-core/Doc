@@ -130,6 +130,11 @@ Tools.Convert filename  (selected text to txt-format)
 Tools.Id   (processor id)
 ```
 ```
+## Variables:
+```
+ T: Texts.Text; W: Texts.Writer; open: BOOLEAN;
+
+```
 ## Procedures:
 ---
 

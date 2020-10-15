@@ -28,6 +28,16 @@ END New;
 
 PROCEDURE Get*(B: Bitmap; x, y: INTEGER): INTEGER;
 ```
+## Variables:
+```
+ ofs, wd: INTEGER; bt: BYTE;
+BEGIN (*
+  ofs := y*B.width + x; SYSTEM.GET(B.base + ofs, bt);
+  wd :=  bt; *)
+  RETURN wd 
+END Get;
+
+```
 ## Procedures:
 ---
 

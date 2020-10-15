@@ -213,6 +213,19 @@ BEGIN led := 0; led1 := 0; cnt := 0; cnt1 := 0;
 END TestInt.
 ```
 ```
+  PROCEDURE RecInt(VAR x: INTEGER);
+## Variables:
+```
+ z, y, i: INTEGER;
+  BEGIN z := 0;  i := 4;
+    REPEAT i := i-1;
+      REPEAT UNTIL SYSTEM.BIT(rsCtrl, 0);
+      SYSTEM.GET(rsData, y); z := ROR(z+y, 8)
+    UNTIL i = 0;
+    x := z
+  END RecInt;
+
+```
 ## Procedures:
 ---
 

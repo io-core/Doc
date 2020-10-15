@@ -158,6 +158,11 @@ BEGIN Texts.OpenWriter(W); Texts.WriteString(W, "Draw - NW 9.8.2013");
 END Draw.
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

@@ -69,6 +69,16 @@
       END ;
 
 ```
+## Variables:
+```
+ Crosshair*: Oberon.Marker;
+    tack*, dotted*, dotted1*: INTEGER;  (*patterns*)
+    (* newcap: Graphics.Caption; *)
+    TBuf: Texts.Buffer;
+    DW, DH, CL: INTEGER;
+    W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

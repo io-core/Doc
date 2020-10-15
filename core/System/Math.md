@@ -134,6 +134,24 @@
 END Math.
 ```
 ```
+## Variables:
+```
+ s: REAL; e: INTEGER;
+  BEGIN ASSERT(x >= 0.0);
+    IF x > 0.0 THEN
+      UNPK(x, e);
+      s := c2*(x+c1);
+      s := s + (x/s);
+      s := 0.25*s + x/s;
+      s := 0.5 * (s + x/s);
+      IF ODD(e) THEN s := c3*s END ;
+      PACK(s, e DIV 2)
+    ELSE s := 0.0
+    END ;
+    RETURN s
+  END sqrt;
+
+```
 ## Procedures:
 ---
 

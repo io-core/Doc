@@ -25,6 +25,19 @@
       END;
 
 ```
+## Variables:
+```
+
+    pat: ARRAY 32 OF CHAR;
+    fl: FileList;
+    state: INTEGER;
+    emptyReader: Texts.Reader;
+    script: Texts.Reader;
+    scriptFrame: TextFrames.Frame;
+    gcWaitTask: Oberon.Task;
+    gcWaitAllocated: INTEGER;
+
+```
 ## Procedures:
 ---
 

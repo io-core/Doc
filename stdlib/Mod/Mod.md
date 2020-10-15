@@ -159,6 +159,11 @@ END Mod.
 
 ```
 ```
+## Variables:
+```
+ W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

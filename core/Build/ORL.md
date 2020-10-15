@@ -33,6 +33,14 @@
     END ;
 
 ```
+## Variables:
+```
+ root: Module;
+    AllocPtr, Start, limit, res*: INTEGER;
+    importing*, imported*: ModuleName;
+    W: Texts.Writer;
+
+```
 ## Procedures:
 ---
 

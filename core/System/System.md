@@ -17,6 +17,12 @@
  Handler = PROCEDURE(name: ARRAY OF CHAR);
 
 ```
+## Variables:
+```
+ W: Texts.Writer; M: Modules.Module; T: Oberon.Task; ref, last: INTEGER; defer: BOOLEAN;
+    pat: ARRAY 32 OF CHAR;
+
+```
 ## Procedures:
 ---
 

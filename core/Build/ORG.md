@@ -47,6 +47,18 @@
     Cond  cond   Fchain  Tchain  *)
 
 ```
+## Variables:
+```
+ pc*: LONGINT;    (*program counter*)
+    varx, strx, tdw: LONGINT;  (*varx and strx in bytes, tdw in words*)
+    entry: LONGINT;   (*main entry point*)
+    RH: LONGINT;  (*available registers R[0] ... R[H-1]*)
+    frame: LONGINT;  (*frame offset changed in SaveRegs and RestoreRegs*)
+    fixorgP, fixorgD, fixorgT, fixorgM: LONGINT;   (*origins of lists of locations to be fixed up by loader*)
+    check: BOOLEAN;  (*emit run-time checks*)
+    version: INTEGER;  (* 0 = RISC-0, 1 = RISC-5 *)
+
+```
 ## Procedures:
 ---
 

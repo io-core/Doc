@@ -83,6 +83,14 @@
         new*: Modules.Command;             *)
         copy*: PROCEDURE (from, to: Layer);
 ```
+        draw*, change*: PROCEDURE (L: Layer; VAR msg: Msg);
+        selectable*: PROCEDURE (L: Layer; x, y: INTEGER): BOOLEAN;
+        read*: PROCEDURE (L: Layer; VAR R: Files.Rider); (*; VAR C: Context); *)
+        write*: PROCEDURE (L: Layer; cno: INTEGER; VAR R: Files.Rider); (*; VAR C: Context);*)
+        print*: PROCEDURE (L: Layer; x, y: INTEGER)
+      END ;
+
+```
 ## Procedures:
 ---
 
