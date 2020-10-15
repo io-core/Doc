@@ -212,6 +212,36 @@ BEGIN Texts.OpenWriter(W); k := 0; KWX[0] := 0; KWX[1] := 0;
   KWX[9] := k
 END ORS.
 ```
+  ## Types:
+```
+ Ident* = ARRAY IdLen OF CHAR;
+
+  EnterKW(type, "## Types:
+```
+");
+  EnterKW(case, "CASE");
+  KWX[4] := k;
+  EnterKW(elsif, "ELSIF");
+  EnterKW(false, "FALSE");
+  EnterKW(array, "ARRAY");
+  EnterKW(begin, "BEGIN");
+  EnterKW(const, "CONST");
+  EnterKW(until, "UNTIL");
+  EnterKW(while, "WHILE");
+  KWX[5] := k;
+  EnterKW(record, "RECORD");
+  EnterKW(repeat, "REPEAT");
+  EnterKW(return, "RETURN");
+  EnterKW(import, "IMPORT");
+  EnterKW(module, "MODULE");
+  KWX[6] := k;
+  EnterKW(pointer, "POINTER");
+  KWX[7] := k; KWX[8] := k;
+  EnterKW(procedure, "PROCEDURE");
+  EnterKW(interface, "INTERFACE");
+  KWX[9] := k
+END ORS.
+```
 ## Procedures:
 ---
 

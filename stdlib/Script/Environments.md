@@ -10,6 +10,36 @@
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
 ```
+  ## Types:
+```
+ 
+    Method* = POINTER TO MethodDesc;
+    Binding* = POINTER TO BindingDesc;
+    BindingDesc* = RECORD
+      x*, y*, w*, h*, d*, p*: INTEGER;
+      sx*, sy*: REAL;
+      sw*, sh*: INTEGER;
+      selected*, marked*: BOOLEAN;
+      do*: Method;
+      next: Binding
+    END;
+
+    Env* = POINTER TO EnvDesc;
+    Notifier* = PROCEDURE (e: Env; op: INTEGER; beg, end: LONGINT);
+    EnvDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      flattened*: BOOLEAN;
+      sel*, first: Binding;
+      notify*: Notifier
+    END;
+
+
+    MethodDesc* = RECORD
+        copy*: PROCEDURE (from, to: Binding);
+        
+        selectable*: PROCEDURE (b: Binding; x, y: INTEGER): BOOLEAN;
+```
 ## Procedures:
 ---
 

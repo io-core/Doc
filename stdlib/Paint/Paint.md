@@ -158,6 +158,7 @@ BEGIN Texts.OpenWriter(W); Texts.WriteString(W, "Paint - CP 1.3.2019");
 END Paint.
 
 ```
+```
 ## Procedures:
 ---
 

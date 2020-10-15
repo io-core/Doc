@@ -26,6 +26,27 @@
     MI = 0; PL = 8; EQ = 1; NE = 9; CS = 2; CC = 10; LT = 5; GE = 13; LE = 6; GT = 14;
 
 ```
+    ## Types:
+```
+ Item* = RECORD
+      mode*: INTEGER;
+      type*: ORB.Type;
+      a*, b*, r: LONGINT;
+      rdo*: BOOLEAN  (*read only*)
+    END ;
+    LabelRange* = RECORD low*, high*, label*: INTEGER END ;
+
+  (* Item forms and meaning of fields:
+    mode    r      a       b
+    --------------------------------
+    Const   -     value (proc adr)  (immediate value)
+    Var     base   off     -               (direct adr)
+    Par      -     off0     off1         (indirect adr)
+    Reg    regno
+    RegI   regno   off     -
+    Cond  cond   Fchain  Tchain  *)
+
+```
 ## Procedures:
 ---
 

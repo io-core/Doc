@@ -15,6 +15,74 @@
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
 ```
+  ## Types:
+```
+ 
+    Method* = POINTER TO MethodDesc;
+    Layer* = POINTER TO LayerDesc;
+    LayerDesc* = RECORD
+      x*, y*, w*, h*, d*, p*: INTEGER;
+      sx*, sy*: REAL;
+      sw*, sh*: INTEGER;
+      selected*, marked*: BOOLEAN;
+      do*: Method;
+      next: Layer
+    END;
+(*
+    Effect* = POINTER TO EffectDesc;
+    EffectDesc* = RECORD
+    END;
+
+    Application* = POINTER TO ApplictionDesc;
+    ApplicationDesc* = RECORD
+      E: Effect;
+      S1,S2: Layer
+    END;
+
+*)
+
+    Image* = POINTER TO ImageDesc;
+    Notifier* = PROCEDURE (I: Image; op: INTEGER; beg, end: LONGINT);
+    ImageDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      flattened*: BOOLEAN;
+      sel*, first: Layer;
+      notify*: Notifier
+    END;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    
+
+    bmpHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    jpgHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    pngHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    MethodDesc* = RECORD
+(*        module*, allocator*: Name;
+        new*: Modules.Command;             *)
+        copy*: PROCEDURE (from, to: Layer);
+```
 ## Procedures:
 ---
 

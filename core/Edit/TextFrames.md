@@ -788,6 +788,51 @@ BEGIN NEW(TBuf); NEW(DelBuf);
   Texts.OpenWriter(W); Texts.OpenWriter(KW)
 END TextFrames.
 ```
+  ## Types:
+```
+ Line = POINTER TO LineDesc;
+    LineDesc = RECORD
+      len: LONGINT;
+      wid: INTEGER;
+      eot: BOOLEAN;
+      lsp, asr, dsr: BYTE;  (*largest line space, ascender and descender in the line*)
+      next: Line
+    END;
+
+    Location* = RECORD
+      org*, pos*: LONGINT;
+      dx*, x*, y*: INTEGER;
+      lin: Line
+    END;
+
+    Frame* = POINTER TO FrameDesc;
+    FrameDesc* = RECORD (Display.FrameDesc)
+      text*: Texts.Text;
+      org*: LONGINT;
+      col*, lsp*: INTEGER;
+      left*, right*, top*, bot*: INTEGER;
+      markH*: INTEGER;
+      time*: LONGINT;
+      hasCar*, hasSel*, hasMark: BOOLEAN;
+      carloc*: Location;
+      selbeg*, selend*: Location;
+      trailer: Line;
+      voff: INTEGER;  (*vertical offset relative to baseline*)
+      pool: Line  (*line pool to minimize consumption of heap space during continuous line scrolling*)
+    END;
+
+    UpdateMsg* = RECORD (Display.FrameMsg)
+      id*: INTEGER;       (*replace, insert, delete, unmark*)
+      text*: Texts.Text;
+      beg*, end*: LONGINT
+    END;
+
+    CopyOverMsg* = RECORD (Display.FrameMsg)
+      text*: Texts.Text;
+      beg*, end*: LONGINT
+    END;
+
+```
 ## Procedures:
 ---
 

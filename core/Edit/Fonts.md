@@ -9,6 +9,26 @@
  FontFileId = 0DBH; A = 512;
 
 ```
+  ## Types:
+```
+ Raster = POINTER TO RasterDesc;
+    RasterDesc = ARRAY OF BYTE;
+
+    Font* = POINTER TO FontDesc;
+    FontDesc* = RECORD
+      name*: ARRAY 32 OF CHAR;
+      height*, minX*, maxX*, minY*, maxY*, base: INTEGER;
+      next*: Font;
+      raster: Raster
+    END ;
+
+    RunRec = RECORD beg, end: BYTE END ;
+    BoxRec = RECORD dx, x, y, w, h: BYTE END ;
+
+  (* raster sizes: Syntax8 1367, Syntax10 1628, Syntax12 1688, Syntax14 1843, Syntax14b 1983,
+      Syntax16 2271, Syntax20 3034, Syntac24 4274, Syntax24b 4302  *)
+
+```
 ## Procedures:
 ---
 

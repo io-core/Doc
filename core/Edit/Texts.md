@@ -226,6 +226,63 @@
 BEGIN TrailerFile := Files.New("")
 END Texts.
 ```
+  ## Types:
+```
+ Piece = POINTER TO PieceDesc;
+    PieceDesc = RECORD
+      f: Files.File;
+      off, len: LONGINT;
+      fnt: Fonts.Font;
+      col, voff: INTEGER;
+      prev, next: Piece
+    END;
+
+    Text* = POINTER TO TextDesc;
+    Notifier* = PROCEDURE (T: Text; op: INTEGER; beg, end: LONGINT);
+    TextDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      notify*: Notifier;
+      trailer: Piece;
+      pce: Piece;  (*cache*)
+      org: LONGINT (*cache*)
+    END;
+
+    Reader* = RECORD
+      eot*: BOOLEAN;
+      fnt*: Fonts.Font;
+      col*, voff*: INTEGER;
+      ref: Piece;
+      org: LONGINT;
+      off: LONGINT;
+      rider: Files.Rider
+    END;
+
+    Scanner* = RECORD (Reader)
+      nextCh*: CHAR;
+      line*, class*: INTEGER;
+      i*: LONGINT;
+      x*: REAL;
+      y*: LONGREAL;
+      c*: CHAR;
+      len*: INTEGER;
+      s*: ARRAY 32 OF CHAR
+    END;
+
+    Buffer* = POINTER TO BufDesc;
+    BufDesc* = RECORD
+      len*: LONGINT;
+      header, last: Piece
+    END;
+
+    Writer* = RECORD
+      buf*: Buffer;
+      fnt*: Fonts.Font;
+      col*, voff*: INTEGER;
+      rider: Files.Rider
+    END;     
+
+```
 ## Procedures:
 ---
 

@@ -264,6 +264,33 @@
 BEGIN root := NIL; CurDisplay := NIL; FocusViewer := NIL; nextId := 0
 END Viewers.
 ```
+  ## Types:
+```
+ Viewer* = POINTER TO ViewerDesc;
+    ViewerDesc* = RECORD (Display.FrameDesc) prev, parent: Viewer;
+      minH*, state*: INTEGER
+    END;
+
+    (*state > 1: displayed; state = 1: filler; state = 0: closed; state = -1: track or suspended filler; state < -1: suspended*)
+
+    ViewerMsg* = RECORD (Display.FrameMsg)
+      id*: INTEGER;                      (*restore, modify, suspend*)
+      X*, Y*, W*, H*: INTEGER;
+      state*: INTEGER
+    END;
+
+    Track = POINTER TO TrackDesc;
+    TrackDesc = RECORD (ViewerDesc) under: Display.Frame END;
+
+    DisplayArea* = POINTER TO DisplayDesc;  (*logical display area*)
+    DisplayDesc* = RECORD (ViewerDesc)
+      curW*, id*: INTEGER;
+      name*: ARRAY DnLength OF CHAR;
+      focus, (*focus viewer*)
+      backup: Viewer (*last closed viewer*)
+    END;
+
+```
 ## Procedures:
 ---
 

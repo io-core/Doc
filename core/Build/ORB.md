@@ -18,6 +18,54 @@
       Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
 
 ```
+  ## Types:
+```
+ Object* = POINTER TO ObjDesc;
+    Module* = POINTER TO ModDesc;
+    Type* = POINTER TO TypeDesc;
+
+    ObjDesc*= RECORD
+      class*, exno*: BYTE;
+      expo*, rdo*: BOOLEAN;  (*exported / read-only*)
+      lev*: INTEGER;
+      next*, dsc*: Object;
+      type*: Type;
+      name*: ORS.Ident;
+      val*: LONGINT
+    END ;
+
+    ModDesc* = RECORD (ObjDesc) orgname*: ORS.Ident END ;
+
+    TypeDesc* = RECORD
+      form*, ref*, mno*: INTEGER;  (*ref is only used for import/export*)
+      nofpar*: INTEGER;  (*for procedures, extension level for records*)
+      len*: LONGINT;  (*for arrays, len < 0 => open array; for records: adr of descriptor*)
+      dsc*, typobj*: Object;
+      base*: Type;  (*for arrays, records, pointers*)
+      size*: LONGINT;  (*in bytes; always multiple of 4, except for Byte, Bool and Char*)
+    END ;
+
+  (* Object classes and the meaning of "val":
+    class    val
+    ----------
+    Var      address
+    Par      address
+    Const    value
+    Fld      offset
+    Typ      type descriptor (TD) address
+    SProc    inline code number
+    SFunc    inline code number
+    Mod      key
+
+  Type forms and the meaning of "dsc" and "base":
+    form     dsc      base
+    ------------------------
+    Pointer  -        type of dereferenced object
+    Proc     params   result type
+    Array    -        type of elements
+    Record   fields   extension *)
+
+```
 ## Procedures:
 ---
 

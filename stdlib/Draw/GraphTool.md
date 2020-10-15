@@ -232,6 +232,7 @@ BEGIN Texts.OpenWriter(W); Texts.WriteString(W, "GraphTool 8.8.2013");
   Texts.WriteLn(W); Texts.Append(Oberon.Log, W.buf);
 END GraphTool.
 ```
+```
 ## Procedures:
 ---
 

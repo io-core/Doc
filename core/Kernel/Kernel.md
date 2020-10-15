@@ -9,6 +9,11 @@
  TrapAdr* = 04H; timer = -64;
 
 ```
+  ## Types:
+```
+ Handler* = PROCEDURE(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;
+
+```
 ## Procedures:
 ---
 

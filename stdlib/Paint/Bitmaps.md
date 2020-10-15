@@ -5,6 +5,29 @@
 ` SYSTEM Kernel Oberon`
 
 ```
+## Types:
+```
+
+  Bitmap* = POINTER TO BitmapDesc;
+  BitmapDesc* = RECORD
+    width*, height*, depth*: INTEGER;
+    base*, size* : INTEGER
+  END;
+
+PROCEDURE New*(B: Bitmap; w, h, dpt: INTEGER) : Bitmap;
+BEGIN (*
+  IF B = NIL THEN NEW(B) END;
+  IF B # NIL THEN
+      B.width := w; B.height := h; B.depth := dpt;
+      B.size := (w+31) DIV 32 * 4 * h; (*bitmap size in bytes, word aligned*)
+      Memory.New(SYSTEM.VAL(Memory.Pointer, B.base), B.size);
+      IF B.base = 0 THEN B := NIL END
+  END *)
+  RETURN B 
+END New;
+
+PROCEDURE Get*(B: Bitmap; x, y: INTEGER): INTEGER;
+```
 ## Procedures:
 ---
 

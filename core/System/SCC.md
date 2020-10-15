@@ -13,6 +13,15 @@
     MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket * SubPacket;
 
 ```
+  ## Types:
+```
+ Header* =
+    RECORD valid*: BOOLEAN;
+      dadr*, sadr*, typ*: BYTE;
+      len*: INTEGER (*of data following header*)
+    END ;
+
+```
 ## Procedures:
 ---
 

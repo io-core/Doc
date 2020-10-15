@@ -11,6 +11,11 @@
     (* base = 0E7F00H;  adr of 1024 x 768 pixel, monocolor display frame*)
 
 ```
+  ## Types:
+```
+ Frame* = POINTER TO FrameDesc;
+    FrameMsg* = RECORD END ;
+```
 ## Procedures:
 ---
 

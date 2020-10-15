@@ -20,6 +20,13 @@
         FillerSize = 52;
 
 ```
+  ## Types:
+```
+ DiskAdr      = INTEGER;
+    FileName*       = ARRAY FnLength OF CHAR;
+    SectorTable*    = ARRAY SecTabSize OF DiskAdr;
+    ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
+```
 ## Procedures:
 ---
 

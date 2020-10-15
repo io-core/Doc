@@ -5,6 +5,21 @@
 ` Input Display Viewers Oberon`
 
 ```
+  ## Types:
+```
+ Viewer* = POINTER TO ViewerDesc;
+    ViewerDesc* = RECORD (Viewers.ViewerDesc) menuH*: INTEGER END;
+
+  PROCEDURE Draw (V: Viewer; Y, H, col: INTEGER);
+  BEGIN
+    Display.ReplConst(col, V.X, Y, 1, H, Display.replace);
+    Display.ReplConst(col, V.X + V.W - 1, Y, 1, H, Display.replace);
+    Display.ReplConst(col, V.X + 1, Y, V.W - 2, 1, Display.replace);
+    Display.ReplConst(col, V.X + 1, Y + H - 1, V.W - 2, 1, Display.replace)
+  END Draw;
+
+  PROCEDURE Restore (V: Viewer);
+```
 ## Procedures:
 ---
 

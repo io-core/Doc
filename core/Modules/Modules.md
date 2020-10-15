@@ -17,6 +17,22 @@
     C20 = 100000H; C22 = 400000H; C24 = 1000000H; C26 = 4000000H; C28 = 10000000H; C30 = 40000000H;
 
 ```
+  ## Types:
+```
+ Module* = POINTER TO ModDesc;
+    Command* = PROCEDURE;
+    ModuleName* = ARRAY MnLength OF CHAR;
+
+    ModDesc* = RECORD
+      name*: ModuleName;
+      next*: Module;
+      key*, num*, size*, refcnt*: INTEGER;
+      data*, str*, tdx*, code*, imp*, cmd*, ent*, ptr*, pvr*: INTEGER;  (*addresses*)
+      selected*, marked, hidden, sel: BOOLEAN;
+      smb*: INTEGER
+    END ;
+
+```
 ## Procedures:
 ---
 

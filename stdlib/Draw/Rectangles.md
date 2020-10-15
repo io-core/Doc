@@ -5,6 +5,15 @@
 ` SYSTEM Display Files Input Texts Oberon Graphics GraphicFrames`
 
 ```
+  ## Types:
+```
+
+    Rectangle* = POINTER TO RectDesc;
+    RectDesc* = RECORD (Graphics.ObjectDesc)
+        lw*, vers*: INTEGER
+      END ;
+
+```
 ## Procedures:
 ---
 

@@ -12,6 +12,11 @@
     TAB = Input.TAB; CR = Input.CR; LNK = 15; TaskPeriod = 500; (*ms*)
 
 ```
+  ## Types:
+```
+ Handler = PROCEDURE(name: ARRAY OF CHAR);
+
+```
 ## Procedures:
 ---
 

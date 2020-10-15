@@ -10,6 +10,70 @@
     TAB = Input.TAB; CR = Input.CR;
 
 ```
+  ## Types:
+```
+
+    Graph* = POINTER TO GraphDesc;
+    Object* = POINTER TO ObjectDesc;
+    Method* = POINTER TO MethodDesc;
+
+    Line* = POINTER TO LineDesc;
+    Caption* = POINTER TO CaptionDesc;
+    Macro* = POINTER TO MacroDesc;
+
+    ObjectDesc* = RECORD
+        x*, y*, w*, h*: INTEGER;
+        col*: BYTE;
+        selected*, marked*: BOOLEAN;
+        do*: Method;
+        next: Object
+      END ;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    Name* = ARRAY NameLen OF CHAR;
+
+    GraphDesc* = RECORD
+        time*: LONGINT;
+        sel*, first: Object;
+        changed*: BOOLEAN
+      END ;
+
+    MacHead* = POINTER TO MacHeadDesc;
+    MacExt* = POINTER TO MacExtDesc;
+    Library* = POINTER TO LibraryDesc;
+
+    MacHeadDesc* = RECORD
+        name*: Name;
+        w*, h*: INTEGER;
+        ext*: MacExt;
+        lib*: Library;
+        first: Object;
+        next: MacHead
+      END ;
+
+    LibraryDesc* = RECORD
+        name*: Name;
+        first: MacHead;
+        next: Library
+      END ;
+
+    MacExtDesc* = RECORD END ;
+
+    Context* = RECORD
+        nofonts, noflibs, nofclasses: INTEGER;
+        font: ARRAY 10 OF Fonts.Font;
+        lib: ARRAY 4 OF Library;
+        class: ARRAY 6 OF Modules.Command
+      END;
+
+    MethodDesc* = RECORD
+        module*, allocator*: Name;
+        new*: Modules.Command;
+        copy*: PROCEDURE (from, to: Object);
+```
 ## Procedures:
 ---
 

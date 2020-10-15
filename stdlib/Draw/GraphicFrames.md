@@ -15,6 +15,62 @@
     CR = Input.CR;
 
 ```
+  ## Types:
+```
+
+    Frame* = POINTER TO FrameDesc;
+    Location* = POINTER TO LocDesc;
+
+    LocDesc* = RECORD
+        x*, y*: INTEGER;
+        next*: Location
+      END ;
+
+    FrameDesc* = RECORD (Display.FrameDesc)
+        graph*: Graphics.Graph;
+        Xg*, Yg*: INTEGER;  (*pos rel to graph origin*)
+        X1*, Y1*: INTEGER;  (*right and upper margins*)
+        x*, y*, col*: INTEGER;  (*x = X + Xg, y = Y + Yg*)
+        marked*, ticked*: BOOLEAN;
+        mark*: LocDesc
+      END ;
+
+    DrawMsg* = RECORD (Graphics.Msg)
+        f*: Frame;
+        x*, y*, col*, mode*: INTEGER
+      END ;
+
+    UpdateMsg = RECORD (Display.FrameMsg)
+        id: INTEGER;
+        graph: Graphics.Graph;
+        obj: Graphics.Object
+      END ;
+
+    ChangedMsg = RECORD (Display.FrameMsg)
+        f: Frame;
+        graph: Graphics.Graph;
+        mode: INTEGER
+      END ;
+
+    SelQuery = RECORD (Display.FrameMsg)
+        f: Frame; time: LONGINT
+      END ;
+
+    FocusQuery = RECORD (Display.FrameMsg)
+        f: Frame
+      END ;
+
+    PosQuery = RECORD (Display.FrameMsg)
+        f: Frame; x, y: INTEGER
+      END ;
+
+    DispMsg = RECORD (Display.FrameMsg)
+        x1, y1, w: INTEGER;
+        pat: INTEGER;
+        graph: Graphics.Graph
+      END ;
+
+```
 ## Procedures:
 ---
 

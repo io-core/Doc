@@ -5,6 +5,27 @@
 ` SYSTEM Kernel Oberon`
 
 ```
+## Types:
+```
+
+  Cipher* = POINTER TO CipherDesc;
+  CipherDesc* = RECORD
+    value*: INTEGER;
+    next: Cipher
+  END;
+
+PROCEDURE New*(C: Cipher; v: INTEGER) : Cipher;
+BEGIN
+  IF C = NIL THEN NEW(C) END;
+  IF C # NIL THEN
+    C.value := v;
+    C.next := NIL
+  END
+  RETURN C 
+END New;
+
+PROCEDURE Get*(C: Cipher; x: INTEGER): INTEGER;
+```
 ## Procedures:
 ---
 

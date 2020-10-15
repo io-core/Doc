@@ -14,6 +14,17 @@
     OberonVerifyVersion = "OR Compiler 22.7.2018";
 
 ```
+  ## Types:
+```
+
+    FileList = POINTER TO FileListDesc;
+
+    FileListDesc = RECORD
+        name: FileDir.FileName;
+        next: FileList;
+      END;
+
+```
 ## Procedures:
 ---
 

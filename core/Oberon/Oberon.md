@@ -13,6 +13,49 @@
     TAB = Input.TAB; CR = Input.CR; ESC = Input.ESC; SETSTAR = 1AX;
 
 ```
+  ## Types:
+```
+ Painter* = PROCEDURE (x, y: INTEGER);
+    Marker* = RECORD Fade*, Draw*: Painter END;
+    
+    Cursor* = RECORD
+       marker*: Marker; on*: BOOLEAN; X*, Y*: INTEGER
+    END;
+
+    InputMsg* = RECORD (Display.FrameMsg)
+      id*: INTEGER;                      (*consume, track*)
+      keys*: SET;
+      X*, Y*: INTEGER;
+      ch*: CHAR;
+      fnt*: Fonts.Font;
+      col*, voff*: INTEGER
+    END;
+
+    SelectionMsg* = RECORD (Display.FrameMsg)
+      time*: LONGINT;
+      text*: Texts.Text;
+      beg*, end*: LONGINT
+    END;
+
+    ControlMsg* = RECORD (Display.FrameMsg)
+      id*, X*, Y*: INTEGER               (*defocus, neutralize, mark*)
+    END;
+
+    CopyMsg* = RECORD (Display.FrameMsg)
+        F*: Display.Frame
+      END;
+
+    Task* = POINTER TO TaskDesc;
+
+    Handler* = PROCEDURE;
+
+    TaskDesc* = RECORD
+      state, nextTime, period*: INTEGER;
+      next: Task;
+      handle: Handler
+    END;
+
+```
 ## Procedures:
 ---
 

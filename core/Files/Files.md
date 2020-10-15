@@ -13,6 +13,53 @@
       XS        = FileDir.IndexSize;
 
 ```
+  ## Types:
+```
+  DiskAdr = INTEGER;
+      File*    = POINTER TO FileDesc;
+      Buffer  = POINTER TO BufferRecord;
+      Index   = POINTER TO IndexRecord;
+
+    Rider* =
+      RECORD eof*: BOOLEAN;
+        res*: INTEGER;
+        file: File;
+        apos, bpos: INTEGER;
+        buf: Buffer
+      END ;
+
+    FileDesc =
+      RECORD next: INTEGER; (*list of files invisible to the GC*)
+        nofbufs, aleng, bleng: INTEGER;
+        modH, registered: BOOLEAN;
+        firstbuf: Buffer;
+        sechint: DiskAdr;
+        name: FileDir.FileName;
+        date: INTEGER;
+        ext:  ARRAY FileDir.ExTabSize OF Index;
+        sec: FileDir.SectorTable
+      END ;
+
+    BufferRecord =
+      RECORD apos, lim: INTEGER;
+        mod: BOOLEAN;
+        next: Buffer;
+        data: FileDir.DataSector
+      END ;
+
+    IndexRecord =
+      RECORD adr: DiskAdr;
+        mod: BOOLEAN;
+        sec: FileDir.IndexSector
+      END ;
+
+    (*aleng * SS + bleng = length (including header)
+      apos * SS + bpos = current position
+      0 <= bpos <= lim <= SS
+      0 <= apos <= aleng < PgTabSize
+      (apos < aleng) & (lim = SS) OR (apos = aleng) *)
+
+```
 ## Procedures:
 ---
 

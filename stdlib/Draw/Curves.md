@@ -5,6 +5,18 @@
 ` Display Files Oberon Graphics GraphicFrames`
 
 ```
+  ## Types:
+```
+
+    Curve* = POINTER TO CurveDesc;
+
+    CurveDesc* = RECORD (Graphics.ObjectDesc)
+        kind*, lw*: INTEGER
+      END ;
+
+  (*kind: 0 = up-line, 1 = down-line, 2 = circle, 3 = ellipse*)
+
+```
 ## Procedures:
 ---
 

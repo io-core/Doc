@@ -10,6 +10,62 @@
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
 ```
+  ## Types:
+```
+ 
+    Method* = POINTER TO MethodDesc;
+    Document* = POINTER TO DocumentDesc;
+    DocumentDesc* = RECORD
+      x*, y*, w*, h*, d*, p*: INTEGER;
+      sx*, sy*: REAL;
+      sw*, sh*: INTEGER;
+      selected*, marked*: BOOLEAN;
+      do*: Method;
+      next: Document
+    END;
+
+    Vault* = POINTER TO VaultDesc;
+    Notifier* = PROCEDURE (V: Vault; op: INTEGER; beg, end: LONGINT);
+    VaultDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      flattened*: BOOLEAN;
+      sel*, first: Document;
+      notify*: Notifier
+    END;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    
+
+    bmpHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    jpgHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    pngHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    MethodDesc* = RECORD
+(*        module*, allocator*: Name;
+        new*: Modules.Command;             *)
+        copy*: PROCEDURE (from, to: Document);
+```
 ## Procedures:
 ---
 

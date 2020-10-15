@@ -26,6 +26,14 @@ among other features to Pascal, which was developed as a reaction to and refinem
  NofCases = 256; C20 = 100000H;
 
 ```
+  ## Types:
+```
+ PtrBase = POINTER TO PtrBaseDesc;
+    PtrBaseDesc = RECORD  (*list of names of pointer base types*)
+      name: ORS.Ident; type: ORB.Type; next: PtrBase
+    END ;
+  
+```
 ## Procedures:
 ---
 ## Checking Symbols and Types

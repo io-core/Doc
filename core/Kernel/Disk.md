@@ -13,6 +13,11 @@
     mapsize = 10000H; (*1K sectors, 64MB*)
 
 ```
+  ## Types:
+```
+ Sector* = ARRAY SectorLength OF BYTE;
+
+```
 ## Procedures:
 ---
 
