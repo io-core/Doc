@@ -26,18 +26,6 @@ END New;
 
 PROCEDURE Get*(C: Cipher; x: INTEGER): INTEGER;
 ```
-  ## Variables:
-```
- r,i: INTEGER; C1:Cipher;
-BEGIN i:=0;r:=0;
-  C1:=C; WHILE C1 # NIL DO 
-    IF i = x THEN r := C1.value END;
-    C1:=C1.next;
-    INC(i)
-  END
-  RETURN r 
-END Get;
-```
 ## Procedures:
 ---
 

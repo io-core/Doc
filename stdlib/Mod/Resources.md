@@ -26,18 +26,6 @@ END New;
 
 PROCEDURE Get*(R: Resource; x: INTEGER): INTEGER;
 ```
-  ## Variables:
-```
- r,i: INTEGER; R1:Resource;
-BEGIN i:=0;r:=0;
-  R1:=R; WHILE R1 # NIL DO 
-    IF i = x THEN r := R1.value END;
-    R1:=R1.next;
-    INC(i)
-  END
-  RETURN r 
-END Get;
-```
 ## Procedures:
 ---
 

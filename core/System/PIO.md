@@ -42,34 +42,6 @@ BEGIN Reset
 END PIO.
 ```
 ```
-    ## Variables:
-```
- i: INTEGER;
-  BEGIN (*send byte*)
-    FOR i := 0 TO 7 DO
-      SYSTEM.PUT(gpio, x MOD 2 + 2); del(60); SYSTEM.PUT(gpio, x MOD 2); del(25); x := x DIV 2
-    END ;
-    SYSTEM.PUT(gpio, 0); del(100)
-  END Send;
-  PROCEDURE Receive*(## Variables:
-```
- x: LONGINT);
-    ## Variables:
-```
- i, x0: INTEGER;
-    ## Variables:
-```
- i, x0: INTEGER;
-  BEGIN (*receive byte*) x0 := 0;
-    REPEAT UNTIL ~SYSTEM.BIT(gpio, 2);
-    FOR i := 0 TO 7 DO
-      SYSTEM.PUT(gpio, 2); del(60);
-      IF SYSTEM.BIT(gpio, 2) THEN x0 := x0 + 100H END ;
-      SYSTEM.PUT(gpio, 0); del(25); x0 := ROR(x0, 1)
-    END ;
-    x := x0
-  END Receive;
-```
 ## Procedures:
 ---
 
