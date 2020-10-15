@@ -9,7 +9,6 @@
  
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
-  TYPE 
 ```
 ## Types:
 ```
@@ -66,7 +65,6 @@
 (*        module*, allocator*: Name;
         new*: Modules.Command;             *)
         copy*: PROCEDURE (from, to: Document);
-        draw*, change*: PROCEDURE (D: Document; VAR msg: Msg);
 ```
         draw*, change*: PROCEDURE (D: Document; VAR msg: Msg);
         selectable*: PROCEDURE (D: Document; x, y: INTEGER): BOOLEAN;

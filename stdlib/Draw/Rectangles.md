@@ -13,7 +13,6 @@
         lw*, vers*: INTEGER
       END ;
 
-  VAR method*: Graphics.Method;
 ```
 ## Variables:
 ```

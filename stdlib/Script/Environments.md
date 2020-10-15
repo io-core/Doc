@@ -9,7 +9,6 @@
  
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 
-  TYPE 
 ```
 ## Types:
 ```
@@ -40,7 +39,6 @@
         copy*: PROCEDURE (from, to: Binding);
         
         selectable*: PROCEDURE (b: Binding; x, y: INTEGER): BOOLEAN;
-        read*: PROCEDURE (b: Binding; VAR r: Files.Rider); (*; VAR c: Context); *)
 ```
         read*: PROCEDURE (b: Binding; VAR r: Files.Rider); (*; VAR c: Context); *)
         write*: PROCEDURE (b: Binding; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)

@@ -11,13 +11,11 @@
     SystemLog = "System.Log"; SystemTool = "System.Tool"; SystemBatch = "System.Batch";
     TAB = Input.TAB; CR = Input.CR; LNK = 15; TaskPeriod = 500; (*ms*)
 
-  TYPE Handler = PROCEDURE(name: ARRAY OF CHAR);
 ```
 ## Types:
 ```
  Handler = PROCEDURE(name: ARRAY OF CHAR);
 
-  VAR W: Texts.Writer; M: Modules.Module; T: Oberon.Task; ref, last: INTEGER; defer: BOOLEAN;
 ```
 ## Variables:
 ```

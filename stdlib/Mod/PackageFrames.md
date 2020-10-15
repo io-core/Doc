@@ -12,7 +12,6 @@
 
     markW = 5;
 
-  TYPE
 ```
 ## Types:
 ```
@@ -69,7 +68,6 @@
         package: Packages.Package
       END ;
 
-  VAR Crosshair*: Oberon.Marker;
 ```
 ## Variables:
 ```

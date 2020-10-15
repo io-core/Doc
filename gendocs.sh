@@ -44,11 +44,9 @@ for i in `ls -d ../src/github.com/io-core/*`; do
                         echo '```' >> $k/$nam/README.md
 
 			awk '/^ *IMPORT/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/IMPORT/## Imports\:\n`/g' | tr -d ',' | sed -e 's/;/`\n/g' >> $k/$nam/$snam.md
-			#awk '/^ *TYPE/{p=0};p;/^ *CONST/{p=1};/^ *CONST/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/CONST/## Constants\:\n```\n/g' >> $k/$nam/$snam.md
-			awk '/CONST/{f=1;count=1} f{ print; if(/TYPE/){count--; if(count==0) exit}}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/^ *CONST/## Constants\:\n```\n/g' >> $k/$nam/$snam.md
+			awk '/CONST/{f=1;count=1} f{ if(/TYPE/){count--; if(count==0) exit}; print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/^ *CONST/## Constants\:\n```\n/g' >> $k/$nam/$snam.md
 			echo '```' >> $k/$nam/$snam.md
-			#awk '/VAR/{p=0};p;/TYPE/{p=1};/TYPE/{print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/TYPE/## Types\:\n```\n/g' >> $k/$nam/$snam.md
-			awk '/TYPE/{f=1;count=1} f{ print; if(/VAR/){count--; if(count==0) exit}}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/^ *TYPE/## Types\:\n```\n/g' >> $k/$nam/$snam.md
+			awk '/TYPE/{f=1;count=1} f{if(/VAR/){count--; if(count==0) exit}; print}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/^ *TYPE/## Types\:\n```\n/g' >> $k/$nam/$snam.md
 			echo '```' >> $k/$nam/$snam.md
 			awk '/VAR/{f=1;count=1} f{ print; if(/^$/){count--; if(count==0) exit}}' ../src/github.com/io-core/$nam/$snam.Mod | sed -e 's/^ *VAR/## Variables\:\n```\n/g' >> $k/$nam/$snam.md
                         echo '```' >> $k/$nam/$snam.md

@@ -8,11 +8,7 @@
 ```
  CR = 0DX; noerr = 0; badfile = 4;  (*copied from Modules for use as cross development tool*)
 
-  TYPE Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
 ```
-## Types:
-```
- Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
 ```
   TYPE Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
 

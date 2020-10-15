@@ -9,7 +9,6 @@
  NameLen* = 32; GraphFileId = 0FAX; LibFileId = 0FBX;
     TAB = Input.TAB; CR = Input.CR;
 
-  TYPE
 ```
 ## Types:
 ```
@@ -74,7 +73,6 @@
         module*, allocator*: Name;
         new*: Modules.Command;
         copy*: PROCEDURE (from, to: Object);
-        draw*, change*: PROCEDURE (obj: Object; VAR msg: Msg);
 ```
         draw*, change*: PROCEDURE (obj: Object; VAR msg: Msg);
         selectable*: PROCEDURE (obj: Object; x, y: INTEGER): BOOLEAN;

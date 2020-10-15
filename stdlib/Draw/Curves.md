@@ -16,7 +16,6 @@
 
   (*kind: 0 = up-line, 1 = down-line, 2 = circle, 3 = ellipse*)
 
-  VAR method*: Graphics.Method;
 ```
 ## Variables:
 ```

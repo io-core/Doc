@@ -25,7 +25,6 @@ among other features to Pascal, which was developed as a reaction to and refinem
 ```
  NofCases = 256; C20 = 100000H;
 
-  TYPE PtrBase = POINTER TO PtrBaseDesc;
 ```
 ## Types:
 ```
@@ -34,7 +33,6 @@ among other features to Pascal, which was developed as a reaction to and refinem
       name: ORS.Ident; type: ORB.Type; next: PtrBase
     END ;
   
-  VAR sym: INTEGER;   (*last symbol read*)
 ```
 ## Variables:
 ```

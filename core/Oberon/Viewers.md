@@ -9,7 +9,6 @@
  restore* = 0; modify* = 1; suspend* = 2; (*message ids*)
     inf = 65535; DnLength* = 32;
 
-  TYPE Viewer* = POINTER TO ViewerDesc;
 ```
 ## Types:
 ```
@@ -37,7 +36,6 @@
       backup: Viewer (*last closed viewer*)
     END;
 
-  VAR CurDisplay*, root*: DisplayArea;
 ```
 ## Variables:
 ```

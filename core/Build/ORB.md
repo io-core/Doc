@@ -22,7 +22,6 @@
       String* = 12; Array* = 13; Record* = 14; TProc* = 15;
       Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
 
-  TYPE Object* = POINTER TO ObjDesc;
 ```
 ## Types:
 ```
@@ -71,7 +70,6 @@
     Array    -        type of elements
     Record   fields   extension *)
 
-  VAR topScope*, universe, system*: Object;
 ```
 ## Variables:
 ```

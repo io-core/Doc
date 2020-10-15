@@ -25,7 +25,6 @@ BEGIN
 END New;
 
 PROCEDURE Get*(P: KeyPair; x: INTEGER): INTEGER;
-  VAR r,i: INTEGER; P1:KeyPair;
 ```
 ## Variables:
 ```

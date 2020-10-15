@@ -25,7 +25,6 @@ BEGIN
 END New;
 
 PROCEDURE Get*(R: Resource; x: INTEGER): INTEGER;
-  VAR r,i: INTEGER; R1:Resource;
 ```
 ## Variables:
 ```

@@ -11,7 +11,6 @@
     CtrlA = Input.CtrlA; CtrlC = Input.CtrlC; CtrlV = Input.CtrlV; CtrlX = Input.CtrlX;
     CursorLeft = Input.CursorLeft; CursorRight = Input.CursorRight; CursorUp = Input.CursorUp; CursorDown = Input.CursorDown;
 
-  TYPE Line = POINTER TO LineDesc;
 ```
 ## Types:
 ```
@@ -57,7 +56,6 @@
       beg*, end*: LONGINT
     END;
 
-  VAR TBuf*, DelBuf: Texts.Buffer;
 ```
 ## Variables:
 ```

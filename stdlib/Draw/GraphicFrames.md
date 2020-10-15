@@ -14,7 +14,6 @@
 
     CR = Input.CR;
 
-  TYPE
 ```
 ## Types:
 ```
@@ -71,7 +70,6 @@
         graph: Graphics.Graph
       END ;
 
-  VAR Crosshair*: Oberon.Marker;
 ```
 ## Variables:
 ```

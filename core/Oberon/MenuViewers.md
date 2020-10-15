@@ -19,7 +19,6 @@
   END Draw;
 
   PROCEDURE Restore (V: Viewer);
-    VAR Menu, Main: Display.Frame;
 ```
 ## Variables:
 ```

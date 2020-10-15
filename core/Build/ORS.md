@@ -42,13 +42,11 @@ if int or char in ival, if real in rval, and if string in str (and slen) *)
     array* = 60; record* = 61; pointer* = 62; interface* = 63; const* = 64; type* = 65;
     var* = 66; procedure* = 67; begin* = 68; import* = 69; module* = 70; eot = 71;
 
-  TYPE Ident* = ARRAY IdLen OF CHAR;
 ```
 ## Types:
 ```
  Ident* = ARRAY IdLen OF CHAR;
 
-  VAR ival*, slen*: LONGINT;  (*results of Get*)
 ```
 ## Variables:
 ```

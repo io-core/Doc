@@ -19,7 +19,6 @@
         HeaderMark* = 9BA71D86H;
         FillerSize = 52;
 
-  TYPE DiskAdr      = INTEGER;
 ```
 ## Types:
 ```
@@ -27,7 +26,6 @@
     FileName*       = ARRAY FnLength OF CHAR;
     SectorTable*    = ARRAY SecTabSize OF DiskAdr;
     ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
-    EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
 ```
     EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
 

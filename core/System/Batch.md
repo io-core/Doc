@@ -13,7 +13,6 @@
     BatchFailed = 3;
     OberonVerifyVersion = "OR Compiler 22.7.2018";
 
-  TYPE
 ```
 ## Types:
 ```
@@ -25,7 +24,6 @@
         next: FileList;
       END;
 
-  VAR
 ```
 ## Variables:
 ```

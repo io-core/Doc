@@ -12,7 +12,6 @@
     BasicCycle = 20;
     TAB = Input.TAB; CR = Input.CR; ESC = Input.ESC; SETSTAR = 1AX;
 
-  TYPE Painter* = PROCEDURE (x, y: INTEGER);
 ```
 ## Types:
 ```
@@ -56,7 +55,6 @@
       handle: Handler
     END;
 
-  VAR User*: ARRAY 8 OF CHAR; Password*: LONGINT;
 ```
 ## Variables:
 ```
