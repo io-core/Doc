@@ -70,7 +70,7 @@
 ```
 ## Procedures:
 ---
-## Instruction assemblers according to formats
+>> *Instruction assemblers according to formats*
 ---
 **incR** allocates the next register as in use or marks an error signalling overflow.
 
