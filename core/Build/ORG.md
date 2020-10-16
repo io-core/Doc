@@ -70,7 +70,7 @@
 ```
 ## Procedures:
 ---
->> *Instruction assemblers according to formats*
+## ---------- Instruction assemblers according to formats ----------
 ---
 **incR** allocates the next register as in use or marks an error signalling overflow.
 
@@ -112,7 +112,7 @@
 
 `  PROCEDURE NilCheck;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L160)
 
-## Handling of forward reference, fixups of instruction operands
+## ---------- Handling of forward reference, fixups of instruction operands ----------
 
 `  PROCEDURE negated(cond: LONGINT): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L170)
 
