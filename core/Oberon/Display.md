@@ -44,59 +44,60 @@ A pattern is an array of bytes; the first is its width (< 32), the second its he
 ```
 ## Procedures:
 ---
+## ---------- Oberon Message Handling
 ---
 **Handle** passes through messages to the frame message handler.
 
-`  PROCEDURE Handle*(F: Frame; VAR M: FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L46)
+`  PROCEDURE Handle*(F: Frame; VAR M: FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L49)
 
 ## ---------- Raster Ops
 ---
 **Dot** sets a pixel.
 
-`  PROCEDURE Dot*(col, x, y, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L61)
+`  PROCEDURE Dot*(col, x, y, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L64)
 
 ---
 **ReplConst** paints or inverts a rectangular region of the display.
 
-`  PROCEDURE ReplConst*(col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L81)
+`  PROCEDURE ReplConst*(col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L84)
 
 
-`  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L123)
+`  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L126)
 
 ---
 **CopyPatternClipped** copies a bitmap pattern (e.g. icon, font glyph) to a clipped location on the display.
 
-`  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L156)
+`  PROCEDURE CopyPatternClipped*(col, patadr, x, y, left, right, top, bot, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L159)
 
 ---
 **CopyPattern** calls CopyPatternClipped with a relaxed clipping boundary.
 
-`  PROCEDURE CopyPattern*(col, patadr, x, y, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L207)
+`  PROCEDURE CopyPattern*(col, patadr, x, y, mode: INTEGER);  (*only for modes = paint, invert*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L210)
 
 
-`  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER); (*only for mode = replace*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L212)
+`  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER); (*only for mode = replace*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L215)
 
 ---
 **CopyImage** copies one rectangular portion of the display area to another portion of the display area. 
 
-`  PROCEDURE CopyImage*(sx, sy, sw, sh, sdepth, sspan, dx, dy, ddepth, dspan, mode: INTEGER); (*only for mode = replace*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L273)
+`  PROCEDURE CopyImage*(sx, sy, sw, sh, sdepth, sspan, dx, dy, ddepth, dspan, mode: INTEGER); (*only for mode = replace*)` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L276)
 
 ---
 **CopyBlock** calls CopyImage with the current screen Depth and Span. 
 
-`  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L333)
+`  PROCEDURE CopyBlock*(sx, sy, w, h, dx, dy, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L336)
 
 ---
 **ReplPattern** repeats a pixel pattern (e.g. icon, font glyph) over a rectangular portion of the display. 
 
-`  PROCEDURE ReplPattern*(col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L342)
+`  PROCEDURE ReplPattern*(col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L345)
 
 ## ---------- Initialization
 ---
 **InitResolution** queries the start of the framebuffer memory to determine if the acutal 
 framebuffer has moved and if it is other than 1024x768x1
 
-`  PROCEDURE InitResolution;` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L379)
+`  PROCEDURE InitResolution;` [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod#L382)
 
 ---
 **The initialziation code for this module** calls the InitResolution procedure 

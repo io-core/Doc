@@ -195,57 +195,58 @@
 
 `  PROCEDURE Recall*(VAR B: Texts.Buffer);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L814)
 
+## ---------- Oberon Message Handling
 
-`  PROCEDURE RemoveMarks (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L820)
-
-
-`  PROCEDURE NotifyDisplay* (T: Texts.Text; op: INTEGER; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L824)
+`  PROCEDURE RemoveMarks (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L824)
 
 
-`  PROCEDURE Call* (F: Frame; pos: LONGINT; new: BOOLEAN);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L829)
+`  PROCEDURE NotifyDisplay* (T: Texts.Text; op: INTEGER; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L828)
 
 
-`  PROCEDURE Write* (F: Frame; ch: CHAR; fnt: Fonts.Font; col, voff: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L833)
+`  PROCEDURE Call* (F: Frame; pos: LONGINT; new: BOOLEAN);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L833)
 
 
-`  PROCEDURE Defocus* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L871)
+`  PROCEDURE Write* (F: Frame; ch: CHAR; fnt: Fonts.Font; col, voff: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L837)
 
 
-`  PROCEDURE Neutralize* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L875)
+`  PROCEDURE Defocus* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L875)
 
 
-`  PROCEDURE Modify* (F: Frame; id, Y, H: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L879)
+`  PROCEDURE Neutralize* (F: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L879)
 
 
-`  PROCEDURE Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L897)
+`  PROCEDURE Modify* (F: Frame; id, Y, H: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L883)
 
 
-`  PROCEDURE Copy* (F: Frame; VAR F1: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L908)
+`  PROCEDURE Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L901)
 
 
-`  PROCEDURE CopyOver(F: Frame; text: Texts.Text; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L913)
+`  PROCEDURE Copy* (F: Frame; VAR F1: Frame);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L912)
 
 
-`  PROCEDURE GetSelection* (F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L923)
+`  PROCEDURE CopyOver(F: Frame; text: Texts.Text; beg, end: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L917)
 
 
-`  PROCEDURE Update* (F: Frame; VAR M: UpdateMsg);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L935)
+`  PROCEDURE GetSelection* (F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L927)
 
 
-`  PROCEDURE Edit* (F: Frame; X, Y: INTEGER; Keys: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L945)
+`  PROCEDURE Update* (F: Frame; VAR M: UpdateMsg);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L939)
 
 
-`  PROCEDURE Handle* (F: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1040)
+`  PROCEDURE Edit* (F: Frame; X, Y: INTEGER; Keys: SET);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L949)
 
 
-`  PROCEDURE Menu (name, commands: ARRAY OF CHAR): Texts.Text;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1066)
+`  PROCEDURE Handle* (F: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1044)
 
 
-`  PROCEDURE Text* (name: ARRAY OF CHAR): Texts.Text;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1073)
+`  PROCEDURE Menu (name, commands: ARRAY OF CHAR): Texts.Text;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1070)
 
 
-`  PROCEDURE NewMenu* (name, commands: ARRAY OF CHAR): Frame;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1078)
+`  PROCEDURE Text* (name: ARRAY OF CHAR): Texts.Text;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1077)
 
 
-`  PROCEDURE NewText* (text: Texts.Text; pos: LONGINT): Frame;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1084)
+`  PROCEDURE NewMenu* (name, commands: ARRAY OF CHAR): Frame;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1082)
+
+
+`  PROCEDURE NewText* (text: Texts.Text; pos: LONGINT): Frame;` [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod#L1088)
 

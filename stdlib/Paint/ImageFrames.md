@@ -81,90 +81,91 @@
 ```
 ## Procedures:
 ---
+## ---------- Oberon Message Handling
 
-`  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L75)
-
-
-`  PROCEDURE Restore*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L84)
+`  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L79)
 
 
-`  PROCEDURE FlipCross(X, Y: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L101)
+`  PROCEDURE Restore*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L88)
 
 
-`  PROCEDURE Focus*(): Frame;` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L112)
+`  PROCEDURE FlipCross(X, Y: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L105)
 
 
-`  PROCEDURE Selected*(): Frame;` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L117)
+`  PROCEDURE Focus*(): Frame;` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L116)
 
 
-`  PROCEDURE This*(x, y: INTEGER): Frame;` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L122)
+`  PROCEDURE Selected*(): Frame;` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L121)
 
 
-`  PROCEDURE Mark(F: Frame; mode: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L127)
+`  PROCEDURE This*(x, y: INTEGER): Frame;` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L126)
 
 
-`  PROCEDURE Draw*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L132)
+`  PROCEDURE Mark(F: Frame; mode: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L131)
 
 
-`  PROCEDURE DrawNorm(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L137)
+`  PROCEDURE Draw*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L136)
 
 
-`  PROCEDURE Erase*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L142)
+`  PROCEDURE DrawNorm(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L141)
 
 
-`  PROCEDURE DrawLayer*(F: Frame; L: Images.Layer);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L147)
+`  PROCEDURE Erase*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L146)
 
 
-`  PROCEDURE EraseLayer*(F: Frame; L: Images.Layer);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L152)
+`  PROCEDURE DrawLayer*(F: Frame; L: Images.Layer);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L151)
 
 
-`  PROCEDURE Change*(F: Frame; VAR msg: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L157)
+`  PROCEDURE EraseLayer*(F: Frame; L: Images.Layer);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L156)
 
 
-`  PROCEDURE FlipMark(x, y: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L162)
+`  PROCEDURE Change*(F: Frame; VAR msg: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L161)
 
 
-`  PROCEDURE Defocus*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L168)
+`  PROCEDURE FlipMark(x, y: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L166)
 
 
-`  PROCEDURE Deselect*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L178)
+`  PROCEDURE Defocus*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L172)
 
 
-`  PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L187)
+`  PROCEDURE Deselect*(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L182)
 
 
-`  PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L282)
+`  PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L191)
 
 
-`  PROCEDURE InsertChar(F: Frame; codepoint: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L290)
+`  PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L286)
 
 
-`  PROCEDURE DeleteChar(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L300)
+`  PROCEDURE InsertChar(F: Frame; codepoint: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L294)
 
 
-`  PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L321)
+`  PROCEDURE DeleteChar(F: Frame);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L304)
 
 
-`  PROCEDURE Handle*(F: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L331)
+`  PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L325)
 
 
-`  PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L391)
+`  PROCEDURE Handle*(F: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L335)
 
 
-`  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L397)
+`  PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L395)
 
 
-`  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L406)
+`  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L401)
 
 
-`  PROCEDURE DrawLine(obj: Images.Layer; VAR M: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L415)
+`  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L410)
 
 
-`  PROCEDURE DrawCaption(obj: Images.Layer; VAR M: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L437)
+`  PROCEDURE DrawLine(obj: Images.Layer; VAR M: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L419)
 
 
-`  PROCEDURE DrawMacro(obj: Images.Layer; VAR M: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L469)
+`  PROCEDURE DrawCaption(obj: Images.Layer; VAR M: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L441)
 
 
-`  PROCEDURE Open*(F: Frame; I: Images.Image);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L492)
+`  PROCEDURE DrawMacro(obj: Images.Layer; VAR M: Images.Msg);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L473)
+
+
+`  PROCEDURE Open*(F: Frame; I: Images.Image);` [(source)](https://github.com/io-core/Paint/blob/main/ImageFrames.Mod#L496)
 
