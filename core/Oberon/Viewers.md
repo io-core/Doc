@@ -201,3 +201,6 @@ Extensions of `Viewer` inherit the basic UI functionaltiy declared in this modul
 
 `  PROCEDURE CloseDisplay* (D: DisplayArea; hint: INTEGER); (*except last display*)` [(source)](https://github.com/io-core/Oberon/blob/main/Viewers.Mod#L498)
 
+---
+**The initialzation code for this module** merely sets the `root`, `CurDisplay` and `FocusViewer` module variables to `NIL` and the `nextID` module variable to `0`.
+
