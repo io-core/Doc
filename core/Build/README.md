@@ -367,3 +367,22 @@ ORTool uses SYSTEM, Files, Modules, Texts, Oberon, ORB
   DecMod*
 
 ```
+
+
+#### [MODULE OXTool](https://github.com/io-core/doc/blob/main/core/Build/OXTool.md) [(source)](https://github.com/io-core/Build/blob/main/OXTool.Mod)
+
+  **imports:** ` SYSTEM Files Modules Kernel Fonts Texts Viewers MenuViewers TextFrames Oberon ORB`
+
+**Procedures:**
+```
+  Clear*  (*used to clear output*)
+
+  Recall*
+
+  DecSym*  (*decode symbol file*)
+
+  DecObj*   (*decode object file*)
+
+  DecMod*
+
+```
