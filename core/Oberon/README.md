@@ -194,8 +194,6 @@ Viewers uses Display
 #### [MODULE Display](https://github.com/io-core/doc/blob/main/core/Oberon/Display.md) [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod)
 Module Display implements the drawing primitives for the frame buffer device in Oberon.
 
-Display uses SYSTEM
-
 
 
   **imports:** ` SYSTEM`

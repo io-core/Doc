@@ -461,4 +461,7 @@ Every call to header updates the global `entry` variable... at the end of compil
 `  PROCEDURE Close*(VAR modid: ORS.Ident; key, nofent: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1304)
 
 ---
-**The initialzation code for this module** sets the 6 values in the global relmap array. 
+**The initialzation code for this module** merely sets the 6 values in the global relmap array. 
+
+This module's global variables are initialized by ORP calling ORG.Open, once it has begun parsing the source code's Module
+definition and determined that its module imports are available and of compatible object filetype.
