@@ -9,8 +9,15 @@
  CR = 0DX; noerr = 0; badfile = 4;  (*copied from Modules for use as cross development tool*)
 
 ```
+## Types:
 ```
-  TYPE Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
+ Writer = PROCEDURE(VAR R: Files.Rider; x: LONGINT);
+
+```
+## Variables:
+```
+ res*: INTEGER;
+    W: Texts.Writer;
 
 ```
 ## Procedures:

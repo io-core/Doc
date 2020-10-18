@@ -26,8 +26,58 @@
     FileName*       = ARRAY FnLength OF CHAR;
     SectorTable*    = ARRAY SecTabSize OF DiskAdr;
     ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
-```
     EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
+
+    FileHeader* =
+      RECORD (*first page of each file on disk*)
+        mark*: INTEGER;
+        name*: FileName;
+        aleng*, bleng*, date*: INTEGER;
+        ext*:  ExtensionTable;
+        sec*: SectorTable;
+        fill: ARRAY SectorSize - HeaderSize OF BYTE;
+      END ;
+
+    FileHd* = POINTER TO FileHeader;
+    IndexSector* = ARRAY IndexSize OF DiskAdr;
+    DataSector* = ARRAY SectorSize OF BYTE;
+
+    DirEntry* =  (*B-tree node*)
+      RECORD
+        name*: FileName;
+        adr*:  DiskAdr; (*sec no of file header*)
+        p*:    DiskAdr  (*sec no of descendant in directory*)
+      END ;
+
+    DirPage*  =
+      RECORD mark*:  INTEGER;
+        m*:     INTEGER;
+        p0*:    DiskAdr;  (*sec no of left descendant in directory*)
+        fill:  ARRAY FillerSize OF BYTE;
+        e*:  ARRAY DirPgSize OF DirEntry
+      END ;
+
+  (*Exported procedures: Search, Insert, Delete, Enumerate, Init*)
+
+  PROCEDURE Search*(name: FileName; VAR A: DiskAdr);
+```
+## Variables:
+```
+ i, L, R: INTEGER; dadr: DiskAdr;
+      a: DirPage;
+  BEGIN dadr := DirRootAdr; A := 0;
+    REPEAT Disk.GetSector(dadr, a); ASSERT(a.mark = DirMark);
+      L := 0; R := a.m; (*binary search*)
+      WHILE L < R DO
+        i := (L+R) DIV 2;
+        IF name <= a.e[i].name THEN R := i ELSE L := i+1 END
+      END ;
+      IF (R < a.m) & (name = a.e[R].name) THEN A := a.e[R].adr (*found*)
+      ELSIF R = 0 THEN dadr := a.p0
+      ELSE dadr := a.e[R-1].p
+      END ;
+    UNTIL (dadr = 0) OR (A # 0)
+  END Search;
 
 ```
 ## Procedures:

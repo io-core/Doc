@@ -32,9 +32,15 @@
       smb*: INTEGER
     END ;
 
-```
     ClientHandler* = PROCEDURE(mod, imp: Module; VAR continue: BOOLEAN): INTEGER;
     RefHandler* = PROCEDURE(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;
+
+```
+## Variables:
+```
+ root*, M: Module;
+    AllocPtr*, res*, NofSelected*, NofHidden*, limit: INTEGER;
+    importing*, imported*: ModuleName;
 
 ```
 ## Procedures:

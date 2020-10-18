@@ -65,13 +65,23 @@
 (*        module*, allocator*: Name;
         new*: Modules.Command;             *)
         copy*: PROCEDURE (from, to: Component);
-```
         draw*, change*: PROCEDURE (C: Component; VAR msg: Msg);
         selectable*: PROCEDURE (C: Component; x, y: INTEGER): BOOLEAN;
         read*: PROCEDURE (C: Component; VAR r: Files.Rider); (*; VAR c: Context); *)
         write*: PROCEDURE (C: Component; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)
         print*: PROCEDURE (C: Component; x, y: INTEGER)
       END ;
+
+    
+```
+## Variables:
+```
+ 
+ 
+  res*: INTEGER;
+  width: INTEGER;
+  new*: Component; 
+  LineMethod*, CapMethod*, MacMethod* : Method;
 
 ```
 ## Procedures:

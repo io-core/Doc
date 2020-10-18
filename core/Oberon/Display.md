@@ -28,12 +28,18 @@ A pattern is an array of bytes; the first is its width (< 32), the second its he
  
     Frame* = POINTER TO FrameDesc;
     FrameMsg* = RECORD END ;
-```
     Handler* = PROCEDURE (F: Frame; VAR M: FrameMsg);
     FrameDesc* = RECORD next*, dsc*: Frame;
         X*, Y*, W*, H*: INTEGER;
         handle*: Handler
       END ;
+
+```
+## Variables:
+```
+ 
+    Base*, Width*, Height*, Depth*, Span, Pack, black*, white*, bgcolor*, fgcolor*: INTEGER;
+    arrow*, star*, hook*, updown*, block*, cross*, grey*: INTEGER;
 
 ```
 ## Procedures:

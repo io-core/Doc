@@ -65,13 +65,23 @@
 (*        module*, allocator*: Name;
         new*: Modules.Command;             *)
         copy*: PROCEDURE (from, to: KeyRing);
-```
         draw*, change*: PROCEDURE (R: KeyRing; VAR msg: Msg);
         selectable*: PROCEDURE (R: KeyRing; x, y: INTEGER): BOOLEAN;
         read*: PROCEDURE (R: KeyRing; VAR r: Files.Rider); (*; VAR c: Context); *)
         write*: PROCEDURE (R: KeyRing; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)
         print*: PROCEDURE (R: KeyRing; x, y: INTEGER)
       END ;
+
+    
+```
+## Variables:
+```
+ 
+ 
+  res*: INTEGER;
+  width: INTEGER;
+  new*: KeyRing; 
+  LineMethod*, CapMethod*, MacMethod* : Method;
 
 ```
 ## Procedures:

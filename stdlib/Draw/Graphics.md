@@ -73,13 +73,33 @@
         module*, allocator*: Name;
         new*: Modules.Command;
         copy*: PROCEDURE (from, to: Object);
-```
         draw*, change*: PROCEDURE (obj: Object; VAR msg: Msg);
         selectable*: PROCEDURE (obj: Object; x, y: INTEGER): BOOLEAN;
         read*: PROCEDURE (obj: Object; VAR R: Files.Rider; VAR C: Context);
         write*: PROCEDURE (obj: Object; cno: INTEGER; VAR R: Files.Rider; VAR C: Context);
         print*: PROCEDURE (obj: Object; x, y: INTEGER)
       END ;
+
+    LineDesc* = RECORD (ObjectDesc)
+        unused*: INTEGER
+      END ;
+
+    CaptionDesc* = RECORD (ObjectDesc)
+        pos*, len*: INTEGER
+      END ;
+
+    MacroDesc* = RECORD (ObjectDesc)
+        mac*: MacHead
+      END ;
+
+```
+## Variables:
+```
+ width*, res*: INTEGER;
+    new: Object;
+    T*: Texts.Text;  (*captions*)
+    LineMethod*, CapMethod*, MacMethod* : Method;
+    GetLib0: PROCEDURE (name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);
 
 ```
 ## Procedures:

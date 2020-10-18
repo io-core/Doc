@@ -210,7 +210,6 @@ BEGIN led := 0; led1 := 0; cnt := 0; cnt1 := 0;
 END TestInt.
 ```
 ```
-  PROCEDURE RecInt(VAR x: INTEGER);
 ## Variables:
 ```
  z, y, i: INTEGER;

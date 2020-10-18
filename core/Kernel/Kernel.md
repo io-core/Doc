@@ -9,8 +9,18 @@
  TrapAdr* = 04H; timer = -64;
 
 ```
+## Types:
 ```
-  TYPE Handler* = PROCEDURE(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;
+ Handler* = PROCEDURE(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;
+
+```
+## Variables:
+```
+ allocated*: INTEGER;
+    heapOrg*, heapLim*: INTEGER;
+    stackOrg*, stackSize*, MemLim*: INTEGER;
+    clock: INTEGER;
+    list0, list1, list2, list3: INTEGER;  (*lists of free blocks of size n*256, 128, 64, 32 bytes*)
 
 ```
 ## Procedures:

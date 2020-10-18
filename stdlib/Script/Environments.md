@@ -39,11 +39,19 @@
         copy*: PROCEDURE (from, to: Binding);
         
         selectable*: PROCEDURE (b: Binding; x, y: INTEGER): BOOLEAN;
-```
         read*: PROCEDURE (b: Binding; VAR r: Files.Rider); (*; VAR c: Context); *)
         write*: PROCEDURE (b: Binding; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)
         print*: PROCEDURE (b: Binding; x, y: INTEGER)
       END ;
+
+    
+```
+## Variables:
+```
+ 
+ 
+  top*: Env;
+  new*: Binding; 
 
 ```
 ## Procedures:
