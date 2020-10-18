@@ -194,6 +194,7 @@ Viewers uses Display
 #### [MODULE Display](https://github.com/io-core/doc/blob/main/core/Oberon/Display.md) [(source)](https://github.com/io-core/Oberon/blob/main/Display.Mod)
 Module Display implements the drawing primitives for the frame buffer device in Oberon.
 
+A pattern is an array of bytes; the first is its width (< 32), the second its height, the rest the raster data.
 
 
   **imports:** ` SYSTEM`
