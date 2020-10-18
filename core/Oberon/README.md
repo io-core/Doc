@@ -128,9 +128,6 @@ MenuViewers uses Input, Display, Viewers, Oberon
 #### [MODULE Viewers](https://github.com/io-core/doc/blob/main/core/Oberon/Viewers.md) [(source)](https://github.com/io-core/Oberon/blob/main/Viewers.Mod)
 Module Viewers implements base functionaltiy which may be extended for interacting with a pane or 'Viewer' in Oberon.
 
-Viewers uses Display
-
-
 
   **imports:** ` Display`
 
