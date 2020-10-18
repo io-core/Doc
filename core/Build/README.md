@@ -386,3 +386,38 @@ ORTool uses SYSTEM, Files, Modules, Texts, Oberon, ORB
   DecMod*
 
 ```
+
+
+#### [MODULE O2](https://github.com/io-core/doc/blob/main/core/Build/O2.md) [(source)](https://github.com/io-core/Build/blob/main/O2.Mod)
+
+  **imports:** ` Texts Oberon`
+
+**Procedures:**
+```
+  Nop* () 
+
+  String* (VAR a: ARRAY OF CHAR)  
+
+  Foo* (VAR f: ARRAY OF CHAR)  
+
+  Bar* (VAR f: ARRAY OF CHAR)  
+
+  ( i : I ) Nop* () 
+
+  ( r : R ) Nop* () 
+
+  ( i : I ) String* (VAR a: ARRAY OF CHAR) 
+
+  ( r : R ) String* (VAR a: ARRAY OF CHAR) 
+
+  ( c : C ) Foo* (VAR a: ARRAY OF CHAR) 
+
+  ( c : C ) Bar* (VAR a: ARRAY OF CHAR) 
+
+  ( d : D ) Foo* (VAR a: ARRAY OF CHAR) 
+
+  ( d : D ) Bar* (VAR a: ARRAY OF CHAR) 
+
+  Test*
+
+```
