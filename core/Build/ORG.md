@@ -415,13 +415,16 @@
 `  PROCEDURE Register*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1206)
 
 
-`  PROCEDURE H*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1211)
+`  PROCEDURE StoreRegs*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1211)
 
 
-`  PROCEDURE Adr*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1216)
+`  PROCEDURE H*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1234)
 
 
-`  PROCEDURE Condition*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1225)
+`  PROCEDURE Adr*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1239)
+
+
+`  PROCEDURE Condition*(VAR x: Item);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1248)
 
 ## ---------- Initialization and Completion
 ---
@@ -431,34 +434,34 @@ Zeroed global variables: `strx` `tdw` `RH` `fixorgP` `fixorgD` `fixorgT` `fixorg
 
 The `PC` is placed at code word index 8 and `check` is true if the `version` passed in is not zero.
 
-`  PROCEDURE Open*(v: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1241)
+`  PROCEDURE Open*(v: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1264)
 
 ---
 **SetDataSize** updates the `varx` code production global variable.
 
-`  PROCEDURE SetDataSize*(dc: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1252)
+`  PROCEDURE SetDataSize*(dc: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1275)
 
 ---
 **Header** sets up the stack (for a RISC-0 standalone module) or prepares the stack for a Branch-Link-return (the usual case.)
 
 Every call to header updates the global `entry` variable... at the end of compilation the last update reflects the module entry point.
 
-`  PROCEDURE Header*;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1262)
+`  PROCEDURE Header*;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1285)
 
 ---
 **NofRefs** recursively determines the number of references in a type.
 
-`  PROCEDURE NofRefs(ftyp: SET; typ: ORB.Type): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1273)
+`  PROCEDURE NofRefs(ftyp: SET; typ: ORB.Type): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1296)
 
 ---
 **FindRefs** recursively finds references in a type and writes them out to the file.
 
-`  PROCEDURE FindRefs(VAR R: Files.Rider; ftyp: SET; typ: ORB.Type; off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1289)
+`  PROCEDURE FindRefs(VAR R: Files.Rider; ftyp: SET; typ: ORB.Type; off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1312)
 
 ---
 **Close** completes the epilogue of the binary, writes out imports, commands, and fixup tables, and writes the module code to disk.
 
-`  PROCEDURE Close*(VAR modid: ORS.Ident; key, nofent: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1304)
+`  PROCEDURE Close*(VAR modid: ORS.Ident; key, nofent: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORG.Mod#L1327)
 
 ---
 **The initialzation code for this module** merely sets the 6 values in the global relmap array. 

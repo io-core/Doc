@@ -224,6 +224,8 @@ ORG uses SYSTEM, Files, ORS, ORB
 
   Register*(VAR x: Item)
 
+  StoreRegs*(VAR x: Item)
+
   H*(VAR x: Item)
 
   Adr*(VAR x: Item)
