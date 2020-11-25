@@ -1,113 +1,90 @@
 
 ## [MODULE Modules](https://github.com/io-core/Modules/blob/main/Modules.Mod)
 
+(Link and load on RISC; NW 20.10.2013 / 8.1.2019)
+
+After the BootLoader loads the Inner Core (`Kernel`, `FileDir`, `Files`, `Modules`) into memory, the 
+BEGIN section at the end of this module is the next code to execute. Modules, Files, Filedir, and Kernel
+cooperate in initializing the state of the Oberon system.
+
+Once the system is initialized, `Modules` dynamically loads the `Oberon` module which recursively requires `Input`, `Display`, `Viewers`, `Fonts`, and `Texts` to also be loaded.
+
+The `Oberon` module in turn, at the end of its initialization, dynamically loads the `System` module which further requires `MenuViewers` and `TextFrames`.
+
+At this point the Oberon system is responsive to user commands.
+
+
   ## Imports:
-` SYSTEM Kernel Files`
+` SYSTEM Files`
 
 ## Constants:
 ```
- versionkey = 1X; TR = 13; DescSize = 96; MnLength = 32;
-    noerr* = 0; nofile* = 1; badversion* = 2; badkey* = 3; badfile* = 4; nospace* = 5; nocmd* = 6; badcmd* = 7; nomod* = 8;
-    noref* = 0; clients* = 9; dyntypes* = 10; dynptrs* = 11; dynpvrs* = 12; statptrs* = 13; statpvrs* = 14;
-    U = 20000000H; V = 10000000H; B = 100000H;  (*modifier bits*)
-    MOV = 40000000H; IOR = 40060000H;  (*F1 register instructions*)
-    F2 = -2;  (*F2 memory instruction*)
-    F3 = -1; BCT = 0E7000000H; BLT = 0F7000000H;  (*F3 branch instructions*)
-    C4 = 10H; C6 = 40H; C8 = 100H; C10 = 400H; C12 = 1000H; C14 = 4000H; C16 = 10000H; C18 = 40000H;
-    C20 = 100000H; C22 = 400000H; C24 = 1000000H; C26 = 4000000H; C28 = 10000000H; C30 = 40000000H;
+ 
+    versionkey = 1X; 
+    MT         = 12; 
+    DescSize   = 80;
 
 ```
 ## Types:
 ```
- Module* = POINTER TO ModDesc;
-    Command* = PROCEDURE;
-    ModuleName* = ARRAY MnLength OF CHAR;
+ 
+    Module*     = POINTER TO ModDesc;
+    Command*    = PROCEDURE;
+    ModuleName* = ARRAY 32 OF CHAR;
 
     ModDesc* = RECORD
-      name*: ModuleName;
-      next*: Module;
-      key*, num*, size*, refcnt*: INTEGER;
-      data*, str*, tdx*, code*, imp*, cmd*, ent*, ptr*, pvr*: INTEGER;  (*addresses*)
-      selected*, marked, hidden, sel: BOOLEAN;
-      smb*: INTEGER
-    END ;
-
-    ClientHandler* = PROCEDURE(mod, imp: Module; VAR continue: BOOLEAN): INTEGER;
-    RefHandler* = PROCEDURE(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;
+        name*: ModuleName;
+        next*: Module;
+        key*, num*, size*, refcnt*: INTEGER;
+        data*, code*, imp*, cmd*, ent*, ptr*, unused: INTEGER  (*addresses*)
+      END ;
 
 ```
 ## Variables:
 ```
- root*, M: Module;
-    AllocPtr*, res*, NofSelected*, NofHidden*, limit: INTEGER;
+ 
+    root*, M: Module;
+    MTOrg*, AllocPtr*, res*: INTEGER;
     importing*, imported*: ModuleName;
+    limit: INTEGER;
 
 ```
 ## Procedures:
 ---
+---
+**ThisFile** appends `.rsc` to the module name, opens it, and returns the file.
 
-`  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L42)
+`  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L65)
 
+---
+**error** places the error number and error name in global varaibles `res` and `importing` for later reference.
 
-`  PROCEDURE ThisSmb(name: ARRAY OF CHAR): Files.File;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L51)
+`  PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L78)
 
+---
+**Check** conditionally sets global variable `res` to 0 (valid) or 1 (invalid) when checking to see if the string is a valid name. 
 
-`  PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L60)
+`  PROCEDURE Check(s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L86)
 
+---
+**Load** recursively loads from disk into the module area of memory the imports of a module and then the module itself. 
 
-`  PROCEDURE check(s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L64)
+`  PROCEDURE Load*(name: ARRAY OF CHAR; VAR newmod: Module);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L101)
 
+---
+**ThisCommand** finds and executes a parameterless procedure of module `mod` identified by the string `name`.
 
-`  PROCEDURE Load*(name: ARRAY OF CHAR; VAR newmod: Module);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L75)
+`  PROCEDURE ThisCommand*(mod: Module; name: ARRAY OF CHAR): Command;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L248)
 
+---
+**Free** recursively removes modules imported by a module and the module itself from memory if no other loaded modules import it, or returns an error.
 
-`  PROCEDURE ThisCommand*(mod: Module; name: ARRAY OF CHAR): Command;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L256)
+`  PROCEDURE Free*(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L269)
 
+---
+**Init** calls `Files.Init`, sets the module table start and allocation pointer and module root and limit and makes room for the stack by decreasing the limit.
 
-`  PROCEDURE Call*(name: ARRAY OF CHAR; VAR err: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L276)
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L286)
 
-
-`  PROCEDURE select(mod: Module; clients, imports: BOOLEAN);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L320)
-
-
-`  PROCEDURE Select*(name: ARRAY OF CHAR; on, this, clients, imports: BOOLEAN);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L340)
-
-
-`  PROCEDURE Deselect*; (*all modules*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L360)
-
-
-`  PROCEDURE FindClients*(client: ClientHandler; VAR res: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L368)
-
-
-`  PROCEDURE FindDynamicReferences*(typ, ptr, pvr: RefHandler; VAR resTyp, resPtr, resPvr: INTEGER; all: BOOLEAN);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L386)
-
-
-`  PROCEDURE FindStaticReferences*(ptr, pvr: RefHandler; VAR resPtr, resPvr: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L398)
-
-
-`  PROCEDURE HandleClient(mod, imp: Module; VAR continue: BOOLEAN): INTEGER;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L420)
-
-
-`  PROCEDURE HandleRef(src, dst: LONGINT; s: ARRAY OF CHAR; VAR continue: BOOLEAN): INTEGER;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L424)
-
-
-`  PROCEDURE Check*(VAR res: INTEGER);` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L434)
-
-
-`  PROCEDURE Unload(mod: Module); (*module and selected imports from memory*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L458)
-
-
-`  PROCEDURE Hide(mod: Module); (*module from module list*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L474)
-
-
-`  PROCEDURE FreeSelection*(hide: BOOLEAN); (*unload or hide selected modules; res is set by Check*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L483)
-
-
-`  PROCEDURE Free*(name: ARRAY OF CHAR; hide: BOOLEAN); (*unload or hide specified module; res is set by Check*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L501)
-
-
-`  PROCEDURE Collect*; (*no longer referenced hidden modules*)` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L515)
-
-
-`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Modules/blob/main/Modules.Mod#L575)
-
+---
+**The initialzation code for this module** calls `Init` and then dynamically loads the `Oberon` module and its imports. `Oberon` is not expected to return.

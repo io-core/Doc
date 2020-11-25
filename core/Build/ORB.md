@@ -1,7 +1,7 @@
 
 ## [MODULE ORB](https://github.com/io-core/Build/blob/main/ORB.Mod)
 
-(NW 25.6.2014  / AP 4.3.2020 / 5.3.2019  in Oberon-07 / AP 24.4.20 Extended Oberon / CP 10.20 Integrated Oberon)
+(NW 25.6.2014  / AP 4.3.2020 / 8.3.2019  in Oberon-07 / CP 11.2020)
 
 **ORB** is called from ORP and ORG and tracks the state of identifiers and objects as code compilation progresses.
 
@@ -11,27 +11,29 @@
 
 ## Constants:
 ```
- versionkey* = 1; maxTypTab = 64; C20 = 100000H;
+ 
+    versionkey* = 1; maxTypTab = 64;
     (* class values*) Head* = 0;
       Const* = 1; Var* = 2; Par* = 3; Fld* = 4; Typ* = 5;
       SProc* = 6; SFunc* = 7; Mod* = 8;
 
-    (* form values*)
-      Byte* = 1; Bool* = 2; Char* = 3; Int* = 4; Real* = 5; Set* = 6;
-      Pointer* = 7; Interface* = 8; NilTyp* = 9; NoTyp* = 10; Proc* = 11;
-      String* = 12; Array* = 13; Record* = 14; TProc* = 15;
+    (* form values*)  (* BYTE <= SHORTINT <= INTEGER <= LONGINT , FLOAT <= DOUBLE *)
+      Byte* = 1; Bool* = 2; Char* = 3; Short* = 4; Int* = 5; Long* = 6; Real* = 7; Double* = 8; Set* = 9;
+      Pointer* = 10; Interface* = 11; NilTyp* = 12; NoTyp* = 13; Proc* = 14;
+      String* = 15; Array* = 16; Record* = 17; (*TProc*)
       Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
-
+      
 ```
 ## Types:
 ```
- Object* = POINTER TO ObjDesc;
+ 
+    Object* = POINTER TO ObjDesc;
     Module* = POINTER TO ModDesc;
     Type* = POINTER TO TypeDesc;
 
     ObjDesc*= RECORD
       class*, exno*: BYTE;
-      expo*, rdo*: BOOLEAN;  (*exported / read-only*)
+      expo*, rdo*: BOOLEAN;   (*exported / read-only*)
       lev*: INTEGER;
       next*, dsc*: Object;
       type*: Type;
@@ -73,8 +75,10 @@
 ```
 ## Variables:
 ```
- topScope*, universe, system*: Object;
+ 
+    topScope*, universe, system*: Object;
     byteType*, boolType*, charType*: Type;
+    shortType*, longType*, doubleType*: Type; 
     intType*, realType*, setType*, nilType*, noType*, strType*: Type;
     nofmod, Ref: INTEGER;
     typtab: ARRAY maxTypTab OF Type;
@@ -82,78 +86,91 @@
 ```
 ## Procedures:
 ---
-## Object Manipulation
+## ---------- Scopes
+
+`  PROCEDURE NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER);  (*insert new Object with name id*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L92)
+
+
+`  PROCEDURE thisObj*(): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L103)
+
+
+`  PROCEDURE thisimport*(mod: Object): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L113)
+
+
+`  PROCEDURE thisfield*(rec: Type): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L127)
+
+
+`  PROCEDURE OpenScope*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L134)
+
+
+`  PROCEDURE CloseScope*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L139)
+
+## ---------- Import
 ---
-**NewObj** inserts a new named object.
+**MakeFileName**  ??
 
-`  PROCEDURE NewObj*(VAR obj: Object; id: ORS.Ident; class: INTEGER);  (*insert new Object with name id*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L94)
+`  PROCEDURE MakeFileName*(VAR FName: ORS.Ident; name, ext: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L153)
 
+---
+**ThisModule** ??
 
-`  PROCEDURE thisObj*(): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L105)
+`  PROCEDURE ThisModule(name, orgname: ORS.Ident; decl: BOOLEAN; key: LONGINT): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L165)
 
+---
+**Read** reads an adjusted byte in from the symbol file.
 
-`  PROCEDURE thisimport*(mod: Object): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L115)
+`  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L192)
 
+---
+**InType** reads a type in from the symbol file of an imported module.
 
-`  PROCEDURE thisfield*(rec: Type): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L129)
+`  PROCEDURE InType(VAR R: Files.Rider; thismod: Object; VAR T: Type);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L202)
 
+---
+**Import** reads in the symbol file for an imported module so that its exported constants, types, variables, and procedures may be referenced. 
 
-`  PROCEDURE FindFld*(id: ORS.Ident; rec: Type): Object;  (*search id in fields of rec proper, but not its base types*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L136)
+`  PROCEDURE Import*(VAR modid, modid1: ORS.Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L259)
 
+## ---------- Export
+---
+**Write** delivers a byte from the integer to the symbol file.
 
-`  PROCEDURE NofMethods*(rec: Type): INTEGER;  (*number of methods bound to rec and its base types*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L145)
+`  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L305)
 
+---
+**OutType** writes a type to the symbol file
 
-`  PROCEDURE NewMethod*(rec: Type; VAR mth, redef: Object; id: ORS.Ident);  (*insert new method with name id*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L155)
-
-
-`    PROCEDURE UpdateLinks(rec: Type; new, bot: Object);  (*between field lists of extensions*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L158)
-
-
-`  PROCEDURE OpenScope*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L192)
-
-
-`  PROCEDURE CloseScope*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L197)
-
-## Importing module symbol files
-
-`  PROCEDURE MakeFileName*(VAR FName: ORS.Ident; name, ext: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L208)
-
-
-`  PROCEDURE ThisModule(name, orgname: ORS.Ident; decl: BOOLEAN; key: LONGINT): Object;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L216)
+`  PROCEDURE OutType(VAR R: Files.Rider; t: Type);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L313)
 
 
-`  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L238)
+`    PROCEDURE OutPar(VAR R: Files.Rider; par: Object; n: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L316)
 
 
-`  PROCEDURE InType(VAR R: Files.Rider; thismod: Object; VAR T: Type);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L244)
+`    PROCEDURE FindHiddenPointers(VAR R: Files.Rider; typ: Type; offset: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L327)
 
+---
+**Export** writes out the symbol file for a module.
 
-`  PROCEDURE Import*(VAR modid, modid1: ORS.Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L306)
+`  PROCEDURE Export*(VAR modid: ORS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L375)
 
-## Exporting the module symbol file
+---
+**Clear** prepares the top scope of the program.
 
-`  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L343)
+`  PROCEDURE Clear*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L428)
 
+## ---------- Initialization
+---
+**type** allocates a pre-defined type object
 
-`  PROCEDURE OutType(VAR R: Files.Rider; t: Type);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L347)
+`  PROCEDURE type(ref, form: INTEGER; size: LONGINT): Type;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L440)
 
+---
+**Enter** introduces a pre-defined type, function, or procedure.
 
-`    PROCEDURE OutPar(VAR R: Files.Rider; par: Object; n: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L350)
+`  PROCEDURE enter(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L450)
 
+---
+**Init** registers base Oberon types and populates the the object table with predeclared types,functions and procedures.
 
-`    PROCEDURE FindHiddenFields(VAR R: Files.Rider; typ: Type; off: LONGINT);  (*pointers or procedures*)` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L361)
-
-
-`  PROCEDURE Export*(VAR modid: ORS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L415)
-
-## Initialization
-
-`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L461)
-
-
-`  PROCEDURE type(ref, form: INTEGER; size: LONGINT): Type;` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L465)
-
-
-`  PROCEDURE enter(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L471)
+`  PROCEDURE Init*(wordsize: INTEGER); ` [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod#L461)
 

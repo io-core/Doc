@@ -2,7 +2,7 @@
 This package manages the text and font handling in Oberon.
 
 
-## Package Overview:
+### _Package Overview:_
 The Edit package provides:
 
 * The 'text' abstraction for manipulating textual content
@@ -10,20 +10,20 @@ The Edit package provides:
 * The Edit tool for interacting with documents
 * The font mechanism in Oberon
 
-## Package Use:
+### _Package Use:_
 
 USAGE:
 ```
 Edit.Open example.txt
 ```
 
-## Modules in this package:
+### _Modules in this package:_
 
 #### [MODULE Edit](https://github.com/io-core/doc/blob/main/core/Edit/Edit.md) [(source)](https://github.com/io-core/Edit/blob/main/Edit.Mod)
 Module Edit provides document editing capability.
 
 
-  **imports:** ` Files Fonts Texts Input Display Viewers Oberon MenuViewers TextFrames`
+  **imports:** ` Files Fonts Texts Display Viewers Oberon MenuViewers TextFrames`
 
 **Procedures:**
 ```
@@ -48,15 +48,32 @@ Module Edit provides document editing capability.
 ```
 
 
+#### [MODULE Fonts](https://github.com/io-core/doc/blob/main/core/Edit/Fonts.md) [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
+Module Fonts provides the glyphs used by the Text system and the Graphics system to represent characters.
+
+
+  **imports:** ` SYSTEM Files`
+
+**Procedures:**
+```
+  GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER)
+
+  This*(name: ARRAY OF CHAR): Font
+
+  Free*  (*remove all but first two from font list*)
+
+```
+
+
 #### [MODULE TextFrames](https://github.com/io-core/doc/blob/main/core/Edit/TextFrames.md) [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
 Module TextFrames defines the messages and default handlers for text operations in panes in the Oberon user interface.
 
 
-  **imports:** ` Input Display Viewers Fonts Texts Oberon`
+  **imports:** ` Modules Input Display Viewers Fonts Texts Oberon MenuViewers`
 
 **Procedures:**
 ```
-  Mark* (F: Frame; on: BOOLEAN)  (*in scroll bar*)
+  Mark* (F: Frame; on: BOOLEAN)
 
   Restore* (F: Frame)
 
@@ -66,9 +83,7 @@ Module TextFrames defines the messages and default handlers for text operations 
 
   Reduce* (F: Frame; newY: INTEGER)
 
-  Scroll* (F: Frame; dY: INTEGER)  (*scroll displayed text dY pixels up or down*)
-
-  Show* (F: Frame; pos: LONGINT)  (*scroll specified text position to the top*)
+  Show* (F: Frame; pos: LONGINT)
 
   Pos* (F: Frame; X, Y: INTEGER): LONGINT
 
@@ -106,7 +121,7 @@ Module TextFrames defines the messages and default handlers for text operations 
 
   Neutralize* (F: Frame)
 
-  Modify* (F: Frame; id, Y, H: INTEGER)
+  Modify* (F: Frame; id, dY, Y, H: INTEGER)
 
   Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT
 
@@ -133,7 +148,7 @@ Module TextFrames defines the messages and default handlers for text operations 
 Module Texts defines the 'text' abstract data type used pervasively in the Oberon system.
 
 
-  **imports:** ` Files Input Fonts`
+  **imports:** ` Files Fonts`
 
 **Procedures:**
 ```
@@ -194,24 +209,5 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
   WriteRealFix* (VAR W: Writer; x: REAL; n, k: INTEGER)
 
   WriteClock* (VAR W: Writer; d: LONGINT)
-
-```
-
-
-#### [MODULE Fonts](https://github.com/io-core/doc/blob/main/core/Edit/Fonts.md) [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
-Module Fonts provides the glyphs used by the Text system and the Graphics system to represent characters.
-
-
-  **imports:** ` Files`
-
-**Procedures:**
-```
-  GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER)
-
-  Load*(name: ARRAY OF CHAR): Font
-
-  This*(name: ARRAY OF CHAR): Font  (*for backward compatibility*)
-
-  Free*  (*remove all but first two from font list*)
 
 ```

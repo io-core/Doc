@@ -2,28 +2,33 @@
 This package handles persistent storage and the file and directory interface of Oberon.
 
 
-## Overview
+### _Package Overview:_
 The Files package provides:
 
 * Directory operations
 * File i/o
 
-## Examples
+### _Package Use:_
 
 USAGE:
 ```
 F := Files.New("newfile.txt")
 ```
 
-## Modules
+### _Modules in this package:_
 
 #### [MODULE FileDir](https://github.com/io-core/doc/blob/main/core/Files/FileDir.md) [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod)
-Module FileDir manages the on-disk representation if directories.
+Module FileDir implements the following operations on the binary tree of directory pages stored on disk:
+* inserting directory entries
+* deleting directory entries
+* searching for directory entries
+* enumerating directory entries
+* initializing the Kernel sector table bitmap
 
-Regular programs do not use FileDir but instead use the api presented by Files which uses FileDir on their behalf.
+FileDir is not intended for use by regular programs. The FileDir interface is used by the Files module which regular programs may access.
 
 
-  **imports:** ` Disk`
+  **imports:** ` SYSTEM Kernel`
 
 **Procedures:**
 ```
@@ -35,18 +40,20 @@ Regular programs do not use FileDir but instead use the api presented by Files w
 
   Enumerate*(prefix: ARRAY OF CHAR; proc: EntryHandler)
 
-  Attributes*(fad: INTEGER; VAR length, date: INTEGER)
-
   Init*
 
 ```
 
 
 #### [MODULE Files](https://github.com/io-core/doc/blob/main/core/Files/Files.md) [(source)](https://github.com/io-core/Files/blob/main/Files.Mod)
-Module Files manages the on-disk representation of files and the file api presented to Oberon programs.
+Module Files manages the on-disk representation of files and presents the following APIs:
+* File Directory API: Old, New, Register, Close, Purge, Delete, Rename, Date, Length
+* File Read API: Set, Pos, Base, ReadByte, ReadBytes, Read, ReadInt, ReadSet, ReadReal, ReadString, ReadNum
+* File Write API: WriteByte, WriteBytes, Write, WriteInt, WriteReal, WriteString, WriteNum
+* System use: Init, RestoreList
 
 
-  **imports:** ` SYSTEM Kernel Disk FileDir`
+  **imports:** ` SYSTEM Kernel FileDir`
 
 **Procedures:**
 ```

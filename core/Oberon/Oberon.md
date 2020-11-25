@@ -1,29 +1,42 @@
 
 ## [MODULE Oberon](https://github.com/io-core/Oberon/blob/main/Oberon.Mod)
 
+(JG 6.9.90 / 23.9.93 / 13.8.94 / NW 14.4.2013 / 22.12.2015)
+
+The Oberon module coordiates the display area as a user-manipulatable workspace with tracks and panes.
+
+The Oberon module transforms keystrokes and mouse movements and button presses into user interface messages 
+delivered message handlers that are installed as the user initiates interactive content such as `Edit.Open` or
+`System.Directory`.
+
+The Oberon module provides the extensible UI functionality but the initial arrangement of content on system startup that the
+user may interact with is provided by the System module.
+
+
   ## Imports:
 ` SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts`
 
 ## Constants:
 ```
- (*message ids*)
-    consume* = 0; track* = 1; defocus* = 0; neutralize* = 1; mark* = 2;
+ 
+    consume* = 0; track* = 1; defocus* = 0; neutralize* = 1; mark* = 2; (*message ids*)
     off = 0; idle = 1; active = 2;   (*task states*)
     BasicCycle = 20;
-    TAB = Input.TAB; CR = Input.CR; ESC = Input.ESC; SETSTAR = 1AX;
+    ESC = 1BX; SETSTAR = 1AX;
 
 ```
 ## Types:
 ```
- Painter* = PROCEDURE (x, y: INTEGER);
+
+    Painter* = PROCEDURE (x, y: INTEGER);
     Marker* = RECORD Fade*, Draw*: Painter END;
     
     Cursor* = RECORD
-       marker*: Marker; on*: BOOLEAN; X*, Y*: INTEGER
+        marker*: Marker; on*: BOOLEAN; X*, Y*: INTEGER
     END;
 
     InputMsg* = RECORD (Display.FrameMsg)
-      id*: INTEGER;                      (*consume, track*)
+      id*: INTEGER;
       keys*: SET;
       X*, Y*: INTEGER;
       ch*: CHAR;
@@ -38,12 +51,12 @@
     END;
 
     ControlMsg* = RECORD (Display.FrameMsg)
-      id*, X*, Y*: INTEGER               (*defocus, neutralize, mark*)
+      id*, X*, Y*: INTEGER
     END;
 
     CopyMsg* = RECORD (Display.FrameMsg)
-        F*: Display.Frame
-      END;
+      F*: Display.Frame
+    END;
 
     Task* = POINTER TO TaskDesc;
 
@@ -58,185 +71,228 @@
 ```
 ## Variables:
 ```
- User*: ARRAY 8 OF CHAR; Password*: LONGINT;
-    Arrow*, Star*: Marker; (*predefined markers representing an arrow pointing to the NW and a star symbol*)
-    Mouse, Pointer: Cursor; (*predefined cursors representing a mouse and a global system pointer*)
+ 
+    User*: ARRAY 8 OF CHAR; Password*: LONGINT;
+    Arrow*, Star*: Marker;
+    Mouse, Pointer: Cursor;
+    FocusViewer*: Viewers.Viewer;
     Log*: Texts.Text;
 
 ```
 ## Procedures:
 ---
+## ---------- User Identification
+---
+**Code** Encodes a password provided by the user.
 
-`  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L83)
+`  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L117)
 
+---
+**SetUser** sets the current user of the system. 
 
-`  PROCEDURE SetUser* (VAR user, password: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L95)
+`  PROCEDURE SetUser* (VAR user, password: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L133)
 
+---
+**Clock** returns the current time.
 
-`  PROCEDURE Clock*(): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L99)
+`  PROCEDURE Clock*(): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L141)
 
+---
+**SetClock** sets the system time.
 
-`  PROCEDURE SetClock* (d: LONGINT);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L103)
+`  PROCEDURE SetClock* (d: LONGINT);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L149)
 
+---
+**Time** returns the current system timestamp.
 
-`  PROCEDURE Time*(): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L107)
+`  PROCEDURE Time*(): LONGINT;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L157)
 
+---
+**FlipArrow** displays or removes the arrow at the x,y location on the screen.
 
-`  PROCEDURE FlipArrow (X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L113)
+`  PROCEDURE FlipArrow (X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L167)
 
+---
+**FlipStar** displays or removes the star at the x,y location on the screen.
 
-`  PROCEDURE FlipStar (X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L124)
+`  PROCEDURE FlipStar (X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L182)
 
+---
+**OpenCursor** prepares a cursor initial state.
 
-`  PROCEDURE OpenCursor(VAR c: Cursor);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L135)
+`  PROCEDURE OpenCursor(VAR c: Cursor);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L197)
 
+---
+**FadeCursor** removes a cursor from the screen.
 
-`  PROCEDURE FadeCursor(VAR c: Cursor);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L139)
+`  PROCEDURE FadeCursor(VAR c: Cursor);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L205)
 
+---
+**DrawCursor** places a cursor on the screen at location x,y.
 
-`  PROCEDURE DrawCursor(VAR c: Cursor; m: Marker; x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L143)
+`  PROCEDURE DrawCursor(VAR c: Cursor; m: Marker; x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L213)
 
+---
+**DrawMouse** places the mouse cursor with marker m on the screen. 
 
-`  PROCEDURE DrawMouse*(m: Marker; x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L153)
+`  PROCEDURE DrawMouse*(m: Marker; x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L227)
 
+---
+**DrawMouseArrow** places the mouse arrow on the screen. 
 
-`  PROCEDURE DrawMouseArrow*(x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L157)
+`  PROCEDURE DrawMouseArrow*(x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L235)
 
+---
+**FadeMouse** removes the mouse cursor from the screen.
 
-`  PROCEDURE DrawMouseStar* (x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L161)
+`  PROCEDURE FadeMouse*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L243)
 
+---
+**DrawPointer** places the star marker on the screen.
 
-`  PROCEDURE FadeMouse*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L165)
+`  PROCEDURE DrawPointer*(x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L251)
 
+## ---------- Display Management
+---
+**RemoveMarks** remove the mouse cursor and the star marker from the screen.
 
-`  PROCEDURE MouseOn*(): BOOLEAN;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L169)
+`  PROCEDURE RemoveMarks* (X, Y, W, H: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L264)
 
+---
+**HandleFiller** fill the blank area of the display not delegated to other display frames.
 
-`  PROCEDURE DrawPointer*(m: Marker; x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L173)
+`  PROCEDURE HandleFiller (V: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L278)
 
+---
+**OpenDisplay** Set the initial values for the display.
 
-`  PROCEDURE DrawPointerArrow*(x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L177)
+`  PROCEDURE OpenDisplay* (UW, SW, H: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L298)
 
+---
+**DisplayWidth** export the width of the display. 
 
-`  PROCEDURE DrawPointerStar*(x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L181)
+`  PROCEDURE DisplayWidth* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L313)
 
+---
+**DisplayHeight** export the height of the display.
 
-`  PROCEDURE FadePointer*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L185)
+`  PROCEDURE DisplayHeight* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L321)
 
+---
+**OpenTrack** prepare a vertical slice of the display for holding viewers.
 
-`  PROCEDURE PointerOn*(): BOOLEAN;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L189)
+`  PROCEDURE OpenTrack* (X, W: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L329)
 
+---
+**UserTrack** returns the width of the user (left) track.
 
-`  PROCEDURE RemoveMarks* (X, Y, W, H: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L193)
+`  PROCEDURE UserTrack* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L340)
 
+---
+**SystemTrack** returns the width of the system (right) track.
 
-`  PROCEDURE SetFont* (fnt: Fonts.Font);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L205)
+`  PROCEDURE SystemTrack* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L348)
 
+---
+**UY** locate a vertical position for a new user viewer.
 
-`  PROCEDURE SetColor* (col: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L209)
+`  PROCEDURE UY (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L356)
 
+---
+**AllocateUserViewer** allocate a new viewer on the user (left) track.
 
-`  PROCEDURE SetOffset* (voff: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L213)
+`  PROCEDURE AllocateUserViewer* (DX: INTEGER; VAR X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L369)
 
+---
+**SY** locate a vertical position for a new system viewer.
 
-`  PROCEDURE OpenLog* (T: Texts.Text);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L219)
+`  PROCEDURE SY (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L380)
 
+---
+**AllocateSystemViewer** allocate a new viewer on the system (right) track.
 
-`  PROCEDURE GetSelection* (VAR text: Texts.Text; VAR beg, end, time: LONGINT); (*from current display*)` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L223)
+`  PROCEDURE AllocateSystemViewer* (DX: INTEGER; VAR X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L401)
 
+---
+**MarkedViewer** returns the viewer with the mark.
 
-`  PROCEDURE HandleFiller (V: Display.Frame; VAR M: Display.FrameMsg);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L231)
+`  PROCEDURE MarkedViewer* (): Viewers.Viewer;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L412)
 
+---
+**PassFocus** moves which viewer has the focus to the viewer `V`.
 
-`  PROCEDURE InitTrack* (D: Viewers.DisplayArea; W, H: INTEGER); (*add new track to the right*)` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L250)
+`  PROCEDURE PassFocus* (V: Viewers.Viewer);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L420)
 
+---
+**OpenLog** sets the Oberon log to the specified text.
 
-`  PROCEDURE OpenTrack* (D: Viewers.DisplayArea; X, W: INTEGER); (*create overlay track at X*)` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L255)
+`  PROCEDURE OpenLog*(T: Texts.Text);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L429)
 
+## ---------- Command Interpretation
+---
+**SetPar** sets the parameter for an anticpated command invocation to the indicated viewer, frame, text, and position.
 
-`  PROCEDURE InitDisplay* (D: Viewers.DisplayArea; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L260)
+`  PROCEDURE SetPar*(F: Display.Frame; T: Texts.Text; pos: LONGINT);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L443)
 
+---
+**Call** looks up and calls a command matching the `name` parameter.
 
-`  PROCEDURE SetDisplay* (D: Viewers.DisplayArea);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L266)
+`  PROCEDURE Call* (name: ARRAY OF CHAR; VAR res: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L451)
 
+---
+**GetSelection** produces the user's selected text in VAR parameters.
 
-`  PROCEDURE CloseDisplay* (D: Viewers.DisplayArea; hint: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L270)
+`  PROCEDURE GetSelection* (VAR text: Texts.Text; VAR beg, end, time: LONGINT);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L475)
 
+---
+**GC** initiates garbage collection.
 
-`  PROCEDURE DisplayWidth* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L276)
+`  PROCEDURE GC;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L486)
 
+---
+**NewTask** prepares a task entry that calls a handler in the background.
 
-`  PROCEDURE DisplayHeight* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L280)
+`  PROCEDURE NewTask*(h: Handler; period: INTEGER): Task;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L506)
 
+---
+**Install** places the task entry in the list of tasks to process in the background.
 
-`  PROCEDURE MarkedViewer* (): Viewers.Viewer;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L284)
+`  PROCEDURE Install* (T: Task);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L515)
 
+---
+**Remove** takes the task entry out of the list of tasks to process in the background.
 
-`  PROCEDURE PassFocus* (V: Viewers.Viewer);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L288)
+`  PROCEDURE Remove* (T: Task);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L526)
 
+---
+**Collect** ?? 
 
-`  PROCEDURE FocusViewer(): Viewers.Viewer;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L297)
+`  PROCEDURE Collect* (count: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L539)
 
+---
+**SetFont** changes the current font to be used when adding text.
 
-`  PROCEDURE UserTrack* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L303)
+`  PROCEDURE SetFont* (fnt: Fonts.Font);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L547)
 
+---
+**SetColor** changes the current color to be used when adding text.
 
-`  PROCEDURE SystemTrack* (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L307)
+`  PROCEDURE SetColor* (col: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L555)
 
+---
+**SetOffset**  ??
 
-`  PROCEDURE UY (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L311)
+`  PROCEDURE SetOffset* (voff: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L563)
 
+---
+**Loop** is the central dispatch of input event messages in the Oberon UI and the background task dispatcher.
 
-`  PROCEDURE AllocateUserViewer* (DX: INTEGER; VAR X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L319)
+`  PROCEDURE Loop*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L571)
 
+---
+**Reset** resets the background tasks and the stack pointer. 
 
-`  PROCEDURE SY (X: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L326)
+`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L608)
 
-
-`  PROCEDURE AllocateSystemViewer* (DX: INTEGER; VAR X, Y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L340)
-
-
-`  PROCEDURE SetPar*(F: Display.Frame; T: Texts.Text; pos: LONGINT; res: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L349)
-
-
-`  PROCEDURE ClearPar*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L353)
-
-
-`  PROCEDURE Return*(n: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L357)
-
-
-`  PROCEDURE Skip(VAR S: Texts.Scanner; VAR len: INTEGER);  (*count and skip white spaces*)` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L361)
-
-
-`  PROCEDURE Scan(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L371)
-
-
-`  PROCEDURE Call*(F: Display.Frame; T: Texts.Text; pos: LONGINT; new: BOOLEAN);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L383)
-
-
-`  PROCEDURE Run*(F: Display.Frame; T: Texts.Text; pos: LONGINT);  (*execute multiple commands separated by ~*)` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L405)
-
-
-`  PROCEDURE Batch*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L420)
-
-
-`  PROCEDURE GC;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L426)
-
-
-`  PROCEDURE NewTask*(h: Handler; period: INTEGER): Task;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L443)
-
-
-`  PROCEDURE Install* (T: Task);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L448)
-
-
-`  PROCEDURE Remove* (T: Task);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L455)
-
-
-`  PROCEDURE Collect* (count: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L464)
-
-
-`  PROCEDURE Loop*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L468)
-
-
-`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L501)
-
+---
+**The initialzation code for this module** prepares the arrow, star, cursor behavior procedures, opens the display, sets GC as a background task, loads the System module then enters the UI loop.

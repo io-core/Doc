@@ -2,29 +2,29 @@
 ## [MODULE Fonts](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
 
   ## Imports:
-` Files`
+` SYSTEM Files`
 
 ## Constants:
 ```
- FontFileId = 0DBH; A = 512;
+ FontFileId = 0DBH;
 
 ```
 ## Types:
 ```
- Raster = POINTER TO RasterDesc;
-    RasterDesc = ARRAY OF BYTE;
-
-    Font* = POINTER TO FontDesc;
+ Font* = POINTER TO FontDesc;
     FontDesc* = RECORD
       name*: ARRAY 32 OF CHAR;
-      height*, minX*, maxX*, minY*, maxY*, base: INTEGER;
+      height*, minX*, maxX*, minY*, maxY*: INTEGER;
       next*: Font;
-      raster: Raster
+      T: ARRAY 128 OF INTEGER;
+      raster: ARRAY 2360 OF BYTE
     END ;
 
+    LargeFontDesc = RECORD (FontDesc) ext: ARRAY 2560 OF BYTE END ;
+    LargeFont = POINTER TO LargeFontDesc;
     RunRec = RECORD beg, end: BYTE END ;
     BoxRec = RECORD dx, x, y, w, h: BYTE END ;
-
+    
   (* raster sizes: Syntax8 1367, Syntax10 1628, Syntax12 1688, Syntax14 1843, Syntax14b 1983,
       Syntax16 2271, Syntax20 3034, Syntac24 4274, Syntax24b 4302  *)
 
@@ -37,23 +37,14 @@
 ## Procedures:
 ---
 
-`  PROCEDURE Put(r: Raster; i, x: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L28)
+`PROCEDURE GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L29)
 
 
-`  PROCEDURE Get(r: Raster; i: INTEGER; VAR x: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L35)
+`PROCEDURE This*(name: ARRAY OF CHAR): Font;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L37)
 
 
-`  PROCEDURE GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L39)
+`  PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L49)
 
 
-`  PROCEDURE Load*(name: ARRAY OF CHAR): Font;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L46)
-
-
-`    PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L54)
-
-
-`  PROCEDURE This*(name: ARRAY OF CHAR): Font;  (*for backward compatibility*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L111)
-
-
-`  PROCEDURE Free*;  (*remove all but first two from font list*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L115)
+`PROCEDURE Free*;  (*remove all but first two from font list*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L108)
 

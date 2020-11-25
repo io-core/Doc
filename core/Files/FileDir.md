@@ -2,11 +2,12 @@
 ## [MODULE FileDir](https://github.com/io-core/Files/blob/main/FileDir.Mod)
 
   ## Imports:
-` Disk`
+` SYSTEM Kernel`
 
 ## Constants:
 ```
- FnLength*    = 32;
+ 
+        FnLength*    = 32;
         SecTabSize*   = 64;
         ExTabSize*   = 12;
         SectorSize*   = 1024;
@@ -22,7 +23,8 @@
 ```
 ## Types:
 ```
- DiskAdr      = INTEGER;
+ 
+    DiskAdr         = INTEGER;
     FileName*       = ARRAY FnLength OF CHAR;
     SectorTable*    = ARRAY SecTabSize OF DiskAdr;
     ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
@@ -57,70 +59,71 @@
         e*:  ARRAY DirPgSize OF DirEntry
       END ;
 
-  (*Exported procedures: Search, Insert, Delete, Enumerate, Init*)
-
-  PROCEDURE Search*(name: FileName; VAR A: DiskAdr);
 ```
 ## Variables:
 ```
- i, L, R: INTEGER; dadr: DiskAdr;
-      a: DirPage;
-  BEGIN dadr := DirRootAdr; A := 0;
-    REPEAT Disk.GetSector(dadr, a); ASSERT(a.mark = DirMark);
-      L := 0; R := a.m; (*binary search*)
-      WHILE L < R DO
-        i := (L+R) DIV 2;
-        IF name <= a.e[i].name THEN R := i ELSE L := i+1 END
-      END ;
-      IF (R < a.m) & (name = a.e[R].name) THEN A := a.e[R].adr (*found*)
-      ELSIF R = 0 THEN dadr := a.p0
-      ELSE dadr := a.e[R-1].p
-      END ;
-    UNTIL (dadr = 0) OR (A # 0)
-  END Search;
+
 
 ```
 ## Procedures:
 ---
+## ---------- API: Search, Insert, Delete, Enumerate, Init
+---
+**Search** finds the DiskAdr for a given FileName.
 
-`  PROCEDURE Search*(name: FileName; VAR A: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L80)
+`  PROCEDURE Search*(name: FileName; VAR A: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L95)
+
+---
+**insert** is the recursive procedure for finding a DirEntry to place a FileName in.
+
+`  PROCEDURE insert(name: FileName;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L116)
+
+---
+**Insert** starts the process of finding a DirEntry to place a FileName in.
+
+`  PROCEDURE Insert*(name: FileName; fad: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L180)
+
+---
+**underflow** handles the case of DirPage underflow on DirEntry deletion.
+
+`  PROCEDURE underflow(VAR c: DirPage;  (*ancestor page*)` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L199)
+
+---
+**delete** is the recursive function that searches for and removes a DirEntry.
+
+`  PROCEDURE delete(name: FileName;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L252)
+
+---
+**del** is the interior procedure that re-writes a DirPage to remove a DirEntry.
+
+`    PROCEDURE del(VAR a: DirPage; R: INTEGER; dpg1: DiskAdr; VAR h: BOOLEAN);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L267)
+
+---
+**Delete** starts the process of removing a DirEntry with a given FileName.
+
+`  PROCEDURE Delete*(name: FileName; VAR fad: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L306)
+
+---
+**enumerate** is the recursive function that iteratively calls a passed-in procedure on DirEntries with names that match a prefix.
+
+`  PROCEDURE enumerate(prefix:   ARRAY OF CHAR;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L324)
+
+---
+**Enumerate** starts the process of listing directory entries matching a prefix.
+
+`  PROCEDURE Enumerate*(prefix: ARRAY OF CHAR; proc: EntryHandler);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L354)
+
+---
+**Init** preapres Oberon to use the disk by marking used sectors in the Kernel sector map.
+
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L365)
 
 
-`  PROCEDURE insert(name: FileName;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L97)
+`    PROCEDURE MarkSectors(VAR A: ARRAY OF DiskAdr; k: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L369)
 
 
-`  PROCEDURE Insert*(name: FileName; fad: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L157)
+`      PROCEDURE sift(VAR A: ARRAY OF DiskAdr; L, R: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L374)
 
 
-`  PROCEDURE underflow(VAR c: DirPage;  (*ancestor page*)` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L171)
-
-
-`  PROCEDURE delete(name: FileName;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L220)
-
-
-`    PROCEDURE del(VAR a: DirPage; R: INTEGER; dpg1: DiskAdr; VAR h: BOOLEAN);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L231)
-
-
-`  PROCEDURE Delete*(name: FileName; VAR fad: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L266)
-
-
-`  PROCEDURE enumerate(prefix:   ARRAY OF CHAR;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L280)
-
-
-`  PROCEDURE Enumerate*(prefix: ARRAY OF CHAR; proc: EntryHandler);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L306)
-
-
-`  PROCEDURE Attributes*(fad: INTEGER; VAR length, date: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L311)
-
-
-`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L318)
-
-
-`    PROCEDURE MarkSectors(VAR A: ARRAY OF DiskAdr; k: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L322)
-
-
-`      PROCEDURE sift(VAR A: ARRAY OF DiskAdr; L, R: INTEGER);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L327)
-
-
-`    PROCEDURE TraverseDir(VAR A: ARRAY OF DiskAdr; VAR k: INTEGER; dpg: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L361)
+`    PROCEDURE TraverseDir(VAR A: ARRAY OF DiskAdr; VAR k: INTEGER; dpg: DiskAdr);` [(source)](https://github.com/io-core/Files/blob/main/FileDir.Mod#L408)
 

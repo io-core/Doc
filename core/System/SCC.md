@@ -10,7 +10,8 @@
     swi = -60; spiData = -48; spiCtrl = -44;
     netSelect = 1; spiFast = 2; netEnable = 3;
     HdrSize = 8; MaxPayload = 512; SubPacket = 32; Wait = 50; SendTries = 50;
-    MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket * SubPacket;
+    MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket *
+SubPacket;
 
 ```
 ## Types:
@@ -35,53 +36,53 @@
 ## Procedures:
 ---
 
-`  PROCEDURE SPICtrl(s: SET);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L27)
+`  PROCEDURE SPICtrl(s: SET);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L28)
 
 
-`  PROCEDURE SPI(n: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L32)
+`  PROCEDURE SPI(n: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L33)
 
 
-`  PROCEDURE StartCmd(cmd: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L37)
+`  PROCEDURE StartCmd(cmd: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L38)
 
 
-`  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L41)
+`  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L42)
 
 
-`  PROCEDURE SubRcv(dst: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L45)
+`  PROCEDURE SubRcv(dst: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L46)
 
 
-`  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L57)
+`  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L58)
 
 
-`  PROCEDURE Flush();` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L86)
+`  PROCEDURE Flush();` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L87)
 
 
-`  PROCEDURE ResetRcv;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L90)
+`  PROCEDURE ResetRcv;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L92)
 
 
-`  PROCEDURE Listen(b: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L94)
+`  PROCEDURE Listen(b: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L96)
 
 
-`  PROCEDURE Start*(filt: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L101)
+`  PROCEDURE Start*(filt: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L103)
 
 
-`  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L111)
+`  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF BYTE);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L113)
 
 
-`  PROCEDURE Available*(): INTEGER;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L133)
+`  PROCEDURE Available*(): INTEGER;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L136)
 
 
-`  PROCEDURE Receive*(VAR x: BYTE);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L138)
+`  PROCEDURE Receive*(VAR x: BYTE);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L141)
 
 
-`  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L143)
+`  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L146)
 
 
-`  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L154)
+`  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L157)
 
 
-`  PROCEDURE Skip*(m: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L172)
+`  PROCEDURE Skip*(m: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L175)
 
 
-`  PROCEDURE Stop*;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L177)
+`  PROCEDURE Stop*;` [(source)](https://github.com/io-core/System/blob/main/SCC.Mod#L180)
 

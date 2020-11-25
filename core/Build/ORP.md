@@ -1,9 +1,9 @@
 
 ## [MODULE ORP](https://github.com/io-core/Build/blob/main/ORP.Mod)
 
-(N. Wirth 1.7.97 / 8.3.2020  Oberon compiler for RISC in Oberon-07 / AP 6.8.20 Extended Oberon / CP 10.20 Integrated Oberon)
+(N. Wirth 1.7.97 / 8.3.2020  Oberon compiler for RISC in Oberon-07)
 
-**ORP** implements a one-pass recursive descent parser for the language Oberon-2i.
+**ORP** implements a one-pass recursive descent parser for the language Oberon.
 
 The structure of the parser is derived from the structure of the language, with constituent parts of the language 
 (e.g. Module, Procedure, Type, Expression, Term, Parameter) represented by a procedure of that name, invoked from the 
@@ -13,24 +13,20 @@ symbol table and execution context and also generating machine code faithfully r
 This module (ORP) relies on module ORG for code generation, ORB for the symbol table, execution context tracking and reserved words, and ORS
 for lexical parsing and built-in type identification.
 
-Oberon-2i is an extension of Oberon-2, adding interfaces (a.k.a dynamic traits) to the language. Oberon-2 is an extension of Oberon, adding type-bound
-procedures and open arrays to the language. Oberon is both an extension and a refinement of Modula-2, which added seperate compilation
-among other features to Pascal, which was developed as a reaction to and refinement of Algol-68.
-
 
   ## Imports:
 ` Texts Oberon ORS ORB ORG`
 
 ## Constants:
 ```
- NofCases = 256; C20 = 100000H;
+
 
 ```
 ## Types:
 ```
  
     PtrBase = POINTER TO PtrBaseDesc;
-    PtrBaseDesc = RECORD             (*list of names of pointer base types*)
+    PtrBaseDesc = RECORD  (*list of names of pointer base types*)
       name: ORS.Ident; type: ORB.Type; next: PtrBase
     END ;
   
@@ -38,159 +34,139 @@ among other features to Pascal, which was developed as a reaction to and refinem
 ## Variables:
 ```
  
-    sym: INTEGER;                    (*last symbol read*)
-    dc: LONGINT;                     (*data counter*)
+    sym: INTEGER;   (*last symbol read*)
+    dc: LONGINT;    (*data counter*)
     level, exno, version: INTEGER;
-    newSF: BOOLEAN;                  (*option flag*)
-    expression: PROCEDURE (VAR x: ORG.Item);  
-    Type: PROCEDURE (VAR type: ORB.Type; expo: BOOLEAN);
+    newSF: BOOLEAN;  (*option flag*)
+    expression: PROCEDURE (VAR x: ORG.Item);  (*to avoid forward reference*)
+    Type: PROCEDURE (VAR type: ORB.Type);
     FormalType: PROCEDURE (VAR typ: ORB.Type; dim: INTEGER);
     modid: ORS.Ident;
-    pbsList: PtrBase;                (*list of names of pointer base types*)
+    pbsList: PtrBase;   (*list of names of pointer base types*)
     dummy: ORB.Object;
     W: Texts.Writer;
 
 ```
 ## Procedures:
 ---
-## Checking Symbols and Types
+## ---------- Tests
 ---
-**Check** consumes the current token if it matches the expected symbol, otherwise an error is marked.
+**Check** marks an error if the current symbol does not match the expeted symbol.
 
-`  PROCEDURE Check(s: INTEGER; msg: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L107)
+`  PROCEDURE Check(s: INTEGER; msg: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L103)
 
 ---
 **Qualident** generates a reference to a previously defined item if possible otherwise an error is marked.
 
-`  PROCEDURE qualident(VAR obj: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L116)
+`  PROCEDURE qualident(VAR obj: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L112)
 
 ---
 **CheckBool** marks an error if the item is not a boolean.
 
-`  PROCEDURE CheckBool(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L134)
+`  PROCEDURE CheckBool(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L128)
 
 ---
 **CheckInt** marks an error if the item is not an Int.
 
-`  PROCEDURE CheckInt(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L143)
+`  PROCEDURE CheckInt(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L137)
 
 ---
 **CheckReal** marks an error if the item is not a Real.
 
-`  PROCEDURE CheckReal(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L152)
+`  PROCEDURE CheckReal(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L146)
 
 ---
 **CheckSet** marks an error if the item is not a Set.
 
-`  PROCEDURE CheckSet(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L161)
+`  PROCEDURE CheckSet(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L155)
 
 ---
 **CheckSetVal** marks an error if the item is not a Set Value.
 
-`  PROCEDURE CheckSetVal(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L170)
+`  PROCEDURE CheckSetVal(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L164)
 
 ---
 **CheckConst** marks an error if the value is not a Constant.
 
-`  PROCEDURE CheckConst(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L182)
+`  PROCEDURE CheckConst(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L176)
 
 ---
 **CheckReadOnly** marks an error if the value is not read-only.
 
-`  PROCEDURE CheckReadOnly(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L191)
+`  PROCEDURE CheckReadOnly(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L185)
 
 ---
 **CheckExport** checks for an export symbol and marks an error if export not at top level.
 
-`  PROCEDURE CheckExport(VAR expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L200)
+`  PROCEDURE CheckExport(VAR expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L194)
 
 ---
 **IsExtension** determines if type t1 is an extension of t0.
 
-`  PROCEDURE IsExtension(t0, t1: ORB.Type): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L213)
+`  PROCEDURE IsExtension(t0, t1: ORB.Type): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L207)
 
+## ---------- Expressions
 ---
-**CheckReceiver** ensures that an object is compatible with its receiver or marks an error.
+**TypeTest** checks for assignment type compatibility.
 
-`  PROCEDURE CheckReceiver(proc: ORB.Object; deref: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L222)
-
----
-**DisallowedMethods** blocks methods from binding to rec and its base types.
-
-`  PROCEDURE DisallowMethods(rec: ORB.Type);  (*disallow binding methods to rec and its base types*)` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L231)
-
-## Expressions
----
-**TypeTest** marks an error if the form of x is incompatible with T. If compatible, x.type is set to T.
-
-`  PROCEDURE TypeTest(VAR x: ORG.Item; T: ORB.Type; guard: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L246)
+`  PROCEDURE TypeTest(VAR x: ORG.Item; T: ORB.Type; guard: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L222)
 
 ---
 **selector** generates the array item, procedure, or method dereference on an array or record.
 
-`  PROCEDURE selector(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L273)
+`  PROCEDURE selector(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L249)
 
 ---
 **EqualSignatures** verifies that a procedure may be assigned to a procedure variable.
 
-`  PROCEDURE EqualSignatures(t0, t1: ORB.Type): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L350)
+`  PROCEDURE EqualSignatures(t0, t1: ORB.Type): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L297)
 
 ---
 **CompTypes** verifies assigment compatibility by type.
 
-`  PROCEDURE CompTypes(t0, t1: ORB.Type; varpar: BOOLEAN): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L381)
+`  PROCEDURE CompTypes(t0, t1: ORB.Type; varpar: BOOLEAN): BOOLEAN;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L320)
 
 ---
 **Parameter** consumes a function call parameter and produces function call proloogue code for the parameter.
 
-`  PROCEDURE Parameter(par: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L396)
-
----
-**IParameter** consumes an Interface call parameter and produces Interface call prologue code for the parameter.
-
-`  PROCEDURE IParameter(par: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L428)
+`  PROCEDURE Parameter(par: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L335)
 
 ---
 **ParamList** consumes the function call parameters, resulting in a function call prologue.
 
-`  PROCEDURE ParamList(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L460)
-
----
-**IParamList** consumes the Interface call parameters, resulting in a Interface call prologue.
-
-`  PROCEDURE IParamList(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L486)
+`  PROCEDURE ParamList(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L367)
 
 ---
 **StandFunc** consumes standard language functions and produces inline code for those functions.
 
 Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `SBC` `UML` `BIT` `REG` `VAL` `ADR` `SIZE` `COND` `H`
 
-`  PROCEDURE StandFunc(VAR x: ORG.Item; fct: LONGINT; restyp: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L514)
+`  PROCEDURE StandFunc(VAR x: ORG.Item; fct: LONGINT; restyp: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L391)
 
 ---
 **element** produces a reference to an element in a set.
 
-`  PROCEDURE element(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L562)
+`  PROCEDURE element(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L439)
 
 ---
 **set** produces a set from elements.
 
-`  PROCEDURE set(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L575)
+`  PROCEDURE set(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L452)
 
 ---
 **factor** generates code that produces a value from identifiers, applications of functions and procedures, etc. for use in a calculation or assignment.
 
-`  PROCEDURE factor(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L593)
+`  PROCEDURE factor(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L472)
 
 ---
 **term** combines factors via multiplication and division, resulting in a value.
 
-`  PROCEDURE term(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L629)
+`  PROCEDURE term(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L508)
 
 ---
 **SimpleExpression** combines terms via addition, subtraction, boolean, and set operations, resulting in a value.
 
-`  PROCEDURE SimpleExpression(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L656)
+`  PROCEDURE SimpleExpression(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L535)
 
 ---
 **expression0** produces code handling arbitrary arithmetic and logical operations, resulting in a value.
@@ -198,125 +174,98 @@ Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `S
 expression0 is assigned to the procedure variable `expression` to allow the forward reference.
 
 
-`  PROCEDURE expression0(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L681)
+`  PROCEDURE expression0(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L560)
 
-## Statements
+## ---------- Statements
 ---
-**StandProc** prepares a standard procedure for later reference in code.
+**StandProc** sets the keyboard initial state and populates the scancode to ascii table.
 
-`  PROCEDURE StandProc(pno: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L733)
+`  PROCEDURE StandProc(pno: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L612)
 
 ---
 **StatSequence** matches a statement sequence.
 
-`  PROCEDURE StatSequence;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L784)
+`  PROCEDURE StatSequence;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L653)
 
 **TypeCase** (interior procedure)
 
-`    PROCEDURE TypeCase(obj: ORB.Object; VAR L0: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L792)
+`    PROCEDURE TypeCase(obj: ORB.Object; VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L662)
 
-**TypeCasePart** (interior procedure) matches part of a TypeCase construction.
+**SkipCase** (interior procedure)
 
-`    PROCEDURE TypeCasePart;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L809)
+`    PROCEDURE SkipCase;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L677)
 
-**CaseLabel** (interior procedure) generates matching a label in a case construction.
-
-`    PROCEDURE CaseLabel(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L822)
-
-**NumericCase** (interior procedure) generates matching a value in a case construction.
-
-`    PROCEDURE NumericCase(LabelForm: INTEGER; VAR n: INTEGER; VAR tab: ARRAY OF ORG.LabelRange);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L833)
-
-**CaseExpression** (interior procedure) Generates the expression portion of a case construction.
-
-`    PROCEDURE CaseExpression(VAR x: ORG.Item);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L863)
-
-**NumericCasePart** (interior procedure)
-
-`    PROCEDURE NumericCasePart;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L871)
-
-## Types and Declarations
+## ---------- Types and declarations
 ---
-**IdentList** matches a comma separated list of identifiers or marks an error.
+**IdentList** matches a comma separated list of identifiers.
 
-`  PROCEDURE IdentList(class: INTEGER; VAR first: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L995)
+`  PROCEDURE IdentList(class: INTEGER; VAR first: ORB.Object);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L800)
 
 ---
 **ArrayType** matches the definiton of an Array Type or marks an error.
 
-`  PROCEDURE ArrayType(VAR type: ORB.Type; expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1015)
+`  PROCEDURE ArrayType(VAR type: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L820)
 
 ---
 **RecordType** matches the definition of a Record Type or marks an error.
 
-`  PROCEDURE RecordType(VAR type: ORB.Type; expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1039)
+`  PROCEDURE RecordType(VAR type: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L840)
 
 ---
 **FPSection** matches the parameters to a function or marks an error.
 
-`  PROCEDURE FPSection(VAR adr: LONGINT; VAR nofpar: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1089)
+`  PROCEDURE FPSection(VAR adr: LONGINT; VAR nofpar: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L889)
 
 ---
 **ProcedureType** matches a Procedure Type definition or marks an error.
 
-`  PROCEDURE ProcedureType(ptype: ORB.Type; VAR parblksize: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1112)
+`  PROCEDURE ProcedureType(ptype: ORB.Type; VAR parblksize: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L912)
 
 ---
 **FormalType0** matches the definition of a type or marks an error.
 
-`  PROCEDURE FormalType0(VAR typ: ORB.Type; dim: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1140)
+`  PROCEDURE FormalType0(VAR typ: ORB.Type; dim: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L940)
 
 ---
 **CheckRecLevel** ensures that the ptr base is global.
 
-`  PROCEDURE CheckRecLevel(lev: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1163)
-
----
-**InterfaceType** matches the definition of an Interface or marks an error.
-
-`  PROCEDURE InterfaceType(VAR type: ORB.Type; expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1172)
+`  PROCEDURE CheckRecLevel(lev: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L963)
 
 ---
 **Type0** matches a type definition or marks an error.
 
-`  PROCEDURE Type0(VAR type: ORB.Type; expo: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1206)
+`  PROCEDURE Type0(VAR type: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L972)
 
 ---
 **Declarations** dispatches the definition of constants, types, and variables.
 
-`  PROCEDURE Declarations(VAR varsize: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1255)
-
----
-**Receiver** matches something...
-
-`  PROCEDURE Receiver(VAR class: INTEGER; VAR name: ORS.Ident; VAR typ, rec: ORB.Type);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1329)
+`  PROCEDURE Declarations(VAR varsize: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1018)
 
 ---
 **ProcedureDecl** matches the definition of a procedure or marks an error.
 
-`  PROCEDURE ProcedureDecl;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1355)
-
-**Body** (interior procedure) matches the body of the procedure or marks an error.
-
-`    PROCEDURE Body(proc: ORB.Object; parblksize: LONGINT; int: BOOLEAN);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1365)
+`  PROCEDURE ProcedureDecl;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1088)
 
 ---
-**ImportList** matches the names of modules imported by this module and ensures their compatibility or marks an error.
+**Import** consumes the names of modules imported by this module and ensures their compatibility or marks an error.
 
-`  PROCEDURE ImportList;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1435)
+`  PROCEDURE Import;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1140)
 
 ---
 **Module** begins the recursive descent parsing of the source text and emits an object code file on completion or marks an error.
 
-`  PROCEDURE Module;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1458)
+`  PROCEDURE Module;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1161)
+
+## ---------- Command Invocation
+---
+**Option** checks if a new symbol file may be generated.
+
+`  PROCEDURE Option(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1213)
 
 ---
-**Option** determines if the compilation will generate a new symbol file.
+**Compile** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
 
-`  PROCEDURE Option(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1502)
+`  PROCEDURE Compile*;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1225)
 
 ---
-**Compile** locates the source to compile, prepares the inital compiler state and calls Module to compile.
-
-`  PROCEDURE Compile*;` [(source)](https://github.com/io-core/Build/blob/main/ORP.Mod#L1514)
-
+**The initialzation code for this module** opens a writer to print marked errors and initializes the Oberon parser state.

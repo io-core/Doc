@@ -2,14 +2,19 @@
 This package prepares the user interface and manages viewers for the user.
 
 
+### _Package Overview:_
 The System package collects the expected set of modules and tools that allows the Oberon user to perform typical computing tasks.
 
+### _Package Use:_
+
+### _Modules in this package:_
 
 #### [MODULE System](https://github.com/io-core/doc/blob/main/core/System/System.md) [(source)](https://github.com/io-core/System/blob/main/System.Mod)
 Module System presents the Oberon user with tools and commands for interacting Displays and Tracks and Files and other miscelaneous features.
 
 
-  **imports:** ` SYSTEM Kernel Disk FileDir Files Modules
+  **imports:** ` SYSTEM Kernel FileDir Files Modules Input Display Viewers Fonts Texts Oberon MenuViewers TextFrames`
+
 **Procedures:**
 ```
   SetUser*
@@ -26,63 +31,19 @@ Module System presents the Oberon user with tools and commands for interacting D
 
   Open*  (*open viewer in system track*)
 
-  OpenLog*  (*open another viewer for Log*)
-
   Clear*  (*clear Log*)
 
-  Close*  (*viewer*)
+  Close*
 
   CloseTrack*
 
-  Flush*  (*clear the last closed viewer of the current display*)
+  Recall*
 
-  Recall*  (*recover the last closed viewer of the current display*)
+  Copy*
 
-  RecallFocus*  (*recover the focus viewer of the current display*)
+  Grow*
 
-  Copy*  (*create a copy of the viewer in the current display*)
-
-  Grow*  (*create a copy of the viewer in a newly created overlaying track*)
-
-  Expand*  (*expand the viewer vertically as much as possible*)
-
-  Spread*  (*redistribute viewers vertically*)
-
-  OpenDisplay*  (*display name is provided as parameter*)
-
-  Clone*  (*create a copy of the viewer in a newly created display*)
-
-  ExtendDisplay*  (*extend the current display to the right*)
-
-  CloseDisplay*  (*display id and (optionally) a hint for the display to switch to are provided as parameters*)
-
-  SetDisplay*  (*display id is provided as parameter*)
-
-  NextDisplay*  (*switch to display on the "right"*)
-
-  PrevDisplay*  (*switch to display on the "left"*)
-
-  SetDisplayName*  (*display id and name are provided as parameters*)
-
-  ThisDisplay*
-
-  ShowDisplays*
-
-  ShowReferences*  (*show references from all modules to any of the specified modules individually*)
-
-  ShowGroupReferences*  (*show references from all modules outside the group to the specified module group*)
-
-  ShowLoaded*  (*show the specified modules if they are loaded*)
-
-  ShowImports*  (*show the specified modules and all their direct and indirect imports*)
-
-  ShowClients*  (*show the specified modules and all their direct and indirect clients*)
-
-  Free*;  (*free the specified modules as a group if refs exist and the /f option is specified, hide the modules*)
-
-  FreeImports*  (*free the specified modules and all their direct and indirect imports as a group*)
-
-  FreeClients*  (*free the specified modules and all their direct and indirect clients as a group*)
+  Free*
 
   FreeFonts*
 
@@ -102,104 +63,25 @@ Module System presents the Oberon user with tools and commands for interacting D
 
   ShowFonts*
 
-  Batch*
+  ExtendDisplay*
 
 ```
 
 
-#### [MODULE Batch](https://github.com/io-core/doc/blob/main/core/System/Batch.md) [(source)](https://github.com/io-core/System/blob/main/Batch.Mod)
-Module Batch provides for automatic sequential execution of Oberon commands.
+#### [MODULE MenuViewers](https://github.com/io-core/doc/blob/main/core/System/MenuViewers.md) [(source)](https://github.com/io-core/System/blob/main/MenuViewers.Mod)
+Module MenuViewers implements the top-of-pane 'menu' functionality of the Oberon user interface. 
+
+MenuViewers uses Input, Display, Viewers, Oberon
 
 
-  **imports:** ` Kernel FileDir Files Display Texts TextFrames Viewers Oberon`
+
+  **imports:** ` Input Display Viewers Oberon`
 
 **Procedures:**
 ```
-  ClearLog*
+  Handle* (V: Display.Frame; VAR M: Display.FrameMsg)
 
-  WriteLog*
-
-  VerifyLog*
-
-  DeleteFiles*
-
-  Collect*
-
-  Run*
-
-```
-
-
-#### [MODULE Tools](https://github.com/io-core/doc/blob/main/core/System/Tools.md) [(source)](https://github.com/io-core/System/blob/main/Tools.Mod)
-Module Tools provides commands for inspecting memory, disk, etc.
-
-
-  **imports:** ` SYSTEM Kernel Disk Files Modules Input Texts Viewers Oberon MenuViewers TextFrames`
-
-**Procedures:**
-```
-  Clear*  (*used to clear output*)
-
-  Close*
-
-  Recall*
-
-  Inspect*
-
-  Sector*
-
-  ShowFile*
-
-  Convert*   (*convert selected text to txt-format*)
-
-  Id*
-
-```
-
-
-#### [MODULE Blink](https://github.com/io-core/doc/blob/main/core/System/Blink.md) [(source)](https://github.com/io-core/System/blob/main/Blink.Mod)
-
-  **imports:** ` SYSTEM Oberon`
-
-**Procedures:**
-```
-  Run*
-
-  Stop*
-
-```
-
-
-#### [MODULE Math](https://github.com/io-core/doc/blob/main/core/System/Math.md) [(source)](https://github.com/io-core/System/blob/main/Math.Mod)
-Module Math provides standard math functions in Oberon.
-
-
-**Procedures:**
-```
-  sqrt*(x: REAL): REAL
-
-  exp*(x: REAL): REAL
-
-  ln*(x: REAL): REAL
-
-  sin*(x: REAL): REAL
-
-  cos*(x: REAL): REAL
-
-```
-
-
-#### [MODULE PCLink1](https://github.com/io-core/doc/blob/main/core/System/PCLink1.md) [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod)
-Module PCLink1 provides for serial connection between Oberon machines or Oberon and a host computer.
-
-
-  **imports:** ` SYSTEM Files Texts Oberon`
-
-**Procedures:**
-```
-  Run*
-
-  Stop*
+  New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer 
 
 ```
 
@@ -217,6 +99,46 @@ Module PIO implements PIC input/output for RISC Oberon.
   Receive*(VAR x: LONGINT)
 
   Reset*
+
+```
+
+
+#### [MODULE Tools](https://github.com/io-core/doc/blob/main/core/System/Tools.md) [(source)](https://github.com/io-core/System/blob/main/Tools.Mod)
+Module Tools provides commands for inspecting memory, disk, etc.
+
+
+  **imports:** ` SYSTEM Kernel Files Modules Input Texts Viewers MenuViewers TextFrames Oberon`
+
+**Procedures:**
+```
+  Clear*  (*used to clear output*)
+
+  Recall*
+
+  Inspect*
+
+  Sector*
+
+  ShowFile*
+
+  Convert*   (*convert selected text to txt-format*)
+
+  Id*
+
+```
+
+
+#### [MODULE PCLink1](https://github.com/io-core/doc/blob/main/core/System/PCLink1.md) [(source)](https://github.com/io-core/System/blob/main/PCLink1.Mod)
+Module PCLink1 provides for serial connection between Oberon machines or Oberon and a host computer.
+
+
+  **imports:** ` SYSTEM Files Texts Oberon`
+
+**Procedures:**
+```
+  Run*
+
+  Stop*
 
 ```
 
@@ -258,7 +180,7 @@ Module RS232 provides for serial communications in RISC Oberon.
 Module Net provides for client-server communication in Oberon.
 
 
-  **imports:** ` SYSTEM SCC Files Texts Oberon`
+  **imports:** ` SYSTEM SCC Files Viewers Texts TextFrames MenuViewers Oberon`
 
 **Procedures:**
 ```
@@ -295,7 +217,7 @@ Module SCC provides for wireless communication in RISC Oberon.
 ```
   Start*(filt: BOOLEAN)
 
-  SendPacket*(VAR head: Header; dat: ARRAY OF CHAR)
+  SendPacket*(VAR head: Header; dat: ARRAY OF BYTE)
 
   Available*(): INTEGER
 
@@ -310,16 +232,41 @@ Module SCC provides for wireless communication in RISC Oberon.
 ```
 
 
-#### [MODULE BootLoad](https://github.com/io-core/doc/blob/main/core/System/BootLoad.md) [(source)](https://github.com/io-core/System/blob/main/BootLoad.Mod)
-Module BootLoad compiles to a binary to be placed in the firmware of a system that will boot to Oberon.
+#### [MODULE Batch](https://github.com/io-core/doc/blob/main/core/System/Batch.md) [(source)](https://github.com/io-core/System/blob/main/Batch.Mod)
+Module Batch provides for automatic sequential execution of Oberon commands.
+
+Module Batch provides for automatic sequential execution of Oberon commands.
 
 
-  **imports:** ` SYSTEM`
+  **imports:** ` Kernel FileDir Files Display Texts TextFrames Viewers Oberon`
 
-  **imports:** ` SYSTEM`
+**Procedures:**
+```
+  ClearLog*
+
+  WriteLog*
+
+  VerifyLog*
+
+  DeleteFiles*
+
+  Collect*
+
+  Run*
+
+```
+
+
+#### [MODULE Halt](https://github.com/io-core/doc/blob/main/core/System/Halt.md) [(source)](https://github.com/io-core/System/blob/main/Halt.Mod)
+Module Halt halts the processor in some emulators of RISC Oberon.
+
 
   **imports:** ` SYSTEM`
 
 **Procedures:**
 ```
+  Halt*(x: INTEGER)
+
+  Now*
+
 ```

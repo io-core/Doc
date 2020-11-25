@@ -2,7 +2,7 @@
 ## [MODULE Texts](https://github.com/io-core/Edit/blob/main/Texts.Mod)
 
   ## Imports:
-` Files Input Fonts`
+` Files Fonts`
 
 ## Constants:
 ```
@@ -17,7 +17,7 @@
     (* TextBlock = TextTag offset run {run} "0" len {AsciiCode}.
       run = fnt [name] col voff len. *)
 
-    TAB = Input.TAB; CR = Input.CR;
+    TAB = 9X; CR = 0DX; NL = 0AX; 
     TextTag = 0F1X;
     replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
 

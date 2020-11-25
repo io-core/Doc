@@ -6,7 +6,7 @@
 
 [Files](./Files/README.md) handles persistent storage and the file and directory interface of Oberon.
 
-[Kernel](./Kernel/README.md) handles basic os functionality including device access and garbage collection.
+[Kernel](./Kernel/README.md)  handles initial kernel load / the heap and GC / the SDcard and sectors / the timer and clock / traps.
 
 [Modules](./Modules/README.md) manages compiled module loading and unloading in Oberon.
 

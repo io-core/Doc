@@ -1,38 +1,54 @@
 ## Kernel
-This package handles basic os functionality including device access and garbage collection.
+This package  handles initial kernel load / the heap and GC / the SDcard and sectors / the timer and clock / traps.
 
 
-## Package Overview:
-The Kernel package abstracts the hardware of the computing platform for the rest of Oberon.
-
-The current Kernel package contains two modules:
-* Kernel - core abstractions
-* Disk - a device driver for SPI flash storage
-
-## Package Use:
+### _Package Overview:_
+The Kernel package manages:
+* Loading the Oberon inner core from the SDcard or the serial line
+* Heap Management, Disk Access, Timekeeping, and Trap handling
+### _Package Use:_
 
 USAGE:
 ```
-Kernel.Collect 
+i:=Kernel.Time();
+
+Kernel.Install(SYSTEM.ADR(Abort), 0);
+
+Kernel.GetSector(secno*29, buf);
 ```
 
-## Modules in this package:
+### _Modules in this package:_
 
 #### [MODULE Kernel](https://github.com/io-core/doc/blob/main/core/Kernel/Kernel.md) [(source)](https://github.com/io-core/Kernel/blob/main/Kernel.Mod)
-Module Kernel provides hardware abstraction for Oberon.
+Module Kernel handles:
+* Memory use by the shared Oberon heap including garbage collection
+* Reading and writing to SD Card 512-byte blocks
+* Allocating, Deallocating, Reading and Writing 1024-byte sectors on the SD card
+* Using the sytem timer and clock
+* Setting the trap handler and dispatching traps.
 
 
   **imports:** ` SYSTEM`
 
 **Procedures:**
 ```
-  New*(VAR ptr: LONGINT; tag, len, elemsize: LONGINT)
+  New*(VAR ptr: LONGINT; tag: LONGINT)
 
   Mark*(pref: LONGINT)
 
-  Collect*
+  Scan*
 
-  Scan*(typ, ptr, pvr: Handler; s: ARRAY OF CHAR; VAR resTyp, resPtr, resPvr: INTEGER)
+  InitSecMap*
+
+  MarkSector*(sec: INTEGER)
+
+  FreeSector*(sec: INTEGER)
+
+  AllocSector*(hint: INTEGER; VAR sec: INTEGER)
+
+  GetSector*(src: INTEGER; VAR dst: Sector)
+
+  PutSector*(dst: INTEGER; VAR src: Sector)
 
   Time*(): INTEGER
 
@@ -47,26 +63,15 @@ Module Kernel provides hardware abstraction for Oberon.
 ```
 
 
-#### [MODULE Disk](https://github.com/io-core/doc/blob/main/core/Kernel/Disk.md) [(source)](https://github.com/io-core/Kernel/blob/main/Disk.Mod)
-Module Disk interfaces to the SPI flash storage, presenting 1024 byte sectors from two 512-byte sectors
+#### [MODULE BootLoad](https://github.com/io-core/doc/blob/main/core/Kernel/BootLoad.md) [(source)](https://github.com/io-core/Kernel/blob/main/BootLoad.Mod)
+Module BootLoad is the firmware for the RISC Oberon platform.
+
+    ORP.Compile BootLoad.Mod ~
+    ORF.WriteFile BootLoad.rsc prom.mem ~                      
 
 
   **imports:** ` SYSTEM`
 
 **Procedures:**
 ```
-  InitSecMap*
-
-  MarkSector*(sec: INTEGER)
-
-  FreeSector*(sec: INTEGER)
-
-  AllocSector*(hint: INTEGER; VAR sec: INTEGER)
-
-  GetSector*(src: INTEGER; VAR dst: Sector)
-
-  PutSector*(dst: INTEGER; VAR src: Sector)
-
-  Init*
-
 ```
