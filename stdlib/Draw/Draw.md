@@ -23,7 +23,7 @@
       S: Texts.Scanner;
       text: Texts.Text;
   BEGIN Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
-    IF (S.class = Texts.Char) & (S.c = "^") THEN
+    IF (S.class = Texts.Char) & (S.codepoint = ORD("^")) THEN
       Oberon.GetSelection(text, beg, end, t);
       IF t >= 0 THEN Texts.OpenScanner(S, text, beg); Texts.Scan(S) END
     END ;
@@ -47,7 +47,7 @@
   PROCEDURE GetArg(VAR S: Texts.Scanner);
     VAR T: Texts.Text; beg, end, time: LONGINT;
   BEGIN Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
-    IF (S.class = Texts.Char) & (S.c = "^") THEN
+    IF (S.class = Texts.Char) & (S.codepoint = ORD("^")) THEN
       Oberon.GetSelection(T, beg, end, time);
       IF time >= 0 THEN Texts.OpenScanner(S, T, beg); Texts.Scan(S) END
     END
@@ -79,7 +79,7 @@
     VAR S: Texts.Scanner; FM: Graphics.FontMsg;
   BEGIN GetArg(S);
     IF S.class = Texts.Name THEN
-      FM.fnt := Fonts.Load(S.s);
+      FM.fnt := Fonts.This(S.s);
       IF FM.fnt # NIL THEN GraphicFrames.Change(GraphicFrames.Selected(), FM) END
     END
   END ChangeFont;
@@ -166,41 +166,41 @@ END Draw.
 ## Procedures:
 ---
 
-`  PROCEDURE Open*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L15)
+`  PROCEDURE Open*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L16)
 
 
-`  PROCEDURE Delete*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L36)
+`  PROCEDURE Delete*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L37)
 
 
-`  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L45)
+`  PROCEDURE GetArg(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L46)
 
 
-`  PROCEDURE SetWidth*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L54)
+`  PROCEDURE SetWidth*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L55)
 
 
-`  PROCEDURE ChangeColor*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L60)
+`  PROCEDURE ChangeColor*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L61)
 
 
-`  PROCEDURE ChangeWidth*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L68)
+`  PROCEDURE ChangeWidth*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L69)
 
 
-`  PROCEDURE ChangeFont*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L76)
+`  PROCEDURE ChangeFont*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L77)
 
 
-`  PROCEDURE Redraw(Q: BOOLEAN);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L85)
+`  PROCEDURE Redraw(Q: BOOLEAN);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L86)
 
 
-`  PROCEDURE Ticks*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L96)
+`  PROCEDURE Ticks*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L97)
 
 
-`  PROCEDURE Restore*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L100)
+`  PROCEDURE Restore*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L101)
 
 
-`  PROCEDURE Backup (VAR name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L104)
+`  PROCEDURE Backup (VAR name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L105)
 
 
-`  PROCEDURE Store*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L115)
+`  PROCEDURE Store*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L116)
 
 
-`  PROCEDURE Macro*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L142)
+`  PROCEDURE Macro*;` [(source)](https://github.com/io-core/Draw/blob/main/Draw.Mod#L143)
 

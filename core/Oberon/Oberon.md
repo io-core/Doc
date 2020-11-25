@@ -39,7 +39,7 @@ user may interact with is provided by the System module.
       id*: INTEGER;
       keys*: SET;
       X*, Y*: INTEGER;
-      ch*: CHAR;
+      codepoint*: INTEGER;
       fnt*: Fonts.Font;
       col*, voff*: INTEGER
     END;

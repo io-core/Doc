@@ -7,44 +7,102 @@
 ## Constants:
 ```
  FontFileId = 0DBH;
+        PcfFileId = 01H;
 
 ```
 ## Types:
 ```
  Font* = POINTER TO FontDesc;
+    RasterBlock = POINTER TO RasterBlockDesc;
     FontDesc* = RECORD
       name*: ARRAY 32 OF CHAR;
       height*, minX*, maxX*, minY*, maxY*: INTEGER;
       next*: Font;
-      T: ARRAY 128 OF INTEGER;
-      raster: ARRAY 2360 OF BYTE
-    END ;
+      T1: ARRAY 64 OF INTEGER;
+      block: RasterBlock;
+    END;
 
-    LargeFontDesc = RECORD (FontDesc) ext: ARRAY 2560 OF BYTE END ;
-    LargeFont = POINTER TO LargeFontDesc;
-    RunRec = RECORD beg, end: BYTE END ;
-    BoxRec = RECORD dx, x, y, w, h: BYTE END ;
+    RasterBlockDesc = RECORD
+      next: RasterBlock;
+      offs: INTEGER;
+      raster: ARRAY 1000 OF BYTE;
+    END;
+
+    tocEntry = RECORD
+        typ:    INTEGER;
+        format: INTEGER;
+        size:   INTEGER;
+        offset: INTEGER
+    END;
+
+    tocTable = POINTER TO tocTableDesc;
+    tocTableDesc = RECORD
+      PROPERTIES:       POINTER TO tocEntry;
+      ACCELERATORS:     POINTER TO tocEntry;
+      METRICS:          POINTER TO tocEntry;
+      BITMAPS:         POINTER TO tocEntry;
+      INKMETRICS:      POINTER TO tocEntry;
+      BDFENCODINGS:    POINTER TO tocEntry;
+      SWIDTHS:         POINTER TO tocEntry;
+      GLYPHNAMES:     POINTER TO tocEntry;
+      BDFACCELERATORS:  POINTER TO tocEntry
+    END;
+
+    Metrics = RECORD
+        l,r,w,a,d: INTEGER
+    END;
     
-  (* raster sizes: Syntax8 1367, Syntax10 1628, Syntax12 1688, Syntax14 1843, Syntax14b 1983,
-      Syntax16 2271, Syntax20 3034, Syntac24 4274, Syntax24b 4302  *)
-
 ```
 ## Variables:
 ```
  Default*, root*: Font;
+  FallbackPat: ARRAY 35 OF BYTE;
 
 ```
 ## Procedures:
 ---
 
-`PROCEDURE GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L29)
+`PROCEDURE ReadInt16(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L52)
 
 
-`PROCEDURE This*(name: ARRAY OF CHAR): Font;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L37)
+`PROCEDURE ReadBeInt16(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L57)
 
 
-`  PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L49)
+`PROCEDURE ReadBeInt32(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L62)
 
 
-`PROCEDURE Free*;  (*remove all but first two from font list*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L108)
+`PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L68)
+
+
+`PROCEDURE RdL32(VAR R: Files.Rider): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L73)
+
+
+`PROCEDURE Reverse(b:BYTE): BYTE;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L85)
+
+
+`PROCEDURE FindSpace(B: RasterBlock; size, align: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L94)
+
+
+`PROCEDURE OberonLoadRange(F: Font; rangeStart: INTEGER; f: Files.File);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L109)
+
+
+`PROCEDURE PCFGetTable(f: Files.File): tocTable;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L189)
+
+
+`PROCEDURE PCFLoadRange(F: Font; rangeStart: INTEGER; f: Files.File);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L230)
+
+
+`PROCEDURE LoadRange(F: Font; rangeStart: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L343)
+
+
+`PROCEDURE PatDot(x,y: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L361)
+
+
+`PROCEDURE GetUniPat*(fnt: Font; codepoint: INTEGER; VAR dx, x, y, w, h, patadr: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L371)
+
+
+`PROCEDURE This*(name: ARRAY OF CHAR): Font;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L416)
+
+
+`PROCEDURE Free*;  (*remove all but first two from font list*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L514)
 

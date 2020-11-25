@@ -44,24 +44,24 @@
 `  PROCEDURE Available*(): INTEGER;` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L61)
 
 ---  
-**Read** delivers ascii values of pressed keys.
+**ReadUnicode** delivers unicode values of pressed keys.
 
-`  PROCEDURE Read*(VAR ch: CHAR);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L70)
+`  PROCEDURE ReadUnicode*(VAR codepoint: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L70)
 
 ## ---------- Mouse
 ---  
 **Mouse** provides the curent position and button state of the mouse.
 
-`  PROCEDURE Mouse*(VAR keys: SET; VAR x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L89)
+`  PROCEDURE Mouse*(VAR keys: SET; VAR x, y: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L91)
 
 ---  
 **SetMouseLimits** restricts the mouse to the extent of the screen.
 
-`  PROCEDURE SetMouseLimits*(w, h: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L102)
+`  PROCEDURE SetMouseLimits*(w, h: INTEGER);` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L104)
 
 ## ---------- Initialization
 ---
 **Init** sets the keyboard initial state and populates the scancode to ascii table.
 
-`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L115)
+`  PROCEDURE Init*;` [(source)](https://github.com/io-core/Oberon/blob/main/Input.Mod#L117)
 

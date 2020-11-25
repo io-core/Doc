@@ -45,18 +45,18 @@ Module Edit provides document editing capability.
 
   Recall*
 
+  InsertUnicode*
+
 ```
 
 
 #### [MODULE Fonts](https://github.com/io-core/doc/blob/main/core/Edit/Fonts.md) [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod)
-Module Fonts provides the glyphs used by the Text system and the Graphics system to represent characters.
-
 
   **imports:** ` SYSTEM Files`
 
 **Procedures:**
 ```
-  GetPat*(fnt: Font; ch: CHAR; VAR dx, x, y, w, h, patadr: INTEGER)
+  GetUniPat*(fnt: Font; codepoint: INTEGER; VAR dx, x, y, w, h, patadr: INTEGER)
 
   This*(name: ARRAY OF CHAR): Font
 
@@ -66,8 +66,6 @@ Module Fonts provides the glyphs used by the Text system and the Graphics system
 
 
 #### [MODULE TextFrames](https://github.com/io-core/doc/blob/main/core/Edit/TextFrames.md) [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
-Module TextFrames defines the messages and default handlers for text operations in panes in the Oberon user interface.
-
 
   **imports:** ` Modules Input Display Viewers Fonts Texts Oberon MenuViewers`
 
@@ -115,7 +113,7 @@ Module TextFrames defines the messages and default handlers for text operations 
 
   Call* (F: Frame; pos: LONGINT; new: BOOLEAN)
 
-  Write* (F: Frame; ch: CHAR; fnt: Fonts.Font; col, voff: INTEGER)
+  Write* (F: Frame; codepoint: INTEGER; fnt: Fonts.Font; col, voff: INTEGER)
 
   Defocus* (F: Frame)
 
@@ -180,6 +178,10 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
 
   Read* (VAR R: Reader; VAR ch: CHAR)
 
+  UnicodeWidth* (codepoint: INTEGER): INTEGER
+
+  ReadUnicode* (VAR R: Reader; VAR codepoint: INTEGER)
+
   Pos* (VAR R: Reader): LONGINT
 
   OpenScanner* (VAR S: Scanner; T: Text; pos: LONGINT)
@@ -195,6 +197,8 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
   SetOffset* (VAR W: Writer; voff: INTEGER)
 
   Write* (VAR W: Writer; ch: CHAR)
+
+  WriteUnicode* (VAR W: Writer; codepoint: INTEGER)
 
   WriteLn* (VAR W: Writer)
 

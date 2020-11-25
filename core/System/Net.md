@@ -217,7 +217,7 @@ System.Date");
   PROCEDURE GetPar(VAR S: Texts.Scanner; VAR end: LONGINT);
     VAR T: Texts.Text; beg, tm: LONGINT;
   BEGIN Texts.Scan(S);
-    IF (S.class = Texts.Char) & (S.c = "^") THEN
+    IF (S.class = Texts.Char) & (S.codepoint = ORD("^")) THEN
       Oberon.GetSelection(T, beg, end, tm);
       IF tm >= 0 THEN Texts.OpenScanner(S, T, beg); Texts.Scan(S) END
     ELSE end := Oberon.Par.text.len
@@ -396,74 +396,74 @@ END Net.
 ## Procedures:
 ---
 
-`  PROCEDURE SetPartner(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L23)
+`  PROCEDURE SetPartner(name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L19)
 
 
-`  PROCEDURE Send(t: BYTE; L: INTEGER; data: ARRAY OF BYTE);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L27)
+`  PROCEDURE Send(t: BYTE; L: INTEGER; data: ARRAY OF BYTE);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L23)
 
 
-`  PROCEDURE ReceiveHead(timeout: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L31)
+`  PROCEDURE ReceiveHead(timeout: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L27)
 
 
-`  PROCEDURE FindPartner(name: ARRAY OF CHAR; VAR res: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L43)
+`  PROCEDURE FindPartner(name: ARRAY OF CHAR; VAR res: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L39)
 
 
-`  PROCEDURE AppendS(s: ARRAY OF CHAR; VAR d: ARRAY OF BYTE; VAR k: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L63)
+`  PROCEDURE AppendS(s: ARRAY OF CHAR; VAR d: ARRAY OF BYTE; VAR k: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L59)
 
 
-`  PROCEDURE AppendW(s: LONGINT; VAR d: ARRAY OF BYTE;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L69)
+`  PROCEDURE AppendW(s: LONGINT; VAR d: ARRAY OF BYTE;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L65)
 
 
-`  PROCEDURE PickS(VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L76)
+`  PROCEDURE PickS(VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L72)
 
 
-`  PROCEDURE PickQ(VAR w: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L82)
+`  PROCEDURE PickQ(VAR w: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L78)
 
 
-`  PROCEDURE SendData(F: Files.File);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L88)
+`  PROCEDURE SendData(F: Files.File);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L84)
 
 
-`  PROCEDURE ReceiveData(F: Files.File; VAR done: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L109)
+`  PROCEDURE ReceiveData(F: Files.File; VAR done: BOOLEAN);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L105)
 
 
-`  PROCEDURE reply(msg: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L134)
+`  PROCEDURE reply(msg: INTEGER);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L130)
 
 
-`  PROCEDURE Serve;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L146)
+`  PROCEDURE Serve;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L142)
 
 
-`  PROCEDURE GetPar1(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L212)
+`  PROCEDURE GetPar1(VAR S: Texts.Scanner);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L208)
 
 
-`  PROCEDURE GetPar(VAR S: Texts.Scanner; VAR end: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L216)
+`  PROCEDURE GetPar(VAR S: Texts.Scanner; VAR end: LONGINT);` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L212)
 
 
-`  PROCEDURE SendFiles*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L226)
+`  PROCEDURE SendFiles*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L222)
 
 
-`  PROCEDURE ReceiveFiles*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L268)
+`  PROCEDURE ReceiveFiles*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L264)
 
 
-`  PROCEDURE SendMsg*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L313)
+`  PROCEDURE SendMsg*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L309)
 
 
-`  PROCEDURE GetTime*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L332)
+`  PROCEDURE GetTime*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L328)
 
 
-`  PROCEDURE StartServer*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L348)
+`  PROCEDURE StartServer*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L344)
 
 
-`  PROCEDURE Unprotect*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L356)
+`  PROCEDURE Unprotect*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L352)
 
 
-`  PROCEDURE WProtect*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L360)
+`  PROCEDURE WProtect*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L356)
 
 
-`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L364)
+`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L360)
 
 
-`  PROCEDURE StopServer*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L368)
+`  PROCEDURE StopServer*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L364)
 
 
-`  PROCEDURE SCCStatus*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L373)
+`  PROCEDURE SCCStatus*;` [(source)](https://github.com/io-core/System/blob/main/Net.Mod#L369)
 

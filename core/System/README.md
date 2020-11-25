@@ -13,8 +13,7 @@ The System package collects the expected set of modules and tools that allows th
 Module System presents the Oberon user with tools and commands for interacting Displays and Tracks and Files and other miscelaneous features.
 
 
-  **imports:** ` SYSTEM Kernel FileDir Files Modules Input Display Viewers Fonts Texts Oberon MenuViewers TextFrames`
-
+  **imports:** ` SYSTEM Kernel FileDir Files Modules
 **Procedures:**
 ```
   SetUser*
@@ -177,8 +176,6 @@ Module RS232 provides for serial communications in RISC Oberon.
 
 
 #### [MODULE Net](https://github.com/io-core/doc/blob/main/core/System/Net.md) [(source)](https://github.com/io-core/System/blob/main/Net.Mod)
-Module Net provides for client-server communication in Oberon.
-
 
   **imports:** ` SYSTEM SCC Files Viewers Texts TextFrames MenuViewers Oberon`
 
@@ -268,5 +265,66 @@ Module Halt halts the processor in some emulators of RISC Oberon.
   Halt*(x: INTEGER)
 
   Now*
+
+```
+
+
+#### [MODULE Hilbert](https://github.com/io-core/doc/blob/main/core/System/Hilbert.md) [(source)](https://github.com/io-core/System/blob/main/Hilbert.Mod)
+
+  **imports:** ` Display Viewers Texts Oberon MenuViewers TextFrames`
+
+**Procedures:**
+```
+  Draw*
+
+```
+
+
+#### [MODULE Sierpinski](https://github.com/io-core/doc/blob/main/core/System/Sierpinski.md) [(source)](https://github.com/io-core/System/blob/main/Sierpinski.Mod)
+
+  **imports:** ` Display Viewers Oberon MenuViewers TextFrames`
+
+**Procedures:**
+```
+  Draw*
+
+```
+
+
+#### [MODULE Stars](https://github.com/io-core/doc/blob/main/core/System/Stars.md) [(source)](https://github.com/io-core/System/blob/main/Stars.Mod)
+
+  **imports:** ` SYSTEM Display Viewers Texts Oberon MenuViewers TextFrames`
+
+**Procedures:**
+```
+  Step*
+
+  Open*
+
+  Run*
+
+  Stop*
+
+  Close*
+
+  SetPeriod*
+
+```
+
+
+#### [MODULE Checkers](https://github.com/io-core/doc/blob/main/core/System/Checkers.md) [(source)](https://github.com/io-core/System/blob/main/Checkers.Mod)
+
+**Procedures:**
+```
+  MODULE Checkers;  (*NW 4.10.90 / 10.3.2013*)  IMPORT SYSTEM, Display, Viewers, Oberon, MenuViewers, TextFrames;  TYPE Frame = POINTER TO FrameDesc;    FrameDesc = RECORD (Display.FrameDesc)        col: INTEGER      END ;  VAR i: INTEGER;    checks: INTEGER;    pat: ARRAY 17 OF INTEGER;Restore(F: Frame);  BEGIN Oberon.RemoveMarks(F.X, F.Y, F.W, F.H);    Display.ReplConst(Display.black, F.X, F.Y, F.W, F.H, Display.replace); (*clear*)    Display.ReplPattern(F.col, checks, F.X+1, F.Y, F.W-1, F.H-1, Display.paint)  END Restore;  PROCEDURE Handle(G: Display.Frame; VAR M: Display.FrameMsg);    VAR G1: Frame;  BEGIN    CASE G OF Frame:      CASE M OF      Oberon.InputMsg:        IF M.id = Oberon.track THEN Oberon.DrawMouseArrow(M.X, M.Y) END |      Oberon.CopyMsg:        Oberon.RemoveMarks(G.X, G.Y, G.W, G.H); NEW(G1); G1^ := G^; M.F := G1 |      MenuViewers.ModifyMsg:        IF (M.Y # G.Y) OR (M.H # G.H) THEN G.Y := M.Y; G.H := M.H; Restore(G) END      END    END  END Handle;  PROCEDURE Open*;    VAR F: Frame; V: Viewers.Viewer; X, Y: INTEGER;  BEGIN NEW(F); F.col := 14; F.handle := Handle;    Oberon.AllocateUserViewer(Oberon.Par.vwr.X, X, Y);    V := MenuViewers.New(      TextFrames.NewMenu("CheckerViewer", "System.Close System.Copy System.Grow"),      F, TextFrames.menuH, X, Y)  END Open;BEGIN checks := SYSTEM.ADR(pat); pat[0] := 1010H; i := 1;  REPEAT pat[i] := 0FF00FFH; INC(i) UNTIL i = 9;  REPEAT pat[i] := 0FF00FF00H INC(i) UNTIL i = 17END Checkers.
+
+```
+
+
+#### [MODULE Clipboard](https://github.com/io-core/doc/blob/main/core/System/Clipboard.md) [(source)](https://github.com/io-core/System/blob/main/Clipboard.Mod)
+
+**Procedures:**
+```
+  MODULE Clipboard;  IMPORT SYSTEM, Texts, Viewers, TextFrames, Oberon;  CONST control = -24; data = -20;Copy(T: Texts.Text; beg, end: INTEGER);    VAR R: Texts.Reader;      ch: CHAR;  BEGIN    Texts.OpenReader(R, T, beg);    SYSTEM.PUT(control, end - beg);    WHILE beg < end DO      Texts.Read(R, ch);      SYSTEM.PUT(data, ch);      beg := beg + 1    END  END Copy;  PROCEDURE CopySelection*;    VAR T: Texts.Text;      beg, end, time: INTEGER;  BEGIN    Oberon.GetSelection(T, beg, end, time);    IF time >= 0 THEN Copy(T, beg, end) END  END CopySelection;  PROCEDURE CopyViewer*;    VAR V: Viewers.Viewer;      F: TextFrames.Frame;  BEGIN    V := Oberon.MarkedViewer();    IF (V # NIL) & (V.dsc # NIL) & (V.dsc.next IS TextFrames.Frame) THEN      F := V.dsc.next(TextFrames.Frame);      Copy(F.text, 0, F.text.len)    END  END CopyViewer;  PROCEDURE Paste*;    VAR W: Texts.Writer;      V: Viewers.Viewer;      F: TextFrames.Frame;      len, i: INTEGER;      ch: CHAR;  BEGIN    V := Oberon.FocusViewer;    IF (V # NIL) & (V.dsc # NIL) & (V.dsc.next IS TextFrames.Frame) THEN      SYSTEM.GET(control, len);      IF len > 0 THEN        Texts.OpenWriter(W);        FOR i := 1 TO len DO          SYSTEM.GET(data, ch);          Texts.Write(W, ch)        END;        F := V.dsc.next(TextFrames.Frame);        Texts.Insert(F.text, F.carloc.pos, W.buf);        TextFrames.SetCaret(F, F.carloc.pos + len)      END    END  END PasteEND Clipboard.
 
 ```

@@ -159,7 +159,7 @@ Module Input reads keyboard and mouse raw data and returns ASCII values and mous
 ```
   Available*(): INTEGER
 
-  Read*(VAR ch: CHAR)
+  ReadUnicode*(VAR codepoint: INTEGER)
 
   Mouse*(VAR keys: SET; VAR x, y: INTEGER)
 
