@@ -215,3 +215,61 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
   WriteClock* (VAR W: Writer; d: LONGINT)
 
 ```
+
+
+#### [MODULE ConvertPCFFont](https://github.com/io-core/doc/blob/main/core/Edit/ConvertPCFFont.md) [(source)](https://github.com/io-core/Edit/blob/main/ConvertPCFFont.Mod)
+
+  **imports:** ` Files Texts Oberon`
+
+**Procedures:**
+```
+  Convert*
+
+  ConvertASCIIOnly*
+
+```
+
+
+#### [MODULE FontSubsetBuilder](https://github.com/io-core/doc/blob/main/core/Edit/FontSubsetBuilder.md) [(source)](https://github.com/io-core/Edit/blob/main/FontSubsetBuilder.Mod)
+
+  **imports:** ` Files Texts Oberon`
+
+**Procedures:**
+```
+  Extract*
+
+```
+
+
+#### [MODULE GrowFont](https://github.com/io-core/doc/blob/main/core/Edit/GrowFont.md) [(source)](https://github.com/io-core/Edit/blob/main/GrowFont.Mod)
+
+  **imports:** ` SYSTEM Files Texts Oberon`
+
+**Procedures:**
+```
+  X2*
+
+  X3*
+
+  EPX2*
+
+  EPX3*
+
+  Eagle*
+
+  Scale2SFX*
+
+  Scale3SFX*
+
+```
+
+
+#### [MODULE OptimizeFont](https://github.com/io-core/doc/blob/main/core/Edit/OptimizeFont.md) [(source)](https://github.com/io-core/Edit/blob/main/OptimizeFont.Mod)
+
+  **imports:** ` Files Texts Oberon`
+
+**Procedures:**
+```
+  Optimize*
+
+```

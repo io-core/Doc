@@ -1646,3 +1646,10 @@ Module BareMetalv exercises features of the compiler in bringing Oberon up from 
 **Procedures:**
 ```
 ```
+
+
+#### [MODULE M](https://github.com/io-core/doc/blob/main/core/Build/M.md) [(source)](https://github.com/io-core/Build/blob/main/M.Mod)
+
+**Procedures:**
+```
+```

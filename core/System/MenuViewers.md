@@ -6,7 +6,7 @@
 
 ## Constants:
 ```
- extend* = 0; reduce* = 1; FrameColor = Display.white;
+ extend* = 0; reduce* = 1; FrameColor = 1 (*Display.white*);
 
 ```
 ## Types:

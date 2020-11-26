@@ -292,7 +292,7 @@ user may interact with is provided by the System module.
 ---
 **Reset** resets the background tasks and the stack pointer. 
 
-`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L608)
+`  PROCEDURE Reset*;` [(source)](https://github.com/io-core/Oberon/blob/main/Oberon.Mod#L609)
 
 ---
 **The initialzation code for this module** prepares the arrow, star, cursor behavior procedures, opens the display, sets GC as a background task, loads the System module then enters the UI loop.
