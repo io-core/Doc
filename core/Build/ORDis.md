@@ -29,7 +29,7 @@ The module sets up a state machine that operates on an input via repeated calls 
     E*, at*, pc*, isz*, wo*: INTEGER;
     ibytes*: ARRAY 32 OF BYTE;
     istr*: ARRAY 32 OF CHAR;
-    mnemo0, mnemo1: ARRAY 16, 4 OF CHAR;  (*mnemonics*)
+    mnemo0, mnemo1, reg: ARRAY 16, 4 OF CHAR;  (*mnemonics*)
     vendor*, mode*, cfo*, cfe*: INTEGER;
     R*: Files.Rider;
     F*: Files.File;
@@ -38,17 +38,26 @@ The module sets up a state machine that operates on an input via repeated calls 
 ## Procedures:
 ---
 
-`  PROCEDURE WriteReg(r: INTEGER; p: INTEGER; VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L31)
+`  PROCEDURE append(VAR s1: ARRAY OF CHAR; s2: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L31)
 
 
-`  PROCEDURE opcode(w: LONGINT; VAR s:ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L42)
+`  PROCEDURE strInt (x: LONGINT; VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L40)
 
 
-`  PROCEDURE decode*():INTEGER;` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L82)
+`  PROCEDURE strHex (x: LONGINT; VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L58)
 
 
-`  PROCEDURE init*(VAR f: Files.File; i, o, e: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L103)
+`  PROCEDURE WriteReg(r: INTEGER; p: INTEGER; VAR s: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L74)
 
 
-`  PROCEDURE originate*(r: Files.Rider; f: Files.File; offset, extent, index: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L114)
+`  PROCEDURE opcode(w: LONGINT; VAR s:ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L85)
+
+
+`  PROCEDURE decode*():INTEGER;` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L127)
+
+
+`  PROCEDURE init*(VAR f: Files.File; i, o, e: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L148)
+
+
+`  PROCEDURE originate*(r: Files.Rider; f: Files.File; offset, extent, index: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Build/blob/main/ORDis.Mod#L159)
 

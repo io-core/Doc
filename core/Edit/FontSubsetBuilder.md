@@ -50,7 +50,7 @@
           WHILE beg > keepto DO
             IF S.class = Texts.Int THEN
               keepfrom := S.i; Texts.Scan(S); ASSERT(keepfrom > keepto + 1);
-              IF (S.class = Texts.Char) & ((S.c = "-") OR (S.c = "*")) THEN
+              IF (S.class = Texts.Char) & ((S.codepoint = ORD("-")) OR (S.codepoint = ORD("*"))) THEN
                 Texts.Scan(S); IF S.class = Texts.Int THEN keepto := S.i; Texts.Scan(S) ELSE keepto := 10000H END
               ELSIF (S.class = Texts.Int) & (S.i < 0) THEN
                 keepto := -S.i; Texts.Scan(S)

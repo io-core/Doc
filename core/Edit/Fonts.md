@@ -6,8 +6,9 @@
 
 ## Constants:
 ```
- FontFileId = 0DBH;
-        PcfFileId = 01H;
+ OriginalFontFileId = 0DBH;
+        PaddedFontFileId = 0DCH;
+     
 
 ```
 ## Types:
@@ -28,30 +29,6 @@
       raster: ARRAY 1000 OF BYTE;
     END;
 
-    tocEntry = RECORD
-        typ:    INTEGER;
-        format: INTEGER;
-        size:   INTEGER;
-        offset: INTEGER
-    END;
-
-    tocTable = POINTER TO tocTableDesc;
-    tocTableDesc = RECORD
-      PROPERTIES:       POINTER TO tocEntry;
-      ACCELERATORS:     POINTER TO tocEntry;
-      METRICS:          POINTER TO tocEntry;
-      BITMAPS:         POINTER TO tocEntry;
-      INKMETRICS:      POINTER TO tocEntry;
-      BDFENCODINGS:    POINTER TO tocEntry;
-      SWIDTHS:         POINTER TO tocEntry;
-      GLYPHNAMES:     POINTER TO tocEntry;
-      BDFACCELERATORS:  POINTER TO tocEntry
-    END;
-
-    Metrics = RECORD
-        l,r,w,a,d: INTEGER
-    END;
-    
 ```
 ## Variables:
 ```
@@ -62,47 +39,29 @@
 ## Procedures:
 ---
 
-`PROCEDURE ReadInt16(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L52)
+`PROCEDURE ReadInt16(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L29)
 
 
-`PROCEDURE ReadBeInt16(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L57)
+`PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L34)
 
 
-`PROCEDURE ReadBeInt32(VAR R: Files.Rider; VAR r: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L62)
+`PROCEDURE FindSpace(B: RasterBlock; size, align: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L39)
 
 
-`PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L68)
+`PROCEDURE OberonLoadRange(F: Font; rangeStart: INTEGER; f: Files.File; padded: BOOLEAN);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L54)
 
 
-`PROCEDURE RdL32(VAR R: Files.Rider): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L73)
+`PROCEDURE LoadRange(F: Font; rangeStart: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L162)
 
 
-`PROCEDURE Reverse(b:BYTE): BYTE;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L85)
+`PROCEDURE PatDot(x,y: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L175)
 
 
-`PROCEDURE FindSpace(B: RasterBlock; size, align: INTEGER): INTEGER;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L94)
+`PROCEDURE GetUniPat*(fnt: Font; codepoint: INTEGER; VAR dx, x, y, w, h, patadr: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L185)
 
 
-`PROCEDURE OberonLoadRange(F: Font; rangeStart: INTEGER; f: Files.File);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L109)
+`PROCEDURE This*(name: ARRAY OF CHAR): Font;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L230)
 
 
-`PROCEDURE PCFGetTable(f: Files.File): tocTable;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L189)
-
-
-`PROCEDURE PCFLoadRange(F: Font; rangeStart: INTEGER; f: Files.File);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L230)
-
-
-`PROCEDURE LoadRange(F: Font; rangeStart: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L343)
-
-
-`PROCEDURE PatDot(x,y: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L361)
-
-
-`PROCEDURE GetUniPat*(fnt: Font; codepoint: INTEGER; VAR dx, x, y, w, h, patadr: INTEGER);` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L371)
-
-
-`PROCEDURE This*(name: ARRAY OF CHAR): Font;` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L416)
-
-
-`PROCEDURE Free*;  (*remove all but first two from font list*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L514)
+`PROCEDURE Free*;  (*remove all but first two from font list*)` [(source)](https://github.com/io-core/Edit/blob/main/Fonts.Mod#L305)
 

@@ -43,6 +43,9 @@ if int or char in ival, if real in rval, and if string in str (and slen)
     array* = 60; record* = 61; pointer* = 62; const* = 63; type* = 64;
     var* = 65; procedure* = 66; begin* = 67; import* = 68; module* = 69; eot = 70;
 
+    BADARCH* = 0; RISC5* = 1; X8664* = 2; ARM64* = 3; ARM32* = 4; RISCV64* = 5; RISCV32* = 6;
+    BYTEORIENTED* = 0; WORDORIENTED* = 1;
+
 ```
 ## Types:
 ```
@@ -57,6 +60,7 @@ if int or char in ival, if real in rval, and if string in str (and slen)
     id*: Ident;  (*for identifiers*)
     str*: ARRAY stringBufSize OF CHAR;
     errcnt*: INTEGER;
+    ccARCH*: INTEGER;
     ch: CHAR;  (*last character read*)
     errpos: LONGINT;
     R: Texts.Reader;
@@ -77,63 +81,63 @@ if int or char in ival, if real in rval, and if string in str (and slen)
 ---
 **CopyId** duplicates an identifier.
 
-`  PROCEDURE CopyId*(VAR ident: Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L81)
+`  PROCEDURE CopyId*(VAR ident: Ident);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L85)
 
 ---
 **Pos** reports the location in the source text not couting the most current character.
 
-`  PROCEDURE Pos*(): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L89)
+`  PROCEDURE Pos*(): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L93)
 
 ---
 **Mark** reports an error to the Oberon system log.
 
-`  PROCEDURE Mark*(msg: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L97)
+`  PROCEDURE Mark*(msg: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L101)
 
 ---
 **Identifier** matches an alphanumeric identifier.
 
-`  PROCEDURE Identifier(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L111)
+`  PROCEDURE Identifier(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L115)
 
 ---
 **String** matches a quote delimeted string.
 
-`  PROCEDURE String;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L130)
+`  PROCEDURE String;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L134)
 
 ---
 **HexString** matches a hex string.
 
-`  PROCEDURE HexString;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L146)
+`  PROCEDURE HexString;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L150)
 
 ---
 **Ten** ??
 
-`  PROCEDURE Ten(e: LONGINT): REAL;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L170)
+`  PROCEDURE Ten(e: LONGINT): REAL;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L174)
 
 ---
 **Number** matches a number.
 
-`  PROCEDURE Number(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L184)
+`  PROCEDURE Number(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L188)
 
 ---
 **Comment** matches comments.
 
-`  PROCEDURE comment;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L257)
+`  PROCEDURE comment;` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L261)
 
 ---
 **Get** gets the next symbol from the source text.
 
-`  PROCEDURE Get*(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L275)
+`  PROCEDURE Get*(VAR sym: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L279)
 
 ## ---------- Initialization
 ---
 **Init** opens the source text for reading and gets the first character.
 
-`  PROCEDURE Init*(T: Texts.Text; pos: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L340)
+`  PROCEDURE Init*(T: Texts.Text; pos: LONGINT; a: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L344)
 
 ---
 **EnterKW** adds a symbol to the keyword table.
 
-`  PROCEDURE EnterKW(sym: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L348)
+`  PROCEDURE EnterKW(sym: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L352)
 
 ---
 **The initialzation code for this module** populats the table of reserved keywords.

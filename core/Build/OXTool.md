@@ -9,7 +9,7 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
 
 
   ## Imports:
-` SYSTEM Files Modules Input Texts Viewers MenuViewers TextFrames Oberon OXDis`
+` SYSTEM Files Modules Input Fonts Texts Viewers MenuViewers TextFrames Oberon OXDis`
 
 ## Constants:
 ```
@@ -229,7 +229,7 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
     e := OXDis.originate(R,F,s,n*4,0,x);
     WHILE e # OXDis.FINISH DO
       e := OXDis.decode();
-      Texts.WriteInt(W, OXDis.at, 4); Texts.Write(W, 9X);
+      Texts.WriteInt(W, OXDis.at, 4); Texts.Write(W, 20X);
       IF OXDis.wo = BYTEORIENTED THEN
         i:=0;WHILE i < OXDis.isz DO
           Texts.Write(W, HighNib(OXDis.ibytes[i])); Texts.Write(W, LowNib(OXDis.ibytes[i])); Texts.Write(W, " ");
@@ -241,7 +241,7 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
           DEC(i);
         END;
       END;
-      Texts.Write(W, 9X); Texts.WriteString(W, OXDis.istr); Texts.WriteLn(W);
+      Texts.Write(W, 20X); Texts.WriteString(W, OXDis.istr); Texts.WriteLn(W);
     END
   END decodeSection;
 
@@ -288,7 +288,7 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
           Files.ReadInt(R, size); Texts.WriteInt(W, size, 6); Texts.WriteLn(W);
           Texts.WriteString(W, "imports:"); Texts.WriteLn(W); Files.ReadString(R, name);
           WHILE name[0] # 0X DO
-            Texts.Write(W, 9X); Texts.WriteString(W, name);
+            Texts.Write(W, 20X); Texts.WriteString(W, name);
             Files.ReadInt(R, key); Texts.WriteHex(W, key); Texts.WriteLn(W);
             Files.ReadString(R, name)
           END ;
@@ -300,7 +300,12 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
           Texts.WriteString(W, "data"); Files.ReadInt(R, data); Texts.WriteInt(W, data, 6); Texts.WriteLn(W);
           Texts.WriteString(W, "strings"); Texts.WriteLn(W);
           Files.ReadInt(R, n); i := 0;
-          WHILE i < n DO Files.Read(R, ch); Texts.Write(W, ch); INC(i) END ;
+          WHILE i < n DO 
+            Files.Read(R, ch); 
+            IF (ch > 10X) & (ch < 080X) THEN Texts.Write(W, ch) ELSE Texts.Write(W, 0E2X); Texts.Write(W, 080X); Texts.Write(W, 0A2X) END;
+            IF i MOD 80 = 0 THEN Texts.Write(W, 0AX) END;
+            INC(i) 
+          END ;
           Texts.WriteLn(W);
           Texts.WriteString(W, "code"); Texts.WriteLn(W);
           Files.ReadInt(R, n); i := 0;
@@ -312,7 +317,7 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
           Texts.WriteString(W, "commands:"); Texts.WriteLn(W);
           Files.ReadString(R, name);
           WHILE name[0] # 0X DO
-            Texts.Write(W, 9X); Texts.WriteString(W, name);
+            Texts.Write(W, 20X); Texts.WriteString(W, name);
             Files.ReadInt(R, adr); Texts.WriteInt(W, adr, 5); Texts.WriteLn(W);
             Files.ReadString(R, name)
           END ;
@@ -349,7 +354,7 @@ Any change to O[RIAa]G is likely to require a matching change in OXTool.
   END DecObj;
 
 BEGIN
-  Texts.OpenWriter(W); T := TextFrames.Text(""); OpenViewer(T, "OXTool.Text");
+  Texts.OpenWriter(W); T := TextFrames.Text(""); OpenViewer(T, "OXTool.Text"); Texts.SetFont(W, Fonts.This("DVSansMono16.Scn.Fnt"));
   Texts.WriteString(W, "OXTool 2020"); Texts.WriteLn(W); Texts.Append(T, W.buf);
 END OXTool.
 ```

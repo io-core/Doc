@@ -66,6 +66,10 @@ Module Edit provides document editing capability.
 
 
 #### [MODULE TextFrames](https://github.com/io-core/doc/blob/main/core/Edit/TextFrames.md) [(source)](https://github.com/io-core/Edit/blob/main/TextFrames.Mod)
+Module TextFrames implements the operations on text frames in Oberon.
+
+This is the heart of Oberon's text-based user interface.
+
 
   **imports:** ` Modules Input Display Viewers Fonts Texts Oberon MenuViewers`
 

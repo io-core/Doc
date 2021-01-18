@@ -66,7 +66,7 @@ ORG uses SYSTEM, Files, ORS, ORB
 
 
 
-  **imports:** ` SYSTEM Files ORS ORB`
+  **imports:** ` SYSTEM Files ORS ORB OXG`
 
 **Procedures:**
 ```
@@ -235,6 +235,115 @@ ORG uses SYSTEM, Files, ORS, ORB
 ```
 
 
+#### [MODULE OXG](https://github.com/io-core/doc/blob/main/core/Build/OXG.md) [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod)
+Module OXG generates the processor-specific instructions for executing an Oberon program.
+
+
+  **imports:** ` SYSTEM Files ORS ORB`
+
+**Procedures:**
+```
+  setFixOrgP*(v: LONGINT)
+
+  setFixOrgD*(v: LONGINT)
+
+  setFixOrgT*(v: LONGINT)
+
+  setRegMap*
+
+  RPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
+
+  RPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT)
+
+  RPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
+
+  RPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+
+  RPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
+
+  RHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  IPut0*(VAR pc, pcb: LONGINT; op, ai, bi, c: LONGINT)
+
+  IPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+
+  IPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
+
+  IPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT)
+
+  IPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
+
+  IHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  APut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
+
+  APut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+
+  APut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
+
+  APut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+
+  APut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
+
+  AHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  aPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
+
+  aPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+
+  aPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
+
+  aPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+
+  aPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
+
+  aHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  VPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
+
+  VPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+
+  VPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
+
+  VPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+
+  VPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
+
+  VHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  vPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
+
+  vPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT)
+
+  vPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
+
+  vPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+
+  vPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
+
+  vHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  fix*(at, with: LONGINT)
+
+  FixOne*(pc,pcb,at: LONGINT)
+
+  FixLink*(pc,pcb,L: LONGINT)
+
+  FixLinkWith*(L0, dst: LONGINT)
+
+  merged*(L0, L1: LONGINT): LONGINT
+
+  InternString*(VAR strx: LONGINT; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
+
+  SetCode*(i,v: LONGINT)
+
+  SetData*(i,v: LONGINT)
+
+  Close*(VAR pc, pcb: LONGINT 
+
+```
+
+
 #### [MODULE ORB](https://github.com/io-core/doc/blob/main/core/Build/ORB.md) [(source)](https://github.com/io-core/Build/blob/main/ORB.Mod)
 Module ORB manages the symbol table for the Oberon compiler and reads and writes 'smb' files
 
@@ -285,7 +394,7 @@ Module ORS does lexical analysis of the Oberon source code and defines symbols a
 
   Get*(VAR sym: INTEGER)
 
-  Init*(T: Texts.Text; pos: LONGINT)
+  Init*(T: Texts.Text; pos: LONGINT; a: INTEGER)
 
 ```
 
@@ -299,7 +408,7 @@ OXTool.DecObj Target.rsc ~ (if a regular module)
 OXTool.DecBin Target.bin ~ (if a bare metal module)
 
 
-  **imports:** ` SYSTEM Files Modules Input Texts Viewers MenuViewers TextFrames Oberon OXDis`
+  **imports:** ` SYSTEM Files Modules Input Fonts Texts Viewers MenuViewers TextFrames Oberon OXDis`
 
 **Procedures:**
 ```
@@ -447,1123 +556,6 @@ Module OvDis disassembles 32-bit RISCV opcodes.
 ```
 
 
-#### [MODULE OIP](https://github.com/io-core/doc/blob/main/core/Build/OIP.md) [(source)](https://github.com/io-core/Build/blob/main/OIP.Mod)
-
-Module OIP reads the source code of an Oberon program and produces an executable x86_64 binary module.
-
-
-  **imports:** ` Texts Oberon ORS ORB OIG`
-
-**Procedures:**
-```
-  Compile*
-
-```
-
-
-#### [MODULE OIG](https://github.com/io-core/doc/blob/main/core/Build/OIG.md) [(source)](https://github.com/io-core/Build/blob/main/OIG.Mod)
-Module OIG generates the x86_64 processor-specific instructions for executing an Oberon program. 
-
-
-  **imports:** ` SYSTEM Files ORS ORB`
-
-**Procedures:**
-```
-  CheckRegs*
-
-  FixOne*(at: LONGINT)
-
-  FixLink*(L: LONGINT)
-
-  MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT)
-
-  MakeRealItem*(VAR x: Item; val: REAL)
-
-  MakeStringItem*(VAR x: Item; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
-
-  MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT)
-
-  Field*(VAR x: Item; y: ORB.Object)   (* x := x.y *)
-
-  Index*(VAR x, y: Item)   (* x := x[y] *)
-
-  DeRef*(VAR x: Item)
-
-  BuildTD*(T: ORB.Type; VAR dc: LONGINT)
-
-  TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN)
-
-  Not*(VAR x: Item)   (* x :=  x *)
-
-  And1*(VAR x: Item)   (* x := x & *)
-
-  And2*(VAR x, y: Item)
-
-  Or1*(VAR x: Item)   (* x := x OR *)
-
-  Or2*(VAR x, y: Item)
-
-  Neg*(VAR x: Item)   (* x := -x *)
-
-  AddOp*(op: LONGINT; VAR x, y: Item)   (* x := x +- y *)
-
-  MulOp*(VAR x, y: Item)   (* x := x * y *)
-
-  DivOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  RealOp*(op: INTEGER; VAR x, y: Item)   (* x := x op y *)
-
-  Singleton*(VAR x: Item)  (* x := {x} *)
-
-  Set*(VAR x, y: Item)   (* x := {x .. y} *)
-
-  In*(VAR x, y: Item)  (* x := x IN y *)
-
-  SetOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  IntRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  RealRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StringRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StrToChar*(VAR x: Item)
-
-  Store*(VAR x, y: Item) (* x := y *)
-
-  StoreStruct*(VAR x, y: Item) (* x := y, frame = 0 *)
-
-  CopyString*(VAR x, y: Item)  (* x := y *) 
-
-  OpenArrayParam*(VAR x: Item)
-
-  VarParam*(VAR x: Item; ftype: ORB.Type)
-
-  ValueParam*(VAR x: Item)
-
-  StringParam*(VAR x: Item)
-
-  For0*(VAR x, y: Item)
-
-  For1*(VAR x, y, z, w: Item; VAR L: LONGINT)
-
-  For2*(VAR x, y, w: Item)
-
-  Here*(): LONGINT
-
-  FJump*(VAR L: LONGINT)
-
-  CFJump*(VAR x: Item)
-
-  BJump*(L: LONGINT)
-
-  CBJump*(VAR x: Item; L: LONGINT)
-
-  Fixup*(VAR x: Item)
-
-  PrepCall*(VAR x: Item; VAR r: LONGINT)
-
-  Call*(VAR x: Item; r: LONGINT)
-
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
-
-  Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
-
-  Increment*(upordown: LONGINT; VAR x, y: Item)
-
-  Include*(inorex: LONGINT; VAR x, y: Item)
-
-  Assert*(VAR x: Item)
-
-  New*(VAR x: Item)
-
-  Pack*(VAR x, y: Item)
-
-  Unpk*(VAR x, y: Item)
-
-  Led*(VAR x: Item)
-
-  Get*(VAR x, y: Item)
-
-  Put*(VAR x, y: Item)
-
-  Copy*(VAR x, y, z: Item)
-
-  LDPSR*(VAR x: Item)
-
-  LDREG*(VAR x, y: Item)
-
-  Abs*(VAR x: Item)
-
-  Odd*(VAR x: Item)
-
-  Floor*(VAR x: Item)
-
-  Float*(VAR x: Item)
-
-  Ord*(VAR x: Item)
-
-  Len*(VAR x: Item)
-
-  Shift*(fct: LONGINT; VAR x, y: Item)
-
-  ADC*(VAR x, y: Item)
-
-  SBC*(VAR x, y: Item)
-
-  UML*(VAR x, y: Item)
-
-  Bit*(VAR x, y: Item)
-
-  Register*(VAR x: Item)
-
-  H*(VAR x: Item)
-
-  Adr*(VAR x: Item)
-
-  Condition*(VAR x: Item)
-
-  Open*(v: INTEGER)
-
-  SetDataSize*(dc: LONGINT)
-
-  Header*
-
-  Close*(VAR modid: ORS.Ident; key, nofent: LONGINT)
-
-```
-
-
-#### [MODULE OAP](https://github.com/io-core/doc/blob/main/core/Build/OAP.md) [(source)](https://github.com/io-core/Build/blob/main/OAP.Mod)
-
-Module OAP reads the source code of an Oberon program and produces an aarch64 executable binary module.
-
-
-  **imports:** ` Texts Oberon ORS ORB OAG`
-
-**Procedures:**
-```
-  Compile*
-
-```
-
-
-#### [MODULE OAG](https://github.com/io-core/doc/blob/main/core/Build/OAG.md) [(source)](https://github.com/io-core/Build/blob/main/OAG.Mod)
-Module OAG generates the aarch-64 processor-specific instructions for executing an Oberon program. 
-
-
-  **imports:** ` SYSTEM Files ORS ORB`
-
-**Procedures:**
-```
-  CheckRegs*
-
-  FixOne*(at: LONGINT)
-
-  FixLink*(L: LONGINT)
-
-  MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT)
-
-  MakeRealItem*(VAR x: Item; val: REAL)
-
-  MakeStringItem*(VAR x: Item; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
-
-  MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT)
-
-  Field*(VAR x: Item; y: ORB.Object)   (* x := x.y *)
-
-  Index*(VAR x, y: Item)   (* x := x[y] *)
-
-  DeRef*(VAR x: Item)
-
-  BuildTD*(T: ORB.Type; VAR dc: LONGINT)
-
-  TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN)
-
-  Not*(VAR x: Item)   (* x :=  x *)
-
-  And1*(VAR x: Item)   (* x := x & *)
-
-  And2*(VAR x, y: Item)
-
-  Or1*(VAR x: Item)   (* x := x OR *)
-
-  Or2*(VAR x, y: Item)
-
-  Neg*(VAR x: Item)   (* x := -x *)
-
-  AddOp*(op: LONGINT; VAR x, y: Item)   (* x := x +- y *)
-
-  MulOp*(VAR x, y: Item)   (* x := x * y *)
-
-  DivOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  RealOp*(op: INTEGER; VAR x, y: Item)   (* x := x op y *)
-
-  Singleton*(VAR x: Item)  (* x := {x} *)
-
-  Set*(VAR x, y: Item)   (* x := {x .. y} *)
-
-  In*(VAR x, y: Item)  (* x := x IN y *)
-
-  SetOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  IntRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  RealRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StringRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StrToChar*(VAR x: Item)
-
-  Store*(VAR x, y: Item) (* x := y *)
-
-  StoreStruct*(VAR x, y: Item) (* x := y, frame = 0 *)
-
-  CopyString*(VAR x, y: Item)  (* x := y *) 
-
-  OpenArrayParam*(VAR x: Item)
-
-  VarParam*(VAR x: Item; ftype: ORB.Type)
-
-  ValueParam*(VAR x: Item)
-
-  StringParam*(VAR x: Item)
-
-  For0*(VAR x, y: Item)
-
-  For1*(VAR x, y, z, w: Item; VAR L: LONGINT)
-
-  For2*(VAR x, y, w: Item)
-
-  Here*(): LONGINT
-
-  FJump*(VAR L: LONGINT)
-
-  CFJump*(VAR x: Item)
-
-  BJump*(L: LONGINT)
-
-  CBJump*(VAR x: Item; L: LONGINT)
-
-  Fixup*(VAR x: Item)
-
-  PrepCall*(VAR x: Item; VAR r: LONGINT)
-
-  Call*(VAR x: Item; r: LONGINT)
-
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
-
-  Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
-
-  Increment*(upordown: LONGINT; VAR x, y: Item)
-
-  Include*(inorex: LONGINT; VAR x, y: Item)
-
-  Assert*(VAR x: Item)
-
-  New*(VAR x: Item)
-
-  Pack*(VAR x, y: Item)
-
-  Unpk*(VAR x, y: Item)
-
-  Led*(VAR x: Item)
-
-  Get*(VAR x, y: Item)
-
-  Put*(VAR x, y: Item)
-
-  Copy*(VAR x, y, z: Item)
-
-  LDPSR*(VAR x: Item)
-
-  LDREG*(VAR x, y: Item)
-
-  Abs*(VAR x: Item)
-
-  Odd*(VAR x: Item)
-
-  Floor*(VAR x: Item)
-
-  Float*(VAR x: Item)
-
-  Ord*(VAR x: Item)
-
-  Len*(VAR x: Item)
-
-  Shift*(fct: LONGINT; VAR x, y: Item)
-
-  ADC*(VAR x, y: Item)
-
-  SBC*(VAR x, y: Item)
-
-  UML*(VAR x, y: Item)
-
-  Bit*(VAR x, y: Item)
-
-  Register*(VAR x: Item)
-
-  H*(VAR x: Item)
-
-  Adr*(VAR x: Item)
-
-  Condition*(VAR x: Item)
-
-  Open*(v: INTEGER)
-
-  SetDataSize*(dc: LONGINT)
-
-  Header*
-
-  Close*(VAR modid: ORS.Ident; key, nofent: LONGINT)
-
-```
-
-
-#### [MODULE OaP](https://github.com/io-core/doc/blob/main/core/Build/OaP.md) [(source)](https://github.com/io-core/Build/blob/main/OaP.Mod)
-
-Module OaP reads the source code of an Oberon program and produces a 32-bit ARM executable binary module.
-
-
-  **imports:** ` Texts Oberon ORS ORB OaG`
-
-**Procedures:**
-```
-  Compile*
-
-```
-
-
-#### [MODULE OaG](https://github.com/io-core/doc/blob/main/core/Build/OaG.md) [(source)](https://github.com/io-core/Build/blob/main/OaG.Mod)
-Module OaG generates the 32-bit ARM processor-specific instructions for executing an Oberon program. 
-
-
-  **imports:** ` SYSTEM Files ORS ORB`
-
-**Procedures:**
-```
-  CheckRegs*
-
-  FixOne*(at: LONGINT)
-
-  FixLink*(L: LONGINT)
-
-  MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT)
-
-  MakeRealItem*(VAR x: Item; val: REAL)
-
-  MakeStringItem*(VAR x: Item; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
-
-  MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT)
-
-  Field*(VAR x: Item; y: ORB.Object)   (* x := x.y *)
-
-  Index*(VAR x, y: Item)   (* x := x[y] *)
-
-  DeRef*(VAR x: Item)
-
-  BuildTD*(T: ORB.Type; VAR dc: LONGINT)
-
-  TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN)
-
-  Not*(VAR x: Item)   (* x :=  x *)
-
-  And1*(VAR x: Item)   (* x := x & *)
-
-  And2*(VAR x, y: Item)
-
-  Or1*(VAR x: Item)   (* x := x OR *)
-
-  Or2*(VAR x, y: Item)
-
-  Neg*(VAR x: Item)   (* x := -x *)
-
-  AddOp*(op: LONGINT; VAR x, y: Item)   (* x := x +- y *)
-
-  MulOp*(VAR x, y: Item)   (* x := x * y *)
-
-  DivOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  RealOp*(op: INTEGER; VAR x, y: Item)   (* x := x op y *)
-
-  Singleton*(VAR x: Item)  (* x := {x} *)
-
-  Set*(VAR x, y: Item)   (* x := {x .. y} *)
-
-  In*(VAR x, y: Item)  (* x := x IN y *)
-
-  SetOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  IntRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  RealRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StringRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StrToChar*(VAR x: Item)
-
-  Store*(VAR x, y: Item) (* x := y *)
-
-  StoreStruct*(VAR x, y: Item) (* x := y, frame = 0 *)
-
-  CopyString*(VAR x, y: Item)  (* x := y *) 
-
-  OpenArrayParam*(VAR x: Item)
-
-  VarParam*(VAR x: Item; ftype: ORB.Type)
-
-  ValueParam*(VAR x: Item)
-
-  StringParam*(VAR x: Item)
-
-  For0*(VAR x, y: Item)
-
-  For1*(VAR x, y, z, w: Item; VAR L: LONGINT)
-
-  For2*(VAR x, y, w: Item)
-
-  Here*(): LONGINT
-
-  FJump*(VAR L: LONGINT)
-
-  CFJump*(VAR x: Item)
-
-  BJump*(L: LONGINT)
-
-  CBJump*(VAR x: Item; L: LONGINT)
-
-  Fixup*(VAR x: Item)
-
-  PrepCall*(VAR x: Item; VAR r: LONGINT)
-
-  Call*(VAR x: Item; r: LONGINT)
-
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
-
-  Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
-
-  Increment*(upordown: LONGINT; VAR x, y: Item)
-
-  Include*(inorex: LONGINT; VAR x, y: Item)
-
-  Assert*(VAR x: Item)
-
-  New*(VAR x: Item)
-
-  Pack*(VAR x, y: Item)
-
-  Unpk*(VAR x, y: Item)
-
-  Led*(VAR x: Item)
-
-  Get*(VAR x, y: Item)
-
-  Put*(VAR x, y: Item)
-
-  Copy*(VAR x, y, z: Item)
-
-  LDPSR*(VAR x: Item)
-
-  LDREG*(VAR x, y: Item)
-
-  Abs*(VAR x: Item)
-
-  Odd*(VAR x: Item)
-
-  Floor*(VAR x: Item)
-
-  Float*(VAR x: Item)
-
-  Ord*(VAR x: Item)
-
-  Len*(VAR x: Item)
-
-  Shift*(fct: LONGINT; VAR x, y: Item)
-
-  ADC*(VAR x, y: Item)
-
-  SBC*(VAR x, y: Item)
-
-  UML*(VAR x, y: Item)
-
-  Bit*(VAR x, y: Item)
-
-  Register*(VAR x: Item)
-
-  H*(VAR x: Item)
-
-  Adr*(VAR x: Item)
-
-  Condition*(VAR x: Item)
-
-  Open*(v: INTEGER)
-
-  SetDataSize*(dc: LONGINT)
-
-  Header*
-
-  Close*(VAR modid: ORS.Ident; key, nofent: LONGINT)
-
-```
-
-
-#### [MODULE OVP](https://github.com/io-core/doc/blob/main/core/Build/OVP.md) [(source)](https://github.com/io-core/Build/blob/main/OVP.Mod)
-
-Module OVP reads the source code of an Oberon program and produces an 64-bit RISCV executable binary module.
-
-
-  **imports:** ` Texts Oberon ORS ORB OVG`
-
-**Procedures:**
-```
-  Compile*
-
-```
-
-
-#### [MODULE OVG](https://github.com/io-core/doc/blob/main/core/Build/OVG.md) [(source)](https://github.com/io-core/Build/blob/main/OVG.Mod)
-Module OVG generates the 64-bit RISCV processor-specific instructions for executing an Oberon program. 
-
-
-  **imports:** ` SYSTEM Files ORS ORB`
-
-**Procedures:**
-```
-  CheckRegs*
-
-  FixOne*(at: LONGINT)
-
-  FixLink*(L: LONGINT)
-
-  MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT)
-
-  MakeRealItem*(VAR x: Item; val: REAL)
-
-  MakeStringItem*(VAR x: Item; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
-
-  MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT)
-
-  Field*(VAR x: Item; y: ORB.Object)   (* x := x.y *)
-
-  Index*(VAR x, y: Item)   (* x := x[y] *)
-
-  DeRef*(VAR x: Item)
-
-  BuildTD*(T: ORB.Type; VAR dc: LONGINT)
-
-  TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN)
-
-  Not*(VAR x: Item)   (* x :=  x *)
-
-  And1*(VAR x: Item)   (* x := x & *)
-
-  And2*(VAR x, y: Item)
-
-  Or1*(VAR x: Item)   (* x := x OR *)
-
-  Or2*(VAR x, y: Item)
-
-  Neg*(VAR x: Item)   (* x := -x *)
-
-  AddOp*(op: LONGINT; VAR x, y: Item)   (* x := x +- y *)
-
-  MulOp*(VAR x, y: Item)   (* x := x * y *)
-
-  DivOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  RealOp*(op: INTEGER; VAR x, y: Item)   (* x := x op y *)
-
-  Singleton*(VAR x: Item)  (* x := {x} *)
-
-  Set*(VAR x, y: Item)   (* x := {x .. y} *)
-
-  In*(VAR x, y: Item)  (* x := x IN y *)
-
-  SetOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  IntRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  RealRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StringRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StrToChar*(VAR x: Item)
-
-  Store*(VAR x, y: Item) (* x := y *)
-
-  StoreStruct*(VAR x, y: Item) (* x := y, frame = 0 *)
-
-  CopyString*(VAR x, y: Item)  (* x := y *) 
-
-  OpenArrayParam*(VAR x: Item)
-
-  VarParam*(VAR x: Item; ftype: ORB.Type)
-
-  ValueParam*(VAR x: Item)
-
-  StringParam*(VAR x: Item)
-
-  For0*(VAR x, y: Item)
-
-  For1*(VAR x, y, z, w: Item; VAR L: LONGINT)
-
-  For2*(VAR x, y, w: Item)
-
-  Here*(): LONGINT
-
-  FJump*(VAR L: LONGINT)
-
-  CFJump*(VAR x: Item)
-
-  BJump*(L: LONGINT)
-
-  CBJump*(VAR x: Item; L: LONGINT)
-
-  Fixup*(VAR x: Item)
-
-  PrepCall*(VAR x: Item; VAR r: LONGINT)
-
-  Call*(VAR x: Item; r: LONGINT)
-
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
-
-  Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
-
-  Increment*(upordown: LONGINT; VAR x, y: Item)
-
-  Include*(inorex: LONGINT; VAR x, y: Item)
-
-  Assert*(VAR x: Item)
-
-  New*(VAR x: Item)
-
-  Pack*(VAR x, y: Item)
-
-  Unpk*(VAR x, y: Item)
-
-  Led*(VAR x: Item)
-
-  Get*(VAR x, y: Item)
-
-  Put*(VAR x, y: Item)
-
-  Copy*(VAR x, y, z: Item)
-
-  LDPSR*(VAR x: Item)
-
-  LDREG*(VAR x, y: Item)
-
-  Abs*(VAR x: Item)
-
-  Odd*(VAR x: Item)
-
-  Floor*(VAR x: Item)
-
-  Float*(VAR x: Item)
-
-  Ord*(VAR x: Item)
-
-  Len*(VAR x: Item)
-
-  Shift*(fct: LONGINT; VAR x, y: Item)
-
-  ADC*(VAR x, y: Item)
-
-  SBC*(VAR x, y: Item)
-
-  UML*(VAR x, y: Item)
-
-  Bit*(VAR x, y: Item)
-
-  Register*(VAR x: Item)
-
-  H*(VAR x: Item)
-
-  Adr*(VAR x: Item)
-
-  Condition*(VAR x: Item)
-
-  Open*(v: INTEGER)
-
-  SetDataSize*(dc: LONGINT)
-
-  Header*
-
-  Close*(VAR modid: ORS.Ident; key, nofent: LONGINT)
-
-```
-
-
-#### [MODULE OvP](https://github.com/io-core/doc/blob/main/core/Build/OvP.md) [(source)](https://github.com/io-core/Build/blob/main/OvP.Mod)
-
-Module OvP reads the source code of an Oberon program and produces a 32-bit RISCV executable binary module.
-
-
-  **imports:** ` Texts Oberon ORS ORB OvG`
-
-**Procedures:**
-```
-  Compile*
-
-```
-
-
-#### [MODULE OvG](https://github.com/io-core/doc/blob/main/core/Build/OvG.md) [(source)](https://github.com/io-core/Build/blob/main/OvG.Mod)
-Module OvG generates the 32-bit RISCV processor-specific instructions for executing an Oberon program. 
-
-
-  **imports:** ` SYSTEM Files ORS ORB`
-
-**Procedures:**
-```
-  CheckRegs*
-
-  FixOne*(at: LONGINT)
-
-  FixLink*(L: LONGINT)
-
-  MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT)
-
-  MakeRealItem*(VAR x: Item; val: REAL)
-
-  MakeStringItem*(VAR x: Item; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
-
-  MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT)
-
-  Field*(VAR x: Item; y: ORB.Object)   (* x := x.y *)
-
-  Index*(VAR x, y: Item)   (* x := x[y] *)
-
-  DeRef*(VAR x: Item)
-
-  BuildTD*(T: ORB.Type; VAR dc: LONGINT)
-
-  TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN)
-
-  Not*(VAR x: Item)   (* x :=  x *)
-
-  And1*(VAR x: Item)   (* x := x & *)
-
-  And2*(VAR x, y: Item)
-
-  Or1*(VAR x: Item)   (* x := x OR *)
-
-  Or2*(VAR x, y: Item)
-
-  Neg*(VAR x: Item)   (* x := -x *)
-
-  AddOp*(op: LONGINT; VAR x, y: Item)   (* x := x +- y *)
-
-  MulOp*(VAR x, y: Item)   (* x := x * y *)
-
-  DivOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  RealOp*(op: INTEGER; VAR x, y: Item)   (* x := x op y *)
-
-  Singleton*(VAR x: Item)  (* x := {x} *)
-
-  Set*(VAR x, y: Item)   (* x := {x .. y} *)
-
-  In*(VAR x, y: Item)  (* x := x IN y *)
-
-  SetOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  IntRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  RealRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StringRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StrToChar*(VAR x: Item)
-
-  Store*(VAR x, y: Item) (* x := y *)
-
-  StoreStruct*(VAR x, y: Item) (* x := y, frame = 0 *)
-
-  CopyString*(VAR x, y: Item)  (* x := y *) 
-
-  OpenArrayParam*(VAR x: Item)
-
-  VarParam*(VAR x: Item; ftype: ORB.Type)
-
-  ValueParam*(VAR x: Item)
-
-  StringParam*(VAR x: Item)
-
-  For0*(VAR x, y: Item)
-
-  For1*(VAR x, y, z, w: Item; VAR L: LONGINT)
-
-  For2*(VAR x, y, w: Item)
-
-  Here*(): LONGINT
-
-  FJump*(VAR L: LONGINT)
-
-  CFJump*(VAR x: Item)
-
-  BJump*(L: LONGINT)
-
-  CBJump*(VAR x: Item; L: LONGINT)
-
-  Fixup*(VAR x: Item)
-
-  PrepCall*(VAR x: Item; VAR r: LONGINT)
-
-  Call*(VAR x: Item; r: LONGINT)
-
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
-
-  Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
-
-  Increment*(upordown: LONGINT; VAR x, y: Item)
-
-  Include*(inorex: LONGINT; VAR x, y: Item)
-
-  Assert*(VAR x: Item)
-
-  New*(VAR x: Item)
-
-  Pack*(VAR x, y: Item)
-
-  Unpk*(VAR x, y: Item)
-
-  Led*(VAR x: Item)
-
-  Get*(VAR x, y: Item)
-
-  Put*(VAR x, y: Item)
-
-  Copy*(VAR x, y, z: Item)
-
-  LDPSR*(VAR x: Item)
-
-  LDREG*(VAR x, y: Item)
-
-  Abs*(VAR x: Item)
-
-  Odd*(VAR x: Item)
-
-  Floor*(VAR x: Item)
-
-  Float*(VAR x: Item)
-
-  Ord*(VAR x: Item)
-
-  Len*(VAR x: Item)
-
-  Shift*(fct: LONGINT; VAR x, y: Item)
-
-  ADC*(VAR x, y: Item)
-
-  SBC*(VAR x, y: Item)
-
-  UML*(VAR x, y: Item)
-
-  Bit*(VAR x, y: Item)
-
-  Register*(VAR x: Item)
-
-  H*(VAR x: Item)
-
-  Adr*(VAR x: Item)
-
-  Condition*(VAR x: Item)
-
-  Open*(v: INTEGER)
-
-  SetDataSize*(dc: LONGINT)
-
-  Header*
-
-  Close*(VAR modid: ORS.Ident; key, nofent: LONGINT)
-
-```
-
-
-#### [MODULE ODP](https://github.com/io-core/doc/blob/main/core/Build/ODP.md) [(source)](https://github.com/io-core/Build/blob/main/ODP.Mod)
-
-  **imports:** ` Texts Oberon ORS ORB ODG`
-
-**Procedures:**
-```
-  Generate*
-
-```
-
-
-#### [MODULE ODG](https://github.com/io-core/doc/blob/main/core/Build/ODG.md) [(source)](https://github.com/io-core/Build/blob/main/ODG.Mod)
-
-  **imports:** ` SYSTEM Files ORS ORB`
-
-**Procedures:**
-```
-  CheckRegs*
-
-  FixOne*(at: LONGINT)
-
-  FixLink*(L: LONGINT)
-
-  MakeConstItem*(VAR x: Item; typ: ORB.Type; val: LONGINT)
-
-  MakeRealItem*(VAR x: Item; val: REAL)
-
-  MakeStringItem*(VAR x: Item; len: LONGINT) (*copies string from ORS-buffer to ORG-string array*)
-
-  MakeItem*(VAR x: Item; y: ORB.Object; curlev: LONGINT)
-
-  Field*(VAR x: Item; y: ORB.Object)   (* x := x.y *)
-
-  Index*(VAR x, y: Item)   (* x := x[y] *)
-
-  DeRef*(VAR x: Item)
-
-  BuildTD*(T: ORB.Type; VAR dc: LONGINT)
-
-  TypeTest*(VAR x: Item; T: ORB.Type; varpar, isguard: BOOLEAN)
-
-  Not*(VAR x: Item)   (* x :=  x *)
-
-  And1*(VAR x: Item)   (* x := x & *)
-
-  And2*(VAR x, y: Item)
-
-  Or1*(VAR x: Item)   (* x := x OR *)
-
-  Or2*(VAR x, y: Item)
-
-  Neg*(VAR x: Item)   (* x := -x *)
-
-  AddOp*(op: LONGINT; VAR x, y: Item)   (* x := x +- y *)
-
-  MulOp*(VAR x, y: Item)   (* x := x * y *)
-
-  DivOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  RealOp*(op: INTEGER; VAR x, y: Item)   (* x := x op y *)
-
-  Singleton*(VAR x: Item)  (* x := {x} *)
-
-  Set*(VAR x, y: Item)   (* x := {x .. y} *)
-
-  In*(VAR x, y: Item)  (* x := x IN y *)
-
-  SetOp*(op: LONGINT; VAR x, y: Item)   (* x := x op y *)
-
-  IntRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  RealRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StringRelation*(op: INTEGER; VAR x, y: Item)   (* x := x < y *)
-
-  StrToChar*(VAR x: Item)
-
-  Store*(VAR x, y: Item) (* x := y *)
-
-  StoreStruct*(VAR x, y: Item) (* x := y, frame = 0 *)
-
-  CopyString*(VAR x, y: Item)  (* x := y *) 
-
-  OpenArrayParam*(VAR x: Item)
-
-  VarParam*(VAR x: Item; ftype: ORB.Type)
-
-  ValueParam*(VAR x: Item)
-
-  StringParam*(VAR x: Item)
-
-  For0*(VAR x, y: Item)
-
-  For1*(VAR x, y, z, w: Item; VAR L: LONGINT)
-
-  For2*(VAR x, y, w: Item)
-
-  Here*(): LONGINT
-
-  FJump*(VAR L: LONGINT)
-
-  CFJump*(VAR x: Item)
-
-  BJump*(L: LONGINT)
-
-  CBJump*(VAR x: Item; L: LONGINT)
-
-  Fixup*(VAR x: Item)
-
-  PrepCall*(VAR x: Item; VAR r: LONGINT)
-
-  Call*(VAR x: Item; r: LONGINT)
-
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
-
-  Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
-
-  Increment*(upordown: LONGINT; VAR x, y: Item)
-
-  Include*(inorex: LONGINT; VAR x, y: Item)
-
-  Assert*(VAR x: Item)
-
-  New*(VAR x: Item)
-
-  Pack*(VAR x, y: Item)
-
-  Unpk*(VAR x, y: Item)
-
-  Led*(VAR x: Item)
-
-  Get*(VAR x, y: Item)
-
-  Put*(VAR x, y: Item)
-
-  Copy*(VAR x, y, z: Item)
-
-  LDPSR*(VAR x: Item)
-
-  LDREG*(VAR x, y: Item)
-
-  Abs*(VAR x: Item)
-
-  Odd*(VAR x: Item)
-
-  Floor*(VAR x: Item)
-
-  Float*(VAR x: Item)
-
-  Ord*(VAR x: Item)
-
-  Len*(VAR x: Item)
-
-  Shift*(fct: LONGINT; VAR x, y: Item)
-
-  ADC*(VAR x, y: Item)
-
-  SBC*(VAR x, y: Item)
-
-  UML*(VAR x, y: Item)
-
-  Bit*(VAR x, y: Item)
-
-  Register*(VAR x: Item)
-
-  H*(VAR x: Item)
-
-  Adr*(VAR x: Item)
-
-  Condition*(VAR x: Item)
-
-  Open*(v: INTEGER)
-
-  SetDataSize*(dc: LONGINT)
-
-  Header*
-
-  Close*(VAR modid: ORS.Ident; key, nofent: LONGINT)
-
-```
-
-
 #### [MODULE ORLinker](https://github.com/io-core/doc/blob/main/core/Build/ORLinker.md) [(source)](https://github.com/io-core/Build/blob/main/ORLinker.Mod)
 Module ORLinker transforms a RISC5 linkable binary module into a standalone binary suitable for installation in the boot area of an Oberon filesystem.
 
@@ -1591,60 +583,6 @@ ORLinker.Strip BareMetalR
 
   ThisCommand*(mod: Modules.Module; name: ARRAY OF CHAR): Modules.Command
 
-```
-
-
-#### [MODULE BareMetalR](https://github.com/io-core/doc/blob/main/core/Build/BareMetalR.md) [(source)](https://github.com/io-core/Build/blob/main/BareMetalR.Mod)
-Module BareMetalR exercises features of the compiler in bringing Oberon up from bare metal on RISC5.
-
-
-**Procedures:**
-```
-```
-
-
-#### [MODULE BareMetalI](https://github.com/io-core/doc/blob/main/core/Build/BareMetalI.md) [(source)](https://github.com/io-core/Build/blob/main/BareMetalI.Mod)
-Module BareMetalI exercises features of the compiler in bringing Oberon up from bare metal on x86_64.
-
-
-**Procedures:**
-```
-```
-
-
-#### [MODULE BareMetalA](https://github.com/io-core/doc/blob/main/core/Build/BareMetalA.md) [(source)](https://github.com/io-core/Build/blob/main/BareMetalA.Mod)
-Module BareMetalA exercises features of the compiler in bringing Oberon up from bare metal on aarch64.
-
-
-**Procedures:**
-```
-```
-
-
-#### [MODULE BareMetala](https://github.com/io-core/doc/blob/main/core/Build/BareMetala.md) [(source)](https://github.com/io-core/Build/blob/main/BareMetala.Mod)
-Module BareMetala exercises features of the compiler in bringing Oberon up from bare metal on 32-bit ARM.
-
-
-**Procedures:**
-```
-```
-
-
-#### [MODULE BareMetalV](https://github.com/io-core/doc/blob/main/core/Build/BareMetalV.md) [(source)](https://github.com/io-core/Build/blob/main/BareMetalV.Mod)
-Module BareMetalV exercises features of the compiler in bringing Oberon up from bare metal on 64-bit RISCV.
-
-
-**Procedures:**
-```
-```
-
-
-#### [MODULE BareMetalv](https://github.com/io-core/doc/blob/main/core/Build/BareMetalv.md) [(source)](https://github.com/io-core/Build/blob/main/BareMetalv.Mod)
-Module BareMetalv exercises features of the compiler in bringing Oberon up from bare metal on 32-bit RISCV.
-
-
-**Procedures:**
-```
 ```
 
 

@@ -18,6 +18,7 @@ for i in `ls -d ../src/github.com/io-core/*`; do
 		#echo "$nam $ref $k $j $i"
 		echo "[$nam](./$nam/README.md) $pkgdesc" >> $k/README.md
 		echo >> $k/README.md
+		mkdir -p $k/$nam
                 echo "## $nam" >> $k/$nam/README.md
 		echo "This package $pkgdesc" >> $k/$nam/README.md
 		echo >> $k/$nam/README.md

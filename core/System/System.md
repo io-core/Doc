@@ -12,7 +12,7 @@
   VAR W: Texts.Writer;
     pat: ARRAY 32 OF CHAR;
     jobV: Viewers.Viewer;
-    jobM: TextFrames.CallMsg; 
+    jobCM: TextFrames.CallMsg;
 
   PROCEDURE GetArg(VAR S: Texts.Scanner);
     VAR T: Texts.Text; beg, end, time: LONGINT;
@@ -424,8 +424,9 @@
 BEGIN Texts.OpenWriter(W);
   Oberon.OpenLog(TextFrames.Text("")); OpenViewers;
   Kernel.Install(SYSTEM.ADR(Trap), 20H); Kernel.Install(SYSTEM.ADR(Abort), 0);
-  jobM.offset := 0;
-  jobV.dsc.next.handle(jobV.dsc.next,jobM);
+  jobCM.offset := 0;
+  jobV.dsc.next.handle(jobV.dsc.next,jobCM);
+  Viewers.Close(jobV)  
 END System.
 ```
 ```
@@ -434,7 +435,7 @@ END System.
  W: Texts.Writer;
     pat: ARRAY 32 OF CHAR;
     jobV: Viewers.Viewer;
-    jobM: TextFrames.CallMsg; 
+    jobCM: TextFrames.CallMsg;
 
 ```
 ## Procedures:
