@@ -6,6 +6,7 @@ This package  Brings the Oberon Inner Core into memory and passes control to it.
 The Bootloaders package manages:
 * Loading the Oberon inner core from boot media
 * Passing hardware configuration (FDT or UEFI table) to the Oberon Kernel
+
 ### _Package Use:_
 
 The Bootloaders package contains shell scripts used outside of Oberon to prepare an Oberon UEFI or raw binary image.

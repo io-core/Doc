@@ -6,15 +6,15 @@ This package provides the compiler and associated program building and debugging
 Oberon uses a one-pass compiler with four parts, each depending on the next for functionaltiy:
 
  * A recursive-descent parser of the Oberon language, ORP
- * A generator of target-specific opcodes (RISC5), ORG
+ * A generator of target-generic opcodes (RISC5), ORG
+ * A generator of target-specific opcodes (RISC5, x86_64, aarch64, arm, riscv64, riscv32), OXG
  * A symbol table and frame tracker, ORB
  * A scanner and tokenizer, ORS
 
 In addition, several tools link and examine the binary modules produced by the compiler:
 
  * A linker and loader, Linker
- * A bootload firmware generator, ORF
- * A tool for examining modules, ORTool
+ * A tool for examining modules, OXTool
 
 ### _Package Use:_
 
