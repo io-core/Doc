@@ -243,13 +243,13 @@ Module OXG generates the processor-specific instructions for executing an Oberon
 
 **Procedures:**
 ```
-  setFixOrgP*(v: LONGINT)
+  setFixOrgP*(v: LONGINT)  (*% *)
 
-  setFixOrgD*(v: LONGINT)
+  setFixOrgD*(v: LONGINT)  (*% *)
 
-  setFixOrgT*(v: LONGINT)
+  setFixOrgT*(v: LONGINT)  (*% *)
 
-  setRegMap*
+  setRegMap*               (*% *)
 
   RPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
 

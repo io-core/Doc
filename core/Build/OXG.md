@@ -1,9 +1,10 @@
 
 ## [MODULE OXG](https://github.com/io-core/Build/blob/main/OXG.Mod)
+Module OXG implements the processor-specific backends used by ORG
 
 (C.Perkins 2020)
 
-**ORG** is called from ORP and generates machine code various Oberon language constructs for the Oberon RISC5 architeture.
+**OXG** is called from ORP and generates machine code various Oberon language constructs for the Oberon RISC5 architeture.
 
 
   ## Imports:
@@ -11,7 +12,7 @@
 
 ## Constants:
 ```
-
+     (*% *)
     WordSize* = 4;
     RStkOrg0 = -64;
     IStkOrg0 = -64;
@@ -23,54 +24,56 @@
     maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
     Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
 
-  (*frequently used opcodes*)  U = 2000H; V = 1000H;
+    (*frequently used opcodes*)  U = 2000H; V = 1000H;
     Mov = 0; Lsl = 1; Asr = 2; Ror= 3; And = 4; Ann = 5; Ior = 6; Xor = 7;
     Add = 8; Sub = 9; Cmp = 9; Mul = 10; Div = 11;
     Fad = 12; Fsb = 13; Fml = 14; Fdv = 15; MovU = 16;
     Ldr = 8; Str = 10;
     BR = 0; BLR = 1; BC = 2; BL = 3;
     MI = 0; PL = 8; EQ = 1; NE = 9; LT = 5; GE = 13; LE = 6; GT = 14;
+    (* %*)
 
 ```
 ## Types:
 ```
-
+      (*% *)
+    (* %*)
 
 ```
 ## Variables:
 ```
-
+       (*% *)
     code*: ARRAY maxCode OF LONGINT;
     data*: ARRAY maxTD OF LONGINT;  (*type descriptors*)
     str*: ARRAY maxStrx OF CHAR;
     fixorgP*, fixorgD*, fixorgT*: LONGINT;   (*origins of lists of locations to be fixed up by loader*)
     err: ARRAY 32 OF CHAR;
     regmap: ARRAY 16 OF INTEGER; (*shuffle of registers for allocation/use*)
+    (* %*)
 
 ```
 ## Procedures:
 ---
-## ---------- Fixup Chains Updating
+
+`  PROCEDURE setFixOrgP*(v: LONGINT);  (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L52)
+
 ---
 **setFixOrgP**
 
-`  PROCEDURE setFixOrgP*(v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L56)
+`  PROCEDURE setFixOrgD*(v: LONGINT);  (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L61)
 
 ---
 **setFixOrgD**
 
-`  PROCEDURE setFixOrgD*(v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L65)
+`  PROCEDURE setFixOrgT*(v: LONGINT);  (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L70)
 
 ---
 **setFixOrgT**
 
-`  PROCEDURE setFixOrgT*(v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L74)
+`  PROCEDURE setRegMap*;               (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L79)
 
 ---
 **setRegMap**
-
-`  PROCEDURE setRegMap*;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L83)
-
 ## ---------- Utility Operations
 ---
 **Put1Byte** places a byte in in the instruction stream which is expected to have 8 zero bits at that location.
