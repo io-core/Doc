@@ -20,6 +20,10 @@ Module HAL (.v64)  exercises features of the compiler in bringing Oberon up from
 ```
 ## Procedures:
 ---
+---
+**Init** simply returns.
 
-`PROCEDURE Init;` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod#L18)
+`PROCEDURE Init;` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod#L22)
 
+---
+**The initialzation code for this module** calls Init and then goes into an infinite loop.
