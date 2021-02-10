@@ -1,6 +1,16 @@
 
 ## [MODULE HAL.rsc](https://github.com/io-core/Bootloaders/blob/main/HAL.rsc.Mod)
-Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from bare metal on RISC5.
+The HAL prepares the Oberon runtime and so cannot rely on it.
+
+* No global variables
+* No strings
+* No heap allocation
+
+The first thing HAL must do is set up its own stack.
+
+Each platform should have its own HAL. This is the HAL for riscv32 on QEMU.
+
+The HAL remains resident and may be used by other modules.
 
 
   ## Imports:
@@ -28,7 +38,7 @@ Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from 
 ---
 **Init** simply returns.
 
-`PROCEDURE Init( i: INTEGER);` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.rsc.Mod#L25)
+`PROCEDURE Init( i: INTEGER);` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.rsc.Mod#L35)
 
 ---
 **The initialzation code for this module** calls Init and then goes into an infinite loop.

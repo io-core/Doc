@@ -3,12 +3,12 @@
 The HAL prepares the Oberon runtime and so cannot rely on it. 
 
 * No global variables
-* NO strings
+* No strings
 * No heap allocation
 
 The first thing HAL must do is set up its own stack.
 
-Each platform should have its own HAL. This is the HAL for arm32 on QEMU.
+Each platform should have its own HAL. This is the HAL for riscv32 on QEMU.
 
 The HAL remains resident and may be used by other modules.
 

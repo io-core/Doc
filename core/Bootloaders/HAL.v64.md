@@ -1,6 +1,16 @@
 
 ## [MODULE HAL.v64](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod)
-Module HAL (.v64)  exercises features of the compiler in bringing Oberon up from bare metal on 64-bit RISCV.
+The HAL prepares the Oberon runtime and so cannot rely on it.
+
+* No global variables
+* No strings
+* No heap allocation
+
+The first thing HAL must do is set up its own stack.
+
+Each platform should have its own HAL. This is the HAL for riscv64 on QEMU.
+
+The HAL remains resident and may be used by other modules.
 
 
   ## Imports:
@@ -31,7 +41,7 @@ Module HAL (.v64)  exercises features of the compiler in bringing Oberon up from
 ---
 **Init** simply returns.
 
-`PROCEDURE Init( i: INTEGER);` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod#L28)
+`PROCEDURE Init( i: INTEGER);` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod#L38)
 
 ---
 **The initialzation code for this module** calls Init and then goes into an infinite loop.
