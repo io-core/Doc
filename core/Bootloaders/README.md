@@ -12,7 +12,7 @@ The Bootloaders package manages:
 Each architecture may have several specific implementations of a Hardware Abastraction Layer.  For example:
 
 * HAL.a64.qemu.Mod allows Oberon to boot on aarch64 emulated in QEMU
-* HAL.a64.rpi.Mod does the same on the 64-bit Raspberry Pi and
+* HAL.a64.rpi4.Mod does the same on the 64-bit Raspberry Pi and
 * HAL.v32.qemu.Mod boots Oberon on riscv32 emulated in QEMU while
 * HAL.v32.bl602.Mod does the same on the BL602 IOT riscv device.
 
