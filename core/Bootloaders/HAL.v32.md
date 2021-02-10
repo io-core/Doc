@@ -1,6 +1,16 @@
 
 ## [MODULE HAL.v32](https://github.com/io-core/Bootloaders/blob/main/HAL.v32.Mod)
-Module HAL (.v32) exercises features of the compiler in bringing Oberon up from bare metal on 32-bit RISCV.
+The HAL prepares the Oberon runtime and so cannot rely on it. 
+
+* No global variables
+* NO strings
+* No heap allocation
+
+The first thing HAL must do is set up its own stack.
+
+Each platform should have its own HAL. This is the HAL for arm32 on QEMU.
+
+The HAL remains resident and may be used by other modules.
 
 
   ## Imports:
@@ -12,7 +22,6 @@ Module HAL (.v32) exercises features of the compiler in bringing Oberon up from 
     stackOrg = 87FFF000H;
     MTOrg    = 80001000H;
     rsData   = 10000000H;
-    rsCtrl   = -52;
     MT = 12; SP = 14; LNK = 15;   (*dedicated registers RISC5 ordinal*)
 
 ```
@@ -31,7 +40,7 @@ Module HAL (.v32) exercises features of the compiler in bringing Oberon up from 
 ---
 **Init** simply returns.
 
-`PROCEDURE Init( i: INTEGER);` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v32.Mod#L28)
+`PROCEDURE Init( i: INTEGER);` [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v32.Mod#L38)
 
 ---
 **The initialzation code for this module** calls Init and then goes into an infinite loop.
