@@ -9,7 +9,14 @@ The Bootloaders package manages:
 
 ### _Package Use:_
 
-The Bootloaders package contains shell scripts used outside of Oberon to prepare an Oberon UEFI or raw binary image.
+Each architecture may have several specific implementations of a Hardware Abastraction Layer.  For example:
+
+* HAL.a64.qemu.Mod allows Oberon to boot on aarch64 emulated in QEMU
+* HAL.a64.rpi.Mod does the same on the 64-bit Raspberry Pi and
+* HAL.v32.qemu.Mod boots Oberon on riscv32 emulated in QEMU while
+* HAL.v32.bl602.Mod does the same on the BL602 IOT riscv device.
+
+The Bootloaders package also contains shell scripts used outside of Oberon to prepare an Oberon UEFI or raw binary image.
 
 See https://github.com/io/Bootloaders for usage.
 
@@ -30,7 +37,7 @@ Module BootLoad is the firmware for the RISC Oberon platform.
 ```
 
 
-#### [MODULE HAL.rsc](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.rsc.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.rsc.Mod)
+#### [MODULE HAL.rsc.qemu](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.rsc.qemu.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.rsc.qemu.Mod)
 Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from bare metal on RISC5.
 
 
@@ -41,7 +48,7 @@ Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from 
 ```
 
 
-#### [MODULE HAL.a32](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.a32.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.a32.Mod)
+#### [MODULE HAL.a32.qemu](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.a32.qemu.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.a32.qemu.Mod)
 Module HAL (.a32) exercises features of the compiler in bringing Oberon up from bare metal on 32-bit ARM.
 
 
@@ -52,7 +59,7 @@ Module HAL (.a32) exercises features of the compiler in bringing Oberon up from 
 ```
 
 
-#### [MODULE HAL.a64](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.a64.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.a64.Mod)
+#### [MODULE HAL.a64.qemu](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.a64.qemu.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.a64.qemu.Mod)
 Module HAL (.a64) exercises features of the compiler in bringing Oberon up from bare metal on aarch64.
 
 
@@ -63,7 +70,7 @@ Module HAL (.a64) exercises features of the compiler in bringing Oberon up from 
 ```
 
 
-#### [MODULE HAL.i64](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.i64.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.i64.Mod)
+#### [MODULE HAL.i64.qemu](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.i64.qemu.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.i64.qemu.Mod)
 Module HAL (.i64) exercises features of the compiler in bringing Oberon up from bare metal on x86_64.
 
 
@@ -74,7 +81,7 @@ Module HAL (.i64) exercises features of the compiler in bringing Oberon up from 
 ```
 
 
-#### [MODULE HAL.v32](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.v32.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v32.Mod)
+#### [MODULE HAL.v32.qemu](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.v32.qemu.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v32.qemu.Mod)
 Module HAL (.v32) exercises features of the compiler in bringing Oberon up from bare metal on 32-bit RISCV.
 
 
@@ -85,7 +92,7 @@ Module HAL (.v32) exercises features of the compiler in bringing Oberon up from 
 ```
 
 
-#### [MODULE HAL.v64](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.v64.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod)
+#### [MODULE HAL.v64.qemu](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.v64.qemu.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.qemu.Mod)
 Module HAL (.v64)  exercises features of the compiler in bringing Oberon up from bare metal on 64-bit RISCV.
 
 
