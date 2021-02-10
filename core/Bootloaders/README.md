@@ -34,6 +34,8 @@ Module BootLoad is the firmware for the RISC Oberon platform.
 Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from bare metal on RISC5.
 
 
+  **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
 ```
@@ -42,6 +44,8 @@ Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from 
 #### [MODULE HAL.a32](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.a32.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.a32.Mod)
 Module HAL (.a32) exercises features of the compiler in bringing Oberon up from bare metal on 32-bit ARM.
 
+
+  **imports:** ` SYSTEM`
 
 **Procedures:**
 ```
@@ -52,6 +56,8 @@ Module HAL (.a32) exercises features of the compiler in bringing Oberon up from 
 Module HAL (.a64) exercises features of the compiler in bringing Oberon up from bare metal on aarch64.
 
 
+  **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
 ```
@@ -60,6 +66,8 @@ Module HAL (.a64) exercises features of the compiler in bringing Oberon up from 
 #### [MODULE HAL.i64](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.i64.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.i64.Mod)
 Module HAL (.i64) exercises features of the compiler in bringing Oberon up from bare metal on x86_64.
 
+
+  **imports:** ` SYSTEM`
 
 **Procedures:**
 ```
@@ -70,6 +78,8 @@ Module HAL (.i64) exercises features of the compiler in bringing Oberon up from 
 Module HAL (.v32) exercises features of the compiler in bringing Oberon up from bare metal on 32-bit RISCV.
 
 
+  **imports:** ` SYSTEM`
+
 **Procedures:**
 ```
 ```
@@ -78,6 +88,8 @@ Module HAL (.v32) exercises features of the compiler in bringing Oberon up from 
 #### [MODULE HAL.v64](https://github.com/io-core/doc/blob/main/core/Bootloaders/HAL.v64.md) [(source)](https://github.com/io-core/Bootloaders/blob/main/HAL.v64.Mod)
 Module HAL (.v64)  exercises features of the compiler in bringing Oberon up from bare metal on 64-bit RISCV.
 
+
+  **imports:** ` SYSTEM`
 
 **Procedures:**
 ```

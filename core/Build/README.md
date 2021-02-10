@@ -243,13 +243,11 @@ Module OXG generates the processor-specific instructions for executing an Oberon
 
 **Procedures:**
 ```
-  setFixOrgP*(v: LONGINT)  (*% *)
+  setFixOrgP*(v: LONGINT)  (*%P *)
 
-  setFixOrgD*(v: LONGINT)  (*% *)
+  setFixOrgD*(v: LONGINT)  (*%P *)
 
-  setFixOrgT*(v: LONGINT)  (*% *)
-
-  setRegMap*               (*% *)
+  setFixOrgT*(v: LONGINT)  (*%P *)
 
   RPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
 
@@ -263,7 +261,7 @@ Module OXG generates the processor-specific instructions for executing an Oberon
 
   RHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
 
-  IPut0*(VAR pc, pcb: LONGINT; op, ai, bi, c: LONGINT)
+  IPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
 
   IPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
 
@@ -275,33 +273,33 @@ Module OXG generates the processor-specific instructions for executing an Oberon
 
   IHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
 
-  APut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
+  APut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
 
-  APut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+  APut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT)
 
   APut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
 
-  APut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+  APut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT)
 
   APut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
 
   AHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
 
-  aPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
+  aPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
 
-  aPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+  aPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT)
 
   aPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
 
-  aPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT)
+  aPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT)
 
   aPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
 
   aHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
 
-  VPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT)
+  VPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT)
 
-  VPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT)
+  VPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT)
 
   VPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT)
 
@@ -322,6 +320,8 @@ Module OXG generates the processor-specific instructions for executing an Oberon
   vPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT)
 
   vHeader*(VAR pc, pcb, RH, entry, version: LONGINT)
+
+  setRegMap*               
 
   fix*(at, with: LONGINT)
 

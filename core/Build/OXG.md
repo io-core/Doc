@@ -28,10 +28,16 @@ Module OXG implements the processor-specific backends used by ORG
     Mov = 0; Lsl = 1; Asr = 2; Ror= 3; And = 4; Ann = 5; Ior = 6; Xor = 7;
     Add = 8; Sub = 9; Cmp = 9; Mul = 10; Div = 11;
     Fad = 12; Fsb = 13; Fml = 14; Fdv = 15; MovU = 16;
-    Ldr = 8; Str = 10;
+    Ldr = 8; Ldb = 9; Str = 10; Stb = 11;
     BR = 0; BLR = 1; BC = 2; BL = 3;
     MI = 0; PL = 8; EQ = 1; NE = 9; LT = 5; GE = 13; LE = 6; GT = 14;
+    BMI =  0; BEQ =  1; BCS =  2; BVS =  3; 
+    BLS =  4; BLT =  5; BLE =  6; B   =  7;
+    BPL =  8; BNE =  9; BVC = 10; BCC = 11;
+    BHI = 12; BGE = 13; BGT = 14; BNO = 15;
     (* %*)
+
+
 
 ```
 ## Types:
@@ -49,290 +55,336 @@ Module OXG implements the processor-specific backends used by ORG
     fixorgP*, fixorgD*, fixorgT*: LONGINT;   (*origins of lists of locations to be fixed up by loader*)
     err: ARRAY 32 OF CHAR;
     regmap: ARRAY 16 OF INTEGER; (*shuffle of registers for allocation/use*)
+    it0: ARRAY 16 OF INTEGER;
+    it1: ARRAY 16 OF INTEGER;
+    it2: ARRAY 4 OF INTEGER;
+    it3: ARRAY 16 OF INTEGER;
     (* %*)
 
 ```
 ## Procedures:
 ---
 
-`  PROCEDURE setFixOrgP*(v: LONGINT);  (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L52)
+`  PROCEDURE setFixOrgP*(v: LONGINT);  (*%P *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L62)
 
 ---
 **setFixOrgP**
 
-`  PROCEDURE setFixOrgD*(v: LONGINT);  (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L61)
+`  PROCEDURE setFixOrgD*(v: LONGINT);  (*%P *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L71)
 
 ---
 **setFixOrgD**
 
-`  PROCEDURE setFixOrgT*(v: LONGINT);  (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L70)
+`  PROCEDURE setFixOrgT*(v: LONGINT);  (*%P *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L80)
 
 ---
 **setFixOrgT**
-
-`  PROCEDURE setRegMap*;               (*% *)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L79)
-
----
-**setRegMap**
 ## ---------- Utility Operations
 ---
 **Put1Byte** places a byte in in the instruction stream which is expected to have 8 zero bits at that location.
 
-`  PROCEDURE Put1Byte(a: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L108)
+`  PROCEDURE Put1Byte(a: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L99)
 
 ---
 **Put2Bytes** places two bytes in in the instruction stream.
 
-`  PROCEDURE Put2Bytes(a, b: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L120)
+`  PROCEDURE Put2Bytes(a, b: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L111)
 
 ---
 **Put3Bytes** places three bytes in in the instruction stream.
 
-`  PROCEDURE Put3Bytes(a, b, c: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L130)
+`  PROCEDURE Put3Bytes(a, b, c: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L121)
 
 ---
 **Put4Bytes** places four bytes in in the instruction stream.
 
-`  PROCEDURE Put4Bytes(a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L141)
+`  PROCEDURE Put4Bytes(a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L132)
 
 ---
 **Put4Integer** places an integer as 4 bytes in in the instruction stream.
 
-`  PROCEDURE Put4Integer(i: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L153)
+`  PROCEDURE Put4Integer(i: INTEGER; VAR pc, pcb: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L144)
 
 ## ---------- RISC5 instruction generation
 ---
 **RPut0** PutRegFromRegOpReg
 
-`  PROCEDURE RPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L172)
+`  PROCEDURE RPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L163)
 
 ---
 **RPut1** PutRegFromRegOpImmSmall
 
-`  PROCEDURE RPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L182)
+`  PROCEDURE RPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L173)
 
 ---
 **RPut1a** PutRegFromRegOpImmLargeViaRH
 
-`  PROCEDURE RPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L202)
+`  PROCEDURE RPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L193)
 
 ---
 **RPut2** PutRegLdStRegOffset
 
-`  PROCEDURE RPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L216)
+`  PROCEDURE RPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L207)
 
 ---
 **RPut3** PutBrCondOffset
 
-`  PROCEDURE RPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L225)
+`  PROCEDURE RPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L217)
 
 ---
 **RHeader** prepares the code introductory sequence for a compiled module
 
-`  PROCEDURE RHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L234)
+`  PROCEDURE RHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L227)
 
-## ---------- X8664 instruction generation
+## ---------- i64 instruction generation
 ---
-**IPut0** PutRegFromRegOpReg
+**ISetTables** maps registers between the RISC5 model machine and the x86_64 actual machine and prepares opcode tables for x86_64.
 
-`  PROCEDURE IPut0*(VAR pc, pcb: LONGINT; op, ai, bi, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L249)
+`  PROCEDURE ISetTables;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L243)
 
 ---
-**IPut1** PutRegFromRegOpImmSmall
+**IPut0** places a register <= Register Operation Register instruction in the code array.
 
-`  PROCEDURE IPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L278)
+When the destination register (ai) is not the same as the first operand register (bi) 
+the AX register is used as an intermediate register.
+
+
+`  PROCEDURE IPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L276)
+
+---
+**IPut1** places a register <= Register Operation Immediate instruction in the code array.
+
+When the destination register (ai) is not the same as the first operand register (bi)
+the AX register is used as an intermediate register.
+
+The immediate value may be up to 32-bits in size.
+
+If the 'U' bit is set and the operation is a move, the value is shifted left 32-bits.
+
+
+`  PROCEDURE IPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L310)
 
 ---
 **IPut1a** PutRegFromRegOpImmLargeViaRH
 
-`  PROCEDURE IPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L309)
+`  PROCEDURE IPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L345)
 
 ---
 **IPut2** PutRegLdStRegOffset
 
-`  PROCEDURE IPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L325)
+`  PROCEDURE IPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L361)
 
 ---
 **IPut3** PutBrCondOffset
 
-`  PROCEDURE IPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L345)
+`  PROCEDURE IPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L381)
 
 ---
 **IHeader** prepares the code introductory sequence for a compiled X8664 module
 
-`  PROCEDURE IHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L395)
+`  PROCEDURE IHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L433)
 
 ## ---------- ARM64 instruction generation
 ---
+**ASetTables** maps registers between the RISC5 model machine and the aarch64 actual machine and prepares opcode tables for aarch64.
+
+`  PROCEDURE ASetTables;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L452)
+
+---
 **APut0** PutRegFromRegOpReg
 
-`  PROCEDURE APut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L413)
+`  PROCEDURE APut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L480)
 
 ---
 **APut1** PutRegFromRegOpImmSmall
 
-`  PROCEDURE APut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L441)
+`  PROCEDURE APut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L496)
 
 ---
 **APut1a** PutRegFromRegOpImmLargeViaRH
 
-`  PROCEDURE APut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L470)
+`  PROCEDURE APut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L512)
 
 ---
 **APut2** PutRegLdStRegOffset
 
-`  PROCEDURE APut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L484)
+`  PROCEDURE APut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L526)
 
 ---
 **APut3** PutBrCondOffset
 
-`  PROCEDURE APut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L493)
+`  PROCEDURE APut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L544)
 
 ---
 **AHeader** prepares the code introductory sequence for a compiled module
 
-`  PROCEDURE AHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L516)
+`  PROCEDURE AHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L572)
 
 ## ---------- ARM32 instruction generation
 ---
+**aSetTables** maps registers between the RISC5 model machine and the arm actual machine and prepares opcode tables for arm 32-bit.
+
+`  PROCEDURE aSetTables;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L592)
+
+---
+**aUMT** convert an integer to mov m/t immediate format
+
+`  PROCEDURE aUMT( i : LONGINT ): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L618)
+
+---
 **aPut0** PutRegFromRegOpReg
 
-`  PROCEDURE aPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L535)
+`  PROCEDURE aPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L631)
 
 ---
 **aPut1** PutRegFromRegOpImmSmall
 
-`  PROCEDURE aPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L568)
+`  PROCEDURE aPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L643)
 
 ---
 **aPut1a** PutRegFromRegOpImmLargeViaRH
 
-`  PROCEDURE aPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L612)
+`  PROCEDURE aPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L670)
 
 ---
 **aPut2** PutRegLdStRegOffset
 
-`  PROCEDURE aPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L626)
+`  PROCEDURE aPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L689)
 
 ---
 **aPut3** PutBrCondOffset
 
-`  PROCEDURE aPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L635)
+`  PROCEDURE aPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L707)
 
 ---
 **aHeader** prepares the code introductory sequence for a compiled module
 
-`  PROCEDURE aHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L658)
+`  PROCEDURE aHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L731)
 
 ## ---------- RISCV64 instruction generation
 ---
+**VSetTables** maps registers between the RISC5 model machine and the rv64 actual machine and prepares opcode tables for riscv64.
+
+`  PROCEDURE VSetTables;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L753)
+
+---
 **vUJ** convert an integer to UJ immediate format
 
-`  PROCEDURE vUJ( i : LONGINT ): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L681)
+`  PROCEDURE vUJ( i : LONGINT ): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L782)
 
 ---
 **VPut0** PutRegFromRegOpReg
 
-`  PROCEDURE VPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L695)
+`  PROCEDURE VPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L796)
 
 ---
 **VPut1** PutRegFromRegOpImmSmall
 
-`  PROCEDURE VPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L728)
+`  PROCEDURE VPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L810)
 
 ---
 **VPut1a** PutRegFromRegOpImmLargeViaRH
 
-`  PROCEDURE VPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L771)
+`  PROCEDURE VPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L828)
 
 ---
 **VPut2** PutRegLdStRegOffset
 
-`  PROCEDURE VPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L785)
+`  PROCEDURE VPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L845)
 
 ---
 **VPut3** PutBrCondOffset
 
-`  PROCEDURE VPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L794)
+`  PROCEDURE VPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L858)
 
 ---
 **VHeader** prepares the code introductory sequence for a compiled module
 
-`  PROCEDURE VHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L817)
+`  PROCEDURE VHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L881)
 
 ## ---------- RISCV32 instruction generation
 ---
+**vSetTables** configures opcode tables for riscv32.
+
+`  PROCEDURE vSetTables;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L902)
+
+---
 **vPut0** PutRegFromRegOpReg
 
-`  PROCEDURE vPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L838)
+`  PROCEDURE vPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L913)
 
 ---
 **vPut1** PutRegFromRegOpImmSmall
 
-`  PROCEDURE vPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L846)
+`  PROCEDURE vPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L921)
 
 ---
 **vPut1a** PutRegFromRegOpImmLargeViaRH
 
-`  PROCEDURE vPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L854)
+`  PROCEDURE vPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L929)
 
 ---
 **vPut2** PutRegLdStRegOffset
 
-`  PROCEDURE vPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L862)
+`  PROCEDURE vPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L937)
 
 ---
 **vPut3** PutBrCondOffset
 
-`  PROCEDURE vPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L870)
+`  PROCEDURE vPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L945)
 
 ---
 **vHeader** prepares the code introductory sequence for a compiled module
 
-`  PROCEDURE vHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L878)
+`  PROCEDURE vHeader*(VAR pc, pcb, RH, entry, version: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L953)
+
+---
+**setRegMap**
+
+`  PROCEDURE setRegMap*;               ` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L969)
 
 
-`  PROCEDURE fix*(at, with: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L891)
+`  PROCEDURE fix*(at, with: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L982)
 
 
-`  PROCEDURE FixOne*(pc,pcb,at: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L898)
+`  PROCEDURE FixOne*(pc,pcb,at: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L989)
 
 
-`  PROCEDURE FixLink*(pc,pcb,L: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L902)
+`  PROCEDURE FixLink*(pc,pcb,L: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L993)
 
 
-`  PROCEDURE FixLinkWith*(L0, dst: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L910)
+`  PROCEDURE FixLinkWith*(L0, dst: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1001)
 
 
-`  PROCEDURE merged*(L0, L1: LONGINT): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L921)
+`  PROCEDURE merged*(L0, L1: LONGINT): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1012)
 
 ---
 **MakeStringItem** prepares
 
-`  PROCEDURE InternString*(VAR strx: LONGINT; len: LONGINT); (*copies string from ORS-buffer to ORG-string array*)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L938)
+`  PROCEDURE InternString*(VAR strx: LONGINT; len: LONGINT); (*copies string from ORS-buffer to ORG-string array*)` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1029)
 
 ---
 **SetCode** prepares
 
-`  PROCEDURE SetCode*(i,v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L953)
+`  PROCEDURE SetCode*(i,v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1044)
 
 ---
 **SetData** prepares
 
-`  PROCEDURE SetData*(i,v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L961)
+`  PROCEDURE SetData*(i,v: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1052)
 
 ---
 **NofPtrs** determines the number of Garbage Collection Roots.
 
-`  PROCEDURE NofPtrs(typ: ORB.Type): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L970)
+`  PROCEDURE NofPtrs(typ: ORB.Type): LONGINT;` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1061)
 
 ---
 **FindPtrs** locates Garbage Collection roots.
 
-`  PROCEDURE FindPtrs(VAR R: Files.Rider; typ: ORB.Type; adr: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L987)
+`  PROCEDURE FindPtrs(VAR R: Files.Rider; typ: ORB.Type; adr: LONGINT);` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1078)
 
 ---
 **Close** writes the completed binary to disk.
 
-`  PROCEDURE Close*(VAR pc, pcb: LONGINT; ` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1005)
+`  PROCEDURE Close*(VAR pc, pcb: LONGINT; ` [(source)](https://github.com/io-core/Build/blob/main/OXG.Mod#L1096)
 
