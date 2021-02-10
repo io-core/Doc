@@ -16,6 +16,8 @@ Each architecture may have several specific implementations of a Hardware Abastr
 * HAL.v32.qemu.Mod boots Oberon on riscv32 emulated in QEMU while
 * HAL.v32.bl602.Mod does the same on the BL602 IOT riscv device.
 
+Each compilation or cross-compilation of Oberon will import only one of the HAL modules, referred to as 'HAL'.
+
 The Bootloaders package also contains shell scripts used outside of Oberon to prepare an Oberon UEFI or raw binary image.
 
 See https://github.com/io/Bootloaders for usage.
