@@ -10,7 +10,8 @@ Welcome to io's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   usage/installation
+   usage/quickstart
 
 Indices and tables
 ==================
