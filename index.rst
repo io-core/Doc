@@ -3,15 +3,24 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to io's documentation!
-==============================
+#####################
+  Integrated Oberon
+#####################
+
+
+Introduction
+============
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Integrated Oberon:
+   :hidden:
 
    usage/installation
-   usage/quickstart
+   usage/usage
+   core/development
+   comm/community
+   comm/conduct
 
 Indices and tables
 ==================
