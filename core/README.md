@@ -1,6 +1,6 @@
 # Core packages
 
-[Bootloaders](./Bootloaders/README.md)  Brings the Oberon Inner Core into memory and passes control to it.
+[Boot](./Boot/README.md)  Brings the Oberon Inner Core into memory and passes control to it.
 
 [Build](./Build/README.md) provides the compiler and associated program building and debugging tools for Oberon.
 

@@ -166,7 +166,7 @@ ORG uses SYSTEM, Files, ORS, ORB
 
   Call*(VAR x: Item; r: LONGINT)
 
-  Enter*(parblksize, locblksize: LONGINT; int: BOOLEAN)
+  Enter*(parblksize, locblksize, wordsize: LONGINT; int: BOOLEAN)
 
   Return*(form: INTEGER; VAR x: Item; size: LONGINT; int: BOOLEAN)
 
@@ -191,6 +191,8 @@ ORG uses SYSTEM, Files, ORS, ORB
   Copy*(VAR x, y, z: Item)
 
   LDPSR*(VAR x: Item)
+
+  REGREG*(VAR x, y: Item)
 
   LDREG*(VAR x, y: Item)
 
@@ -394,7 +396,7 @@ Module ORS does lexical analysis of the Oberon source code and defines symbols a
 
   Get*(VAR sym: INTEGER)
 
-  Init*(T: Texts.Text; pos: LONGINT; a: INTEGER)
+  Init*(T: Texts.Text; pos: LONGINT; a,b,c: INTEGER)
 
 ```
 

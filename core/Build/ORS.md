@@ -60,7 +60,7 @@ if int or char in ival, if real in rval, and if string in str (and slen)
     id*: Ident;  (*for identifiers*)
     str*: ARRAY stringBufSize OF CHAR;
     errcnt*: INTEGER;
-    ccARCH*: INTEGER;
+    ccARCH*, ccWordsize, ccStackalign: INTEGER;
     ch: CHAR;  (*last character read*)
     errpos: LONGINT;
     R: Texts.Reader;
@@ -132,12 +132,12 @@ if int or char in ival, if real in rval, and if string in str (and slen)
 ---
 **Init** opens the source text for reading and gets the first character.
 
-`  PROCEDURE Init*(T: Texts.Text; pos: LONGINT; a: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L344)
+`  PROCEDURE Init*(T: Texts.Text; pos: LONGINT; a,b,c: INTEGER);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L344)
 
 ---
 **EnterKW** adds a symbol to the keyword table.
 
-`  PROCEDURE EnterKW(sym: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L352)
+`  PROCEDURE EnterKW(sym: INTEGER; name: ARRAY OF CHAR);` [(source)](https://github.com/io-core/Build/blob/main/ORS.Mod#L355)
 
 ---
 **The initialzation code for this module** populats the table of reserved keywords.
