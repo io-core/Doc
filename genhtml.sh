@@ -31,4 +31,8 @@ awk '/end-documentation-root/{p=0};p;/begin-documentation-root/{p=1}' Doc.Mod > 
 # generate document nodes referenced from document root
 cronch index.rst
 
+make clean; make html
+git add gen/* gen/*/* gen/*/*/* gen/*/*/*/* gen/*/*/*/*/*
+git commit -m 'regenerated odoc'
+git push origin
 
