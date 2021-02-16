@@ -21,6 +21,12 @@ Virtualized
 * qemu-system-riscv32
 * qemu-system-risc6
 
+Usermode
+========
+
+* Linux
+* OSX
+* Windows
 
 Native
 ======
