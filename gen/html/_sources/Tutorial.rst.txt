@@ -1,0 +1,25 @@
+#############
+  Tutorial
+#############
+
+Creating a Project
+======================
+
+* Create a Package Directory
+* Create a Package File
+* Create a Module Source File
+
+
+Compiling Source Code
+=======================
+
+* From a command
+* From a window
+* With a new .sym file
+* In a script
+
+Running the Code
+================
+
+* from a command
+

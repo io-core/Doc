@@ -1,0 +1,7 @@
+k,v1,v2
+package,Doc,v5.0.20190301
+from,github.com/io-core,
+license,PROJECTOBERON,NW
+doc,core,Generates documentation from extracted odoc strings in Oberon packages.
+r,[core]/Files,v5.0.0
+p,Doc.Mod,

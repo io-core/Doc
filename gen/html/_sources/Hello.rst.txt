@@ -1,0 +1,24 @@
+###########################
+  Usage
+###########################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development:
+   :includehidden:
+
+   Startup
+   Navigating
+   Documents
+   Facets
+   Networking
+
+* Startup and Shutdown
+* Navigating the UI
+* Commands in IO
+* Working with documents
+* Facets of IO
+* File exchange and networking
+
+

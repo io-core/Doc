@@ -1,0 +1,17 @@
+##################
+  IO Style Guide
+##################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development:
+   :includehidden:
+
+   Code
+   Commit
+   Comment
+   Complain
+
+Some guides for style...
+

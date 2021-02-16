@@ -3,18 +3,6 @@
 ###########
 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Integrated Oberon:
-   :hidden:
-
-   Welcome
-   Installation
-   Hello
-   Development
-   Community
-   Conduct
-
 What is Integrated Oberon
 =========================
 
