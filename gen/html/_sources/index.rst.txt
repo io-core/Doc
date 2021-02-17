@@ -15,6 +15,11 @@
    Community
    Conduct
 
+.. image:: images/cowhead.png
+    :width: 50%
+    :alt: io logo
+    :align: center
+
 What is Integrated Oberon
 =========================
 
