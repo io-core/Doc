@@ -36,5 +36,5 @@ Native
 * Pinebook Pro
 * UEFI Intel pc/laptop
 
-
+https://github.com/io-core/Build/blob/main/ORLinker.Mod
 

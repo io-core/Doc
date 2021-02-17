@@ -14,3 +14,5 @@ Docbooks
 Reporting Bugs
 ==============
 
+https://github.com/io-core/Net/blob/main/Report.Mod
+

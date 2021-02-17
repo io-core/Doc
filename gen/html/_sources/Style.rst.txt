@@ -15,3 +15,5 @@
 
 Some guides for style...
 
+https://github.com/io-core/Contrib/blob/main/Vet.Mod
+

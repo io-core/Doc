@@ -35,3 +35,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+https://github.com/io-core/Doc/blob/main/Doc.Mod
+

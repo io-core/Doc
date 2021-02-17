@@ -18,3 +18,5 @@ Although we have phrased the formal diversity statement generically to make it a
 
 The IO community welcomes people no matter what languages they are fluent in. (Although core IO development is done in English.)
 
+https://github.com/io-core/Doc/blob/main/Doc.Mod
+

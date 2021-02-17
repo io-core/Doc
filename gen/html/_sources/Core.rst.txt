@@ -1,5 +1,5 @@
 ###################
-  IO Core Modules
+  IO Core Packages
 ###################
 
 
@@ -8,11 +8,13 @@
    :caption: Development:
    :hidden:
 
-   Kernel/Kernel   [Kernel.rst]
-   Files/Files     [Files.rst]
-   Modules/Modules [Modules.rst]
-   Build/ORP       [Build.rst]
-   Edit/Edit       [Edit.rst]
+   ../Kernel/Kernel   [Kernel.rst]
+   ../Files/Files     [Files.rst]
+   ../Modules/Modules [Modules.rst]
+   ../Build/ORP       [Build.rst]
+   ../Edit/Edit       [Edit.rst]
 
 Core modules in Integrated Oberon...
+
+https://github.com/io-core/Oberon/blob/main/Oberon.Mod
 

@@ -23,3 +23,5 @@ Running the Code
 
 * from a command
 
+https://github.com/io-core/Build/blob/main/Simple.Mod
+
