@@ -8,11 +8,11 @@
    :caption: Development:
    :hidden:
 
-   Kernel
-   Files
-   Modules
-   Build
-   Edit
+   Kernel/Kernel   [Kernel.rst]
+   Files/Files     [Files.rst]
+   Modules/Modules [Modules.rst]
+   Build/ORP       [Build.rst]
+   Edit/Edit       [Edit.rst]
 
-Development documentation starts here...
+Core modules in Integrated Oberon...
 
