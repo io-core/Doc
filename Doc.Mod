@@ -15,6 +15,12 @@
    ../Build/Explore  <Development.rst>
    ../Net/Report     <Community.rst>
    ../Doc/Doc        <Conduct.rst>
+   ../Mod/Assign     <License.rst>
+
+.. image:: images/cowhead.png
+    :width: 50%
+    :alt: io logo
+    :align: center
 
 What is Integrated Oberon
 =========================
@@ -29,6 +35,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+https://github.com/io-core/Doc/blob/main/Doc.Mod
 
 end-documentation-root *)
 
@@ -53,7 +61,13 @@ Although we have phrased the formal diversity statement generically to make it a
 
 The IO community welcomes people no matter what languages they are fluent in. (Although core IO development is done in English.)
 
+https://github.com/io-core/Doc/blob/main/Doc.Mod
+
 end-documentation-node *)
+
+(* begin-module-short-description
+TODO: Generate and browse documentation from Oberon source.
+end-module-short-description *)
 
 (* begin-package-description
 ### _Package Overview:_
