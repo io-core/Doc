@@ -3,19 +3,6 @@
 ###########
 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Integrated Oberon:
-   :hidden:
-
-   Overview
-   Installation
-   Hello
-   Development
-   Community
-   Conduct
-   License
-
 .. image:: images/cowhead.png
     :width: 50%
     :alt: io logo
