@@ -2,24 +2,23 @@
   Usage
 ###########################
 
+Startup and Shutdown
+====================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Development:
-   :includehidden:
+Navigating the UI
+=================
 
-   Startup
-   Navigating
-   Documents
-   Facets
-   Networking
+Commands
+========
 
-* Startup and Shutdown
-* Navigating the UI
-* Commands in IO
-* Working with documents
-* Facets of IO
-* File exchange and networking
+Working with documents
+======================
+
+Applications
+============
+
+File exchange and networking
+============================
 
 https://github.com/io-core/Assist/blob/main/Hello.Mod
 

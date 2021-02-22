@@ -1,0 +1,43 @@
+#################
+  Draw Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Draw:
+   :hidden:
+
+   Draw <Draw/Draw>
+   Graphics <Draw/Graphics>
+   MacroTool <Draw/MacroTool>
+   GraphicFrames <Draw/GraphicFrames>
+   GraphTool <Draw/GraphTool>
+   Rectangles <Draw/Rectangles>
+   Curves <Draw/Curves>
+
+Draw provides line-oriented drawing primitives and a vector drawing tool. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Draw 
+     - provides a 2d line drawing document interface to Oberon. 
+   * - Graphics 
+     - provides line drawing primitives. 
+   * - MacroTool 
+     - provides for graphical composition of line drawing primitives. 
+   * - GraphicFrames 
+     - maps user interaction onto line drawing graphics frames. 
+   * - GraphTool 
+     -  
+   * - Rectangles 
+     -  
+   * - Curves 
+     -  
+
+https://github.com/io-core/Draw/blob/main/Draw.Pkg

@@ -1,0 +1,67 @@
+#################
+  Build Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Build:
+   :hidden:
+
+   ORP <Build/ORP>
+   ORG <Build/ORG>
+   OXG <Build/OXG>
+   ORB <Build/ORB>
+   ORS <Build/ORS>
+   OXTool <Build/OXTool>
+   OXDis <Build/OXDis>
+   ORDis <Build/ORDis>
+   OIDis <Build/OIDis>
+   OADis <Build/OADis>
+   OaDis <Build/OaDis>
+   OvDis <Build/OvDis>
+   ORC <Build/ORC>
+   M <Build/M>
+   Explore <Build/Explore>
+
+Build provides the compiler and associated program building and debugging tools for Oberon. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - ORP 
+     - implements a recursive-descent parser for the Oberon language. 
+   * - ORG 
+     - implements processor-agnostic code generation. 
+   * - OXG 
+     - implements processor-specific code generation. 
+   * - ORB 
+     - tracks objects and types while compiling the Oberon language. 
+   * - ORS 
+     - implements lexical analysis for the Oberon language. 
+   * - OXTool 
+     - provides for module binary inspection. 
+   * - OXDis 
+     - manages architecture agnostic disassembly of module binaries. 
+   * - ORDis 
+     - provides for RISC5 disassembly. 
+   * - OIDis 
+     - provides for x86_64 dissasembly. 
+   * - OADis 
+     - provides aarch64 dissasembly. 
+   * - OaDis 
+     - provides 32-bit arm dissasembly. 
+   * - OvDis 
+     - provides RISCV dissasembly. 
+   * - ORC 
+     - implements serial command of an Oberon system. 
+   * - M 
+     - a simple test program. 
+   * - Explore 
+     - TODO: provide a package repository explorer. 
+
+https://github.com/io-core/Build/blob/main/Build.Pkg

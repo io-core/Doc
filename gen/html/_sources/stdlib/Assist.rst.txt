@@ -1,0 +1,28 @@
+#################
+  Assist Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Assist:
+   :hidden:
+
+   Assist <Assist/Assist>
+   Hello <Assist/Hello>
+
+Assist  provide ui help. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Assist 
+     - provides help functionality in the UI. 
+   * - Hello 
+     - provides help functionality in the UI. 
+
+https://github.com/io-core/Assist/blob/main/Assist.Pkg

@@ -1,0 +1,28 @@
+#################
+  Files Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Files:
+   :hidden:
+
+   FileDir <Files/FileDir>
+   Files <Files/Files>
+
+Files handles persistent storage and the file and directory interface of Oberon. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - FileDir 
+     - implements directory behavior for Files. 
+   * - Files 
+     - provides the Files (and directories) API for Oberon. 
+
+https://github.com/io-core/Files/blob/main/Files.Pkg

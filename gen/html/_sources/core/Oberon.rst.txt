@@ -1,0 +1,34 @@
+#################
+  Oberon Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Oberon:
+   :hidden:
+
+   Oberon <Oberon/Oberon>
+   Viewers <Oberon/Viewers>
+   Display <Oberon/Display>
+   Input <Oberon/Input>
+
+Oberon implements the user-interaction functionality and the task loop of the system. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Oberon 
+     - implements the Oberon Textual User Interface. 
+   * - Viewers 
+     - partitions and manages display panes. 
+   * - Display 
+     - renders text and graphics to the framebuffer. 
+   * - Input 
+     - presents keyboard and mouse events to the Oberon UI 
+
+https://github.com/io-core/Oberon/blob/main/Oberon.Pkg

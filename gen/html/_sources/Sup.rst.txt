@@ -1,0 +1,20 @@
+###########################
+  IO Supplemental Packages
+###########################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development:
+   :includehidden:
+
+   cA
+   cB
+   cC
+   cD
+   cE
+
+Supplemental and contributed modules here...
+
+https://github.com/io-core/Mod/blob/main/Suite.Mod
+

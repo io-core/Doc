@@ -1,0 +1,34 @@
+#################
+  Mod Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Mod:
+   :hidden:
+
+   PackageFrames <Mod/PackageFrames>
+   Mod <Mod/Mod>
+   Packages <Mod/Packages>
+   Resources <Mod/Resources>
+
+Mod provides source code package management in Oberon. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - PackageFrames 
+     -  
+   * - Mod 
+     -  
+   * - Packages 
+     -  
+   * - Resources 
+     -  
+
+https://github.com/io-core/Mod/blob/main/Mod.Pkg

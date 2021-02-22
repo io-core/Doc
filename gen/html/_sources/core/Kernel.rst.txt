@@ -1,0 +1,28 @@
+#################
+  Kernel Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Kernel:
+   :hidden:
+
+   Kernel <Kernel/Kernel>
+   BootLoad <Kernel/BootLoad>
+
+Kernel  handles kernel load / heap and GC / SDcard and sectors / timer and clock / traps. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Kernel 
+     - manages memory, block access, system timer, and traps. 
+   * - BootLoad 
+     - loads the inner core from disk or serial. 
+
+https://github.com/io-core/Kernel/blob/main/Kernel.Pkg

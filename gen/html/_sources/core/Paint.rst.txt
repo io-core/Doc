@@ -1,0 +1,34 @@
+#################
+  Paint Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Paint:
+   :hidden:
+
+   Images <Paint/Images>
+   Paint <Paint/Paint>
+   Bitmaps <Paint/Bitmaps>
+   ImageFrames <Paint/ImageFrames>
+
+Paint provides tools for viewing and manipulating bitmap images. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Images 
+     -  
+   * - Paint 
+     -  
+   * - Bitmaps 
+     -  
+   * - ImageFrames 
+     -  
+
+https://github.com/io-core/Paint/blob/main/Paint.Pkg

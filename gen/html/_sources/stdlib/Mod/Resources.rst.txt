@@ -1,0 +1,18 @@
+####################################
+  Resources Module 
+####################################
+ 
+  About  
+ 
+  Usage  
+ 
+  Development  
+ 
+  Constants  
+ 
+  Types  
+ 
+  Procedures  
+ 
+https://github.com/io-core/Mod/blob/main/Resources.Mod
+

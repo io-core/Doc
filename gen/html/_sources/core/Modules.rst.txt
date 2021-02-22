@@ -1,0 +1,25 @@
+#################
+  Modules Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Modules:
+   :hidden:
+
+   Modules <Modules/Modules>
+
+Modules manages compiled module loading and unloading in Oberon. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Modules 
+     - implements module loading and linking in Oberon. 
+
+https://github.com/io-core/Modules/blob/main/Modules.Pkg

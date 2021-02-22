@@ -5,16 +5,41 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Development:
+   :caption: IO Core Packages:
    :hidden:
 
-   ../Kernel/Kernel   [Kernel.rst]
-   ../Files/Files     [Files.rst]
-   ../Modules/Modules [Modules.rst]
-   ../Build/ORP       [Build.rst]
-   ../Edit/Edit       [Edit.rst]
+   core/Kernel
+   core/Files
+   core/Modules
+   core/Build
+   core/Edit
+   core/Boot 
+   core/Oberon
+   core/System
 
 Core modules in Integrated Oberon...
 
 https://github.com/io-core/Oberon/blob/main/Oberon.Mod
 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+ 
+   * - Package 
+     - Description 
+   * - Kernel 
+     -  handles kernel load / heap and GC / SDcard and sectors / timer and clock / traps. 
+   * - Files 
+     - handles persistent storage and the file and directory interface of Oberon. 
+   * - Modules 
+     - manages compiled module loading and unloading in Oberon. 
+   * - Build 
+     - provides the compiler and associated program building and debugging tools for Oberon. 
+   * - Edit 
+     - manages the text and font handling in Oberon. 
+   * - Boot 
+     -  Brings the Oberon Inner Core into memory and passes control to it. 
+   * - Oberon 
+     - implements the user-interaction functionality and the task loop of the system. 
+   * - System 
+     - prepares the user interface and manages viewers for the user. 

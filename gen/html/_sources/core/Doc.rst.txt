@@ -1,0 +1,25 @@
+#################
+  Doc Package 
+#################
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Doc:
+   :hidden:
+
+   Doc <Doc/Doc>
+
+Doc Generates documentation from extracted odoc strings in Oberon packages. 
+
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Doc 
+     - TODO: Generate and browse documentation from Oberon source. 
+
+https://github.com/io-core/Doc/blob/main/Doc.Pkg

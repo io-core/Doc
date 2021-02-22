@@ -8,10 +8,29 @@
    :caption: Development:
    :hidden:
 
-   Draw
-   Mod
+   stdlib/Assist
+   stdlib/Doc
+   stdlib/Draw
+   stdlib/Paint
+   stdlib/Mod
 
 Standard Library documentation starts here...
 
 https://github.com/io-core/System/blob/main/System.Mod
 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+ 
+   * - Package 
+     - Description 
+   * - Assist 
+     -  provide ui help. 
+   * - Doc 
+     - Generates documentation from extracted odoc strings in Oberon packages. 
+   * - Draw 
+     - provides line-oriented drawing primitives and a vector drawing tool. 
+   * - Paint 
+     - provides tools for viewing and manipulating bitmap images. 
+   * - Mod 
+     - provides source code package management in Oberon. 
