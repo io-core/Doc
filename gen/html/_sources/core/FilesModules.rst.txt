@@ -1,0 +1,24 @@
+
+##########################
+  Files Modules  
+##########################
+ 
+.. toctree::
+   :titlesonly:
+   :glob:
+
+   Files/*
+
+ 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - FileDir 
+     - implements directory behavior for Files. 
+   * - Files 
+     - provides the Files (and directories) API for Oberon. 
+

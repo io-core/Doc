@@ -1,28 +1,52 @@
-#################
+########################
   Kernel Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Kernel:
-   :hidden:
-
-   Kernel <Kernel/Kernel>
-   BootLoad <Kernel/BootLoad>
+Version v5.0.20140204
 
 Kernel  handles kernel load / heap and GC / SDcard and sectors / timer and clock / traps. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Kernel:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <KernelModules>
 
-   * - Kernel 
-     - manages memory, block access, system timer, and traps. 
-   * - BootLoad 
-     - loads the inner core from disk or serial. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Boot v5.0.0
+
+--------
+  About  
+--------
+ 
+Package Overview
+++++++++++++++++
+
+The Kernel package manages:
+
+* Loading the Oberon inner core from the SDcard or the serial line
+* Heap Management, Disk Access, Timekeeping, and Trap handling
+
+Package Use
++++++++++++
+
+USAGE:
+
+i:=Kernel.Time();
+
+Kernel.Install(SYSTEM.ADR(Abort), 0);
+
+Kernel.GetSector(secno*29, buf);
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Kernel  
 
 https://github.com/io-core/Kernel/blob/main/Kernel.Pkg

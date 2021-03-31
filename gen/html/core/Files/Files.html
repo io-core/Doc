@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -94,23 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Files.html">Files Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="FileDir.html">FileDir</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../FilesModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Files.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Files.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Files.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -170,6 +172,8 @@
         
           <li><a href="../Files.html">Files Package</a> &raquo;</li>
         
+          <li><a href="../FilesModules.html">Files Modules</a> &raquo;</li>
+        
       <li>Files Module</li>
     
     
@@ -191,15 +195,308 @@
             
   <div class="section" id="files-module">
 <h1>Files Module<a class="headerlink" href="#files-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module Files manages the on-disk representation of files and presents the following APIs:</p>
+<ul class="simple">
+<li><p>File Directory API: Old, New, Register, Close, Purge, Delete, Rename, Date, Length</p></li>
+<li><p>File Read API: Set, Pos, Base, ReadByte, ReadBytes, Read, ReadInt, ReadSet, ReadReal, ReadString, ReadNum</p></li>
+<li><p>File Write API: WriteByte, WriteBytes, Write, WriteInt, WriteReal, WriteString, WriteNum</p></li>
+<li><p>System use: Init, RestoreList</p></li>
+</ul>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Kernel FileDir
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MaxBufs   = 4;
+HS        = FileDir.HeaderSize;
+SS        = FileDir.SectorSize;
+STS       = FileDir.SecTabSize;
+XS        = FileDir.IndexSize;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DiskAdr = INTEGER;
+File*   = POINTER TO FileDesc;
+Buffer  = POINTER TO BufferRecord;
+Index   = POINTER TO IndexRecord;
+
+Rider* =
+  RECORD eof*: BOOLEAN;
+    res*: INTEGER;
+    file: File;
+    apos, bpos: INTEGER;
+    buf: Buffer
+  END ;
+
+FileDesc =
+  RECORD
+    next: INTEGER; (*list of files invisible to the GC*)
+    nofbufs, aleng, bleng: INTEGER;
+    modH, registered: BOOLEAN;
+    firstbuf: Buffer;
+    sechint: DiskAdr;
+    name: FileDir.FileName;
+    mime: INTEGER; (*32-bit hash of ascii mime type text*)
+    date: INTEGER;
+    ext:  ARRAY FileDir.ExTabSize OF Index;
+    sec: FileDir.SectorTable
+  END ;
+
+  (* If name[30] = 0 and name[31] &gt; 0 then name[31] indicates which kind of
+     entity other than a regular file that this is e.g. a pipe, subdir, link, etc.*)
+
+SpecialDesc =
+  RECORD (FileDesc)
+    Register: PROCEDURE (f: File)
+  END;
+
+BufferRecord =
+  RECORD apos, lim: INTEGER;
+    mod: BOOLEAN;
+    next: Buffer;
+    data: FileDir.DataSector
+  END ;
+
+IndexRecord =
+  RECORD adr: DiskAdr;
+    mod: BOOLEAN;
+    sec: FileDir.IndexSector
+  END ;
+
+(*aleng * SS + bleng = length (including header)
+  apos * SS + bpos = current position
+  0 &lt;= bpos &lt;= lim &lt;= SS
+  0 &lt;= apos &lt;= aleng &lt; PgTabSize
+  (apos &lt; aleng) &amp; (lim = SS) OR (apos = aleng) *)
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root: INTEGER (*File*);  (*list of open files*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Check</strong> verifies a FileName is in an acceptable format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Check</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Old</strong> opens an existing file or returns the file handle or NIL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Old</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">File</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>New</strong> creates a new file and returns a file handle.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">New</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">File</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>UpdateHeader</strong> updates the file header.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">UpdateHeader</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">F</span><span class="p">:</span> <span class="n">FileDir</span><span class="o">.</span><span class="n">FileHeader</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReadBuf</strong> retrieves a file buffer’s sector contents from disk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadBuf</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">buf</span><span class="p">:</span> <span class="n">Buffer</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteBuf</strong> places a file buffer’s sector contents on disk, allocating a sector if necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteBuf</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">buf</span><span class="p">:</span> <span class="n">Buffer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Buf</strong> returns the buffer for file <cite>f</cite> in memory for a sector at file sector index <cite>pos</cite> or NIL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Buf</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">Buffer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>GetBuf</strong> returns a buffer for file <cite>f</cite> for a sector at file sector index <cite>pos</cite>, loading from disk if necessary, potentially spilling a buffer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">GetBuf</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">Buffer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Unbuffer</strong> writes modified buffers and the file header for a file back to disk, allocating new sectors as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Unbuffer</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Register</strong> makes temporary (created with <cite>New</cite>) file permanent by inserting it into the on-disk directory structure.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Register</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Close</strong> flushes all outstanding changes to a file to disk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Close</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Purge</strong> returns disk sectors used by a file to free space.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Purge</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Delete</strong> removes a file from the directory and frees the disk sectors used by the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Delete</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">res</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Rename</strong> Changes the name of a file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Rename</span><span class="o">*</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">res</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Length</strong> returns the length of the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Length</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Date</strong> returns the last modified date of the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Date</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Set</strong> positions the Rider <cite>r</cite> to position <cite>pos</cite> on File <cite>f</cite> for reading and writing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Set</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Pos</strong> returns the current position of Rider <cite>r</cite> on its file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Pos</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Base</strong> returns the File that Rider <cite>r</cite> is based on.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Base</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">):</span> <span class="n">File</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReadByte</strong> provides the next byte, advancing the position by a byte.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadByte</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">BYTE</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReadBytes</strong> provides the next <cite>n</cite> bytes, advancing the position by <cite>n</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadBytes</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">BYTE</span><span class="p">;</span> <span class="n">n</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Read</strong> provide the next byte as a CHAR, advancing the position by one.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Read</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">ch</span><span class="p">:</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReadInt</strong> provides the next four bytes as an INTEGER, advancing the position by four.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadInt</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReadSet</strong> provides the next four bytes as a SET, advancing the position by four.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadSet</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">s</span><span class="p">:</span> <span class="n">SET</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadReal*(VAR R: Rider; VAR x: REAL);</p>
+</dd>
+</dl>
+<p>—
+<strong>ReadString</strong> provides the next range of bytes up to and including a NULL value as an ARRAY OF CHAR, advancing the position past the NULL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadString</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReadNum</strong> provides the next several bytes as an INTEGER, converting from the on-disk representation of a ‘Number’, advancing past the number.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReadNum</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>NewExt</strong> creates a new file sector indirection buffer for tracking sectors used by a file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">NewExt</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteByte</strong> writes a byte to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteByte</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">BYTE</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteByte</strong> writes <cite>n</cite> bytes to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteBytes</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">BYTE</span><span class="p">;</span> <span class="n">n</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Write</strong> writes a CHAR to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Write</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">ch</span><span class="p">:</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteInt</strong> writes an Int to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteInt</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteSet</strong> writes a set to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteSet</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">s</span><span class="p">:</span> <span class="n">SET</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteByte</strong> writes a Real to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteReal</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">REAL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteString</strong> writes a string including the terminating NULL to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteString</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WriteNum</strong> writes an INTEGER in something format to the file at the rider position, extending the file as necessary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteNum</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Init</strong> (called on system-startup by <cite>Modules</cite>) sets the list of open files to <cite>0</cite> and calls <cite>Kernel.Init</cite> and <cite>FileDir.Init</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Init</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>RestoreList</strong> is used by the Garbage Collector after mark phase to put the open files list back.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RestoreList</span><span class="o">*</span><span class="p">;</span> <span class="p">(</span><span class="o">*</span><span class="n">after</span> <span class="n">mark</span> <span class="n">phase</span> <span class="n">of</span> <span class="n">garbage</span> <span class="n">collection</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE mark(f: INTEGER): INTEGER;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
+<div><p>(NW 11.1.86 / 22.9.93 / 25.5.95 / 25.12.95 / 15.8.2013)</p>
 </div></blockquote>
 <p><a class="reference external" href="https://github.com/io-core/Files/blob/main/Files.Mod">https://github.com/io-core/Files/blob/main/Files.Mod</a></p>
+</div>
 </div>
 
 

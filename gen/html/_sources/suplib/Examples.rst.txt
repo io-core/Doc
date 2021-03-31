@@ -1,0 +1,40 @@
+########################
+  Examples Package 
+########################
+
+Version v5.0.20190301
+
+Examples demonstrates programming in Oberon for IO. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Examples:
+   :hidden:
+
+   Modules <ExamplesModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Files v5.0.0
+
+--------
+  About  
+--------
+ 
+### _Package Overview:_
+The Examples package manages:
+* Showing how to program in Oberon
+### _Package Use:_
+
+Explanation...
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Examples  
+
+https://github.com/io-core/Examples/blob/main/Examples.Pkg

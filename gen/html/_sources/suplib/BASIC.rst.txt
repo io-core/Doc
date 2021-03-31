@@ -1,0 +1,39 @@
+########################
+  BASIC Package 
+########################
+
+Version v1.0.20210221
+
+BASIC  compile BASIC programs. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: BASIC:
+   :hidden:
+
+   Modules <BASICModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+
+
+--------
+  About  
+--------
+ 
+
+The BASIC package provides:
+
+* A compiler for ECMA-55 BASIC
+* A command for compiling, running and interacting with BASIC programs
+
+---------------------
+  Development Guide  
+---------------------
+ 
+BASIC  
+
+https://github.com/io-core/BASIC/blob/main/BASIC.Pkg

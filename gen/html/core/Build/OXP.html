@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OXP Module &mdash; io  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="OXS Module" href="OXS.html" />
+    <link rel="prev" title="OXG Module" href="OXG.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Integrated Oberon:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Hello.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Development.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../Build.html">Build Package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../BuildModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#development-guide">Development Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../License.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../Development.html">Development</a> &raquo;</li>
+        
+          <li><a href="../../Core.html">IO Core Packages</a> &raquo;</li>
+        
+          <li><a href="../Build.html">Build Package</a> &raquo;</li>
+        
+          <li><a href="../BuildModules.html">Build Modules</a> &raquo;</li>
+        
+      <li>OXP Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/core/Build/OXP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oxp-module">
+<h1>OXP Module<a class="headerlink" href="#oxp-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module OXP reads the source code of an Oberon program and produces an executable binary module.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Texts Oberon OXS OXB OXG
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PtrBase = POINTER TO PtrBaseDesc;
+PtrBaseDesc = RECORD  (*list of names of pointer base types*)
+  name: OXS.Ident; type: OXB.Type; next: PtrBase
+END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sym: INTEGER;   (*last symbol read*)
+dc: LONGINT;    (*data counter*)
+level, exno, version: INTEGER;
+newSF: BOOLEAN;  (*option flag*)
+ccARCH, ccWordsize, ccStackalign: INTEGER;
+expression: PROCEDURE (VAR x: OXG.Item);  (*to avoid forward reference*)
+Type: PROCEDURE (VAR type: OXB.Type);
+FormalType: PROCEDURE (VAR typ: OXB.Type; dim: INTEGER);
+modid: OXS.Ident;
+pbsList: PtrBase;   (*list of names of pointer base types*)
+dummy: OXB.Object;
+W: Texts.Writer;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Check</strong> marks an error if the current symbol does not match the expeted symbol.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Check</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">msg</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Qualident</strong> generates a reference to a previously defined item if possible otherwise an error is marked.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">qualident</span><span class="p">(</span><span class="n">VAR</span> <span class="n">obj</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Object</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckBool</strong> marks an error if the item is not a boolean.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckBool</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckInt</strong> marks an error if the item is not an Int.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckInt</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckReal</strong> marks an error if the item is not a Real.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckReal</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckSet</strong> marks an error if the item is not a Set.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckSet</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckSetVal</strong> marks an error if the item is not a Set Value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckSetVal</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckConst</strong> marks an error if the value is not a Constant.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckConst</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckReadOnly</strong> marks an error if the value is not read-only.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckReadOnly</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckExport</strong> checks for an export symbol and marks an error if export not at top level.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckExport</span><span class="p">(</span><span class="n">VAR</span> <span class="n">expo</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>IsExtension</strong> determines if type t1 is an extension of t0.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">IsExtension</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">):</span> <span class="n">BOOLEAN</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>TypeTest</strong> checks for assignment type compatibility.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">TypeTest</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">;</span> <span class="n">T</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">guard</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>selector</strong> generates the array item, procedure, or method dereference on an array or record.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">selector</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EqualSignatures</strong> verifies that a procedure may be assigned to a procedure variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EqualSignatures</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">):</span> <span class="n">BOOLEAN</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>CompTypes</strong> verifies assigment compatibility by type.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CompTypes</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">varpar</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">):</span> <span class="n">BOOLEAN</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Parameter</strong> consumes a function call parameter and produces function call proloogue code for the parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">par</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Object</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ParamList</strong> consumes the function call parameters, resulting in a function call prologue.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ParamList</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>StandFunc</strong> consumes standard language functions and produces inline code for those functions.</p>
+<p>Standard functions include: <cite>ABS</cite> <cite>ODD</cite> <cite>FLOOR</cite> <cite>FLT</cite> <cite>ORD</cite> <cite>CHR</cite> <cite>LEN</cite> <cite>ADC</cite> <cite>SBC</cite> <cite>UML</cite> <cite>BIT</cite> <cite>REG</cite> <cite>VAL</cite> <cite>ADR</cite> <cite>SIZE</cite> <cite>COND</cite> <cite>H</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StandFunc</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">;</span> <span class="n">fct</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">restyp</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>element</strong> produces a reference to an element in a set.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">element</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>set</strong> produces a set from elements.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="nb">set</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>factor</strong> generates code that produces a value from identifiers, applications of functions and procedures, etc. for use in a calculation or assignment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">factor</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>term</strong> combines factors via multiplication and division, resulting in a value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">term</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SimpleExpression</strong> combines terms via addition, subtraction, boolean, and set operations, resulting in a value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SimpleExpression</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>expression0</strong> produces code handling arbitrary arithmetic and logical operations, resulting in a value.</p>
+<p>expression0 is assigned to the procedure variable <cite>expression</cite> to allow the forward reference.</p>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE expression0(VAR x: OXG.Item);</p>
+</dd>
+</dl>
+<p>—
+<strong>StandProc</strong> handles standard (predefined) procedures.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StandProc</span><span class="p">(</span><span class="n">pno</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>StatSequence</strong> matches a statement sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StatSequence</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>TypeCase</strong> (interior procedure)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">TypeCase</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Object</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">OXG</span><span class="o">.</span><span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>SkipCase</strong> (interior procedure)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SkipCase</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>IdentList</strong> matches a comma separated list of identifiers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">IdentList</span><span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">first</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Object</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ArrayType</strong> matches the definiton of an Array Type or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ArrayType</span><span class="p">(</span><span class="n">VAR</span> <span class="nb">type</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>RecordType</strong> matches the definition of a Record Type or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RecordType</span><span class="p">(</span><span class="n">VAR</span> <span class="nb">type</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FPSection</strong> matches the parameters to a function or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FPSection</span><span class="p">(</span><span class="n">VAR</span> <span class="n">adr</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">nofpar</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ProcedureType</strong> matches a Procedure Type definition or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ProcedureType</span><span class="p">(</span><span class="n">ptype</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">parblksize</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FormalType0</strong> matches the definition of a type or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FormalType0</span><span class="p">(</span><span class="n">VAR</span> <span class="n">typ</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">dim</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CheckRecLevel</strong> ensures that the ptr base is global.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CheckRecLevel</span><span class="p">(</span><span class="n">lev</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Type0</strong> matches a type definition or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Type0</span><span class="p">(</span><span class="n">VAR</span> <span class="nb">type</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Declarations</strong> dispatches the definition of constants, types, and variables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Declarations</span><span class="p">(</span><span class="n">VAR</span> <span class="n">varsize</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ProcedureDecl</strong> matches the definition of a procedure or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ProcedureDecl</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Import</strong> consumes the names of modules imported by this module and ensures their compatibility or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Import</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Module</strong> begins the recursive descent parsing of the source text and emits an object code file on completion or marks an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Module</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Option</strong> checks if a new symbol file may be generated and which architecture to compile for.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Option</span><span class="p">(</span><span class="n">VAR</span> <span class="n">S</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Scanner</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Compile</strong> locates the source code to a module, initializes the scanner, and begins parsing at ‘Module’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Compile</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> opens a writer to print marked errors and initializes the Oberon parser state.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(N. Wirth 1.7.97 / 8.3.2020 Oberon compiler for RISC in Oberon-07, C. Perkins 2020/21 annotated and extended)</p>
+<p><strong>OXP</strong> implements a one-pass recursive descent parser for the language Oberon.</p>
+<p>The structure of the parser is derived from the structure of the language, with constituent parts of the language
+(e.g. Module, Procedure, Type, Expression, Term, Parameter) represented by a procedure of that name, invoked from the
+encompassing construct. Each procedure consumes and validates a part of the program source text while populating the
+symbol table and execution context and also generating machine code faithfully representing that language construct.</p>
+<p>This module (OXP) relies on module OXG for code generation, OXB for the symbol table, execution context tracking and reserved words, and OXS
+for lexical parsing and built-in type identification.</p>
+<p><a class="reference external" href="https://github.com/io-core/Build/blob/main/OXP.Mod">https://github.com/io-core/Build/blob/main/OXP.Mod</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="OXS.html" class="btn btn-neutral float-right" title="OXS Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="OXG.html" class="btn btn-neutral float-left" title="OXG Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021 IO Authors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

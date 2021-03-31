@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OXS Module &mdash; io  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="OXT Module" href="OXT.html" />
+    <link rel="prev" title="OXP Module" href="OXP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Integrated Oberon:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Hello.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../Development.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../Build.html">Build Package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../BuildModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#development-guide">Development Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../License.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../Development.html">Development</a> &raquo;</li>
+        
+          <li><a href="../../Core.html">IO Core Packages</a> &raquo;</li>
+        
+          <li><a href="../Build.html">Build Package</a> &raquo;</li>
+        
+          <li><a href="../BuildModules.html">Build Modules</a> &raquo;</li>
+        
+      <li>OXS Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/core/Build/OXS.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oxs-module">
+<h1>OXS Module<a class="headerlink" href="#oxs-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module OXS does lexical analysis of the Oberon source code and defines symbols and operations</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Texts Oberon
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IdLen* = 32;
+NKW = 34;  (*nof keywords*)
+maxExp = 38; stringBufSize = 256;
+
+(*lexical symbols*)
+null = 0; times* = 1; rdiv* = 2; div* = 3; mod* = 4;
+and* = 5; plus* = 6; minus* = 7; or* = 8; eql* = 9;
+neq* = 10; lss* = 11; leq* = 12; gtr* = 13; geq* = 14;
+in* = 15; is* = 16; arrow* = 17; period* = 18;
+char* = 20; int* = 21; real* = 22; false* = 23; true* = 24;
+nil* = 25; string* = 26; not* = 27; lparen* = 28; lbrak* = 29;
+lbrace* = 30; ident* = 31;
+if* = 32; while* = 34; repeat* = 35; case* = 36; for* = 37;
+comma* = 40; colon* = 41; becomes* = 42; upto* = 43; rparen* = 44;
+rbrak* = 45; rbrace* = 46; then* = 47; of* = 48; do* = 49;
+to* = 50; by* = 51; semicolon* = 52; end* = 53; bar* = 54;
+else* = 55; elsif* = 56; until* = 57; return* = 58;
+array* = 60; record* = 61; pointer* = 62; const* = 63; type* = 64;
+var* = 65; procedure* = 66; begin* = 67; import* = 68; module* = 69; eot* = 70;
+notasymbol* = -1;
+go* = 100; on* = 101; def* = 102; dim* = 103; let* = 104; rem* = 105; sub* = 106; base* = 107;
+data* = 108; goto* = 109;  next* = 110;  read* = 110;  step* = 112; stop* = 113; gosub* = 114;
+input* = 115; print* = 116; option* = 117; restore* = 118; randomize* = 119; eol* = 120;
+BADARCH* = 0; RISC5* = 1; X8664* = 2; ARM64* = 3; ARM32* = 4; RISCV64* = 5; RISCV32* = 6;
+BYTEORIENTED* = 0; WORDORIENTED* = 1;
+nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ident* = ARRAY IdLen OF CHAR;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ival*, slen*: LONGINT;  (*results of Get*)
+   rval*: REAL;
+   id*: Ident;  (*for identifiers*)
+   str*: ARRAY stringBufSize OF CHAR;
+   errcnt*: INTEGER;
+   ccARCH*, ccWordsize, ccStackalign: INTEGER;
+   ch: CHAR;  (*last character read*)
+   errpos: LONGINT;
+   R: Texts.Reader;
+   W: Texts.Writer;
+   commentstyle: INTEGER;
+   sigCR: BOOLEAN;
+   k: INTEGER;
+   KWX: ARRAY 10 OF INTEGER;
+   keyTab: ARRAY NKW OF
+       RECORD sym: INTEGER; id: ARRAY 12 OF CHAR END;
+
+ (* begin-section-description
+</pre></div>
+</div>
+<dl class="simple">
+<dt>## ———- Lexer</dt><dd><p>end-section-description <a href="#id1"><span class="problematic" id="id2">*</span></a>)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>SetSigCR</strong> sets whether or not a carriage return or newline is significant.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetSigCR</span><span class="o">*</span><span class="p">(</span><span class="n">sig</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetCommentStyle</strong> sets the style of comments in the parser.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetCommentStyle</span><span class="o">*</span><span class="p">(</span><span class="n">style</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CopyId</strong> duplicates an identifier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CopyId</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">ident</span><span class="p">:</span> <span class="n">Ident</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Pos</strong> reports the location in the source text not couting the most current character.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Pos</span><span class="o">*</span><span class="p">():</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Mark</strong> reports an error to the Oberon system log.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Mark</span><span class="o">*</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Identifier</strong> matches an alphanumeric identifier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Identifier</span><span class="p">(</span><span class="n">VAR</span> <span class="n">sym</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>String</strong> matches a quote delimeted string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">String</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>HexString</strong> matches a hex string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">HexString</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Ten</strong> ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Ten</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">):</span> <span class="n">REAL</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Number</strong> matches a number.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Number</span><span class="p">(</span><span class="n">VAR</span> <span class="n">sym</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Comment</strong> matches comments.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">comment</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Get</strong> gets the next symbol from the source text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Get</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">sym</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Init</strong> opens the source text for reading and gets the first character.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Init</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EnterKW</strong> adds a symbol to the keyword table.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EnterKW</span><span class="o">*</span><span class="p">(</span><span class="n">sym</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">kl</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> populats the table of reserved keywords.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(NW 19.9.93 / 20.3.2017  Scanner in Oberon-07)</p>
+<p><strong>OXS</strong> is called from ORP, OXG, and OXB and converts the source text to symbols for their consumption.</p>
+<p>Oberon Scanner does lexical analysis. Input is Oberon-Text, output is
+sequence of symbols, i.e identifiers, numbers, strings, and special symbols.
+Recognises all Oberon keywords and skips comments. The keywords are recorded in a table.</p>
+<p><cite>Get(sym)</cite> delivers next symbol from input text with Reader R.</p>
+<p><cite>Mark(msg)</cite> records error and delivers error message with Writer W.</p>
+<p>If Get delivers ident, then the identifier (a string) is in variable id,
+if int or char in ival, if real in rval, and if string in str (and slen)</p>
+<p><a class="reference external" href="https://github.com/io-core/Build/blob/main/OXS.Mod">https://github.com/io-core/Build/blob/main/OXS.Mod</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="OXT.html" class="btn btn-neutral float-right" title="OXT Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="OXP.html" class="btn btn-neutral float-left" title="OXP Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021 IO Authors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

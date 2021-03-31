@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Paint Module" href="Paint.html" />
-    <link rel="prev" title="Paint Package" href="../Paint.html" /> 
+    <link rel="prev" title="ImageFrames Module" href="ImageFrames.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,20 +95,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Core.html">IO Core Packages</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Std.html">IO Standard Packages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Assist.html">Assist Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attest.html">Attest Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Crypto.html">Crypto Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Doc.html">Doc Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Draw.html">Draw Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Paint.html">Paint Package</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Paint.html">Paint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Bitmaps.html">Bitmaps</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ImageFrames.html">ImageFrames</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../PaintModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Paint.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Paint.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Paint.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Mod.html">Mod Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ArgParse.html">ArgParse Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Test.html">Test Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -169,6 +173,8 @@
         
           <li><a href="../Paint.html">Paint Package</a> &raquo;</li>
         
+          <li><a href="../PaintModules.html">Paint Modules</a> &raquo;</li>
+        
       <li>Images Module</li>
     
     
@@ -190,15 +196,188 @@
             
   <div class="section" id="images-module">
 <h1>Images Module<a class="headerlink" href="#images-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Fonts Bitmaps
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BmpFileId = 04D42H;
+       JpgFileId = 0D8FFH;
+       PngFileId = 08950H;
+       PctFileId = 0F003H;
+   bmp* = 0; jpg* = 1; png* = 2; pct* = 3; (*filetypes*)
+   replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Method* = POINTER TO MethodDesc;
+Layer* = POINTER TO LayerDesc;
+LayerDesc* = RECORD
+  x*, y*, w*, h*, d*, p*: INTEGER;
+  sx*, sy*: REAL;
+  sw*, sh*: INTEGER;
+  selected*, marked*: BOOLEAN;
+  do*: Method;
+  next: Layer
+END;
+
+Image* = POINTER TO ImageDesc;
+Notifier* = PROCEDURE (I: Image; op: INTEGER; beg, end: LONGINT);
+ImageDesc* = RECORD
+  len*: LONGINT;
+  changed*: BOOLEAN;
+  flattened*: BOOLEAN;
+  sel*, first: Layer;
+  notify*: Notifier
+END;
+
+Msg* = RECORD END ;
+WidMsg* = RECORD (Msg) w*: INTEGER END ;
+ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+
+
+bmpHeaderEntry = RECORD
+    a: INTEGER;
+    b: INTEGER;
+    c: INTEGER;
+    d: INTEGER
+END;
+
+jpgHeaderEntry = RECORD
+    a: INTEGER;
+    b: INTEGER;
+    c: INTEGER;
+    d: INTEGER
+END;
+
+pngHeaderEntry = RECORD
+    a: INTEGER;
+    b: INTEGER;
+    c: INTEGER;
+    d: INTEGER
+END;
+
+MethodDesc* = RECORD
+    copy*: PROCEDURE (from, to: Layer);
+    draw*, change*: PROCEDURE (L: Layer; VAR msg: Msg);
+    selectable*: PROCEDURE (L: Layer; x, y: INTEGER): BOOLEAN;
+    read*: PROCEDURE (L: Layer; VAR R: Files.Rider); (*; VAR C: Context); *)
+    write*: PROCEDURE (L: Layer; cno: INTEGER; VAR R: Files.Rider); (*; VAR C: Context);*)
+    print*: PROCEDURE (L: Layer; x, y: INTEGER)
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>res*: INTEGER;
+width: INTEGER;
+new*: Layer;
+LineMethod*, CapMethod*, MacMethod* : Method;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE New*(L: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Add*(I: Image; L: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisLayer*(I: Image; x, y: INTEGER): Layer;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SelectLayer*(I: Image; L: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SelectArea*(I: Image; x0, y0, x1, y1: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Draw*(I: Image; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE List*(I: Image);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Deselect*(I: Image);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawSel*(I: Image; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Change*(I: Image; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteFile*(I: Image; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetWidth*(w: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LoadBmpLayer(VAR R: Files.Rider; VAR flyr: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LoadJpgLayer(VAR R: Files.Rider; VAR flyr: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LoadPngLayer(VAR R: Files.Rider; VAR flyr: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LoadPctLayer(VAR R: Files.Rider; VAR flyr: Layer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Open*(I: Image; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Delete*(I: Image);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (L: Layer; VAR msg: Msg));</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Paint/blob/main/Images.Mod">https://github.com/io-core/Paint/blob/main/Images.Mod</a></p>
+</div>
 </div>
 
 
@@ -208,7 +387,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Paint.html" class="btn btn-neutral float-right" title="Paint Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../Paint.html" class="btn btn-neutral float-left" title="Paint Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ImageFrames.html" class="btn btn-neutral float-left" title="ImageFrames Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

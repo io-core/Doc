@@ -1,0 +1,66 @@
+####################################
+  Course Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Course handles:
+* Nothing yet. Placeholder.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Foo** is a placeholder
+::
+  PROCEDURE Foo;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Examples/blob/main/Course.Mod
+

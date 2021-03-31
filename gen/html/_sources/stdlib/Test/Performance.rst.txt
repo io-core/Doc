@@ -1,0 +1,67 @@
+####################################
+  Performance Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Performance handles:
+
+* Nothing yet. Performance monitoring eventually.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Foo** is a placeholder
+::
+  PROCEDURE Foo;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Test/blob/main/Performance.Mod
+

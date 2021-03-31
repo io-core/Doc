@@ -2,17 +2,96 @@
   Hilbert Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Display Viewers Texts Oberon MenuViewers TextFrames
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ Menu = "System.Close  System.Copy  System.Grow";
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ x, y, d: INTEGER;
+    A, B, C, D: PROCEDURE (i: INTEGER);
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE E;
+
+::
+  PROCEDURE N;
+
+::
+  PROCEDURE W;
+
+::
+  PROCEDURE S;
+
+::
+  PROCEDURE HA(i: INTEGER);
+
+::
+  PROCEDURE HB(i: INTEGER);
+
+::
+  PROCEDURE HC(i: INTEGER);
+
+::
+  PROCEDURE HD(i: INTEGER);
+
+::
+  PROCEDURE DrawHilbert(F: Display.Frame);
+
+::
+  PROCEDURE Handler(F: Display.Frame; VAR M: Display.FrameMsg);
+
+::
+  PROCEDURE New(): Display.Frame;
+
+::
+  PROCEDURE Draw*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/Hilbert.Mod
 

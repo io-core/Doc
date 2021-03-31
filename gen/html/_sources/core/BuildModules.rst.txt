@@ -1,0 +1,52 @@
+
+##########################
+  Build Modules  
+##########################
+ 
+.. toctree::
+   :titlesonly:
+   :glob:
+
+   Build/*
+
+ 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - OXP 
+     - implements a recursive-descent parser for the Oberon language. 
+   * - OXG 
+     - implements processor-agnostic code generation. 
+   * - OXX 
+     - implements processor-specific code generation. 
+   * - OXT 
+     - emits target architecture opcodes. 
+   * - OXB 
+     - tracks objects and types while compiling the Oberon language. 
+   * - OXS 
+     - implements lexical analysis for the Oberon language. 
+   * - OXTool 
+     - provides for module binary inspection. 
+   * - OXDis 
+     - manages architecture agnostic disassembly of module binaries. 
+   * - ORDis 
+     - provides for RISC5 disassembly. 
+   * - OIDis 
+     - provides for x86_64 dissasembly. 
+   * - OADis 
+     - provides aarch64 dissasembly. 
+   * - OaDis 
+     - provides 32-bit arm dissasembly. 
+   * - OvDis 
+     - provides RISCV dissasembly. 
+   * - ORC 
+     - implements serial command of an Oberon system. 
+   * - M 
+     - a simple test program. 
+   * - Explore 
+     - TODO: provide a package repository explorer. 
+

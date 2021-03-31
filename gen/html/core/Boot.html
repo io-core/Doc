@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="BootLoad Module" href="Boot/BootLoad.html" />
-    <link rel="prev" title="OptimizeFont Module" href="Edit/OptimizeFont.html" /> 
+    <link rel="next" title="Boot Modules" href="BootModules.html" />
+    <link rel="prev" title="IO Core Packages" href="../Core.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,29 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Boot Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="BootModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guide">Development Guide</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Edit.html">Edit Package</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Boot Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Boot/BootLoad.html">BootLoad</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/ORLinker.html">ORLinker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/HAL.rsc.qemu.html">HAL.rsc.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/HAL.a32.qemu.html">HAL.a32.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/HAL.a64.qemu.html">HAL.a64.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/HAL.i64.qemu.html">HAL.i64.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/HAL.v32.qemu.html">HAL.v32.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Boot/HAL.v64.qemu.html">HAL.v64.qemu</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Community.html">Community</a></li>
@@ -195,47 +191,62 @@
             
   <div class="section" id="boot-package">
 <h1>Boot Package<a class="headerlink" href="#boot-package" title="Permalink to this headline">¶</a></h1>
+<p>Version v0.1.20210227</p>
+<p>Boot  Brings the Oberon Inner Core into memory and passes control to it.</p>
 <div class="toctree-wrapper compound">
 </div>
-<p>Boot  Brings the Oberon Inner Core into memory and passes control to it.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>BootLoad</p></td>
-<td><p>loads the Inner Core from disk or serial.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ORLinker</p></td>
-<td><p>links the inner core into a bootable binary file.</p></td>
-</tr>
-<tr class="row-even"><td><p>HAL.rsc.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for RISC5 on QEMU.</p></td>
-</tr>
-<tr class="row-odd"><td><p>HAL.a32.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for 32-bit arm.</p></td>
-</tr>
-<tr class="row-even"><td><p>HAL.a64.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for aarch64.</p></td>
-</tr>
-<tr class="row-odd"><td><p>HAL.i64.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for x86_64.</p></td>
-</tr>
-<tr class="row-even"><td><p>HAL.v32.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for 32-bit riscv.</p></td>
-</tr>
-<tr class="row-odd"><td><p>HAL.v64.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for 64-bit riscv.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="package-dependencies">
+<h2>Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Modules v5.0.0</p></li>
+<li><p>Build v5.0.0</p></li>
+<li><p>Kernel v5.0.0</p></li>
+<li><p>Files v5.0.0</p></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>The Boot package manages:</p>
+<ul class="simple">
+<li><p>Loading the Oberon inner core from boot media</p></li>
+<li><p>Passing hardware configuration (FDT or UEFI table) to the Oberon Kernel</p></li>
+</ul>
+<p>Each architecture may have several specific implementations of a Hardware Abastraction Layer.  For example:</p>
+<ul class="simple">
+<li><p>HAL.a64.qemu.Mod allows Oberon to boot on aarch64 emulated in QEMU</p></li>
+<li><p>HAL.a64.rpi4.Mod does the same on the 64-bit Raspberry Pi and</p></li>
+<li><p>HAL.v32.qemu.Mod boots Oberon on riscv32 emulated in QEMU while</p></li>
+<li><p>HAL.v32.bl602.Mod does the same on the BL602 IOT riscv device.</p></li>
+<li><p>HAL.i64.lin.Mod boots Oberon under Linux as a userspace process.</p></li>
+</ul>
+<p>Each compilation or cross-compilation of Oberon will import only one of the HAL modules, referred to as ‘HAL’.</p>
+<p>The Bootloaders package also contains shell scripts used outside of Oberon to prepare an Oberon UEFI or raw binary image.</p>
+<div class="section" id="preparing-boot-and-distribution-media">
+<h3>Preparing Boot and Distribution Media<a class="headerlink" href="#preparing-boot-and-distribution-media" title="Permalink to this headline">¶</a></h3>
+<p>Generating a new Integrated Oberon image suitable for booting requires the following steps:</p>
+<ol class="arabic simple">
+<li><p>Compile the Inner Core modules (HAL, Kernel, FileDir, Files, Modules)</p></li>
+<li><p>Collect the compiled HAL, Kernel, FileDir, Files, and Modules binary modules</p></li>
+<li><p>Assemble the boot-&lt;architecture&gt;.S UEFI PE shim or ELF header shim</p></li>
+<li><p>Place the Oberon modules at appropriate offsets in the PE or ELF shim</p></li>
+<li><p>Place the PE or ELF file on the boot media or in the device firmware</p></li>
+<li><p>Place IO distribution files in the root media</p></li>
+<li><p>Boot</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>Boot
+Porting IO to a new platform in a supported CPU architecture requries:</p>
+<ol class="arabic simple">
+<li><p>Preparing a new HAL.&lt;arch&gt;.&lt;platform&gt;.Mod file</p></li>
+<li><p>Adapting existing hardware modules or introducing new ones (e.g. Input and Display)</p></li>
+<li><p>Recompiling all distribution modules dependent on modules who’s interfaces have changed</p></li>
+<li><p>Preparing the Boot and Distribution Media</p></li>
+</ol>
 <p><a class="reference external" href="https://github.com/io-core/Boot/blob/main/Boot.Pkg">https://github.com/io-core/Boot/blob/main/Boot.Pkg</a></p>
+</div>
 </div>
 
 
@@ -244,8 +255,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Boot/BootLoad.html" class="btn btn-neutral float-right" title="BootLoad Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Edit/OptimizeFont.html" class="btn btn-neutral float-left" title="OptimizeFont Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BootModules.html" class="btn btn-neutral float-right" title="Boot Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Core.html" class="btn btn-neutral float-left" title="IO Core Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

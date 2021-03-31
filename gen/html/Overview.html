@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -90,7 +89,12 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#welcome-to-integrated-oberon">Welcome to Integrated Oberon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-integrated-oberon">What is Integrated Oberon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#news">News</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#latest-release">Latest Release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gallery">Gallery</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
@@ -175,16 +179,41 @@
 </div>
 <div class="section" id="what-is-integrated-oberon">
 <h2>What is Integrated Oberon<a class="headerlink" href="#what-is-integrated-oberon" title="Permalink to this headline">¶</a></h2>
-<p>A system based on Oberon the language and Oberon the OS</p>
-<p>Integrating features, functions and capabilities from other systems</p>
+<p>Integrated Oberon is a self-contained operating system with a unique Textual User Interface adopting common features (starting with Unicode) and intended to be a personal workstation for general purpose computing.</p>
+<p>It is also very different from Windows or the Mac or Unix, both in how you use it and in how it works.</p>
+<a class="reference internal image-reference" href="_images/IntegratedOberon.png"><img alt="io logo" class="align-center" src="_images/IntegratedOberon.png" style="width: 100%;" /></a>
+<p>IO is derrived from Oberon, an OS and also a programming language developed indepentently of Unix or Windows or C with an emphaisis on simplicity. Niklaus Wirth and Jürg Gutknecht implemented the first version of Oberon in 1986 on custom hardware. Oberon has since been ported to many general purpose computing platforms. Further developments of Oberon demonstrated multiprocessing, networking, 64-bit support, color, graphical widgets, etc. operating natively and/or in a host OS.</p>
+<a class="reference internal image-reference" href="_images/Escher.png"><img alt="io logo" class="align-left" src="_images/Escher.png" style="width: 25%;" /></a>
+<a class="reference internal image-reference" href="_images/po2013.png"><img alt="io logo" class="align-right" src="_images/po2013.png" style="width: 25%;" /></a>
+<p>In 2013 Niklaus Wirth revisited the original Oberon OS and programming language, reducing the OS and language to their most primitive components and porting both to a simplified RISC target on an FPGA development board. IO is based on Project Oberon 2013.</p>
+<p>The goal of Integrated Oberon is to introduce a number of mechanisms and capabilities to this refined base OS, including supporting multiple 32 and 64 bit architectures, multicore computation via CSP, internetworking, clustering, accellerated graphics, integration and interoperation with foreign systems, etc. The intention is not to recapitulate other existing systems but instead to adopt lessons learned from other systems at a fundamental level within Oberon to exert maximum leverage of the concept within the Integrated Oberon system.</p>
+<p>Currently IO is little more than Project Oberon 2013 with support for Unicode code points (not even composed glyphs) and the beginnings of support for cross-compilation.</p>
+<p>Perhaps with your help it could be more, sooner!</p>
 </div>
-<div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="news">
+<h2>News<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h2>
+<p>Events having to do with Integrated Oberon</p>
+<div class="section" id="latest-release">
+<h3>Latest Release<a class="headerlink" href="#latest-release" title="Permalink to this headline">¶</a></h3>
+<p>Current: v5.1.20210224</p>
+<p>Stable: v5.0.0</p>
+<p>A Note on version numbers: Oberon v1, v2, v3, and v4 designate previous developments in the Oberon OS. Wirth returned to the essential elements of v1 for v5. Integrated Oberon as a system starts by applying some minor changes to v5 and so begins with v5.1.&lt;date&gt; which is an <strong>IO</strong> version number and not an <strong>Oberon</strong> version number as Wirth et. all very likely have entirely different ideas about what constitutes an incremental improvement to the Oberon language and OS!</p>
+<p>Modules within IO may have other version numbers but those adopted from v5 Oberon will begin with v5.0.0 and go up appropriately.</p>
+</div>
+<div class="section" id="changelog">
+<h3>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h3>
+<p>From v5.0.0 to v5.1.20210224:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p>Add Unicode fonts and glyph handling</p></li>
+<li><p>Accept /n for newlines and use /n by default</p></li>
+<li><p>Introduce batch processing</p></li>
+<li><p>Introduce docstrings for automatic documentation</p></li>
 </ul>
+</div>
+</div>
+<div class="section" id="gallery">
+<h2>Gallery<a class="headerlink" href="#gallery" title="Permalink to this headline">¶</a></h2>
+<p>Some images of Integrated Oberon should go here.</p>
 <p><a class="reference external" href="https://github.com/io-core/Doc/blob/main/Doc.Mod">https://github.com/io-core/Doc/blob/main/Doc.Mod</a></p>
 </div>
 </div>

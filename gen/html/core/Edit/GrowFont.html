@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OptimizeFont Module" href="OptimizeFont.html" />
-    <link rel="prev" title="FontSubsetBuilder Module" href="FontSubsetBuilder.html" /> 
+    <link rel="next" title="MIME Module" href="MIME.html" />
+    <link rel="prev" title="Fonts Module" href="Fonts.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,29 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Edit.html">Edit Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Edit.html">Edit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Fonts.html">Fonts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="TextFrames.html">TextFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Texts.html">Texts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ConvertPCFFont.html">ConvertPCFFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="FontSubsetBuilder.html">FontSubsetBuilder</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">GrowFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OptimizeFont.html">OptimizeFont</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../EditModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -176,6 +172,8 @@
         
           <li><a href="../Edit.html">Edit Package</a> &raquo;</li>
         
+          <li><a href="../EditModules.html">Edit Modules</a> &raquo;</li>
+        
       <li>GrowFont Module</li>
     
     
@@ -197,15 +195,162 @@
             
   <div class="section" id="growfont-module">
 <h1>GrowFont Module<a class="headerlink" href="#growfont-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Texts Oberon
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FontFileId = 0DBH;
+
+     (*
+        input bit pattern      output bit pattern
+              9
+            0 1 2              0 1       0 1 2
+          a 3 4 5 b            2 3       3 4 5
+            6 7 8                        6 7 8
+              c
+     *)
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CallbackProc = PROCEDURE (in: SET; VAR out: SET);
+LineRec = POINTER TO LineDesc;
+LineDesc = RECORD l: ARRAY 32 OF BYTE END;
+GlyphRec = RECORD w, h: BYTE END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>oldLines: ARRAY 5 OF LineRec;
+newLines: ARRAY 3 OF LineRec;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE GrabPixel(line, x, idx: INTEGER; VAR set : SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetPixel(line, x: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ClearLine(VAR line : LineRec);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ScaleLine(factor, width: INTEGER; callback: CallbackProc);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WrInt16(VAR R: Files.Rider; b0: BYTE);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadInt16(VAR R: Files.Rider; VAR v: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteInt16(VAR R: Files.Rider; v: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CopyBytes(VAR RR, RW: Files.Rider; count: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DoScale(factor: INTEGER; callback: CallbackProc);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackX2(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE X2*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackX3(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE X3*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CopySetBit(in: SET; src: INTEGER; out: SET; dst: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackEPX2(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE EPX2*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackEPX3(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE EPX3*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackEagle(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Eagle*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackScale2SFX(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Scale2SFX*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CallbackScale3SFX(in: SET; VAR out: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Scale3SFX*;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Edit/blob/main/GrowFont.Mod">https://github.com/io-core/Edit/blob/main/GrowFont.Mod</a></p>
+</div>
 </div>
 
 
@@ -214,8 +359,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="OptimizeFont.html" class="btn btn-neutral float-right" title="OptimizeFont Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="FontSubsetBuilder.html" class="btn btn-neutral float-left" title="FontSubsetBuilder Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="MIME.html" class="btn btn-neutral float-right" title="MIME Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Fonts.html" class="btn btn-neutral float-left" title="Fonts Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

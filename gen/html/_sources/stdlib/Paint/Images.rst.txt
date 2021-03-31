@@ -2,17 +2,184 @@
   Images Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Fonts Bitmaps
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ BmpFileId = 04D42H;
+        JpgFileId = 0D8FFH;
+	PngFileId = 08950H;
+        PctFileId = 0F003H;
+    bmp* = 0; jpg* = 1; png* = 2; pct* = 3; (*filetypes*)
+    replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ 
+    Method* = POINTER TO MethodDesc;
+    Layer* = POINTER TO LayerDesc;
+    LayerDesc* = RECORD
+      x*, y*, w*, h*, d*, p*: INTEGER;
+      sx*, sy*: REAL;
+      sw*, sh*: INTEGER;
+      selected*, marked*: BOOLEAN;
+      do*: Method;
+      next: Layer
+    END;
+
+    Image* = POINTER TO ImageDesc;
+    Notifier* = PROCEDURE (I: Image; op: INTEGER; beg, end: LONGINT);
+    ImageDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      flattened*: BOOLEAN;
+      sel*, first: Layer;
+      notify*: Notifier
+    END;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    
+
+    bmpHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    jpgHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    pngHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    MethodDesc* = RECORD
+        copy*: PROCEDURE (from, to: Layer);
+        draw*, change*: PROCEDURE (L: Layer; VAR msg: Msg);
+        selectable*: PROCEDURE (L: Layer; x, y: INTEGER): BOOLEAN;
+        read*: PROCEDURE (L: Layer; VAR R: Files.Rider); (*; VAR C: Context); *)
+        write*: PROCEDURE (L: Layer; cno: INTEGER; VAR R: Files.Rider); (*; VAR C: Context);*)
+        print*: PROCEDURE (L: Layer; x, y: INTEGER)
+      END ;
+
+    
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+  res*: INTEGER;
+  width: INTEGER;
+  new*: Layer; 
+  LineMethod*, CapMethod*, MacMethod* : Method;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE New*(L: Layer);
+
+::
+  PROCEDURE Add*(I: Image; L: Layer);
+
+::
+  PROCEDURE ThisLayer*(I: Image; x, y: INTEGER): Layer;
+
+::
+  PROCEDURE SelectLayer*(I: Image; L: Layer);
+
+::
+  PROCEDURE SelectArea*(I: Image; x0, y0, x1, y1: INTEGER);
+
+::
+  PROCEDURE Draw*(I: Image; VAR M: Msg);
+
+::
+  PROCEDURE List*(I: Image);
+
+::
+  PROCEDURE Deselect*(I: Image);
+
+::
+  PROCEDURE DrawSel*(I: Image; VAR M: Msg);
+
+::
+  PROCEDURE Change*(I: Image; VAR M: Msg);
+
+::
+  PROCEDURE WriteFile*(I: Image; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE SetWidth*(w: INTEGER);
+
+::
+  PROCEDURE LoadBmpLayer(VAR R: Files.Rider; VAR flyr: Layer);
+
+::
+  PROCEDURE LoadJpgLayer(VAR R: Files.Rider; VAR flyr: Layer);
+
+::
+  PROCEDURE LoadPngLayer(VAR R: Files.Rider; VAR flyr: Layer);
+
+::
+  PROCEDURE LoadPctLayer(VAR R: Files.Rider; VAR flyr: Layer);
+
+::
+  PROCEDURE Open*(I: Image; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Delete*(I: Image);
+
+::
+  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (L: Layer; VAR msg: Msg));
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Paint/blob/main/Images.Mod
 

@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Display Module" href="Display.html" />
-    <link rel="prev" title="Oberon Module" href="Oberon.html" /> 
+    <link rel="next" title="System Package" href="../System.html" />
+    <link rel="prev" title="TestInt Module" href="TestInt.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,17 +93,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Oberon.html">Oberon Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Oberon.html">Oberon</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Viewers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Display.html">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Input.html">Input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../OberonModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
@@ -112,7 +111,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -172,6 +172,8 @@
         
           <li><a href="../Oberon.html">Oberon Package</a> &raquo;</li>
         
+          <li><a href="../OberonModules.html">Oberon Modules</a> &raquo;</li>
+        
       <li>Viewers Module</li>
     
     
@@ -193,15 +195,136 @@
             
   <div class="section" id="viewers-module">
 <h1>Viewers Module<a class="headerlink" href="#viewers-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module Viewers introduces rectangular areas of the display that present information and
+react to user input – ‘tracks’ and ‘viewers’.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Display
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore* = 0; modify* = 1; suspend* = 2; (*message ids*)
+inf = 65535;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Viewer* = POINTER TO ViewerDesc;
+ViewerDesc* = RECORD (Display.FrameDesc) state*: INTEGER END;
+
+(*state &gt; 1: displayed; state = 1: filler; state = 0: closed; state &lt; 0: suspended*)
+
+ViewerMsg* = RECORD (Display.FrameMsg)
+    id*: INTEGER;
+    X*, Y*, W*, H*: INTEGER;
+    state*: INTEGER
+  END;
+
+Track = POINTER TO TrackDesc;
+TrackDesc = RECORD (ViewerDesc) under: Display.Frame END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curW*, minH*, DH: INTEGER;
+FillerTrack: Track; FillerViewer,
+backup: Viewer; (*last closed viewer*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Open</strong> opens a viewer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Open</span><span class="o">*</span> <span class="p">(</span><span class="n">V</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Change</strong> adjusts the vertical position of the viewer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Change</span><span class="o">*</span> <span class="p">(</span><span class="n">V</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">;</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>RestoreTrack</strong> brings back a track that was obscured by an expanded viewer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RestoreTrack</span> <span class="p">(</span><span class="n">S</span><span class="p">:</span> <span class="n">Display</span><span class="o">.</span><span class="n">Frame</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Close</strong> removes a viewer from the track.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Close</span><span class="o">*</span> <span class="p">(</span><span class="n">V</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Recall</strong> brings back a closed viewer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Recall</span><span class="o">*</span> <span class="p">(</span><span class="n">VAR</span> <span class="n">V</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>This</strong> identifies the viewer containing the coordinates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">This</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">Viewer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Next</strong> returns the next viewer in the global viewer list.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Next</span><span class="o">*</span> <span class="p">(</span><span class="n">V</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">):</span> <span class="n">Viewer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Locate</strong> finds ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Locate</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">fil</span><span class="p">,</span> <span class="n">bot</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="nb">max</span><span class="p">:</span> <span class="n">Display</span><span class="o">.</span><span class="n">Frame</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>InitTrack</strong> prepares a track to accept viewers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">InitTrack</span><span class="o">*</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">Filler</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>OpenTrack</strong> places the track on the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">OpenTrack</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">Filler</span><span class="p">:</span> <span class="n">Viewer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CloseTrack</strong> removes the track from the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CloseTrack</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Broadcast</strong> sends a message to all frames.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Broadcast</span><span class="o">*</span> <span class="p">(</span><span class="n">VAR</span> <span class="n">M</span><span class="p">:</span> <span class="n">Display</span><span class="o">.</span><span class="n">FrameMsg</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> initializes empty tracks for use later by the System module and user programs.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(JG 14.9.90 / NW 15.9.2013)</p>
+<p><strong>Viewers</strong> introduces the core functionality for graphical interaction in Oberon.</p>
+<p>Tracks are vertical columns of display space and viewers are partitions of that vertical space.</p>
+<p>Different kinds of viewers import this module and extend its functionality in specialized
+ways, e.g. MenuViewers for simple one-line menus of commands and TextViewers for text areas
+that can scroll, be edited, receive copy and paste, etc.</p>
+<p>This module concerns itself with operations on all tracks and viewers including opening, closing, moving, hiding and restoring them.</p>
+<p>This module also introduces the messages understood by viewers and provides the mechanism for locating viewers and dispatching messages to viewers.</p>
 <p><a class="reference external" href="https://github.com/io-core/Oberon/blob/main/Viewers.Mod">https://github.com/io-core/Oberon/blob/main/Viewers.Mod</a></p>
+</div>
 </div>
 
 
@@ -210,8 +333,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Display.html" class="btn btn-neutral float-right" title="Display Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Oberon.html" class="btn btn-neutral float-left" title="Oberon Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../System.html" class="btn btn-neutral float-right" title="System Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="TestInt.html" class="btn btn-neutral float-left" title="TestInt Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

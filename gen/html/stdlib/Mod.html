@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PackageFrames Module" href="Mod/PackageFrames.html" />
-    <link rel="prev" title="ImageFrames Module" href="Paint/ImageFrames.html" /> 
+    <link rel="next" title="Mod Modules" href="ModModules.html" />
+    <link rel="prev" title="Paint Module" href="Paint/Paint.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,23 +95,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../Core.html">IO Core Packages</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Std.html">IO Standard Packages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Assist.html">Assist Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attest.html">Attest Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Crypto.html">Crypto Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Doc.html">Doc Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Draw.html">Draw Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Paint.html">Paint Package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Mod Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Mod/PackageFrames.html">PackageFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod/Mod.html">Mod</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod/Packages.html">Packages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod/Resources.html">Resources</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod/Assign.html">Assign</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod/Suite.html">Suite</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod/Vet.html">Vet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ModModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guide">Development Guide</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ArgParse.html">ArgParse Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Test.html">Test Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Community.html">Community</a></li>
@@ -191,44 +192,24 @@
             
   <div class="section" id="mod-package">
 <h1>Mod Package<a class="headerlink" href="#mod-package" title="Permalink to this headline">¶</a></h1>
+<p>Version v0.1.0</p>
+<p>Mod provides source code package management in Oberon.</p>
 <div class="toctree-wrapper compound">
 </div>
-<p>Mod provides source code package management in Oberon.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>PackageFrames</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Mod</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Packages</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Resources</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Assign</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Suite</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Vet</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="package-dependencies">
+<h2>Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>System v5.0.0</p></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>Mod</p>
 <p><a class="reference external" href="https://github.com/io-core/Mod/blob/main/Mod.Pkg">https://github.com/io-core/Mod/blob/main/Mod.Pkg</a></p>
+</div>
 </div>
 
 
@@ -237,8 +218,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Mod/PackageFrames.html" class="btn btn-neutral float-right" title="PackageFrames Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Paint/ImageFrames.html" class="btn btn-neutral float-left" title="ImageFrames Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ModModules.html" class="btn btn-neutral float-right" title="Mod Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Paint/Paint.html" class="btn btn-neutral float-left" title="Paint Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

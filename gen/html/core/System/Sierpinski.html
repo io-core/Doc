@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Stars Module" href="Stars.html" />
-    <link rel="prev" title="Hilbert Module" href="Hilbert.html" /> 
+    <link rel="prev" title="SCC Module" href="SCC.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,36 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../System.html">System Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="System.html">System</a></li>
-<li class="toctree-l4"><a class="reference internal" href="MenuViewers.html">MenuViewers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="PIO.html">PIO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Tools.html">Tools</a></li>
-<li class="toctree-l4"><a class="reference internal" href="PCLink1.html">PCLink1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RS232.html">RS232</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Net.html">Net</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SCC.html">SCC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Batch.html">Batch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Halt.html">Halt</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Hilbert.html">Hilbert</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Sierpinski</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Stars.html">Stars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Checkers.html">Checkers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Clipboard.html">Clipboard</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../SystemModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../System.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../System.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../System.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -183,6 +172,8 @@
         
           <li><a href="../System.html">System Package</a> &raquo;</li>
         
+          <li><a href="../SystemModules.html">System Modules</a> &raquo;</li>
+        
       <li>Sierpinski Module</li>
     
     
@@ -204,15 +195,114 @@
             
   <div class="section" id="sierpinski-module">
 <h1>Sierpinski Module<a class="headerlink" href="#sierpinski-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Display Viewers Oberon MenuViewers TextFrames
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Menu = &quot;System.Close  System.Copy  System.Grow&quot;;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x, y, d: INTEGER;
+   A, B, C, D: PROCEDURE (i: INTEGER);
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE E;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE N;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE W;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE S;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NE;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NW;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SW;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SE;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SA(i: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SB(i: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SC(i: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SD(i: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawSierpinski(F: Display.Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Handler(F: Display.Frame; VAR M: Display.FrameMsg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE New(): Display.Frame;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Draw*;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/System/blob/main/Sierpinski.Mod">https://github.com/io-core/System/blob/main/Sierpinski.Mod</a></p>
+</div>
 </div>
 
 
@@ -222,7 +312,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Stars.html" class="btn btn-neutral float-right" title="Stars Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Hilbert.html" class="btn btn-neutral float-left" title="Hilbert Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SCC.html" class="btn btn-neutral float-left" title="SCC Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

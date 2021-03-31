@@ -2,17 +2,74 @@
   GraphTool Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Files Texts Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ Context = 0; Line = 1; Caption = 2; Macro = 3; Rectangles = 4;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE DecGraph*;
+
+::
+  PROCEDURE DecGraph1*;
+
+::
+  PROCEDURE DecLibrary1*;
+
+::
+  PROCEDURE ConvertFontname(VAR x: ARRAY OF CHAR);
+
+::
+  PROCEDURE ConvertLibrary*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Draw/blob/main/GraphTool.Mod
 

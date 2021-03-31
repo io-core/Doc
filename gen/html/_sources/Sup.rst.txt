@@ -6,15 +6,22 @@
 .. toctree::
    :maxdepth: 2
    :caption: Development:
-   :includehidden:
+   :hidden:
 
-   cA
-   cB
-   cC
-   cD
-   cE
+   suplib/Examples
+   suplib/BASIC
 
 Supplemental and contributed modules here...
 
 https://github.com/io-core/Mod/blob/main/Suite.Mod
 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+ 
+   * - Package 
+     - Description 
+   * - Examples 
+     - demonstrates programming in Oberon for IO. 
+   * - BASIC 
+     -  compile BASIC programs. 

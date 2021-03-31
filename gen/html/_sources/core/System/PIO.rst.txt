@@ -2,17 +2,71 @@
   PIO Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module PIO implements PIC input/output for RISC Oberon.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ gpio = -32; gpoc = -28;  (*I/O addresses*)
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE del(i: INTEGER);
+
+::
+  PROCEDURE Send*(x: LONGINT);
+
+::
+  PROCEDURE Receive*(VAR x: LONGINT);
+
+::
+  PROCEDURE Reset*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/PIO.Mod
 

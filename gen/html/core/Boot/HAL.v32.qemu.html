@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="HAL.v64.qemu Module" href="HAL.v64.qemu.html" />
-    <link rel="prev" title="HAL.i64.qemu Module" href="HAL.i64.qemu.html" /> 
+    <link rel="prev" title="HAL.rsc.qemu Module" href="HAL.rsc.qemu.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,29 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../Boot.html">Boot Package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../BootModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Boot.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Boot.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Boot.html#development-guide">Development Guide</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../Boot.html">Boot Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="BootLoad.html">BootLoad</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORLinker.html">ORLinker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HAL.rsc.qemu.html">HAL.rsc.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HAL.a32.qemu.html">HAL.a32.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HAL.a64.qemu.html">HAL.a64.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HAL.i64.qemu.html">HAL.i64.qemu</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">HAL.v32.qemu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HAL.v64.qemu.html">HAL.v64.qemu</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -176,6 +172,8 @@
         
           <li><a href="../Boot.html">Boot Package</a> &raquo;</li>
         
+          <li><a href="../BootModules.html">Boot Modules</a> &raquo;</li>
+        
       <li>HAL.v32.qemu Module</li>
     
     
@@ -197,15 +195,73 @@
             
   <div class="section" id="hal-v32-qemu-module">
 <h1>HAL.v32.qemu Module<a class="headerlink" href="#hal-v32-qemu-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module HAL (.v32) exercises features of the compiler in bringing Oberon up from bare metal on 32-bit RISCV.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stackOrg = 87FFF000H;
+MTOrg    = 80001000H;
+rsData   = 10000000H;
+FDBPtr   =     1020H;         (*holds the location of the start of the FDTB*)
+MT = 12; SP = 14; LNK = 15;   (*dedicated registers RISC5 ordinal*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Greet</strong> Transmits a greeting on the serial port.
+::
+PROCEDURE Greet;</p>
+<p>—
+<strong>Init</strong> queries the system configuration, establishes the module store and the heap, and passes control to the Kernel.
+::
+PROCEDURE Init;</p>
+<p>—
+<strong>The initialzation code for this module</strong> establishes the stack and module table origin, transmits a greeting, and then calls Init.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>The HAL prepares the Oberon runtime and so cannot rely on it.</p>
+<ul class="simple">
+<li><p>No global variables</p></li>
+<li><p>No strings</p></li>
+<li><p>No heap allocation</p></li>
+</ul>
+<p>The first thing HAL must do is set up its own stack.</p>
+<p>Each platform should have its own HAL. This is the HAL for riscv32 on QEMU.</p>
+<p>The HAL remains resident and may be used by other modules.</p>
 <p><a class="reference external" href="https://github.com/io-core/Boot/blob/main/HAL.v32.qemu.Mod">https://github.com/io-core/Boot/blob/main/HAL.v32.qemu.Mod</a></p>
+</div>
 </div>
 
 
@@ -215,7 +271,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="HAL.v64.qemu.html" class="btn btn-neutral float-right" title="HAL.v64.qemu Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="HAL.i64.qemu.html" class="btn btn-neutral float-left" title="HAL.i64.qemu Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="HAL.rsc.qemu.html" class="btn btn-neutral float-left" title="HAL.rsc.qemu Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

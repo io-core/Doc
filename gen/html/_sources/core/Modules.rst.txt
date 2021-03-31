@@ -1,25 +1,46 @@
-#################
+########################
   Modules Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Modules:
-   :hidden:
-
-   Modules <Modules/Modules>
+Version v5.0.20190108
 
 Modules manages compiled module loading and unloading in Oberon. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Modules:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <ModulesModules>
 
-   * - Modules 
-     - implements module loading and linking in Oberon. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Files v5.0.0
+
+--------
+  About  
+--------
+ 
+### _Package Overview:_
+The Modules package manages the loading and linking and unloading of program code and is the first code run when the boot loader passes control to the OS.
+
+
+### _Package Use:_
+
+USAGE:
+```
+Modules.Load("something",M)
+```
+
+### _Modules in this package:_
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Modules  
 
 https://github.com/io-core/Modules/blob/main/Modules.Pkg

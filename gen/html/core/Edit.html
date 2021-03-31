@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Edit Module" href="Edit/Edit.html" />
-    <link rel="prev" title="Explore Module" href="Build/Explore.html" /> 
+    <link rel="next" title="Edit Modules" href="EditModules.html" />
+    <link rel="prev" title="OvDis Module" href="Build/OvDis.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,29 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Build.html">Build Package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Edit Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Edit/Edit.html">Edit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/Fonts.html">Fonts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/TextFrames.html">TextFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/Texts.html">Texts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/ConvertPCFFont.html">ConvertPCFFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/FontSubsetBuilder.html">FontSubsetBuilder</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/GrowFont.html">GrowFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Edit/OptimizeFont.html">OptimizeFont</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EditModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guide">Development Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Community.html">Community</a></li>
@@ -195,47 +191,40 @@
             
   <div class="section" id="edit-package">
 <h1>Edit Package<a class="headerlink" href="#edit-package" title="Permalink to this headline">¶</a></h1>
+<p>Version v5.0.20190118</p>
+<p>Edit manages the text and font handling in Oberon.</p>
 <div class="toctree-wrapper compound">
 </div>
-<p>Edit manages the text and font handling in Oberon.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Edit</p></td>
-<td><p>provides text editing functionaltiy in Oberon.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Fonts</p></td>
-<td><p>implements font file reading and  glyph cacheing.</p></td>
-</tr>
-<tr class="row-even"><td><p>TextFrames</p></td>
-<td><p>manages the interaction with frames of text in Oberon.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Texts</p></td>
-<td><p>provides the fundamental text data abstraction in Oberon.</p></td>
-</tr>
-<tr class="row-even"><td><p>ConvertPCFFont</p></td>
-<td><p>converts a PCF font to Oberon format.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FontSubsetBuilder</p></td>
-<td><p>extracts a subset of glyphs into a smaller font file.</p></td>
-</tr>
-<tr class="row-even"><td><p>GrowFont</p></td>
-<td><p>produces an upscaled font from a smaller font.</p></td>
-</tr>
-<tr class="row-odd"><td><p>OptimizeFont</p></td>
-<td><p>optimizes a font file.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="package-dependencies">
+<h2>Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Files v5.0.0</p></li>
+<li><p>Modules v5.0.0</p></li>
+<li><p>Oberon v5.0.0</p></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>### _Package Overview:_
+The Edit package provides:</p>
+<ul class="simple">
+<li><p>The ‘text’ abstraction for manipulating textual content</p></li>
+<li><p>TextFrames for interacting with text via the GUI</p></li>
+<li><p>The Edit tool for interacting with documents</p></li>
+<li><p>The font mechanism in Oberon</p></li>
+</ul>
+<p>### _Package Use:_</p>
+<p>USAGE:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Edit.Open</span> <span class="pre">example.txt</span>
+<span class="pre">`</span></code></p>
+<p>### _Modules in this package:_</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>Edit</p>
 <p><a class="reference external" href="https://github.com/io-core/Edit/blob/main/Edit.Pkg">https://github.com/io-core/Edit/blob/main/Edit.Pkg</a></p>
+</div>
 </div>
 
 
@@ -244,8 +233,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Edit/Edit.html" class="btn btn-neutral float-right" title="Edit Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Build/Explore.html" class="btn btn-neutral float-left" title="Explore Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="EditModules.html" class="btn btn-neutral float-right" title="Edit Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Build/OvDis.html" class="btn btn-neutral float-left" title="OvDis Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

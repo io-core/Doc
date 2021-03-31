@@ -1,0 +1,348 @@
+####################################
+  OXT Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module OXT generates the processor-specific opcodes for executing an Oberon program.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files OXS OXB
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+     
+    WordSize* = 4;
+    RStkOrg0 = -64;
+    IStkOrg0 = -64;
+    AStkOrg0 = -64;
+    aStkOrg0 = -64;
+    VStkOrg0 = -64;
+    vStkOrg0 = -64;
+    MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
+    maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+    Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
+
+    (*frequently used opcodes*)  U = 2000H; V = 1000H;
+    Mov = 0; Lsl = 1; Asr = 2; Ror= 3; And = 4; Ann = 5; Ior = 6; Xor = 7;
+    Add = 8; Sub = 9; Cmp = 9; Mul = 10; Div = 11;
+    Fad = 12; Fsb = 13; Fml = 14; Fdv = 15; MovU = 16;
+    Ldr = 8; Ldb = 9; Str = 10; Stb = 11;
+    BR = 0; BLR = 1; BC = 2; BL = 3;
+    MI = 0; PL = 8; EQ = 1; NE = 9; LT = 5; GE = 13; LE = 6; GT = 14;
+    BMI =  0; BEQ =  1; BCS =  2; BVS =  3; 
+    BLS =  4; BLT =  5; BLE =  6; B   =  7;
+    BPL =  8; BNE =  9; BVC = 10; BCC = 11;
+    BHI = 12; BGE = 13; BGT = 14; BNO = 15;
+    
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+      
+    CodePlacer* = POINTER TO CodePlacerProcs;
+    CodePlacerProcs* = RECORD
+      CodeWord*:   PROCEDURE (a,v: INTEGER);
+      OneByte*:    PROCEDURE (a: INTEGER; VAR pc, pcb: INTEGER);
+      TwoBytes*:   PROCEDURE (a, b: INTEGER; VAR pc, pcb: INTEGER);
+      ThreeBytes*: PROCEDURE (a, b, c: INTEGER; VAR pc, pcb: INTEGER);
+      FourBytes*:  PROCEDURE (a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);
+      FourByteInteger*:  PROCEDURE (i: INTEGER; VAR pc, pcb: INTEGER);
+    END; 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    (*       
+    code*: ARRAY maxCode OF LONGINT;
+    data*: ARRAY maxTD OF LONGINT;  (*type descriptors*)
+    str*: ARRAY maxStrx OF CHAR;
+    fixorgP*, fixorgD*, fixorgT*: LONGINT;   (*origins of lists of locations to be fixed up by loader*)
+    err: ARRAY 32 OF CHAR;
+    *)
+    regmap: ARRAY 16 OF INTEGER; (*shuffle of registers for allocation/use*)
+    it0: ARRAY 16 OF INTEGER;
+    it1: ARRAY 16 OF INTEGER;
+    it2: ARRAY 4 OF INTEGER;
+    it3: ARRAY 16 OF INTEGER;
+    Put: CodePlacer;
+(*
+    Put.CodeWord:  PROCEDURE (a,v: INTEGER);
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**SetCodePlacer** initializes the interface for depositing values into the code array
+::
+  PROCEDURE SetCodePlacer*(cp: CodePlacer);
+
+---
+**RPut0** PutRegFromRegOpReg
+::
+  PROCEDURE RPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**RPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE RPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**RPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE RPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**RPut2** PutRegLdStRegOffset
+::
+  PROCEDURE RPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);
+
+---
+**RPut3** PutBrCondOffset
+::
+  PROCEDURE RPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**RHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE RHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**ISetTables** maps registers between the RISC5 model machine and the x86_64 actual machine and prepares opcode tables for x86_64.
+::
+  PROCEDURE ISetTables;
+
+---
+**IPut0** places a register <= Register Operation Register instruction in the code array.
+
+When the destination register (ai) is not the same as the first operand register (bi) 
+the AX register is used as an intermediate register.
+
+::
+  PROCEDURE IPut0*(VAR pc, pcb: LONGINT; op, ai, bi, ci: LONGINT);
+
+---
+**IPut1** places a register <= Register Operation Immediate instruction in the code array.
+
+When the destination register (ai) is not the same as the first operand register (bi)
+the AX register is used as an intermediate register.
+
+The immediate value may be up to 32-bits in size.
+
+If the 'U' bit is set and the operation is a move, the value is shifted left 32-bits.
+
+::
+  PROCEDURE IPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, ai, bi, im: LONGINT);
+
+---
+**IPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE IPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**IPut2** PutRegLdStRegOffset
+::
+  PROCEDURE IPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);
+
+---
+**IPut3** PutBrCondOffset
+::
+  PROCEDURE IPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**IHeader** prepares the code introductory sequence for a compiled X8664 module
+::
+  PROCEDURE IHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**ASetTables** maps registers between the RISC5 model machine and the aarch64 actual machine and prepares opcode tables for aarch64.
+::
+  PROCEDURE ASetTables;
+
+---
+**APut0** PutRegFromRegOpReg
+::
+  PROCEDURE APut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**APut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE APut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**APut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE APut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**APut2** PutRegLdStRegOffset
+::
+  PROCEDURE APut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);
+
+---
+**APut3** PutBrCondOffset
+::
+  PROCEDURE APut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**AHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE AHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**aSetTables** maps registers between the RISC5 model machine and the arm actual machine and prepares opcode tables for arm 32-bit.
+::
+  PROCEDURE aSetTables;
+
+---
+**aUMT** convert an integer to mov m/t immediate format
+::
+  PROCEDURE aUMT( i : LONGINT ): LONGINT;
+
+---
+**aPut0** PutRegFromRegOpReg
+::
+  PROCEDURE aPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**aPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE aPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**aPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE aPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**aPut2** PutRegLdStRegOffset
+::
+  PROCEDURE aPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);
+
+---
+**aPut3** PutBrCondOffset
+::
+  PROCEDURE aPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**aHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE aHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**VSetTables** maps registers between the RISC5 model machine and the rv64 actual machine and prepares opcode tables for riscv64.
+::
+  PROCEDURE VSetTables;
+
+---
+**vUJ** convert an integer to UJ immediate format
+::
+  PROCEDURE vUJ( i : LONGINT ): LONGINT;
+
+---
+**VPut0** PutRegFromRegOpReg
+::
+  PROCEDURE VPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**VPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE VPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**VPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE VPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**VPut2** PutRegLdStRegOffset
+::
+  PROCEDURE VPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);
+
+---
+**VPut3** PutBrCondOffset
+::
+  PROCEDURE VPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**VHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE VHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**vSetTables** configures opcode tables for riscv32.
+::
+  PROCEDURE vSetTables;
+
+---
+**vPut0** PutRegFromRegOpReg
+::
+  PROCEDURE vPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**vPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE vPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**vPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE vPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**vPut2** PutRegLdStRegOffset
+::
+  PROCEDURE vPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);
+
+---
+**vPut3** PutBrCondOffset
+::
+  PROCEDURE vPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**vHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE vHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**setRegMap**
+::
+  PROCEDURE setRegMap*;               
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+Module OXT implements the processor-specific opcodes used by OXX
+
+(C.Perkins 2021)
+
+**OXT** is called from OXX and generates machine code various Oberon language constructs.
+ 
+https://github.com/io-core/Build/blob/main/OXT.Mod
+

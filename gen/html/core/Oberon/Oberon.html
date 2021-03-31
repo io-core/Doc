@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Viewers Module" href="Viewers.html" />
-    <link rel="prev" title="Oberon Package" href="../Oberon.html" /> 
+    <link rel="next" title="TestInt Module" href="TestInt.html" />
+    <link rel="prev" title="Input Module" href="Input.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,17 +93,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Oberon.html">Oberon Package</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Oberon</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Viewers.html">Viewers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Display.html">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Input.html">Input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../OberonModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
@@ -112,7 +111,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -172,6 +172,8 @@
         
           <li><a href="../Oberon.html">Oberon Package</a> &raquo;</li>
         
+          <li><a href="../OberonModules.html">Oberon Modules</a> &raquo;</li>
+        
       <li>Oberon Module</li>
     
     
@@ -193,15 +195,314 @@
             
   <div class="section" id="oberon-module">
 <h1>Oberon Module<a class="headerlink" href="#oberon-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module Oberon coordinates the interaction of the user with the system.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>consume* = 0; track* = 1; defocus* = 0; neutralize* = 1; mark* = 2; (*message ids*)
+off = 0; idle = 1; active = 2;   (*task states*)
+BasicCycle = 20;
+ESC = 1BX; SETSTAR = 1AX;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Painter* = PROCEDURE (x, y: INTEGER);
+Marker* = RECORD Fade*, Draw*: Painter END;
+
+Cursor* = RECORD
+    marker*: Marker; on*: BOOLEAN; X*, Y*: INTEGER
+END;
+
+InputMsg* = RECORD (Display.FrameMsg)
+  id*: INTEGER;
+  keys*: SET;
+  X*, Y*: INTEGER;
+  codepoint*: INTEGER;
+  fnt*: Fonts.Font;
+  col*, voff*: INTEGER
+END;
+
+SelectionMsg* = RECORD (Display.FrameMsg)
+  time*: LONGINT;
+  text*: Texts.Text;
+  beg*, end*: LONGINT
+END;
+
+ControlMsg* = RECORD (Display.FrameMsg)
+  id*, X*, Y*: INTEGER
+END;
+
+CopyMsg* = RECORD (Display.FrameMsg)
+  F*: Display.Frame
+END;
+
+Task* = POINTER TO TaskDesc;
+
+Handler* = PROCEDURE;
+
+TaskDesc* = RECORD
+  state, nextTime, period*: INTEGER;
+  next: Task;
+  handle: Handler
+END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>User*: ARRAY 8 OF CHAR; Password*: LONGINT;
+Arrow*, Star*: Marker;
+Mouse, Pointer: Cursor;
+FocusViewer*: Viewers.Viewer;
+Log*: Texts.Text;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Code</strong> Encodes a password provided by the user.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Code</span><span class="p">(</span><span class="n">VAR</span> <span class="n">s</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetUser</strong> sets the current user of the system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetUser</span><span class="o">*</span> <span class="p">(</span><span class="n">VAR</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Clock</strong> returns the current time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Clock</span><span class="o">*</span><span class="p">():</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetClock</strong> sets the system time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetClock</span><span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Time</strong> returns the current system timestamp.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Time</span><span class="o">*</span><span class="p">():</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>FlipArrow</strong> displays or removes the arrow at the x,y location on the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FlipArrow</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FlipStar</strong> displays or removes the star at the x,y location on the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FlipStar</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>OpenCursor</strong> prepares a cursor initial state.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">OpenCursor</span><span class="p">(</span><span class="n">VAR</span> <span class="n">c</span><span class="p">:</span> <span class="n">Cursor</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FadeCursor</strong> removes a cursor from the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FadeCursor</span><span class="p">(</span><span class="n">VAR</span> <span class="n">c</span><span class="p">:</span> <span class="n">Cursor</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>DrawCursor</strong> places a cursor on the screen at location x,y.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DrawCursor</span><span class="p">(</span><span class="n">VAR</span> <span class="n">c</span><span class="p">:</span> <span class="n">Cursor</span><span class="p">;</span> <span class="n">m</span><span class="p">:</span> <span class="n">Marker</span><span class="p">;</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>DrawMouse</strong> places the mouse cursor with marker m on the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DrawMouse</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">Marker</span><span class="p">;</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>DrawMouseArrow</strong> places the mouse arrow on the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DrawMouseArrow</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FadeMouse</strong> removes the mouse cursor from the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FadeMouse</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>DrawPointer</strong> places the star marker on the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DrawPointer</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>RemoveMarks</strong> remove the mouse cursor and the star marker from the screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RemoveMarks</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>HandleFiller</strong> fill the blank area of the display not delegated to other display frames.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">HandleFiller</span> <span class="p">(</span><span class="n">V</span><span class="p">:</span> <span class="n">Display</span><span class="o">.</span><span class="n">Frame</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">M</span><span class="p">:</span> <span class="n">Display</span><span class="o">.</span><span class="n">FrameMsg</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>OpenDisplay</strong> Set the initial values for the display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">OpenDisplay</span><span class="o">*</span> <span class="p">(</span><span class="n">UW</span><span class="p">,</span> <span class="n">SW</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>DisplayWidth</strong> export the width of the display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DisplayWidth</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>DisplayHeight</strong> export the height of the display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DisplayHeight</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>OpenTrack</strong> prepare a vertical slice of the display for holding viewers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">OpenTrack</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>UserTrack</strong> returns the width of the user (left) track.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">UserTrack</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>SystemTrack</strong> returns the width of the system (right) track.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SystemTrack</span><span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>UY</strong> locate a vertical position for a new user viewer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">UY</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>AllocateUserViewer</strong> allocate a new viewer on the user (left) track.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">AllocateUserViewer</span><span class="o">*</span> <span class="p">(</span><span class="n">DX</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SY</strong> locate a vertical position for a new system viewer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SY</span> <span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>AllocateSystemViewer</strong> allocate a new viewer on the system (right) track.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">AllocateSystemViewer</span><span class="o">*</span> <span class="p">(</span><span class="n">DX</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>MarkedViewer</strong> returns the viewer with the mark.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">MarkedViewer</span><span class="o">*</span> <span class="p">():</span> <span class="n">Viewers</span><span class="o">.</span><span class="n">Viewer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>PassFocus</strong> moves which viewer has the focus to the viewer <cite>V</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">PassFocus</span><span class="o">*</span> <span class="p">(</span><span class="n">V</span><span class="p">:</span> <span class="n">Viewers</span><span class="o">.</span><span class="n">Viewer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>OpenLog</strong> sets the Oberon log to the specified text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">OpenLog</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Text</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetPar</strong> sets the parameter for an anticpated command invocation to the indicated viewer, frame, text, and position.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetPar</span><span class="o">*</span><span class="p">(</span><span class="n">F</span><span class="p">:</span> <span class="n">Display</span><span class="o">.</span><span class="n">Frame</span><span class="p">;</span> <span class="n">T</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Call</strong> looks up and calls a command matching the <cite>name</cite> parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Call</span><span class="o">*</span> <span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">res</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>GetSelection</strong> produces the user’s selected text in VAR parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">GetSelection</span><span class="o">*</span> <span class="p">(</span><span class="n">VAR</span> <span class="n">text</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">beg</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>GC</strong> initiates garbage collection.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">GC</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>NewTask</strong> prepares a task entry that calls a handler in the background.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">NewTask</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="n">Handler</span><span class="p">;</span> <span class="n">period</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">):</span> <span class="n">Task</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Install</strong> places the task entry in the list of tasks to process in the background.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Install</span><span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">Task</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Remove</strong> takes the task entry out of the list of tasks to process in the background.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Remove</span><span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">Task</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Collect</strong> ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Collect</span><span class="o">*</span> <span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetFont</strong> changes the current font to be used when adding text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetFont</span><span class="o">*</span> <span class="p">(</span><span class="n">fnt</span><span class="p">:</span> <span class="n">Fonts</span><span class="o">.</span><span class="n">Font</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetColor</strong> changes the current color to be used when adding text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetColor</span><span class="o">*</span> <span class="p">(</span><span class="n">col</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetOffset</strong>  ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetOffset</span><span class="o">*</span> <span class="p">(</span><span class="n">voff</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Loop</strong> is the central dispatch of input event messages in the Oberon UI and the background task dispatcher.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Loop</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Reset</strong> resets the background tasks and the stack pointer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Reset</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> prepares the arrow, star, cursor behavior procedures, opens the display, sets GC as a background task, loads the System module then enters the UI loop.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(JG 6.9.90 / 23.9.93 / 13.8.94 / NW 14.4.2013 / 22.12.2015)</p>
+<p>The Oberon module coordiates the display area as a user-manipulatable workspace with tracks and panes.</p>
+<p>The Oberon module transforms keystrokes and mouse movements and button presses into user interface messages
+delivered message handlers that are installed as the user initiates interactive content such as <cite>Edit.Open</cite> or
+<cite>System.Directory</cite>.</p>
+<p>The Oberon module provides the extensible UI functionality but the initial arrangement of content on system startup that the
+user may interact with is provided by the System module.</p>
 <p><a class="reference external" href="https://github.com/io-core/Oberon/blob/main/Oberon.Mod">https://github.com/io-core/Oberon/blob/main/Oberon.Mod</a></p>
+</div>
 </div>
 
 
@@ -210,8 +511,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Viewers.html" class="btn btn-neutral float-right" title="Viewers Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../Oberon.html" class="btn btn-neutral float-left" title="Oberon Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TestInt.html" class="btn btn-neutral float-right" title="TestInt Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Input.html" class="btn btn-neutral float-left" title="Input Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

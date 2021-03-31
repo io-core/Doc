@@ -2,17 +2,131 @@
   OXTool Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module OXTool provides symbol file, module file, and loaded module reporting tools.
+
+ORP.Compile Target.Mod/s ~
+OXTool.DecSym Target.smb ~ (if a regular module)
+OXTool.DecObj Target.rsc ~ (if a regular module)
+OXTool.DecBin Target.bin ~ (if a bare metal module)
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Modules Input Fonts Texts Viewers MenuViewers TextFrames Oberon OXDis
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+    BADARCH=0; RISC5=1; X8664=2; AARCH64=3; ARM32=4; RISCV=5;
+    BYTEORIENTED=0; WORDORIENTED=1;
+    versionkey* = 1; maxTypTab = 64; 
+    (* class values*) Head* = 0;
+      Const* = 1; Var* = 2; Par* = 3; Fld* = 4; Typ* = 5;
+      SProc* = 6; SFunc* = 7; Mod* = 8;
+    (* form values*)
+      Byte* = 1; Bool* = 2; Char* = 3; Int* = 4; Real* = 5; Set* = 6;
+      Pointer* = 7; NilTyp* = 8; NoTyp* = 9; Proc* = 10;
+      String* = 11; Array* = 12; Record* = 13;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    T: Texts.Text; V: MenuViewers.Viewer; W: Texts.Writer;
+    Form: INTEGER;  (*result of ReadType*)
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);
+
+::
+  PROCEDURE Clear*;  (*used to clear output*)
+
+::
+  PROCEDURE Recall*;
+
+::
+  PROCEDURE Read(VAR R: Files.Rider; VAR n: INTEGER);
+
+::
+  PROCEDURE ArchFromExt(VAR s: ARRAY OF CHAR):INTEGER;
+
+::
+  PROCEDURE ReadType(VAR R: Files.Rider);
+
+---
+**Option** checks if a new symbol file may be generated.
+::
+  PROCEDURE Option(VAR S: Texts.Scanner):INTEGER;
+
+::
+  PROCEDURE DecSym*;  (*decode symbol file*)
+
+::
+   PROCEDURE WriteHexBytes (x: LONGINT);
+
+::
+   PROCEDURE HighNib(b: BYTE): CHAR;
+
+::
+   PROCEDURE LowNib(b: BYTE): CHAR;
+
+::
+  PROCEDURE Sync(VAR R: Files.Rider);
+
+::
+  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);
+
+::
+  PROCEDURE decodeSection(VAR R: Files.Rider; VAR F: Files.File; VAR n,s,x: INTEGER);
+
+::
+  PROCEDURE DecBin*;   (*decode bare metal binary file*)
+
+::
+  PROCEDURE DecObj*;   (*decode object file*)
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(NW 18.2.2013 / CP 2020)
+
+**OXTool** reports on and transforms the object files produced by the compiler's code generation module O[RIAa]G.
+
+Any change to O[RIAa]G is likely to require a matching change in OXTool.
  
 https://github.com/io-core/Build/blob/main/OXTool.Mod
 

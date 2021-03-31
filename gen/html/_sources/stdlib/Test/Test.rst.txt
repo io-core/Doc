@@ -1,0 +1,113 @@
+####################################
+  Test Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Test handles:
+
+* Nothing yet. Bug reporting eventually.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Texts Oberon Performance Fuzzing
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Option** checks if a new symbol file may be generated and which architecture to compile for.
+::
+  PROCEDURE Option(VAR S: Texts.Scanner);
+
+---
+**ArgParse** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
+::
+  PROCEDURE ArgParse*;
+
+---
+**Build** performs a build test of a module.
+::
+  PROCEDURE Build*;
+
+---
+**Load** performs a load test of a module.
+::
+  PROCEDURE Load*;
+
+---
+**Quick** performs quick tests of a module's exported procedures.
+::
+  PROCEDURE Quick*;
+
+---
+**Full** performs full tests of a module's exported procedures excepting perf and fuzz.
+::
+  PROCEDURE Full*;
+
+---
+**Perf** performs benchmark tests of a module's exported procedures.
+::
+  PROCEDURE Perf*;
+
+---
+**Fuzz** performs fuzz tests of a module's exported procedures.
+::
+  PROCEDURE Fuzz*;
+
+---
+**Examples** verifies the output module's exported procedures on example uses.
+::
+  PROCEDURE Examples*;
+
+---
+**All** performs all of a module's tests.
+::
+  PROCEDURE All*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Test/blob/main/Test.Mod
+

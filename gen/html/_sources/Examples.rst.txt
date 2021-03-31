@@ -8,11 +8,8 @@
    :caption: Development:
    :includehidden:
 
-   A
-   B
-   C
-   D
-   E
+   Course/Arithmetic
+   Course/Functions
 
 A course of programming examples starts here...
 

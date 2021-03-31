@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OXDis Module" href="OXDis.html" />
-    <link rel="prev" title="ORS Module" href="ORS.html" /> 
+    <link rel="next" title="OXX Module" href="OXX.html" />
+    <link rel="prev" title="OXT Module" href="OXT.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,36 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Build.html">Build Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ORP.html">ORP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORG.html">ORG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXG.html">OXG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORB.html">ORB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORS.html">ORS</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">OXTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXDis.html">OXDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORDis.html">ORDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OIDis.html">OIDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OADis.html">OADis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OaDis.html">OaDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OvDis.html">OvDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORC.html">ORC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="M.html">M</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explore.html">Explore</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../BuildModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -183,6 +172,8 @@
         
           <li><a href="../Build.html">Build Package</a> &raquo;</li>
         
+          <li><a href="../BuildModules.html">Build Modules</a> &raquo;</li>
+        
       <li>OXTool Module</li>
     
     
@@ -204,15 +195,132 @@
             
   <div class="section" id="oxtool-module">
 <h1>OXTool Module<a class="headerlink" href="#oxtool-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module OXTool provides symbol file, module file, and loaded module reporting tools.</p>
+<p>ORP.Compile Target.Mod/s ~
+OXTool.DecSym Target.smb ~ (if a regular module)
+OXTool.DecObj Target.rsc ~ (if a regular module)
+OXTool.DecBin Target.bin ~ (if a bare metal module)</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Modules Input Fonts Texts Viewers MenuViewers TextFrames Oberon OXDis
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BADARCH=0; RISC5=1; X8664=2; AARCH64=3; ARM32=4; RISCV=5;
+BYTEORIENTED=0; WORDORIENTED=1;
+versionkey* = 1; maxTypTab = 64;
+(* class values*) Head* = 0;
+  Const* = 1; Var* = 2; Par* = 3; Fld* = 4; Typ* = 5;
+  SProc* = 6; SFunc* = 7; Mod* = 8;
+(* form values*)
+  Byte* = 1; Bool* = 2; Char* = 3; Int* = 4; Real* = 5; Set* = 6;
+  Pointer* = 7; NilTyp* = 8; NoTyp* = 9; Proc* = 10;
+  String* = 11; Array* = 12; Record* = 13;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>T: Texts.Text; V: MenuViewers.Viewer; W: Texts.Writer;
+Form: INTEGER;  (*result of ReadType*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Clear*;  (<em>used to clear output</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Recall*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Read(VAR R: Files.Rider; VAR n: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ArchFromExt(VAR s: ARRAY OF CHAR):INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadType(VAR R: Files.Rider);</p>
+</dd>
+</dl>
+<p>—
+<strong>Option</strong> checks if a new symbol file may be generated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Option</span><span class="p">(</span><span class="n">VAR</span> <span class="n">S</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Scanner</span><span class="p">):</span><span class="n">INTEGER</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DecSym*;  (<em>decode symbol file</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteHexBytes (x: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE HighNib(b: BYTE): CHAR;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LowNib(b: BYTE): CHAR;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Sync(VAR R: Files.Rider);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE decodeSection(VAR R: Files.Rider; VAR F: Files.File; VAR n,s,x: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DecBin*;   (<em>decode bare metal binary file</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DecObj*;   (<em>decode object file</em>)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(NW 18.2.2013 / CP 2020)</p>
+<p><strong>OXTool</strong> reports on and transforms the object files produced by the compiler’s code generation module O[RIAa]G.</p>
+<p>Any change to O[RIAa]G is likely to require a matching change in OXTool.</p>
 <p><a class="reference external" href="https://github.com/io-core/Build/blob/main/OXTool.Mod">https://github.com/io-core/Build/blob/main/OXTool.Mod</a></p>
+</div>
 </div>
 
 
@@ -221,8 +329,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="OXDis.html" class="btn btn-neutral float-right" title="OXDis Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ORS.html" class="btn btn-neutral float-left" title="ORS Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="OXX.html" class="btn btn-neutral float-right" title="OXX Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="OXT.html" class="btn btn-neutral float-left" title="OXT Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

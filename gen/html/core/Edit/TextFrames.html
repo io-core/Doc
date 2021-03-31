@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Texts Module" href="Texts.html" />
-    <link rel="prev" title="Fonts Module" href="Fonts.html" /> 
+    <link rel="prev" title="OptimizeFont Module" href="OptimizeFont.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,29 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Edit.html">Edit Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Edit.html">Edit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Fonts.html">Fonts</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">TextFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Texts.html">Texts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ConvertPCFFont.html">ConvertPCFFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="FontSubsetBuilder.html">FontSubsetBuilder</a></li>
-<li class="toctree-l4"><a class="reference internal" href="GrowFont.html">GrowFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OptimizeFont.html">OptimizeFont</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../EditModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -176,6 +172,8 @@
         
           <li><a href="../Edit.html">Edit Package</a> &raquo;</li>
         
+          <li><a href="../EditModules.html">Edit Modules</a> &raquo;</li>
+        
       <li>TextFrames Module</li>
     
     
@@ -197,15 +195,321 @@
             
   <div class="section" id="textframes-module">
 <h1>TextFrames Module<a class="headerlink" href="#textframes-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module TextFrames implements the operations on text frames in Oberon.</p>
+<p>This is the heart of Oberon’s text-based user interface.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Modules Input Display Viewers Fonts Texts Oberon MenuViewers
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>replace* = 0; insert* = 1; delete* = 2; unmark* = 3; exec* = 4; (*message id*)
+   BS = 8X; TAB = 9X; CR = 0DX; NL = 0AX; DEL = 7FX;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Line = POINTER TO LineDesc;
+   LineDesc = RECORD
+     len: LONGINT;
+     wid: INTEGER;
+     eot: BOOLEAN;
+     next: Line
+   END;
+
+   Location* = RECORD
+     org*, pos*: LONGINT;
+     dx*, x*, y*: INTEGER;
+     lin: Line
+   END;
+
+   Frame* = POINTER TO FrameDesc;
+   FrameDesc* = RECORD
+     (Display.FrameDesc)
+     text*: Texts.Text;
+     org*: LONGINT;
+     col*: INTEGER;
+     lsp*: INTEGER;
+     left*, right*, top*, bot*: INTEGER;
+     markH*: INTEGER;
+     time*: LONGINT;
+     hasCar*, hasSel*, hasMark, atEnd: BOOLEAN;
+     carloc*: Location;
+     selbeg*, selend*: Location;
+     trailer: Line
+   END;
+
+   UpdateMsg* = RECORD (Display.FrameMsg)
+     id*: INTEGER;
+     text*: Texts.Text;
+     beg*, end*: LONGINT
+   END;
+
+   CallMsg* = RECORD (Display.FrameMsg)
+     offset*: INTEGER
+   END;
+
+   CopyOverMsg = RECORD (Display.FrameMsg)
+     text: Texts.Text;
+     beg, end: LONGINT
+   END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TBuf*, DelBuf: Texts.Buffer;
+   menuH*, barW*, left*, right*, top*, bot*, lsp*: INTEGER; (*standard sizes*)
+   asr, dsr, selH, markW, eolW: INTEGER;
+   nextCodepoint: INTEGER;
+   ScrollMarker: Oberon.Marker;
+   W, KW: Texts.Writer; (*keyboard writer*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Min (i, j: INTEGER): INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReplConst (col: INTEGER; F: Frame; X, Y, W, H: INTEGER; mode: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FlipSM(X, Y: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE UpdateMark (F: Frame);  (<em>in scroll bar</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetChangeMark (F: Frame; on: BOOLEAN);  (<em>in corner</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetTopMark (F: Frame; on: BOOLEAN);  (<em>in corner</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetBotMark (F: Frame; on: BOOLEAN);  (<em>in corner</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Width (VAR R: Texts.Reader; len: LONGINT): INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DisplayLine (F: Frame; L: Line;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Validate (T: Texts.Text; VAR pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE previousLine (T: Texts.Text; VAR pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Mark* (F: Frame; on: BOOLEAN);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE amAtTop(F: Frame):BOOLEAN;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Restore* (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Suspend* (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Extend* (F: Frame; newY: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Reduce* (F: Frame; newY: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Show* (F: Frame; pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LocateLine (F: Frame; y: INTEGER; VAR loc: Location);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LocateString (F: Frame; x, y: INTEGER; VAR loc: Location);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LocateChar (F: Frame; x, y: INTEGER; VAR loc: Location);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LocatePos (F: Frame; pos: LONGINT; VAR loc: Location);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Pos* (F: Frame; X, Y: INTEGER): LONGINT;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FlipCaret (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetCaret* (F: Frame; pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE TrackCaret* (F: Frame; X, Y: INTEGER; VAR keysum: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE RemoveCaret* (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FlipSelection (F: Frame; VAR beg, end: Location);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetSelection* (F: Frame; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE TrackSelection* (F: Frame; X, Y: INTEGER; VAR keysum: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE RemoveSelection* (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE TrackLine* (F: Frame; X, Y: INTEGER; VAR org: LONGINT; VAR keysum: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE TrackWord* (F: Frame; X, Y: INTEGER; VAR pos: LONGINT; VAR keysum: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Replace* (F: Frame; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Insert* (F: Frame; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Delete* (F: Frame; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Recall*(VAR B: Texts.Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE RemoveMarks (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NotifyDisplay* (T: Texts.Text; op: INTEGER; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Call* (F: Frame; pos: LONGINT; new: BOOLEAN);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Write* (F: Frame; codepoint: INTEGER; fnt: Fonts.Font; col, voff: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Defocus* (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Neutralize* (F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Modify* (F: Frame; id, dY, Y, H: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Copy* (F: Frame; VAR F1: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CopyOver(F: Frame; text: Texts.Text; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE GetSelection* (F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Update* (F: Frame; VAR M: UpdateMsg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Edit* (F: Frame; X, Y: INTEGER; Keys: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Handle* (F: Display.Frame; VAR M: Display.FrameMsg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Menu (name, commands: ARRAY OF CHAR): Texts.Text;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Text* (name: ARRAY OF CHAR): Texts.Text;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewMenu* (name, commands: ARRAY OF CHAR): Frame;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewText* (text: Texts.Text; pos: LONGINT): Frame;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(JG 8.10.90 / NW 10.5.2013 / 11.2.2017 / CP 12.2018 / MS 1.2019 adapted for Unicode / CP 6.2019 / CP 7.2020)</p>
 <p><a class="reference external" href="https://github.com/io-core/Edit/blob/main/TextFrames.Mod">https://github.com/io-core/Edit/blob/main/TextFrames.Mod</a></p>
+</div>
 </div>
 
 
@@ -215,7 +519,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Texts.html" class="btn btn-neutral float-right" title="Texts Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Fonts.html" class="btn btn-neutral float-left" title="Fonts Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="OptimizeFont.html" class="btn btn-neutral float-left" title="OptimizeFont Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

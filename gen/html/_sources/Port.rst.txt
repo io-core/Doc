@@ -1,0 +1,89 @@
+###############
+Porting
+###############
+
+Integrated Oberon is a self-contained development environment capable of re-creating from its source code all its own executable binary files and of upgrading itself in-place.
+
+However IO currently lacks source code revision control and tools for project coordination and OS virtualization.
+
+Currently an IO developer uses a host OS such as Linux, Mac or Windows to check in and check out code and to build Integrated Oberon disk images.
+
+Process
+========
+
+The development cycle is as follows:
+
+1. Check out the source code from https://github.com/io-core/io, including subrepositories
+2. Check out additional non-core repositories for additional desired (perhaps private) modules
+3. Edit the source code of a module (or create one)
+4. Edit the startup script to include invoking the compiler to compile the module file
+5. Execute a batch script on the host which creates an IO disk image including the source and the startup script
+6. Observe any compiler errors, goto step 3
+7. Exercise the module within the emulator, observe any undesired behavior or runtime errors, goto step 3
+8. add the changed files to revision control, with appripriate commit messages
+9. push changes or make pull requests for the changes as appropriate
+
+Tasks
+======
+
+Integrated Oberon needs three things to run on a new platform:
+
+1. A Compiler Target
+2. A Boot Shim
+3. A Hardware Abstraction Layer
+4. Device Drivers
+
+Some of these may already exist for an intended target platform.
+
+Make a Compiler Target
+-----------------------
+
+The Integrated Oberon compiler 'OXP' can create module binaries for the following architectures via a flag:
+
+* /r RISC5 
+* /I x86_64 (very limited functionality)
+* /A aarch64 (very limited functionality)
+* /a arm 32 (very limited functionality)
+* /V riscv64 (very limited functionality)
+* /v riscv32 (very limited functionality)
+
+Support for additinal architectures can be added by modifying OXG.Mod and OXX.Mod in the Build package and may require changes in other core Oberon packages.
+
+Create a Boot Shim
+-------------------
+
+Each hardware platform expects an operating system to conform to that platform's expectations of a bootable OS image. Modern PCs expect a PE+ UEFI file placed in a specific location on a FAT32 volume for example, while phones, tablets, and IOT devices often expect an ELF file at a specific sector location or a pure binary executable image placed in flash at a memory offset.
+
+IO prepends a boot shim conforming to these expectations in front of the actual Integrated Oberon HAL and core modules. This boot shim should be very small and should do the least amount of work possible to pass execution and some configuration settings to the HAL.
+
+The boot shim may be coded in Oberon or may not be necessary but often will be written in the assembly language of the platform and assembled outside of Oberon.
+
+An OS may also host Integrated Oberon as a userspace application, in which the boot shim may be a C program using host OS libraries to provide storage, memory, a framebuffer, etc. to Oberon. In addition, the shim may provide a bridge between host OS command invocation and an executing Oberon subsystem, for example by presenting Oberon as the interpreter for compiled Oberon modules, e.g. \#!/usr/bin/env Oberon, with the Oberon 'interpreters' coordinating a single application interpreting all modules via unix FIFOs.
+
+Make a Hardware Abstraction Layer
+----------------------------------
+
+Each platform will have unique devices, arrangements of devices, io register locations, initialization methods, etc. that may be abstracted over for starting the system and providing low-level facilities needed by the OS. Each platform will have a module that implements for its HAL the following:
+
+* Memory Map Page Table initialization and operation, if necessary
+* Initialization of essential run-time structures for the heap, stack, and module space
+* Population of a system configuration data structure from bootloader provided system configuration data
+* Interrupt table initialization and modification
+* An initial serial device if present
+* An initial video frame buffer if present
+* A timer if present
+* A means for enumerating dynamic busses with puggable bus drivers (e.g. pci and usb)
+
+Write Device Drivers
+---------------------
+
+Each platform may have unique devices requiring specific device drivers. Integrated Oberon needs at least the following:
+
+* Serial
+* Keyboard and Mouse
+* Video
+* Block Storage Device
+* Network
+
+https://github.com/io-core/Boot/blob/main/BootLoad.Mod
+

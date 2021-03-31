@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OaDis Module" href="OaDis.html" />
-    <link rel="prev" title="OIDis Module" href="OIDis.html" /> 
+    <link rel="next" title="OIDis Module" href="OIDis.html" />
+    <link rel="prev" title="M Module" href="M.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,36 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Build.html">Build Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ORP.html">ORP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORG.html">ORG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXG.html">OXG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORB.html">ORB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORS.html">ORS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXTool.html">OXTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXDis.html">OXDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORDis.html">ORDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OIDis.html">OIDis</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">OADis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OaDis.html">OaDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OvDis.html">OvDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORC.html">ORC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="M.html">M</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explore.html">Explore</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../BuildModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -183,6 +172,8 @@
         
           <li><a href="../Build.html">Build Package</a> &raquo;</li>
         
+          <li><a href="../BuildModules.html">Build Modules</a> &raquo;</li>
+        
       <li>OADis Module</li>
     
     
@@ -204,15 +195,77 @@
             
   <div class="section" id="oadis-module">
 <h1>OADis Module<a class="headerlink" href="#oadis-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module OADis disassembles aarch64 opcodes.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Oberon
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OK* = 0; FINISH* = 1; BAD* = 2;
+BADARCH=0; RISC5=1; X8664=2; AARCH64=3; ARM32=4; RISCV64=5; RISCV32=6;
+BYTEORIENTED=0; WORDORIENTED=1;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>E*, at*, pc*, isz*, wo*: INTEGER;
+ibytes*: ARRAY 32 OF BYTE;
+istr*: ARRAY 32 OF CHAR;
+mnemo0, mnemo1: ARRAY 16, 4 OF CHAR;  (*mnemonics*)
+vendor*, mode*, cfo*, cfe*: INTEGER;
+R*: Files.Rider;
+F*: Files.File;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE opcode(w: LONGINT; VAR s:ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE decode*():INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE init*(VAR f: Files.File; i, o, e: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE originate*(r: Files.Rider; f: Files.File; offset, extent, index: INTEGER): INTEGER;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(CP 2020)</p>
+<p><strong>OADis</strong> is a disassembler of aarch64 opcodes.
+The module sets up a state machine that operates on an input via repeated calls to decode.</p>
 <p><a class="reference external" href="https://github.com/io-core/Build/blob/main/OADis.Mod">https://github.com/io-core/Build/blob/main/OADis.Mod</a></p>
+</div>
 </div>
 
 
@@ -221,8 +274,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="OaDis.html" class="btn btn-neutral float-right" title="OaDis Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="OIDis.html" class="btn btn-neutral float-left" title="OIDis Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="OIDis.html" class="btn btn-neutral float-right" title="OIDis Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="M.html" class="btn btn-neutral float-left" title="M Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

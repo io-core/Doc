@@ -1,28 +1,48 @@
-#################
+########################
   Files Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Files:
-   :hidden:
-
-   FileDir <Files/FileDir>
-   Files <Files/Files>
+Version v5.0.20130815
 
 Files handles persistent storage and the file and directory interface of Oberon. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Files:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <FilesModules>
 
-   * - FileDir 
-     - implements directory behavior for Files. 
-   * - Files 
-     - provides the Files (and directories) API for Oberon. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Kernel v5.0.0
+
+--------
+  About  
+--------
+ 
+### _Package Overview:_
+The Files package provides:
+
+* Directory operations
+* File i/o
+
+### _Package Use:_
+
+USAGE:
+```
+F := Files.New("newfile.txt")
+```
+
+### _Modules in this package:_
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Files  
 
 https://github.com/io-core/Files/blob/main/Files.Pkg

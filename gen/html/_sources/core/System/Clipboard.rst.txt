@@ -2,17 +2,71 @@
   Clipboard Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Texts Viewers TextFrames Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ control = -24; data = -20;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Copy(T: Texts.Text; beg, end: INTEGER);
+
+::
+  PROCEDURE CopySelection*;
+
+::
+  PROCEDURE CopyViewer*;
+
+::
+  PROCEDURE Paste*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/Clipboard.Mod
 

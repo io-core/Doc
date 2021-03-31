@@ -1,0 +1,97 @@
+####################################
+  TestTest Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module TestTest handles:
+
+* Nothing yet. Testing the tests eventually.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Test
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**TestBuild** performs a build test of a module.
+::
+  PROCEDURE TestBuild*;
+
+---
+**TestLoad** performs a load test of a module.
+::
+  PROCEDURE TestLoad*;
+
+---
+**TestQuick** performs quick tests of a module's exported procedures.
+::
+  PROCEDURE TestQuick*;
+
+---
+**TestPerf** performs benchmark tests of a module's exported procedures.
+::
+  PROCEDURE TestPerf*;
+
+---
+**TestFuzz** performs fuzz tests of a module's exported procedures.
+::
+  PROCEDURE TestFuzz*;
+
+---
+**TestExamples** verifies the output module's exported procedures on example uses.
+::
+  PROCEDURE TestExamples*;
+
+---
+**TestAll** performs all of a module's tests.
+::
+  PROCEDURE TestAll*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Test/blob/main/TestTest.Mod
+

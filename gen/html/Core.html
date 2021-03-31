@@ -29,17 +29,16 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Kernel Package" href="core/Kernel.html" />
+    <link rel="next" title="Boot Package" href="core/Boot.html" />
     <link rel="prev" title="Examples" href="Examples.html" /> 
 </head>
 
@@ -94,19 +93,20 @@
 <li class="toctree-l2"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IO Core Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core/Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
@@ -185,7 +185,13 @@
 <h1>IO Core Packages<a class="headerlink" href="#io-core-packages" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>Core modules in Integrated Oberon…</p>
+<p>The Core Packages in Integrated Oberon contain those modules necessary
+for booting Oberon to a user interface (or to a command loop for an embedded
+Oberon) and those modules needed to recompile the core of Integrated Oberon.</p>
+<p>Four packages comprise an Inner Core of Oberon – Boot, Kernel, Files, and
+Modules. The modules in these four packages are linked into a bootable binary
+image that, after being loaded by the boot mechanism of the host platform, will
+load the rest of the Core Oberon system.</p>
 <p><a class="reference external" href="https://github.com/io-core/Oberon/blob/main/Oberon.Mod">https://github.com/io-core/Oberon/blob/main/Oberon.Mod</a></p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -198,23 +204,23 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Kernel</p></td>
+<tr class="row-even"><td><p>Boot</p></td>
+<td><p>Brings the Oberon Inner Core into memory and passes control to it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kernel</p></td>
 <td><p>handles kernel load / heap and GC / SDcard and sectors / timer and clock / traps.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Files</p></td>
+<tr class="row-even"><td><p>Files</p></td>
 <td><p>handles persistent storage and the file and directory interface of Oberon.</p></td>
 </tr>
-<tr class="row-even"><td><p>Modules</p></td>
+<tr class="row-odd"><td><p>Modules</p></td>
 <td><p>manages compiled module loading and unloading in Oberon.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Build</p></td>
+<tr class="row-even"><td><p>Build</p></td>
 <td><p>provides the compiler and associated program building and debugging tools for Oberon.</p></td>
 </tr>
-<tr class="row-even"><td><p>Edit</p></td>
+<tr class="row-odd"><td><p>Edit</p></td>
 <td><p>manages the text and font handling in Oberon.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Boot</p></td>
-<td><p>Brings the Oberon Inner Core into memory and passes control to it.</p></td>
 </tr>
 <tr class="row-even"><td><p>Oberon</p></td>
 <td><p>implements the user-interaction functionality and the task loop of the system.</p></td>
@@ -232,7 +238,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="core/Kernel.html" class="btn btn-neutral float-right" title="Kernel Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="core/Boot.html" class="btn btn-neutral float-right" title="Boot Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="Examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

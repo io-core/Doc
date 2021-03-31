@@ -1,0 +1,82 @@
+####################################
+  ArgParse Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module ArgParse handles:
+
+* The ArgParse package provides a parser for command-line options and arguments.
+
+Ideally this package will grow to encompass functionality similar to ArgParse in Python and Go.
+As for now this package is quite basic.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Texts Oberon
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+    optextlen = 32;
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+    Arg = POINTER TO ArgDesc;
+    ArgDesc = RECORD
+      next: Arg;
+      text: ARRAY optextlen OF CHAR;
+      opt: SET
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**ArgOpt** checks for options to an argument, returns a set of those found. Provides classic Oberon style slash options.
+::
+  PROCEDURE Option(VAR S: Texts.Scanner; o: ARRAY OF CHAR): SET;
+
+---
+**ArgParse** finds the arguments to a command.
+::
+  PROCEDURE ArgParse*(VAR W:Texts.Writer; o: ARRAY OF CHAR);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/ArgParse/blob/main/ArgParse.Mod
+

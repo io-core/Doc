@@ -2,17 +2,124 @@
   BootLoad Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module BootLoad is the firmware for the RISC Oberon platform.
+
+    OXP.Compile BootLoad.Mod ~
+    ORF.WriteFile BootLoad.rsc prom.mem ~                      
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+    MT = 12; SP = 14; LNK = 15;
+    MTOrg = 20H; MemLim = 0E7EF0H; stackOrg = 80000H;
+    swi = -60; led = -60; rsData = -56; rsCtrl = -52;
+    spiData = -48; spiCtrl = -44;
+    CARD0 = 1; SPIFAST = 4;
+    FSoffset = 80000H;   (*block offset*)
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**RecInt** gets a 32-bit binary value from the serial line.
+::
+  PROCEDURE RecInt(VAR x: INTEGER);
+
+---
+**LoadFromLine** Loads the binary image of the inner core of Oberon from the serial line.
+::
+  PROCEDURE LoadFromLine;
+
+---
+**SPIIdle** sends n FFs slowly with no card selected.
+::
+  PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)
+
+---
+**SPI** Delivers a value to SPI data on CARD0 and waits for acceptance.
+::
+  PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)
+
+---
+**SPICmd** Synchronously ends an SPI command and its argument.
+::
+  PROCEDURE SPICmd(n, arg: INTEGER);
+
+---
+**InitSPI** Initializes the SPI interface.
+::
+  PROCEDURE InitSPI;
+
+---
+**SDShift** Interrogates an SPI storage card.
+::
+  PROCEDURE SDShift(VAR n: INTEGER);
+
+---
+**ReadSD** Retrieves one block from the SD card via SPI.
+::
+  PROCEDURE ReadSD(src, dst: INTEGER);
+
+---
+**LoadFromDisk** Retreives the Innner Core of Oberon from the SD Card.
+::
+  PROCEDURE LoadFromDisk;
+
+---
+**The initialzation code for this module** sets the stack and Module table origin, 
+calls the appropriate Load routine, then places the MemoryLimit, and stackOrg in memory for Oberon to find and jumps to the start of memory.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+The HAL needs to get the Inner Core into memory, prepare basic OS bookkeeping structures, and link the modules.
+The HAL also abstracts some hardware features.
+
+BootLoad doesn't have to work that hard. The RISC5 environment is so simple the hardware needs no abstracting.
+
+In addition the classic RISC5 Linker prepares an already linked kernel with structures in place so BootLoad only needs to load
+the kernel, place some integers in memory, and pass some values in registers to the kernel entry point.
  
 https://github.com/io-core/Boot/blob/main/BootLoad.Mod
 

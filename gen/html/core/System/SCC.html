@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Batch Module" href="Batch.html" />
-    <link rel="prev" title="Net Module" href="Net.html" /> 
+    <link rel="next" title="Sierpinski Module" href="Sierpinski.html" />
+    <link rel="prev" title="RS232 Module" href="RS232.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,36 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../System.html">System Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="System.html">System</a></li>
-<li class="toctree-l4"><a class="reference internal" href="MenuViewers.html">MenuViewers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="PIO.html">PIO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Tools.html">Tools</a></li>
-<li class="toctree-l4"><a class="reference internal" href="PCLink1.html">PCLink1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RS232.html">RS232</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Net.html">Net</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">SCC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Batch.html">Batch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Halt.html">Halt</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Hilbert.html">Hilbert</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Sierpinski.html">Sierpinski</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Stars.html">Stars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Checkers.html">Checkers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Clipboard.html">Clipboard</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../SystemModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../System.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../System.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../System.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -183,6 +172,8 @@
         
           <li><a href="../System.html">System Package</a> &raquo;</li>
         
+          <li><a href="../SystemModules.html">System Modules</a> &raquo;</li>
+        
       <li>SCC Module</li>
     
     
@@ -204,15 +195,130 @@
             
   <div class="section" id="scc-module">
 <h1>SCC Module<a class="headerlink" href="#scc-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module SCC provides for wireless communication in RISC Oberon.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Kernel
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>swi = -60; spiData = -48; spiCtrl = -44;
+netSelect = 1; spiFast = 2; netEnable = 3;
+HdrSize = 8; MaxPayload = 512; SubPacket = 32; Wait = 50; SendTries = 50;
+MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket *
+</pre></div>
+</div>
+<p>SubPacket;</p>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Header* =
+   RECORD valid*: BOOLEAN;
+     dadr*, sadr*, typ*: BYTE;
+     len*: INTEGER (*of data following header*)
+   END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>filter*: BOOLEAN; Adr*: BYTE; rcvd: INTEGER;
+rx: RECORD
+  hd: Header;
+  dat: ARRAY MaxPacket-HdrSize OF BYTE
+END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SPICtrl(s: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SPI(n: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE StartCmd(cmd: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteReg1(reg, dat: INTEGER);  (<em>disables radio!</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SubRcv(dst: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Flush();</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ResetRcv;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Listen(b: BOOLEAN);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Start*(filt: BOOLEAN);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF BYTE);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Available*(): INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Receive*(VAR x: BYTE);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Rcvd(time: INTEGER): BOOLEAN;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReceiveHead*(VAR head: Header);  (<em>actually, recv whole packet</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Skip*(m: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Stop*;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/System/blob/main/SCC.Mod">https://github.com/io-core/System/blob/main/SCC.Mod</a></p>
+</div>
 </div>
 
 
@@ -221,8 +327,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Batch.html" class="btn btn-neutral float-right" title="Batch Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Net.html" class="btn btn-neutral float-left" title="Net Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Sierpinski.html" class="btn btn-neutral float-right" title="Sierpinski Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="RS232.html" class="btn btn-neutral float-left" title="RS232 Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

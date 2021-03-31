@@ -2,17 +2,102 @@
   ORC Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Texts Oberon V24
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ portno = 1; (*RS-232*)
+    BlkLen = 255; pno = 1;
+    REQ = 20X; REC = 21X; SND = 22X; CLS = 23X; ACK = 10X;
+    Tout = 1000;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ res: LONGINT;
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Flush*;
+
+::
+  PROCEDURE Open*;
+
+::
+  PROCEDURE TestReq*;
+
+::
+  PROCEDURE SendInt(x: LONGINT);
+
+::
+  PROCEDURE Load*;  (*linked boot file  F.bin*)
+
+::
+  PROCEDURE Rec(VAR ch: CHAR);   (*receive with timeout*)
+
+::
+  PROCEDURE SendName(VAR s: ARRAY OF CHAR);
+
+::
+  PROCEDURE Send*;
+
+::
+  PROCEDURE Receive*;
+
+::
+  PROCEDURE Close*;
+
+::
+  PROCEDURE RecByte(VAR ch: CHAR);
+
+::
+  PROCEDURE RecInt(VAR x: LONGINT);
+
+::
+  PROCEDURE SR*;  (*send, then receive sequence of items*)
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Build/blob/main/ORC.Mod
 

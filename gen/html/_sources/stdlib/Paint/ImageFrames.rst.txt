@@ -2,17 +2,206 @@
   ImageFrames Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Display Viewers Input Fonts Texts Images Oberon MenuViewers
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ (*update message ids*)
+    drawlayer = 1; drawlayers = 2; drawlayerd = 3;
+    drawnorm = 4; drawsel = 5; drawdel = 6;
+
+    markW = 5;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+    Frame* = POINTER TO FrameDesc;
+    Location* = POINTER TO LocDesc;
+
+    LocDesc* = RECORD
+        x*, y*: INTEGER;
+        next*: Location
+      END ;
+
+    FrameDesc* = RECORD (Display.FrameDesc)
+        image*: Images.Image;
+        Xg*, Yg*: INTEGER;  (*pos rel to image origin*)
+        X1*, Y1*: INTEGER;  (*right and upper margins*)
+        x*, y*, col*: INTEGER;  (*x = X + Xg, y = Y + Yg*)
+        marked*, ticked*: BOOLEAN;
+        mark*: LocDesc
+      END ;
+
+    DrawMsg* = RECORD (Images.Msg)
+        f*: Frame;
+        x*, y*, col*, mode*: INTEGER
+      END ;
+
+    UpdateMsg = RECORD (Display.FrameMsg)
+        id: INTEGER;
+        image: Images.Image;
+        layer: Images.Layer
+      END ;
+
+    ChangedMsg = RECORD (Display.FrameMsg)
+        f: Frame;
+        image: Images.Image;
+        mode: INTEGER
+      END ;
+
+    SelQuery = RECORD (Display.FrameMsg)
+        f: Frame; time: LONGINT
+      END ;
+
+    FocusQuery = RECORD (Display.FrameMsg)
+        f: Frame
+      END ;
+
+    PosQuery = RECORD (Display.FrameMsg)
+        f: Frame; x, y: INTEGER
+      END ;
+
+    DispMsg = RECORD (Display.FrameMsg)
+        x1, y1, w: INTEGER;
+        pat: INTEGER;
+        image: Images.Image
+      END ;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ Crosshair*: Oberon.Marker;
+    tack*, dotted*, dotted1*: INTEGER;  (*patterns*)
+    (* newcap: Graphics.Caption; *)
+    TBuf: Texts.Buffer;
+    DW, DH, CL: INTEGER;
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)
+
+::
+  PROCEDURE Restore*(F: Frame);
+
+::
+  PROCEDURE FlipCross(X, Y: INTEGER);
+
+::
+  PROCEDURE Focus*(): Frame;
+
+::
+  PROCEDURE Selected*(): Frame;
+
+::
+  PROCEDURE This*(x, y: INTEGER): Frame;
+
+::
+  PROCEDURE Mark(F: Frame; mode: INTEGER);
+
+::
+  PROCEDURE Draw*(F: Frame);
+
+::
+  PROCEDURE DrawNorm(F: Frame);
+
+::
+  PROCEDURE Erase*(F: Frame);
+
+::
+  PROCEDURE DrawLayer*(F: Frame; L: Images.Layer);
+
+::
+  PROCEDURE EraseLayer*(F: Frame; L: Images.Layer);
+
+::
+  PROCEDURE Change*(F: Frame; VAR msg: Images.Msg);
+
+::
+  PROCEDURE FlipMark(x, y: INTEGER);
+
+::
+  PROCEDURE Defocus*(F: Frame);
+
+::
+  PROCEDURE Deselect*(F: Frame);
+
+::
+  PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);
+
+::
+  PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);
+
+::
+  PROCEDURE InsertChar(F: Frame; codepoint: INTEGER);
+
+::
+  PROCEDURE DeleteChar(F: Frame);
+
+::
+  PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);
+
+::
+  PROCEDURE Handle*(F: Display.Frame; VAR M: Display.FrameMsg);
+
+::
+  PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);
+
+::
+  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);
+
+::
+  PROCEDURE DrawLine(obj: Images.Layer; VAR M: Images.Msg);
+
+::
+  PROCEDURE DrawCaption(obj: Images.Layer; VAR M: Images.Msg);
+
+::
+  PROCEDURE DrawMacro(obj: Images.Layer; VAR M: Images.Msg);
+
+::
+  PROCEDURE Open*(F: Frame; I: Images.Image);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Paint/blob/main/ImageFrames.Mod
 

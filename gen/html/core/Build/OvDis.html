@@ -29,17 +29,16 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ORC Module" href="ORC.html" />
+    <link rel="next" title="Edit Package" href="../Edit.html" />
     <link rel="prev" title="OaDis Module" href="OaDis.html" /> 
 </head>
 
@@ -94,36 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Build.html">Build Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ORP.html">ORP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORG.html">ORG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXG.html">OXG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORB.html">ORB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORS.html">ORS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXTool.html">OXTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXDis.html">OXDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORDis.html">ORDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OIDis.html">OIDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OADis.html">OADis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OaDis.html">OaDis</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">OvDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORC.html">ORC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="M.html">M</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explore.html">Explore</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../BuildModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -183,6 +172,8 @@
         
           <li><a href="../Build.html">Build Package</a> &raquo;</li>
         
+          <li><a href="../BuildModules.html">Build Modules</a> &raquo;</li>
+        
       <li>OvDis Module</li>
     
     
@@ -204,15 +195,120 @@
             
   <div class="section" id="ovdis-module">
 <h1>OvDis Module<a class="headerlink" href="#ovdis-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module OvDis disassembles 32-bit RISCV opcodes.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Oberon
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  OK* = 0; FINISH* = 1; BAD* = 2;
+  BADARCH=0; RISC5=1; X8664=2; AARCH64=3; ARM32=4; RISCV64=5; RISCV32=6;
+  BYTEORIENTED=0; WORDORIENTED=1;
+(*opcode formats*)
+  Rfmt = 0; Ifmt = 1; Sfmt = 2; Bfmt = 3; Ufmt = 4; Jfmt = 5; Afmt = 6; Badfmt = -1; Reserved = -2;
+  DPfmt = 0; MULfmt = 1; MULLfmt = 2; SDSfmt = 3; BEfmt = 4; HDTRfmt = 5; HDTIfmt = 6;
+  SDTfmt = 7; UNDfmt = 8; BDTfmt = 9; BRfmt = 10; CDTfmt = 11; CDOfmt = 12; CRTfmt = 13; SWIfmt = 14;
+(*opcodes*)
+  opLUI    =&quot;LUI&quot;  ; opSLTIU  =&quot;SLTIU&quot; ; opEBREAK =&quot;EBREAK&quot;; opSRLW   =&quot;SRLW&quot;  ;
+  opAUIPC  =&quot;AUIPC&quot;; opXORI   =&quot;XORI&quot;  ; opCSRRW  =&quot;CSRRW&quot; ; opSRAW   =&quot;SRAW&quot;  ;
+  opJAL    =&quot;JAL&quot;  ; opORI    =&quot;ORI&quot;   ; opCSRRS  =&quot;CSRRS&quot; ; opMUL    =&quot;MUL&quot;   ;
+  opJALR   =&quot;JALR&quot; ; opANDI   =&quot;ANDI&quot;  ; opCSRRC  =&quot;CSRRC&quot; ; opMULH   =&quot;MULH&quot;  ;
+  opBEQ    =&quot;BEQ&quot;  ; opSLLI   =&quot;SLLI&quot;  ; opCSRRWI =&quot;CSRRWI&quot;; opMULHSU =&quot;MULHSU&quot;;
+  opBNE    =&quot;BNE&quot;  ; opSRLI   =&quot;SRLI&quot;  ; opCSRRSI =&quot;CSRRSI&quot;; opMULHU  =&quot;MULHU&quot; ;
+  opBLT    =&quot;BLT&quot;  ; opSRAI   =&quot;SRAI&quot;  ; opCSRRCI =&quot;CSRRCI&quot;; opDIV    =&quot;DIV&quot;   ;
+  opBGE    =&quot;BGE&quot;  ; opADD    =&quot;ADD&quot;   ; opLWU    =&quot;LWU&quot;   ; opDIVU   =&quot;DIVU&quot;  ;
+  opBLTU   =&quot;BLTU&quot; ; opSUB    =&quot;SUB&quot;   ; opLD     =&quot;LD&quot;    ; opREM    =&quot;REM&quot;   ;
+  opBGEU   =&quot;BGEU&quot; ; opSLL    =&quot;SLL&quot;   ; opSD     =&quot;SD&quot;    ; opREMU   =&quot;REMU&quot;  ;
+  opLB     =&quot;LB&quot;   ; opSLT    =&quot;SLT&quot;   ; opSLLIx  =&quot;SLLIx&quot; ; opMULW   =&quot;MULW&quot;  ;
+  opLH     =&quot;LH&quot;   ; opSLTU   =&quot;SLTU&quot;  ; opSRLIx  =&quot;SRLIx&quot; ; opDIVW   =&quot;DIVW&quot;  ;
+  opLW     =&quot;LW&quot;   ; opXOR    =&quot;XOR&quot;   ; opSRAIx  =&quot;SRAIx&quot; ; opDIVUW  =&quot;DIVUW&quot; ;
+  opLBU    =&quot;LBU&quot;  ; opSRL    =&quot;SRL&quot;   ; opADDIW  =&quot;ADDIW&quot; ; opREMW   =&quot;REMW&quot;  ;
+  opLHU    =&quot;LHU&quot;  ; opSRA    =&quot;SRA&quot;   ; opSLLIW  =&quot;SLLIW&quot; ; opREMUW  =&quot;REMUW&quot; ;
+  opSB     =&quot;SB&quot;   ; opOR     =&quot;OR&quot;    ; opSRLIW  =&quot;SRLIW&quot; ;
+  opSH     =&quot;SH&quot;   ; opAND    =&quot;AND&quot;   ; opSRAIW  =&quot;SRAIW&quot; ;
+  opSW     =&quot;SW&quot;   ; opFENCE  =&quot;FENCE&quot; ; opADDW   =&quot;ADDW&quot;  ;
+  opADDI   =&quot;ADDI&quot; ; opFENCEI =&quot;FENCEI&quot;; opSUBW   =&quot;SUBW&quot;  ; opBAD    =&quot;BAD&quot;;
+  opSLTI   =&quot;SLTI&quot; ; opECALL  =&quot;ECALL&quot; ; opSLLW   =&quot;SLLW&quot;  ; opUNKN   =&quot;UNKNOWN&quot; ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>E*, at*, pc*, isz*, wo*: INTEGER;
+ibytes*: ARRAY 32 OF BYTE;
+istr*: ARRAY 32 OF CHAR;
+</pre></div>
+</div>
+<dl class="simple">
+<dt>(*    mnemo0: ARRAY 75, 10 OF CHAR;  (<em>riscv mnemonics</em>) <a href="#id1"><span class="problematic" id="id2">*</span></a>)</dt><dd><p>vendor*, mode*, cfo*, cfe*: INTEGER;
+R*: Files.Rider;
+F*: Files.File;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE opFormat*(w: LONGINT): LONGINT;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE append(VAR s1: ARRAY OF CHAR; s2: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE v32reg(r: LONGINT; VAR s: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE strInt (x: LONGINT; VAR s: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE opcode(w: LONGINT; VAR s:ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE decode*():INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE init*(VAR f: Files.File; i, o, e: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE originate*(r: Files.Rider; f: Files.File; offset, extent, index: INTEGER): INTEGER;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(CP 2020)</p>
+<p><strong>OvDis</strong> is a disassembler of 32-bit RISCV opcodes.
+The module sets up a state machine that operates on an input via repeated calls to decode.</p>
 <p><a class="reference external" href="https://github.com/io-core/Build/blob/main/OvDis.Mod">https://github.com/io-core/Build/blob/main/OvDis.Mod</a></p>
+</div>
 </div>
 
 
@@ -221,7 +317,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ORC.html" class="btn btn-neutral float-right" title="ORC Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Edit.html" class="btn btn-neutral float-right" title="Edit Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="OaDis.html" class="btn btn-neutral float-left" title="OaDis Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

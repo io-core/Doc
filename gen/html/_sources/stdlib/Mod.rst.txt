@@ -1,43 +1,35 @@
-#################
+########################
   Mod Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Mod:
-   :hidden:
-
-   PackageFrames <Mod/PackageFrames>
-   Mod <Mod/Mod>
-   Packages <Mod/Packages>
-   Resources <Mod/Resources>
-   Assign <Mod/Assign>
-   Suite <Mod/Suite>
-   Vet <Mod/Vet>
+Version v0.1.0
 
 Mod provides source code package management in Oberon. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Mod:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <ModModules>
 
-   * - PackageFrames 
-     -  
-   * - Mod 
-     -  
-   * - Packages 
-     -  
-   * - Resources 
-     -  
-   * - Assign 
-     -  
-   * - Suite 
-     -  
-   * - Vet 
-     -  
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* System v5.0.0
+
+--------
+  About  
+--------
+ 
+
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Mod  
 
 https://github.com/io-core/Mod/blob/main/Mod.Pkg

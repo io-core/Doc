@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="FileDir Module" href="Files/FileDir.html" />
-    <link rel="prev" title="BootLoad Module" href="Kernel/BootLoad.html" /> 
+    <link rel="next" title="Files Modules" href="FilesModules.html" />
+    <link rel="prev" title="Kernel Module" href="Kernel/Kernel.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,23 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Files Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Files/FileDir.html">FileDir</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Files/Files.html">Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FilesModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Community.html">Community</a></li>
@@ -189,29 +191,36 @@
             
   <div class="section" id="files-package">
 <h1>Files Package<a class="headerlink" href="#files-package" title="Permalink to this headline">¶</a></h1>
+<p>Version v5.0.20130815</p>
+<p>Files handles persistent storage and the file and directory interface of Oberon.</p>
 <div class="toctree-wrapper compound">
 </div>
-<p>Files handles persistent storage and the file and directory interface of Oberon.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>FileDir</p></td>
-<td><p>implements directory behavior for Files.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Files</p></td>
-<td><p>provides the Files (and directories) API for Oberon.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="package-dependencies">
+<h2>Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Kernel v5.0.0</p></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>### _Package Overview:_
+The Files package provides:</p>
+<ul class="simple">
+<li><p>Directory operations</p></li>
+<li><p>File i/o</p></li>
+</ul>
+<p>### _Package Use:_</p>
+<p>USAGE:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">F</span> <span class="pre">:=</span> <span class="pre">Files.New(&quot;newfile.txt&quot;)</span>
+<span class="pre">`</span></code></p>
+<p>### _Modules in this package:_</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>Files</p>
 <p><a class="reference external" href="https://github.com/io-core/Files/blob/main/Files.Pkg">https://github.com/io-core/Files/blob/main/Files.Pkg</a></p>
+</div>
 </div>
 
 
@@ -220,8 +229,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Files/FileDir.html" class="btn btn-neutral float-right" title="FileDir Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Kernel/BootLoad.html" class="btn btn-neutral float-left" title="BootLoad Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FilesModules.html" class="btn btn-neutral float-right" title="Files Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Kernel/Kernel.html" class="btn btn-neutral float-left" title="Kernel Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

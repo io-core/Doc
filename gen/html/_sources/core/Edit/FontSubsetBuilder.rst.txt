@@ -2,17 +2,71 @@
   FontSubsetBuilder Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Files Texts Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ FontFileId = 0DBH;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE ReadInt16(VAR R: Files.Rider; VAR v: INTEGER);
+
+::
+  PROCEDURE WriteInt16(VAR R: Files.Rider; v: INTEGER);
+
+::
+  PROCEDURE CopyBytes(VAR RR, RW: Files.Rider; count: INTEGER);
+
+::
+  PROCEDURE Extract*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Edit/blob/main/FontSubsetBuilder.Mod
 

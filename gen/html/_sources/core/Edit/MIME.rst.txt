@@ -1,0 +1,73 @@
+####################################
+  MIME Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module MIME registers file or stream types and provides handlers.
+
+Module MIME registers file or stream types and provides handlers.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+    Type* = POINTER TO TypeDesc;
+    TypeDesc* = RECORD
+	hash*: INTEGER;
+        ext*: ARRAY 32 OF CHAR;
+        next: Type
+      END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**register** makes the mime type, its description, and its filename extension visible to the system.
+::
+  PROCEDURE register( i:INTEGER; a, b, c: ARRAY OF CHAR);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Edit/blob/main/MIME.Mod
+

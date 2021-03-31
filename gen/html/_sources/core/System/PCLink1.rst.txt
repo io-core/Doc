@@ -2,17 +2,80 @@
   PCLink1 Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module PCLink1 provides for serial connection between Oberon machines or Oberon and a host computer.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Texts Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ data = -56; stat = -52;
+    BlkLen = 255;
+    REQ = 20H; REC = 21H; SND = 22H; ACK = 10H; NAK = 11H;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ T: Oberon.Task;
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Rec(VAR x: BYTE);
+
+::
+  PROCEDURE RecName(VAR s: ARRAY OF CHAR);
+
+::
+  PROCEDURE Send(x: BYTE);
+
+::
+  PROCEDURE Task;
+
+::
+  PROCEDURE Run*;
+
+::
+  PROCEDURE Stop*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/PCLink1.Mod
 

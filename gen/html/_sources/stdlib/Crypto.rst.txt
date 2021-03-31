@@ -1,0 +1,48 @@
+########################
+  Crypto Package 
+########################
+
+Version v0.1.0
+
+Crypto provides common cryptographic algorithms. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Crypto:
+   :hidden:
+
+   Modules <CryptoModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+
+
+--------
+  About  
+--------
+ 
+## Overview
+The Crypto package provides:
+
+* Cryptographic utilities
+* Cryptographic Algorithms
+
+## Examples
+
+USAGE:
+```
+--none yet--
+```
+
+## Modules
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Crypto  
+
+https://github.com/io-core/Crypto/blob/main/Crypto.Pkg

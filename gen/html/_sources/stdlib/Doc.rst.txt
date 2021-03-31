@@ -1,25 +1,49 @@
-#################
+########################
   Doc Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Doc:
-   :hidden:
-
-   Doc <Doc/Doc>
+Version v5.0.20190301
 
 Doc Generates documentation from extracted odoc strings in Oberon packages. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Doc:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <DocModules>
 
-   * - Doc 
-     - TODO: Generate and browse documentation from Oberon source. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Files v5.0.0
+
+--------
+  About  
+--------
+ 
+### _Package Overview:_
+The Doc package manages:
+* Generating documentation from Oberon package sources
+* Browsing (eventually) Oberon documentation
+### _Package Use:_
+
+USAGE:
+```
+# from external system with python and sphinx
+
+make extract; make clean; make html
+
+```
+
+### _Modules in this package:_
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Doc  
 
 https://github.com/io-core/Doc/blob/main/Doc.Pkg

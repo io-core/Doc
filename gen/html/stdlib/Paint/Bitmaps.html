@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="ImageFrames Module" href="ImageFrames.html" />
-    <link rel="prev" title="Paint Module" href="Paint.html" /> 
+    <link rel="prev" title="Paint Modules" href="../PaintModules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,20 +95,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Core.html">IO Core Packages</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Std.html">IO Standard Packages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Assist.html">Assist Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attest.html">Attest Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Crypto.html">Crypto Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Doc.html">Doc Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Draw.html">Draw Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Paint.html">Paint Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Images.html">Images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Paint.html">Paint</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Bitmaps</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ImageFrames.html">ImageFrames</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../PaintModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Paint.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Paint.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Paint.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Mod.html">Mod Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ArgParse.html">ArgParse Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Test.html">Test Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -169,6 +173,8 @@
         
           <li><a href="../Paint.html">Paint Package</a> &raquo;</li>
         
+          <li><a href="../PaintModules.html">Paint Modules</a> &raquo;</li>
+        
       <li>Bitmaps Module</li>
     
     
@@ -190,15 +196,95 @@
             
   <div class="section" id="bitmaps-module">
 <h1>Bitmaps Module<a class="headerlink" href="#bitmaps-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Kernel Oberon
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Bitmap* = POINTER TO BitmapDesc;
+BitmapDesc* = RECORD
+  width*, height*, depth*: INTEGER;
+  base*, size* : INTEGER
+END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>::
+PROCEDURE New*(B: Bitmap; w, h, dpt: INTEGER) : Bitmap;</p>
+<p>::
+PROCEDURE Get*(B: Bitmap; x, y: INTEGER): INTEGER;</p>
+<p>::
+PROCEDURE Clear*(B: Bitmap);</p>
+<p>::
+PROCEDURE Dot*(B: Bitmap; col, x, y, mode: INTEGER);</p>
+<p>::
+PROCEDURE Src2Pix(x, w, src: INTEGER; VAR pix1, pix2: SET);</p>
+<p>::
+PROCEDURE Const2Pix(x, w, con: INTEGER; VAR pix1, pix2: SET);</p>
+<p>::
+PROCEDURE CopyPLine(x, src, dst, w: INTEGER);</p>
+<p>::
+PROCEDURE ReplBLine0(col, x, dst, w: INTEGER);</p>
+<p>::
+PROCEDURE CopyBLine1(x, src, dst, w: INTEGER);</p>
+<p>::
+PROCEDURE CopyBLine0(x, src, dst, w: INTEGER);</p>
+<p>::
+PROCEDURE CopyBLine2(x, src, dst, w: INTEGER);</p>
+<p>::
+PROCEDURE CopyBlock*(sB, dB: Bitmap; sx, sy, w, h, dx, dy, mode: INTEGER);</p>
+<p>::
+PROCEDURE CopyPattern*(B: Bitmap; col, pat, x, y, mode: INTEGER);</p>
+<p>::
+PROCEDURE ReplPattern*(B: Bitmap; col, pat, X, Y, W, H, mode: INTEGER);</p>
+<p>::
+PROCEDURE ReplConst*(B: Bitmap; col, x, y, w, h, mode: INTEGER);</p>
+<p>::
+PROCEDURE DisplayBlock*(B: Bitmap; sx, sy, w, h, dx, dy, mode: INTEGER);</p>
+<p>::
+PROCEDURE GetPix*(VAR a: INTEGER; VAR bt: BYTE; depth: INTEGER);</p>
+<p>::
+PROCEDURE PutPix*(VAR a, x: INTEGER; bt: BYTE; depth: INTEGER);</p>
+<p>::
+PROCEDURE Copy*(sB, dB: Bitmap; sx, sy, w, h, dx, dy, mode: INTEGER);</p>
+<p>::
+PROCEDURE PutLine*(B: Bitmap; VAR data: ARRAY OF INTEGER; x, y, w: INTEGER);</p>
+<p>::
+PROCEDURE GetLine*(B: Bitmap; VAR data: ARRAY OF INTEGER; x, y, w: INTEGER);</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Paint/blob/main/Bitmaps.Mod">https://github.com/io-core/Paint/blob/main/Bitmaps.Mod</a></p>
+</div>
 </div>
 
 
@@ -208,7 +294,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="ImageFrames.html" class="btn btn-neutral float-right" title="ImageFrames Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Paint.html" class="btn btn-neutral float-left" title="Paint Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../PaintModules.html" class="btn btn-neutral float-left" title="Paint Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

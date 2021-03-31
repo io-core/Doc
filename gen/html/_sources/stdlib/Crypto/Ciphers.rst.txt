@@ -1,0 +1,74 @@
+####################################
+  Ciphers Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Ciphers provides cryptographic interfaces and algorithms.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Kernel Oberon
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+    Cipher* = POINTER TO CipherDesc;
+    CipherDesc* = RECORD
+      value*: INTEGER;
+      next: Cipher
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+PROCEDURE New*(C: Cipher; v: INTEGER) : Cipher;
+
+::
+PROCEDURE Get*(C: Cipher; x: INTEGER): INTEGER;
+
+::
+PROCEDURE Clear*(C: Cipher);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Crypto/blob/main/Ciphers.Mod
+

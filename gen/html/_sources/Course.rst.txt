@@ -1,0 +1,20 @@
+############
+  Examples
+############
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development:
+   :includehidden:
+
+   A
+   B
+   C
+   D
+   E
+
+A course of programming examples starts here...
+
+https://github.com/io-core/Examples/blob/main/Course.Mod
+

@@ -9,10 +9,14 @@
    :hidden:
 
    stdlib/Assist
+   stdlib/Attest
+   stdlib/Crypto
    stdlib/Doc
    stdlib/Draw
    stdlib/Paint
    stdlib/Mod
+   stdlib/ArgParse
+   stdlib/Test
 
 Standard Library documentation starts here...
 
@@ -26,6 +30,10 @@ https://github.com/io-core/System/blob/main/System.Mod
      - Description 
    * - Assist 
      -  provide ui help. 
+   * - Attest 
+     - provides code provenance tools for use in Oberon. 
+   * - Crypto 
+     - provides common cryptographic algorithms. 
    * - Doc 
      - Generates documentation from extracted odoc strings in Oberon packages. 
    * - Draw 
@@ -34,3 +42,7 @@ https://github.com/io-core/System/blob/main/System.Mod
      - provides tools for viewing and manipulating bitmap images. 
    * - Mod 
      - provides source code package management in Oberon. 
+   * - ArgParse 
+     - provides argument parsing for Oberon. 
+   * - Test 
+     - provides a testing infrastructure for Integrated Oberon. 

@@ -2,17 +2,142 @@
   Net Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM SCC Files Viewers Texts TextFrames MenuViewers Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ PakSize = 512;
+    (*T0 = 300; T1 = 1000; (*timeouts*)*)
+    T0 = 1000; T1 = 3000; (*timeouts*)
+    ACK = 10H; NAK = 25H; NPR = 26H; (*acknowledgements*)
+    NRQ = 34H; NRS = 35H; (*name request, response*)
+    SND = 41H; REC = 42H; MSG = 44H;
+    TRQ = 46H; TIM = 47H; (*time requests*)
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ W: Texts.Writer;
+     Server: Oberon.Task;
+     head0, head1: SCC.Header;
+     partner: ARRAY 8 OF CHAR;
+     dmy: ARRAY 8 OF BYTE;
+     protected: BOOLEAN; (*write-protection*)
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE SetPartner(name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Send(t: BYTE; L: INTEGER; data: ARRAY OF BYTE);
+
+::
+  PROCEDURE ReceiveHead(timeout: LONGINT);
+
+::
+  PROCEDURE FindPartner(name: ARRAY OF CHAR; VAR res: INTEGER);
+
+::
+  PROCEDURE AppendS(s: ARRAY OF CHAR; VAR d: ARRAY OF BYTE; VAR k: INTEGER);
+
+::
+  PROCEDURE AppendW(s: LONGINT; VAR d: ARRAY OF BYTE;
+
+::
+  PROCEDURE PickS(VAR s: ARRAY OF CHAR);
+
+::
+  PROCEDURE PickQ(VAR w: LONGINT);
+
+::
+  PROCEDURE SendData(F: Files.File);
+
+::
+  PROCEDURE ReceiveData(F: Files.File; VAR done: BOOLEAN);
+
+::
+  PROCEDURE reply(msg: INTEGER);
+
+::
+  PROCEDURE Serve;
+
+::
+  PROCEDURE GetPar1(VAR S: Texts.Scanner);
+
+::
+  PROCEDURE GetPar(VAR S: Texts.Scanner; VAR end: LONGINT);
+
+::
+  PROCEDURE SendFiles*;
+
+::
+  PROCEDURE ReceiveFiles*;
+
+::
+  PROCEDURE SendMsg*;
+
+::
+  PROCEDURE GetTime*;
+
+::
+  PROCEDURE StartServer*;
+
+::
+  PROCEDURE Unprotect*;
+
+::
+  PROCEDURE WProtect*;
+
+::
+  PROCEDURE Reset*;
+
+::
+  PROCEDURE StopServer*;
+
+::
+  PROCEDURE SCCStatus*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/Net.Mod
 

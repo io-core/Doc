@@ -1,46 +1,73 @@
-#################
+########################
   Boot Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Boot:
-   :hidden:
-
-   BootLoad <Boot/BootLoad>
-   ORLinker <Boot/ORLinker>
-   HAL.rsc.qemu <Boot/HAL.rsc.qemu>
-   HAL.a32.qemu <Boot/HAL.a32.qemu>
-   HAL.a64.qemu <Boot/HAL.a64.qemu>
-   HAL.i64.qemu <Boot/HAL.i64.qemu>
-   HAL.v32.qemu <Boot/HAL.v32.qemu>
-   HAL.v64.qemu <Boot/HAL.v64.qemu>
+Version v0.1.20210227
 
 Boot  Brings the Oberon Inner Core into memory and passes control to it. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Boot:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <BootModules>
 
-   * - BootLoad 
-     - loads the Inner Core from disk or serial. 
-   * - ORLinker 
-     - links the inner core into a bootable binary file. 
-   * - HAL.rsc.qemu 
-     - provides a Hardware Abstraction Layer for RISC5 on QEMU. 
-   * - HAL.a32.qemu 
-     - provides a Hardware Abstraction Layer for 32-bit arm. 
-   * - HAL.a64.qemu 
-     - provides a Hardware Abstraction Layer for aarch64. 
-   * - HAL.i64.qemu 
-     - provides a Hardware Abstraction Layer for x86_64. 
-   * - HAL.v32.qemu 
-     - provides a Hardware Abstraction Layer for 32-bit riscv. 
-   * - HAL.v64.qemu 
-     - provides a Hardware Abstraction Layer for 64-bit riscv. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Modules v5.0.0
+* Build v5.0.0
+* Kernel v5.0.0
+* Files v5.0.0
+
+--------
+  About  
+--------
+ 
+
+The Boot package manages:
+
+* Loading the Oberon inner core from boot media
+* Passing hardware configuration (FDT or UEFI table) to the Oberon Kernel
+
+Each architecture may have several specific implementations of a Hardware Abastraction Layer.  For example:
+
+* HAL.a64.qemu.Mod allows Oberon to boot on aarch64 emulated in QEMU
+* HAL.a64.rpi4.Mod does the same on the 64-bit Raspberry Pi and
+* HAL.v32.qemu.Mod boots Oberon on riscv32 emulated in QEMU while
+* HAL.v32.bl602.Mod does the same on the BL602 IOT riscv device.
+* HAL.i64.lin.Mod boots Oberon under Linux as a userspace process.
+
+Each compilation or cross-compilation of Oberon will import only one of the HAL modules, referred to as 'HAL'.
+
+The Bootloaders package also contains shell scripts used outside of Oberon to prepare an Oberon UEFI or raw binary image.
+
+Preparing Boot and Distribution Media
+====================
+
+Generating a new Integrated Oberon image suitable for booting requires the following steps:
+
+1. Compile the Inner Core modules (HAL, Kernel, FileDir, Files, Modules)
+#. Collect the compiled HAL, Kernel, FileDir, Files, and Modules binary modules
+#. Assemble the boot-<architecture>.S UEFI PE shim or ELF header shim
+#. Place the Oberon modules at appropriate offsets in the PE or ELF shim
+#. Place the PE or ELF file on the boot media or in the device firmware
+#. Place IO distribution files in the root media
+#. Boot
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Boot 
+Porting IO to a new platform in a supported CPU architecture requries:
+
+1. Preparing a new HAL.<arch>.<platform>.Mod file
+#. Adapting existing hardware modules or introducing new ones (e.g. Input and Display)
+#. Recompiling all distribution modules dependent on modules who's interfaces have changed
+#. Preparing the Boot and Distribution Media 
 
 https://github.com/io-core/Boot/blob/main/Boot.Pkg

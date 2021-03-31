@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Resources Module" href="Resources.html" />
-    <link rel="prev" title="Mod Module" href="Mod.html" /> 
+    <link rel="prev" title="PackageFrames Module" href="PackageFrames.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,23 +95,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Core.html">IO Core Packages</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Std.html">IO Standard Packages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Assist.html">Assist Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attest.html">Attest Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Crypto.html">Crypto Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Doc.html">Doc Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Draw.html">Draw Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Paint.html">Paint Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Mod.html">Mod Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="PackageFrames.html">PackageFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Mod.html">Mod</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Packages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Resources.html">Resources</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Assign.html">Assign</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Suite.html">Suite</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Vet.html">Vet</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../ModModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Mod.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Mod.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Mod.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../ArgParse.html">ArgParse Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Test.html">Test Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -172,6 +173,8 @@
         
           <li><a href="../Mod.html">Mod Package</a> &raquo;</li>
         
+          <li><a href="../ModModules.html">Mod Modules</a> &raquo;</li>
+        
       <li>Packages Module</li>
     
     
@@ -193,15 +196,167 @@
             
   <div class="section" id="packages-module">
 <h1>Packages Module<a class="headerlink" href="#packages-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Fonts Resources
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Method* = POINTER TO MethodDesc;
+Component* = POINTER TO ComponentDesc;
+ComponentDesc* = RECORD
+  x*, y*, w*, h*, d*, p*: INTEGER;
+  sx*, sy*: REAL;
+  sw*, sh*: INTEGER;
+  selected*, marked*: BOOLEAN;
+  do*: Method;
+  next: Component
+END;
+
+Package* = POINTER TO PackageDesc;
+Notifier* = PROCEDURE (P: Package; op: INTEGER; beg, end: LONGINT);
+PackageDesc* = RECORD
+  len*: LONGINT;
+  changed*: BOOLEAN;
+  flattened*: BOOLEAN;
+  sel*, first: Component;
+  notify*: Notifier
+END;
+
+Msg* = RECORD END ;
+WidMsg* = RECORD (Msg) w*: INTEGER END ;
+ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+
+
+bmpHeaderEntry = RECORD
+    a: INTEGER;
+    b: INTEGER;
+    c: INTEGER;
+    d: INTEGER
+END;
+
+jpgHeaderEntry = RECORD
+    a: INTEGER;
+    b: INTEGER;
+    c: INTEGER;
+    d: INTEGER
+END;
+
+pngHeaderEntry = RECORD
+    a: INTEGER;
+    b: INTEGER;
+    c: INTEGER;
+    d: INTEGER
+END;
+
+MethodDesc* = RECORD
+    copy*: PROCEDURE (from, to: Component);
+    draw*, change*: PROCEDURE (C: Component; VAR msg: Msg);
+    selectable*: PROCEDURE (C: Component; x, y: INTEGER): BOOLEAN;
+    read*: PROCEDURE (C: Component; VAR r: Files.Rider); (*; VAR c: Context); *)
+    write*: PROCEDURE (C: Component; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)
+    print*: PROCEDURE (C: Component; x, y: INTEGER)
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>res*: INTEGER;
+width: INTEGER;
+new*: Component;
+LineMethod*, CapMethod*, MacMethod* : Method;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE New*(C: Component);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Add*(P: Package; C: Component);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisComponent*(P: Package; x, y: INTEGER): Component;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SelectComponent*(P: Package; C: Component);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SelectArea*(P: Package; x0, y0, x1, y1: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Draw*(P: Package; VAR m: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE List*(P: Package);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Deselect*(P: Package);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawSel*(P: Package; VAR m: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Change*(P: Package; VAR m: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteFile*(P: Package; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetWidth*(w: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Open*(P: Package; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Delete*(P: Package);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (C: Component; VAR msg: Msg));</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Mod/blob/main/Packages.Mod">https://github.com/io-core/Mod/blob/main/Packages.Mod</a></p>
+</div>
 </div>
 
 
@@ -211,7 +366,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Resources.html" class="btn btn-neutral float-right" title="Resources Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Mod.html" class="btn btn-neutral float-left" title="Mod Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="PackageFrames.html" class="btn btn-neutral float-left" title="PackageFrames Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

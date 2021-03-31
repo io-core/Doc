@@ -1,67 +1,78 @@
-#################
+########################
   Build Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Build:
-   :hidden:
-
-   ORP <Build/ORP>
-   ORG <Build/ORG>
-   OXG <Build/OXG>
-   ORB <Build/ORB>
-   ORS <Build/ORS>
-   OXTool <Build/OXTool>
-   OXDis <Build/OXDis>
-   ORDis <Build/ORDis>
-   OIDis <Build/OIDis>
-   OADis <Build/OADis>
-   OaDis <Build/OaDis>
-   OvDis <Build/OvDis>
-   ORC <Build/ORC>
-   M <Build/M>
-   Explore <Build/Explore>
+Version v5.0.20190301
 
 Build provides the compiler and associated program building and debugging tools for Oberon. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Build:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <BuildModules>
 
-   * - ORP 
-     - implements a recursive-descent parser for the Oberon language. 
-   * - ORG 
-     - implements processor-agnostic code generation. 
-   * - OXG 
-     - implements processor-specific code generation. 
-   * - ORB 
-     - tracks objects and types while compiling the Oberon language. 
-   * - ORS 
-     - implements lexical analysis for the Oberon language. 
-   * - OXTool 
-     - provides for module binary inspection. 
-   * - OXDis 
-     - manages architecture agnostic disassembly of module binaries. 
-   * - ORDis 
-     - provides for RISC5 disassembly. 
-   * - OIDis 
-     - provides for x86_64 dissasembly. 
-   * - OADis 
-     - provides aarch64 dissasembly. 
-   * - OaDis 
-     - provides 32-bit arm dissasembly. 
-   * - OvDis 
-     - provides RISCV dissasembly. 
-   * - ORC 
-     - implements serial command of an Oberon system. 
-   * - M 
-     - a simple test program. 
-   * - Explore 
-     - TODO: provide a package repository explorer. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Oberon v5.0.0
+* Edit v5.0.0
+* Files v5.0.0
+* Modules v5.0.0
+
+--------
+  About  
+--------
+ 
+
+**Package Overview**
+
+Integrated Oberon uses a one-pass compiler with four parts, each depending on the next for functionaltiy:
+
+ * A recursive-descent parser of the Oberon language, OXP
+ * A generator of target-generic opcodes (RISC5), OXG
+ * A generator of target-specific opcodes (RISC5, x86_64, aarch64, arm, riscv64, riscv32), OXX
+ * A symbol table and frame tracker, OXB
+ * A scanner and tokenizer, OXS
+
+In addition, several tools link and examine the binary modules produced by the compiler:
+
+ * A linker and loader, Linker
+ * A tool for examining modules, OXTool
+
+**Package Usage**
+
+To compile the inner core::
+
+   OXP.Compile Kernel.Mod/s, Filedir.Mod/s, Files.Mod/s, Modules.Mod/s ~
+
+To link the inner core modules into a bootable binary::
+
+   Linker.Link Modules ~
+
+To Install the binary into the boot region of the current disk image::
+
+   Linker.Load Modules.bin ~
+
+To compile an example module::
+
+   OXP.Compile Sierpinski.Mod ~
+
+To examine the symbol file of the compiled example::
+
+   OXTool.DecSym Sierpinski.smb
+
+To Examine the binary of the compiled example::
+
+   OXTool.DecObj Sierpinski.rsc
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Build  
 
 https://github.com/io-core/Build/blob/main/Build.Pkg

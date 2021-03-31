@@ -2,17 +2,80 @@
   M Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ a, b: INTEGER;
+ PROCEDURE F(x, y: INTEGER): INTEGER;
+ z: INTEGER;
+ BEGIN
+ IF x > y THEN z := F(x-y, y)
+ ELSIF y > x THEN z := F(y-x, x)
+ ELSE z := x
+ END ;
+ RETURN z
+ END F;
+ PROCEDURE Q(VAR x, y: INTEGER);
+ z: INTEGER;
+ BEGIN z := x; x := y; y := z
+ END Q;
+BEGIN a := F(35, 21); Q(a, b)
+END M. 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+ PROCEDURE F(x, y: INTEGER): INTEGER;
+
+::
+ PROCEDURE Q(VAR x, y: INTEGER);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Build/blob/main/M.Mod
 

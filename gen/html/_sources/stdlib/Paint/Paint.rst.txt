@@ -2,17 +2,98 @@
   Paint Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Files Fonts Viewers Texts Oberon TextFrames MenuViewers Images ImageFrames
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ Menu = "System.Close  System.Copy  System.Grow  Paint.Delete  Paint.Ticks  Paint.Restore  Paint.Store";
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Open*;
+
+::
+  PROCEDURE Delete*;
+
+::
+  PROCEDURE GetArg(VAR S: Texts.Scanner);
+
+::
+  PROCEDURE SetWidth*;
+
+::
+  PROCEDURE ChangeColor*;
+
+::
+  PROCEDURE ChangeWidth*;
+
+::
+  PROCEDURE ChangeFont*;
+
+::
+  PROCEDURE Redraw(Q: BOOLEAN);
+
+::
+  PROCEDURE Ticks*;
+
+::
+  PROCEDURE Restore*;
+
+::
+  PROCEDURE Backup (VAR name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Store*;
+
+::
+  PROCEDURE Macro*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Paint/blob/main/Paint.Mod
 

@@ -2,17 +2,276 @@
   TextFrames Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module TextFrames implements the operations on text frames in Oberon.
+
+This is the heart of Oberon's text-based user interface.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Modules Input Display Viewers Fonts Texts Oberon MenuViewers
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ replace* = 0; insert* = 1; delete* = 2; unmark* = 3; exec* = 4; (*message id*)
+    BS = 8X; TAB = 9X; CR = 0DX; NL = 0AX; DEL = 7FX;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ Line = POINTER TO LineDesc;
+    LineDesc = RECORD
+      len: LONGINT;
+      wid: INTEGER;
+      eot: BOOLEAN;
+      next: Line
+    END;
+
+    Location* = RECORD
+      org*, pos*: LONGINT;
+      dx*, x*, y*: INTEGER;
+      lin: Line
+    END;
+
+    Frame* = POINTER TO FrameDesc;
+    FrameDesc* = RECORD
+      (Display.FrameDesc)
+      text*: Texts.Text;
+      org*: LONGINT;
+      col*: INTEGER;
+      lsp*: INTEGER;
+      left*, right*, top*, bot*: INTEGER;
+      markH*: INTEGER;
+      time*: LONGINT;
+      hasCar*, hasSel*, hasMark, atEnd: BOOLEAN;
+      carloc*: Location;
+      selbeg*, selend*: Location;
+      trailer: Line
+    END;
+
+    UpdateMsg* = RECORD (Display.FrameMsg)
+      id*: INTEGER;
+      text*: Texts.Text;
+      beg*, end*: LONGINT
+    END;
+
+    CallMsg* = RECORD (Display.FrameMsg)
+      offset*: INTEGER
+    END;
+
+    CopyOverMsg = RECORD (Display.FrameMsg)
+      text: Texts.Text;
+      beg, end: LONGINT
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ TBuf*, DelBuf: Texts.Buffer;
+    menuH*, barW*, left*, right*, top*, bot*, lsp*: INTEGER; (*standard sizes*)
+    asr, dsr, selH, markW, eolW: INTEGER;
+    nextCodepoint: INTEGER;
+    ScrollMarker: Oberon.Marker;
+    W, KW: Texts.Writer; (*keyboard writer*)
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Min (i, j: INTEGER): INTEGER;
+
+::
+  PROCEDURE ReplConst (col: INTEGER; F: Frame; X, Y, W, H: INTEGER; mode: INTEGER);
+
+::
+  PROCEDURE FlipSM(X, Y: INTEGER);
+
+::
+  PROCEDURE UpdateMark (F: Frame);  (*in scroll bar*)
+
+::
+  PROCEDURE SetChangeMark (F: Frame; on: BOOLEAN);  (*in corner*)
+
+::
+  PROCEDURE SetTopMark (F: Frame; on: BOOLEAN);  (*in corner*)
+
+::
+  PROCEDURE SetBotMark (F: Frame; on: BOOLEAN);  (*in corner*)
+
+::
+  PROCEDURE Width (VAR R: Texts.Reader; len: LONGINT): INTEGER;
+
+::
+  PROCEDURE DisplayLine (F: Frame; L: Line;
+
+::
+  PROCEDURE Validate (T: Texts.Text; VAR pos: LONGINT);
+
+::
+  PROCEDURE previousLine (T: Texts.Text; VAR pos: LONGINT);
+
+::
+  PROCEDURE Mark* (F: Frame; on: BOOLEAN);
+
+::
+  PROCEDURE amAtTop(F: Frame):BOOLEAN;
+
+::
+  PROCEDURE Restore* (F: Frame);
+
+::
+  PROCEDURE Suspend* (F: Frame);
+
+::
+  PROCEDURE Extend* (F: Frame; newY: INTEGER);
+
+::
+  PROCEDURE Reduce* (F: Frame; newY: INTEGER);
+
+::
+  PROCEDURE Show* (F: Frame; pos: LONGINT);
+
+::
+  PROCEDURE LocateLine (F: Frame; y: INTEGER; VAR loc: Location);
+
+::
+  PROCEDURE LocateString (F: Frame; x, y: INTEGER; VAR loc: Location);
+
+::
+  PROCEDURE LocateChar (F: Frame; x, y: INTEGER; VAR loc: Location);
+
+::
+  PROCEDURE LocatePos (F: Frame; pos: LONGINT; VAR loc: Location);
+
+::
+  PROCEDURE Pos* (F: Frame; X, Y: INTEGER): LONGINT;
+
+::
+  PROCEDURE FlipCaret (F: Frame);
+
+::
+  PROCEDURE SetCaret* (F: Frame; pos: LONGINT);
+
+::
+  PROCEDURE TrackCaret* (F: Frame; X, Y: INTEGER; VAR keysum: SET);
+
+::
+  PROCEDURE RemoveCaret* (F: Frame);
+
+::
+  PROCEDURE FlipSelection (F: Frame; VAR beg, end: Location);
+
+::
+  PROCEDURE SetSelection* (F: Frame; beg, end: LONGINT);
+
+::
+  PROCEDURE TrackSelection* (F: Frame; X, Y: INTEGER; VAR keysum: SET);
+
+::
+  PROCEDURE RemoveSelection* (F: Frame);
+
+::
+  PROCEDURE TrackLine* (F: Frame; X, Y: INTEGER; VAR org: LONGINT; VAR keysum: SET);
+
+::
+  PROCEDURE TrackWord* (F: Frame; X, Y: INTEGER; VAR pos: LONGINT; VAR keysum: SET);
+
+::
+  PROCEDURE Replace* (F: Frame; beg, end: LONGINT);
+
+::
+  PROCEDURE Insert* (F: Frame; beg, end: LONGINT);
+
+::
+  PROCEDURE Delete* (F: Frame; beg, end: LONGINT);
+
+::
+  PROCEDURE Recall*(VAR B: Texts.Buffer);
+
+::
+  PROCEDURE RemoveMarks (F: Frame);
+
+::
+  PROCEDURE NotifyDisplay* (T: Texts.Text; op: INTEGER; beg, end: LONGINT);
+
+::
+  PROCEDURE Call* (F: Frame; pos: LONGINT; new: BOOLEAN);
+
+::
+  PROCEDURE Write* (F: Frame; codepoint: INTEGER; fnt: Fonts.Font; col, voff: INTEGER);
+
+::
+  PROCEDURE Defocus* (F: Frame);
+
+::
+  PROCEDURE Neutralize* (F: Frame);
+
+::
+  PROCEDURE Modify* (F: Frame; id, dY, Y, H: INTEGER);
+
+::
+  PROCEDURE Open* (F: Frame; H: Display.Handler; T: Texts.Text; org: LONGINT;
+
+::
+  PROCEDURE Copy* (F: Frame; VAR F1: Frame);
+
+::
+  PROCEDURE CopyOver(F: Frame; text: Texts.Text; beg, end: LONGINT);
+
+::
+  PROCEDURE GetSelection* (F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);
+
+::
+  PROCEDURE Update* (F: Frame; VAR M: UpdateMsg);
+
+::
+  PROCEDURE Edit* (F: Frame; X, Y: INTEGER; Keys: SET);
+
+::
+  PROCEDURE Handle* (F: Display.Frame; VAR M: Display.FrameMsg);
+
+::
+  PROCEDURE Menu (name, commands: ARRAY OF CHAR): Texts.Text;
+
+::
+  PROCEDURE Text* (name: ARRAY OF CHAR): Texts.Text;
+
+::
+  PROCEDURE NewMenu* (name, commands: ARRAY OF CHAR): Frame;
+
+::
+  PROCEDURE NewText* (text: Texts.Text; pos: LONGINT): Frame;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(JG 8.10.90 / NW 10.5.2013 / 11.2.2017 / CP 12.2018 / MS 1.2019 adapted for Unicode / CP 6.2019 / CP 7.2020)
  
 https://github.com/io-core/Edit/blob/main/TextFrames.Mod
 

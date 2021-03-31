@@ -1,0 +1,199 @@
+####################################
+  OXX Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module OXX generates the processor-specific instructions for executing an Oberon program.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files OXT OXS OXB
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+     
+    WordSize* = 4;
+    RStkOrg0 = -64;
+    IStkOrg0 = -64;
+    AStkOrg0 = -64;
+    aStkOrg0 = -64;
+    VStkOrg0 = -64;
+    vStkOrg0 = -64;
+    MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
+    maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+    Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
+
+    (*frequently used opcodes*)  U = 2000H; V = 1000H;
+    Mov = 0; Lsl = 1; Asr = 2; Ror= 3; And = 4; Ann = 5; Ior = 6; Xor = 7;
+    Add = 8; Sub = 9; Cmp = 9; Mul = 10; Div = 11;
+    Fad = 12; Fsb = 13; Fml = 14; Fdv = 15; MovU = 16;
+    Ldr = 8; Ldb = 9; Str = 10; Stb = 11;
+    BR = 0; BLR = 1; BC = 2; BL = 3;
+    MI = 0; PL = 8; EQ = 1; NE = 9; LT = 5; GE = 13; LE = 6; GT = 14;
+    BMI =  0; BEQ =  1; BCS =  2; BVS =  3; 
+    BLS =  4; BLT =  5; BLE =  6; B   =  7;
+    BPL =  8; BNE =  9; BVC = 10; BCC = 11;
+    BHI = 12; BGE = 13; BGT = 14; BNO = 15;
+    
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+      
+    
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+       
+    code*: ARRAY maxCode OF LONGINT;
+    data*: ARRAY maxTD OF LONGINT;  (*type descriptors*)
+    str*: ARRAY maxStrx OF CHAR;
+    fixorgP*, fixorgD*, fixorgT*: LONGINT;   (*origins of lists of locations to be fixed up by loader*)
+    err: ARRAY 32 OF CHAR;
+(*
+    regmap: ARRAY 16 OF INTEGER; (*shuffle of registers for allocation/use*)
+    it0: ARRAY 16 OF INTEGER;
+    it1: ARRAY 16 OF INTEGER;
+    it2: ARRAY 4 OF INTEGER;
+    it3: ARRAY 16 OF INTEGER;
+*)  
+  
+  (* begin-section-description
+## ---------- Fixup Chains Updating
+  end-section-description *)
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE setFixOrgP*(v: LONGINT);  
+
+---
+**setFixOrgP**
+::
+  PROCEDURE setFixOrgD*(v: LONGINT);  
+
+---
+**setFixOrgD**
+::
+  PROCEDURE setFixOrgT*(v: LONGINT);  
+
+---
+**setFixOrgT**
+---
+**PutCodeWord** places a word value v at location a in the code array.
+::
+  PROCEDURE PutCodeWord(a,v: INTEGER);
+
+---
+**Put1Byte** places a byte in in the instruction stream which is expected to have 8 zero bits at that location.
+::
+  PROCEDURE Put1Byte(a: INTEGER; VAR pc, pcb: INTEGER);
+
+---
+**Put2Bytes** places two bytes in in the instruction stream.
+::
+  PROCEDURE Put2Bytes(a, b: INTEGER; VAR pc, pcb: INTEGER);
+
+---
+**Put3Bytes** places three bytes in in the instruction stream.
+::
+  PROCEDURE Put3Bytes(a, b, c: INTEGER; VAR pc, pcb: INTEGER);
+
+---
+**Put4Bytes** places four bytes in in the instruction stream.
+::
+  PROCEDURE Put4Bytes(a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);
+
+---
+**Put4Integer** places an integer as 4 bytes in in the instruction stream.
+::
+  PROCEDURE Put4Integer(i: INTEGER; VAR pc, pcb: INTEGER);
+
+---
+**Init** prepares an interface for writing to the code for OXT and calls OXT to set the register map for the current architecture.
+::
+  PROCEDURE Init*;               
+
+::
+  PROCEDURE fix*(at, with: LONGINT);
+
+::
+  PROCEDURE FixOne*(pc,pcb,at: LONGINT);
+
+::
+  PROCEDURE FixLink*(pc,pcb,L: LONGINT);
+
+::
+  PROCEDURE FixLinkWith*(L0, dst: LONGINT);
+
+::
+  PROCEDURE merged*(L0, L1: LONGINT): LONGINT;
+
+---
+**MakeStringItem** prepares
+::
+  PROCEDURE InternString*(VAR strx: LONGINT; len: LONGINT); (*copies string from OXS-buffer to OXG-string array*)
+
+---
+**SetCode** prepares
+::
+  PROCEDURE SetCode*(i,v: LONGINT);
+
+---
+**SetData** prepares
+::
+  PROCEDURE SetData*(i,v: LONGINT);
+
+---
+**NofPtrs** determines the number of Garbage Collection Roots.
+::
+  PROCEDURE NofPtrs(typ: OXB.Type): LONGINT;
+
+---
+**FindPtrs** locates Garbage Collection roots.
+::
+  PROCEDURE FindPtrs(VAR R: Files.Rider; typ: OXB.Type; adr: LONGINT);
+
+---
+**Close** writes the completed binary to disk.
+::
+  PROCEDURE Close*(VAR pc, pcb: LONGINT; 
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+Module OXX implements the processor-specific backends used by OXG
+
+(C.Perkins 2020)
+
+**OXX** is called from ORP and generates machine code various Oberon language constructs for the Oberon RISC5 architeture.
+ 
+https://github.com/io-core/Build/blob/main/OXX.Mod
+

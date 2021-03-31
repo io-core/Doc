@@ -2,17 +2,116 @@
   MenuViewers Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module MenuViewers implements the top-of-pane 'menu' functionality of the Oberon user interface. 
+
+MenuViewers uses Input, Display, Viewers, Oberon
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Input Display Viewers Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ extend* = 0; reduce* = 1; FrameColor = 1 (*Display.white*);
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ Viewer* = POINTER TO ViewerDesc;
+
+    ViewerDesc* = RECORD (Viewers.ViewerDesc)
+      menuH*: INTEGER
+    END;
+
+    ModifyMsg* = RECORD (Display.FrameMsg)
+      id*: INTEGER;
+      dY*, Y*, H*: INTEGER
+    END;
+
+  PROCEDURE Copy (V: Viewer; VAR V1: Viewer);
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ Menu, Main: Display.Frame; M: Oberon.CopyMsg;
+  BEGIN Menu := V.dsc; Main := V.dsc.next;
+    NEW(V1); V1^ := V^; V1.state := 0;
+    M.F := NIL; Menu.handle(Menu, M); V1.dsc := M.F;
+    M.F := NIL; Main.handle(Main, M); V1.dsc.next := M.F
+  END Copy;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Copy (V: Viewer; VAR V1: Viewer);
+
+::
+  PROCEDURE Draw (V: Viewers.Viewer);
+
+::
+  PROCEDURE Extend (V: Viewer; newY: INTEGER);
+
+::
+  PROCEDURE Reduce (V: Viewer; newY: INTEGER);
+
+::
+  PROCEDURE Grow (V: Viewer; oldH: INTEGER);
+
+::
+  PROCEDURE Shrink (V: Viewer; newH: INTEGER);
+
+::
+  PROCEDURE Adjust (F: Display.Frame; id, dY, Y, H: INTEGER);
+
+::
+  PROCEDURE Restore (V: Viewer);
+
+::
+  PROCEDURE Modify (V: Viewer; Y, H: INTEGER);
+
+::
+  PROCEDURE Change (V: Viewer; X, Y: INTEGER; Keys: SET);
+
+::
+  PROCEDURE Suspend (V: Viewer);
+
+::
+  PROCEDURE Handle* (V: Display.Frame; VAR M: Display.FrameMsg);
+
+::
+  PROCEDURE New* (Menu, Main: Display.Frame; menuH, X, Y: INTEGER): Viewer; 
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/MenuViewers.Mod
 

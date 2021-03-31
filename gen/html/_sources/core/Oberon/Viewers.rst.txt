@@ -2,17 +2,154 @@
   Viewers Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Viewers introduces rectangular areas of the display that present information and 
+react to user input -- 'tracks' and 'viewers'.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Display
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+    restore* = 0; modify* = 1; suspend* = 2; (*message ids*)
+    inf = 65535;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ 
+    Viewer* = POINTER TO ViewerDesc;
+    ViewerDesc* = RECORD (Display.FrameDesc) state*: INTEGER END;
+
+    (*state > 1: displayed; state = 1: filler; state = 0: closed; state < 0: suspended*)
+
+    ViewerMsg* = RECORD (Display.FrameMsg)
+        id*: INTEGER;
+        X*, Y*, W*, H*: INTEGER;
+        state*: INTEGER
+      END;
+
+    Track = POINTER TO TrackDesc;
+    TrackDesc = RECORD (ViewerDesc) under: Display.Frame END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    curW*, minH*, DH: INTEGER;
+    FillerTrack: Track; FillerViewer,
+    backup: Viewer; (*last closed viewer*)
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Open** opens a viewer.
+::
+  PROCEDURE Open* (V: Viewer; X, Y: INTEGER);
+
+---
+**Change** adjusts the vertical position of the viewer.
+::
+  PROCEDURE Change* (V: Viewer; Y: INTEGER);
+
+---
+**RestoreTrack** brings back a track that was obscured by an expanded viewer.
+::
+  PROCEDURE RestoreTrack (S: Display.Frame);
+
+---
+**Close** removes a viewer from the track.
+::
+  PROCEDURE Close* (V: Viewer);
+
+---
+**Recall** brings back a closed viewer.
+::
+  PROCEDURE Recall* (VAR V: Viewer);
+
+---
+**This** identifies the viewer containing the coordinates.
+::
+  PROCEDURE This* (X, Y: INTEGER): Viewer;
+
+---
+**Next** returns the next viewer in the global viewer list.
+::
+  PROCEDURE Next* (V: Viewer): Viewer;
+
+---
+**Locate** finds ??
+::
+  PROCEDURE Locate* (X, H: INTEGER; VAR fil, bot, alt, max: Display.Frame);
+
+---
+**InitTrack** prepares a track to accept viewers.
+::
+  PROCEDURE InitTrack* (W, H: INTEGER; Filler: Viewer);
+
+---
+**OpenTrack** places the track on the screen.
+::
+  PROCEDURE OpenTrack* (X, W: INTEGER; Filler: Viewer);
+
+---
+**CloseTrack** removes the track from the screen.
+::
+  PROCEDURE CloseTrack* (X: INTEGER);
+
+---
+**Broadcast** sends a message to all frames.
+::
+  PROCEDURE Broadcast* (VAR M: Display.FrameMsg);
+
+---
+**The initialzation code for this module** initializes empty tracks for use later by the System module and user programs.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(JG 14.9.90 / NW 15.9.2013)
+
+**Viewers** introduces the core functionality for graphical interaction in Oberon.
+
+Tracks are vertical columns of display space and viewers are partitions of that vertical space. 
+
+Different kinds of viewers import this module and extend its functionality in specialized 
+ways, e.g. MenuViewers for simple one-line menus of commands and TextViewers for text areas 
+that can scroll, be edited, receive copy and paste, etc.
+
+This module concerns itself with operations on all tracks and viewers including opening, closing, moving, hiding and restoring them.
+
+This module also introduces the messages understood by viewers and provides the mechanism for locating viewers and dispatching messages to viewers.
  
 https://github.com/io-core/Oberon/blob/main/Viewers.Mod
 

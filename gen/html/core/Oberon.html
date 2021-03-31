@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Oberon Module" href="Oberon/Oberon.html" />
-    <link rel="prev" title="HAL.v64.qemu Module" href="Boot/HAL.v64.qemu.html" /> 
+    <link rel="next" title="Oberon Modules" href="OberonModules.html" />
+    <link rel="prev" title="Texts Module" href="Edit/Texts.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,17 +93,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Oberon Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Oberon/Oberon.html">Oberon</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Oberon/Viewers.html">Viewers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Oberon/Display.html">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Oberon/Input.html">Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OberonModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="System.html">System Package</a></li>
@@ -112,7 +111,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Community.html">Community</a></li>
@@ -191,35 +191,35 @@
             
   <div class="section" id="oberon-package">
 <h1>Oberon Package<a class="headerlink" href="#oberon-package" title="Permalink to this headline">¶</a></h1>
+<p>Version v5.0.20190117</p>
+<p>Oberon implements the user-interaction functionality and the task loop of the system.</p>
 <div class="toctree-wrapper compound">
 </div>
-<p>Oberon implements the user-interaction functionality and the task loop of the system.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Oberon</p></td>
-<td><p>implements the Oberon Textual User Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Viewers</p></td>
-<td><p>partitions and manages display panes.</p></td>
-</tr>
-<tr class="row-even"><td><p>Display</p></td>
-<td><p>renders text and graphics to the framebuffer.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Input</p></td>
-<td><p>presents keyboard and mouse events to the Oberon UI</p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="package-dependencies">
+<h2>Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Modules v5.0.0</p></li>
+<li><p>Edit v5.0.0</p></li>
+<li><p>Kernel v5.0.0</p></li>
+<li><p>Files v5.0.0</p></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>### _Package Overview:_
+The Oberon package defines the user interface of Oberon.</p>
+<p>### _Package Use:_</p>
+<p>USAGE:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Modules.Load(&quot;something&quot;,M)</span>
+<span class="pre">`</span></code></p>
+<p>### _Modules in this package:_</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>Oberon</p>
 <p><a class="reference external" href="https://github.com/io-core/Oberon/blob/main/Oberon.Pkg">https://github.com/io-core/Oberon/blob/main/Oberon.Pkg</a></p>
+</div>
 </div>
 
 
@@ -228,8 +228,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Oberon/Oberon.html" class="btn btn-neutral float-right" title="Oberon Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Boot/HAL.v64.qemu.html" class="btn btn-neutral float-left" title="HAL.v64.qemu Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="OberonModules.html" class="btn btn-neutral float-right" title="Oberon Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Edit/Texts.html" class="btn btn-neutral float-left" title="Texts Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

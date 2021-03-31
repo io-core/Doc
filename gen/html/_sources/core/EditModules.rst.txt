@@ -1,0 +1,38 @@
+
+##########################
+  Edit Modules  
+##########################
+ 
+.. toctree::
+   :titlesonly:
+   :glob:
+
+   Edit/*
+
+ 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Edit 
+     - provides text editing functionaltiy in Oberon. 
+   * - Fonts 
+     - implements font file reading and  glyph cacheing. 
+   * - TextFrames 
+     - manages the interaction with frames of text in Oberon. 
+   * - Texts 
+     - provides the fundamental text data abstraction in Oberon. 
+   * - MIME 
+     -  
+   * - ConvertPCFFont 
+     - converts a PCF font to Oberon format. 
+   * - FontSubsetBuilder 
+     - extracts a subset of glyphs into a smaller font file. 
+   * - GrowFont 
+     - produces an upscaled font from a smaller font. 
+   * - OptimizeFont 
+     - optimizes a font file. 
+

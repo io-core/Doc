@@ -1,0 +1,36 @@
+########################
+  Attest Package 
+########################
+
+Version v0.1.0
+
+Attest provides code provenance tools for use in Oberon. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Attest:
+   :hidden:
+
+   Modules <AttestModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Crypto v0.0.0
+* System v5.0.0
+
+--------
+  About  
+--------
+ 
+Module Attest provides tools and algoritms for code signing and attestation of provenance.
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Attest  
+
+https://github.com/io-core/Attest/blob/main/Attest.Pkg

@@ -2,17 +2,314 @@
   Files Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Files manages the on-disk representation of files and presents the following APIs:
+
+* File Directory API: Old, New, Register, Close, Purge, Delete, Rename, Date, Length
+* File Read API: Set, Pos, Base, ReadByte, ReadBytes, Read, ReadInt, ReadSet, ReadReal, ReadString, ReadNum
+* File Write API: WriteByte, WriteBytes, Write, WriteInt, WriteReal, WriteString, WriteNum
+* System use: Init, RestoreList
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Kernel FileDir
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+    MaxBufs   = 4;
+    HS        = FileDir.HeaderSize;
+    SS        = FileDir.SectorSize;
+    STS       = FileDir.SecTabSize;
+    XS        = FileDir.IndexSize;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+  
+    DiskAdr = INTEGER;
+    File*   = POINTER TO FileDesc;
+    Buffer  = POINTER TO BufferRecord;
+    Index   = POINTER TO IndexRecord;
+
+    Rider* =
+      RECORD eof*: BOOLEAN;
+        res*: INTEGER;
+        file: File;
+        apos, bpos: INTEGER;
+        buf: Buffer
+      END ;
+
+    FileDesc =
+      RECORD 
+        next: INTEGER; (*list of files invisible to the GC*)
+        nofbufs, aleng, bleng: INTEGER;
+        modH, registered: BOOLEAN;
+        firstbuf: Buffer;
+        sechint: DiskAdr;
+        name: FileDir.FileName;
+        mime: INTEGER; (*32-bit hash of ascii mime type text*)
+        date: INTEGER;
+        ext:  ARRAY FileDir.ExTabSize OF Index;
+        sec: FileDir.SectorTable
+      END ;
+
+      (* If name[30] = 0 and name[31] > 0 then name[31] indicates which kind of
+         entity other than a regular file that this is e.g. a pipe, subdir, link, etc.*)
+
+    SpecialDesc =
+      RECORD (FileDesc) 
+        Register: PROCEDURE (f: File)
+      END;
+
+    BufferRecord =
+      RECORD apos, lim: INTEGER;
+        mod: BOOLEAN;
+        next: Buffer;
+        data: FileDir.DataSector
+      END ;
+
+    IndexRecord =
+      RECORD adr: DiskAdr;
+        mod: BOOLEAN;
+        sec: FileDir.IndexSector
+      END ;
+
+    (*aleng * SS + bleng = length (including header)
+      apos * SS + bpos = current position
+      0 <= bpos <= lim <= SS
+      0 <= apos <= aleng < PgTabSize
+      (apos < aleng) & (lim = SS) OR (apos = aleng) *)
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    root: INTEGER (*File*);  (*list of open files*)
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Check** verifies a FileName is in an acceptable format.
+::
+  PROCEDURE Check(s: ARRAY OF CHAR;
+
+---
+**Old** opens an existing file or returns the file handle or NIL.
+::
+  PROCEDURE Old*(name: ARRAY OF CHAR): File;
+
+---
+**New** creates a new file and returns a file handle.
+::
+  PROCEDURE New*(name: ARRAY OF CHAR): File;
+
+---
+**UpdateHeader** updates the file header.
+::
+  PROCEDURE UpdateHeader(f: File; VAR F: FileDir.FileHeader);
+
+---
+**ReadBuf** retrieves a file buffer's sector contents from disk.
+::
+  PROCEDURE ReadBuf(f: File; buf: Buffer; pos: INTEGER);
+
+---
+**WriteBuf** places a file buffer's sector contents on disk, allocating a sector if necessary.
+::
+  PROCEDURE WriteBuf(f: File; buf: Buffer);
+
+---
+**Buf** returns the buffer for file `f` in memory for a sector at file sector index `pos` or NIL.
+::
+  PROCEDURE Buf(f: File; pos: INTEGER): Buffer;
+
+---
+**GetBuf** returns a buffer for file `f` for a sector at file sector index `pos`, loading from disk if necessary, potentially spilling a buffer.
+::
+  PROCEDURE GetBuf(f: File; pos: INTEGER): Buffer;
+
+---
+**Unbuffer** writes modified buffers and the file header for a file back to disk, allocating new sectors as necessary.
+::
+  PROCEDURE Unbuffer(f: File);
+
+---
+**Register** makes temporary (created with `New`) file permanent by inserting it into the on-disk directory structure.
+::
+  PROCEDURE Register*(f: File);
+
+---
+**Close** flushes all outstanding changes to a file to disk.
+::
+  PROCEDURE Close*(f: File);
+
+---
+**Purge** returns disk sectors used by a file to free space.
+::
+  PROCEDURE Purge*(f: File);
+
+---
+**Delete** removes a file from the directory and frees the disk sectors used by the file.
+::
+  PROCEDURE Delete*(name: ARRAY OF CHAR; VAR res: INTEGER);
+
+---
+**Rename** Changes the name of a file.
+::
+  PROCEDURE Rename*(old, new: ARRAY OF CHAR; VAR res: INTEGER);
+
+---
+**Length** returns the length of the file.
+::
+  PROCEDURE Length*(f: File): INTEGER;
+
+---
+**Date** returns the last modified date of the file.
+::
+  PROCEDURE Date*(f: File): INTEGER;
+
+---
+**Set** positions the Rider `r` to position `pos` on File `f` for reading and writing.
+::
+  PROCEDURE Set*(VAR r: Rider; f: File; pos: INTEGER);
+
+---
+**Pos** returns the current position of Rider `r` on its file. 
+::
+  PROCEDURE Pos*(VAR r: Rider): INTEGER;
+
+---
+**Base** returns the File that Rider `r` is based on. 
+::
+  PROCEDURE Base*(VAR r: Rider): File;
+
+---
+**ReadByte** provides the next byte, advancing the position by a byte.
+::
+  PROCEDURE ReadByte*(VAR r: Rider; VAR x: BYTE);
+
+---
+**ReadBytes** provides the next `n` bytes, advancing the position by `n`. 
+::
+  PROCEDURE ReadBytes*(VAR r: Rider; VAR x: ARRAY OF BYTE; n: INTEGER);
+
+---
+**Read** provide the next byte as a CHAR, advancing the position by one. 
+::
+  PROCEDURE Read*(VAR r: Rider; VAR ch: CHAR);
+
+---
+**ReadInt** provides the next four bytes as an INTEGER, advancing the position by four.
+::
+  PROCEDURE ReadInt*(VAR R: Rider; VAR x: INTEGER);
+
+---
+**ReadSet** provides the next four bytes as a SET, advancing the position by four. 
+::
+  PROCEDURE ReadSet*(VAR R: Rider; VAR s: SET);
+
+::
+  PROCEDURE ReadReal*(VAR R: Rider; VAR x: REAL);
+
+---
+**ReadString** provides the next range of bytes up to and including a NULL value as an ARRAY OF CHAR, advancing the position past the NULL. 
+::
+  PROCEDURE ReadString*(VAR R: Rider; VAR x: ARRAY OF CHAR);
+
+---
+**ReadNum** provides the next several bytes as an INTEGER, converting from the on-disk representation of a 'Number', advancing past the number. 
+::
+  PROCEDURE ReadNum*(VAR R: Rider; VAR x: INTEGER);
+
+---
+**NewExt** creates a new file sector indirection buffer for tracking sectors used by a file. 
+::
+  PROCEDURE NewExt(f: File);
+
+---
+**WriteByte** writes a byte to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteByte*(VAR r: Rider; x: BYTE);
+
+---
+**WriteByte** writes `n` bytes to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteBytes*(VAR r: Rider; x: ARRAY OF BYTE; n: INTEGER);
+
+---
+**Write** writes a CHAR to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE Write*(VAR r: Rider; ch: CHAR);
+
+---
+**WriteInt** writes an Int to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteInt*(VAR R: Rider; x: INTEGER);
+
+---
+**WriteSet** writes a set to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteSet*(VAR R: Rider; s: SET);
+
+---
+**WriteByte** writes a Real to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteReal*(VAR R: Rider; x: REAL);
+
+---
+**WriteString** writes a string including the terminating NULL to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteString*(VAR R: Rider; x: ARRAY OF CHAR);
+
+---
+**WriteNum** writes an INTEGER in something format to the file at the rider position, extending the file as necessary.
+::
+  PROCEDURE WriteNum*(VAR R: Rider; x: INTEGER);
+
+---
+**Init** (called on system-startup by `Modules`) sets the list of open files to `0` and calls `Kernel.Init` and `FileDir.Init`.
+::
+  PROCEDURE Init*;
+
+---
+**RestoreList** is used by the Garbage Collector after mark phase to put the open files list back.
+::
+  PROCEDURE RestoreList*; (*after mark phase of garbage collection*)
+
+::
+    PROCEDURE mark(f: INTEGER): INTEGER;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+  (NW 11.1.86 / 22.9.93 / 25.5.95 / 25.12.95 / 15.8.2013)
  
 https://github.com/io-core/Files/blob/main/Files.Mod
 

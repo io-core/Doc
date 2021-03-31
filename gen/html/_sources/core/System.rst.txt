@@ -1,67 +1,40 @@
-#################
+########################
   System Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: System:
-   :hidden:
-
-   System <System/System>
-   MenuViewers <System/MenuViewers>
-   PIO <System/PIO>
-   Tools <System/Tools>
-   PCLink1 <System/PCLink1>
-   RS232 <System/RS232>
-   Net <System/Net>
-   SCC <System/SCC>
-   Batch <System/Batch>
-   Halt <System/Halt>
-   Hilbert <System/Hilbert>
-   Sierpinski <System/Sierpinski>
-   Stars <System/Stars>
-   Checkers <System/Checkers>
-   Clipboard <System/Clipboard>
+Version v5.0.20160620
 
 System prepares the user interface and manages viewers for the user. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: System:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <SystemModules>
 
-   * - System 
-     - defines the tiling user interface and inital environment of Oberon. 
-   * - MenuViewers 
-     - implements  the menus above user text or graphics frames. 
-   * - PIO 
-     -  
-   * - Tools 
-     -  
-   * - PCLink1 
-     -  
-   * - RS232 
-     -  
-   * - Net 
-     -  
-   * - SCC 
-     -  
-   * - Batch 
-     - provides for batching commands. 
-   * - Halt 
-     - powers off an emulated Oberon. 
-   * - Hilbert 
-     - draws a Hilbert square. 
-   * - Sierpinski 
-     - draws a Sierpinski square. 
-   * - Stars 
-     - places stars and animates them in a task. 
-   * - Checkers 
-     -  
-   * - Clipboard 
-     -  
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Kernel v5.0.0
+* Files v5.0.0
+* Modules v5.0.0
+* Oberon v5.0.0
+* Edit v5.0.0
+* Draw v5.0.0
+
+--------
+  About  
+--------
+ 
+The System package collects the expected set of modules and tools that allows the Oberon user to perform typical computing tasks.
+
+---------------------
+  Development Guide  
+---------------------
+ 
+System  
 
 https://github.com/io-core/System/blob/main/System.Pkg

@@ -2,17 +2,330 @@
   Oberon Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Oberon coordinates the interaction of the user with the system.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Kernel Files Modules Input Display Viewers Fonts Texts
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+    consume* = 0; track* = 1; defocus* = 0; neutralize* = 1; mark* = 2; (*message ids*)
+    off = 0; idle = 1; active = 2;   (*task states*)
+    BasicCycle = 20;
+    ESC = 1BX; SETSTAR = 1AX;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+    Painter* = PROCEDURE (x, y: INTEGER);
+    Marker* = RECORD Fade*, Draw*: Painter END;
+    
+    Cursor* = RECORD
+        marker*: Marker; on*: BOOLEAN; X*, Y*: INTEGER
+    END;
+
+    InputMsg* = RECORD (Display.FrameMsg)
+      id*: INTEGER;
+      keys*: SET;
+      X*, Y*: INTEGER;
+      codepoint*: INTEGER;
+      fnt*: Fonts.Font;
+      col*, voff*: INTEGER
+    END;
+
+    SelectionMsg* = RECORD (Display.FrameMsg)
+      time*: LONGINT;
+      text*: Texts.Text;
+      beg*, end*: LONGINT
+    END;
+
+    ControlMsg* = RECORD (Display.FrameMsg)
+      id*, X*, Y*: INTEGER
+    END;
+
+    CopyMsg* = RECORD (Display.FrameMsg)
+      F*: Display.Frame
+    END;
+
+    Task* = POINTER TO TaskDesc;
+
+    Handler* = PROCEDURE;
+
+    TaskDesc* = RECORD
+      state, nextTime, period*: INTEGER;
+      next: Task;
+      handle: Handler
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    User*: ARRAY 8 OF CHAR; Password*: LONGINT;
+    Arrow*, Star*: Marker;
+    Mouse, Pointer: Cursor;
+    FocusViewer*: Viewers.Viewer;
+    Log*: Texts.Text;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Code** Encodes a password provided by the user.
+::
+  PROCEDURE Code(VAR s: ARRAY OF CHAR): LONGINT;
+
+---
+**SetUser** sets the current user of the system. 
+::
+  PROCEDURE SetUser* (VAR user, password: ARRAY OF CHAR);
+
+---
+**Clock** returns the current time.
+::
+  PROCEDURE Clock*(): LONGINT;
+
+---
+**SetClock** sets the system time.
+::
+  PROCEDURE SetClock* (d: LONGINT);
+
+---
+**Time** returns the current system timestamp.
+::
+  PROCEDURE Time*(): LONGINT;
+
+---
+**FlipArrow** displays or removes the arrow at the x,y location on the screen.
+::
+  PROCEDURE FlipArrow (X, Y: INTEGER);
+
+---
+**FlipStar** displays or removes the star at the x,y location on the screen.
+::
+  PROCEDURE FlipStar (X, Y: INTEGER);
+
+---
+**OpenCursor** prepares a cursor initial state.
+::
+  PROCEDURE OpenCursor(VAR c: Cursor);
+
+---
+**FadeCursor** removes a cursor from the screen.
+::
+  PROCEDURE FadeCursor(VAR c: Cursor);
+
+---
+**DrawCursor** places a cursor on the screen at location x,y.
+::
+  PROCEDURE DrawCursor(VAR c: Cursor; m: Marker; x, y: INTEGER);
+
+---
+**DrawMouse** places the mouse cursor with marker m on the screen. 
+::
+  PROCEDURE DrawMouse*(m: Marker; x, y: INTEGER);
+
+---
+**DrawMouseArrow** places the mouse arrow on the screen. 
+::
+  PROCEDURE DrawMouseArrow*(x, y: INTEGER);
+
+---
+**FadeMouse** removes the mouse cursor from the screen.
+::
+  PROCEDURE FadeMouse*;
+
+---
+**DrawPointer** places the star marker on the screen.
+::
+  PROCEDURE DrawPointer*(x, y: INTEGER);
+
+---
+**RemoveMarks** remove the mouse cursor and the star marker from the screen.
+::
+  PROCEDURE RemoveMarks* (X, Y, W, H: INTEGER);
+
+---
+**HandleFiller** fill the blank area of the display not delegated to other display frames.
+::
+  PROCEDURE HandleFiller (V: Display.Frame; VAR M: Display.FrameMsg);
+
+---
+**OpenDisplay** Set the initial values for the display.
+::
+  PROCEDURE OpenDisplay* (UW, SW, H: INTEGER);
+
+---
+**DisplayWidth** export the width of the display. 
+::
+  PROCEDURE DisplayWidth* (X: INTEGER): INTEGER;
+
+---
+**DisplayHeight** export the height of the display.
+::
+  PROCEDURE DisplayHeight* (X: INTEGER): INTEGER;
+
+---
+**OpenTrack** prepare a vertical slice of the display for holding viewers.
+::
+  PROCEDURE OpenTrack* (X, W: INTEGER);
+
+---
+**UserTrack** returns the width of the user (left) track.
+::
+  PROCEDURE UserTrack* (X: INTEGER): INTEGER;
+
+---
+**SystemTrack** returns the width of the system (right) track.
+::
+  PROCEDURE SystemTrack* (X: INTEGER): INTEGER;
+
+---
+**UY** locate a vertical position for a new user viewer.
+::
+  PROCEDURE UY (X: INTEGER): INTEGER;
+
+---
+**AllocateUserViewer** allocate a new viewer on the user (left) track.
+::
+  PROCEDURE AllocateUserViewer* (DX: INTEGER; VAR X, Y: INTEGER);
+
+---
+**SY** locate a vertical position for a new system viewer.
+::
+  PROCEDURE SY (X: INTEGER): INTEGER;
+
+---
+**AllocateSystemViewer** allocate a new viewer on the system (right) track.
+::
+  PROCEDURE AllocateSystemViewer* (DX: INTEGER; VAR X, Y: INTEGER);
+
+---
+**MarkedViewer** returns the viewer with the mark.
+::
+  PROCEDURE MarkedViewer* (): Viewers.Viewer;
+
+---
+**PassFocus** moves which viewer has the focus to the viewer `V`.
+::
+  PROCEDURE PassFocus* (V: Viewers.Viewer);
+
+---
+**OpenLog** sets the Oberon log to the specified text.
+::
+  PROCEDURE OpenLog*(T: Texts.Text);
+
+---
+**SetPar** sets the parameter for an anticpated command invocation to the indicated viewer, frame, text, and position.
+::
+  PROCEDURE SetPar*(F: Display.Frame; T: Texts.Text; pos: LONGINT);
+
+---
+**Call** looks up and calls a command matching the `name` parameter.
+::
+  PROCEDURE Call* (name: ARRAY OF CHAR; VAR res: INTEGER);
+
+---
+**GetSelection** produces the user's selected text in VAR parameters.
+::
+  PROCEDURE GetSelection* (VAR text: Texts.Text; VAR beg, end, time: LONGINT);
+
+---
+**GC** initiates garbage collection.
+::
+  PROCEDURE GC;
+
+---
+**NewTask** prepares a task entry that calls a handler in the background.
+::
+  PROCEDURE NewTask*(h: Handler; period: INTEGER): Task;
+
+---
+**Install** places the task entry in the list of tasks to process in the background.
+::
+  PROCEDURE Install* (T: Task);
+
+---
+**Remove** takes the task entry out of the list of tasks to process in the background.
+::
+  PROCEDURE Remove* (T: Task);
+
+---
+**Collect** ?? 
+::
+  PROCEDURE Collect* (count: INTEGER);
+
+---
+**SetFont** changes the current font to be used when adding text.
+::
+  PROCEDURE SetFont* (fnt: Fonts.Font);
+
+---
+**SetColor** changes the current color to be used when adding text.
+::
+  PROCEDURE SetColor* (col: INTEGER);
+
+---
+**SetOffset**  ??
+::
+  PROCEDURE SetOffset* (voff: INTEGER);
+
+---
+**Loop** is the central dispatch of input event messages in the Oberon UI and the background task dispatcher.
+::
+  PROCEDURE Loop*;
+
+---
+**Reset** resets the background tasks and the stack pointer. 
+::
+  PROCEDURE Reset*;
+
+---
+**The initialzation code for this module** prepares the arrow, star, cursor behavior procedures, opens the display, sets GC as a background task, loads the System module then enters the UI loop.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(JG 6.9.90 / 23.9.93 / 13.8.94 / NW 14.4.2013 / 22.12.2015)
+
+The Oberon module coordiates the display area as a user-manipulatable workspace with tracks and panes.
+
+The Oberon module transforms keystrokes and mouse movements and button presses into user interface messages 
+delivered message handlers that are installed as the user initiates interactive content such as `Edit.Open` or
+`System.Directory`.
+
+The Oberon module provides the extensible UI functionality but the initial arrangement of content on system startup that the
+user may interact with is provided by the System module.
  
 https://github.com/io-core/Oberon/blob/main/Oberon.Mod
 

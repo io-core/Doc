@@ -2,17 +2,215 @@
   GraphicFrames Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Display Viewers Input Fonts Texts Graphics Oberon MenuViewers
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ (*update message ids*)
+    drawobj = 1; drawobjs = 2; drawobjd = 3;
+    drawnorm = 4; drawsel = 5; drawdel = 6;
+
+    markW = 5;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+    Frame* = POINTER TO FrameDesc;
+    Location* = POINTER TO LocDesc;
+
+    LocDesc* = RECORD
+        x*, y*: INTEGER;
+        next*: Location
+      END ;
+
+    FrameDesc* = RECORD (Display.FrameDesc)
+        graph*: Graphics.Graph;
+        Xg*, Yg*: INTEGER;  (*pos rel to graph origin*)
+        X1*, Y1*: INTEGER;  (*right and upper margins*)
+        x*, y*, col*: INTEGER;  (*x = X + Xg, y = Y + Yg*)
+        marked*, ticked*: BOOLEAN;
+        mark*: LocDesc
+      END ;
+
+    DrawMsg* = RECORD (Graphics.Msg)
+        f*: Frame;
+        x*, y*, col*, mode*: INTEGER
+      END ;
+
+    UpdateMsg = RECORD (Display.FrameMsg)
+        id: INTEGER;
+        graph: Graphics.Graph;
+        obj: Graphics.Object
+      END ;
+
+    ChangedMsg = RECORD (Display.FrameMsg)
+        f: Frame;
+        graph: Graphics.Graph;
+        mode: INTEGER
+      END ;
+
+    SelQuery = RECORD (Display.FrameMsg)
+        f: Frame; time: LONGINT
+      END ;
+
+    FocusQuery = RECORD (Display.FrameMsg)
+        f: Frame
+      END ;
+
+    PosQuery = RECORD (Display.FrameMsg)
+        f: Frame; x, y: INTEGER
+      END ;
+
+    DispMsg = RECORD (Display.FrameMsg)
+        x1, y1, w: INTEGER;
+        pat: INTEGER;
+        graph: Graphics.Graph
+      END ;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ Crosshair*: Oberon.Marker;
+    tack*, dotted*, dotted1*: INTEGER;  (*patterns*)
+    newcap: Graphics.Caption;
+    TBuf: Texts.Buffer;
+    DW, DH, CL: INTEGER;
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (*set mark in corner of frame*)
+
+::
+  PROCEDURE Restore*(F: Frame);
+
+::
+  PROCEDURE FlipCross(X, Y: INTEGER);
+
+::
+  PROCEDURE Focus*(): Frame;
+
+::
+  PROCEDURE Selected*(): Frame;
+
+::
+  PROCEDURE This*(x, y: INTEGER): Frame;
+
+::
+  PROCEDURE Mark(F: Frame; mode: INTEGER);
+
+::
+  PROCEDURE Draw*(F: Frame);
+
+::
+  PROCEDURE DrawNorm(F: Frame);
+
+::
+  PROCEDURE Erase*(F: Frame);
+
+::
+  PROCEDURE DrawObj*(F: Frame; obj: Graphics.Object);
+
+::
+  PROCEDURE EraseObj*(F: Frame; obj: Graphics.Object);
+
+::
+  PROCEDURE Change*(F: Frame; VAR msg: Graphics.Msg);
+
+::
+  PROCEDURE FlipMark(x, y: INTEGER);
+
+::
+  PROCEDURE Defocus*(F: Frame);
+
+::
+  PROCEDURE Deselect*(F: Frame);
+
+::
+  PROCEDURE Macro*(Lname, Mname: ARRAY OF CHAR);
+
+::
+  PROCEDURE CaptionCopy(F: Frame;
+
+::
+  PROCEDURE NewLine(F: Frame; G: Graphics.Graph; x, y, w, h: INTEGER);
+
+::
+  PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);
+
+::
+  PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);
+
+::
+  PROCEDURE InsertChar(F: Frame; codepoint: INTEGER);
+
+::
+  PROCEDURE DeleteChar(F: Frame);
+
+::
+  PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);
+
+::
+  PROCEDURE Handle*(G: Display.Frame; VAR M: Display.FrameMsg);
+
+::
+  PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);
+
+::
+  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);
+
+::
+  PROCEDURE DrawLine(obj: Graphics.Object; VAR M: Graphics.Msg);
+
+::
+  PROCEDURE DrawCaption(obj: Graphics.Object; VAR M: Graphics.Msg);
+
+::
+  PROCEDURE DrawMacro(obj: Graphics.Object; VAR M: Graphics.Msg);
+
+::
+  PROCEDURE Open*(G: Frame; graph: Graphics.Graph); 
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod
 

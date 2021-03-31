@@ -2,17 +2,149 @@
   GrowFont Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Texts Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ FontFileId = 0DBH;
+
+      (*
+         input bit pattern      output bit pattern
+               9
+             0 1 2              0 1       0 1 2
+           a 3 4 5 b            2 3       3 4 5
+             6 7 8                        6 7 8
+               c
+      *)
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+    CallbackProc = PROCEDURE (in: SET; VAR out: SET);
+    LineRec = POINTER TO LineDesc;
+    LineDesc = RECORD l: ARRAY 32 OF BYTE END;
+    GlyphRec = RECORD w, h: BYTE END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    oldLines: ARRAY 5 OF LineRec;
+    newLines: ARRAY 3 OF LineRec;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE GrabPixel(line, x, idx: INTEGER; VAR set : SET);
+
+::
+  PROCEDURE SetPixel(line, x: INTEGER);
+
+::
+  PROCEDURE ClearLine(VAR line : LineRec);
+
+::
+  PROCEDURE ScaleLine(factor, width: INTEGER; callback: CallbackProc);
+
+::
+  PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);
+
+::
+  PROCEDURE WrInt16(VAR R: Files.Rider; b0: BYTE);
+
+::
+  PROCEDURE ReadInt16(VAR R: Files.Rider; VAR v: INTEGER);
+
+::
+  PROCEDURE WriteInt16(VAR R: Files.Rider; v: INTEGER);
+
+::
+  PROCEDURE CopyBytes(VAR RR, RW: Files.Rider; count: INTEGER);
+
+::
+  PROCEDURE DoScale(factor: INTEGER; callback: CallbackProc);
+
+::
+  PROCEDURE CallbackX2(in: SET; VAR out: SET);
+
+::
+  PROCEDURE X2*;
+
+::
+  PROCEDURE CallbackX3(in: SET; VAR out: SET);
+
+::
+  PROCEDURE X3*;
+
+::
+  PROCEDURE CopySetBit(in: SET; src: INTEGER; out: SET; dst: INTEGER);
+
+::
+  PROCEDURE CallbackEPX2(in: SET; VAR out: SET);
+
+::
+  PROCEDURE EPX2*;
+
+::
+  PROCEDURE CallbackEPX3(in: SET; VAR out: SET);
+
+::
+  PROCEDURE EPX3*;
+
+::
+  PROCEDURE CallbackEagle(in: SET; VAR out: SET);
+
+::
+  PROCEDURE Eagle*;
+
+::
+  PROCEDURE CallbackScale2SFX(in: SET; VAR out: SET);
+
+::
+  PROCEDURE Scale2SFX*;
+
+::
+  PROCEDURE CallbackScale3SFX(in: SET; VAR out: SET);
+
+::
+  PROCEDURE Scale3SFX*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Edit/blob/main/GrowFont.Mod
 

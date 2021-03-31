@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Files Module" href="Files.html" />
-    <link rel="prev" title="Files Package" href="../Files.html" /> 
+    <link rel="prev" title="Files Modules" href="../FilesModules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,23 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Files.html">Files Package</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">FileDir</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Files.html">Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../FilesModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Files.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Files.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Files.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -170,6 +172,8 @@
         
           <li><a href="../Files.html">Files Package</a> &raquo;</li>
         
+          <li><a href="../FilesModules.html">Files Modules</a> &raquo;</li>
+        
       <li>FileDir Module</li>
     
     
@@ -191,15 +195,170 @@
             
   <div class="section" id="filedir-module">
 <h1>FileDir Module<a class="headerlink" href="#filedir-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module FileDir implements the following operations on the binary tree of directory pages stored on disk:</p>
+<ul class="simple">
+<li><p>inserting directory entries</p></li>
+<li><p>deleting directory entries</p></li>
+<li><p>searching for directory entries</p></li>
+<li><p>enumerating directory entries</p></li>
+<li><p>initializing the Kernel sector table bitmap</p></li>
+</ul>
+<p>FileDir is not intended for use by regular programs. The FileDir interface is used by the Files module which regular programs may access.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Kernel
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FnLength*    = 32;
+SecTabSize*   = 64;
+ExTabSize*   = 12;
+SectorSize*   = 1024;
+IndexSize*   = SectorSize DIV 4;
+HeaderSize*  = 352;
+DirRootAdr*  = 29;
+DirPgSize*   = 24;
+N = DirPgSize DIV 2;
+DirMark*    = 9B1EA38DH;
+HeaderMark* = 9BA71D86H;
+FillerSize = 52;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DiskAdr         = INTEGER;
+FileName*       = ARRAY FnLength OF CHAR;
+SectorTable*    = ARRAY SecTabSize OF DiskAdr;
+ExtensionTable* = ARRAY ExTabSize OF DiskAdr;
+EntryHandler*   = PROCEDURE (name: FileName; sec: DiskAdr; VAR continue: BOOLEAN);
+
+FileHeader* =
+  RECORD (*first page of each file on disk*)
+    mark*: INTEGER;
+    name*: FileName;
+    aleng*, bleng*, date*: INTEGER;
+    ext*:  ExtensionTable;
+    sec*: SectorTable;
+    fill: ARRAY SectorSize - HeaderSize OF BYTE;
+  END ;
+
+FileHd* = POINTER TO FileHeader;
+IndexSector* = ARRAY IndexSize OF DiskAdr;
+DataSector* = ARRAY SectorSize OF BYTE;
+
+DirEntry* =  (*B-tree node*)
+  RECORD
+    name*: FileName;
+    adr*:  DiskAdr; (*sec no of file header*)
+    p*:    DiskAdr  (*sec no of descendant in directory*)
+  END ;
+
+  (* If name[30] = 0 and name[31] &gt; 0 then name[31] indicates which kind of
+     entity other than a regular file that this is e.g. a pipe, subdir, link, etc.*)
+
+DirPage*  =
+  RECORD mark*:  INTEGER;
+    m*:     INTEGER;
+    p0*:    DiskAdr;  (*sec no of left descendant in directory*)
+    fill:  ARRAY FillerSize OF BYTE;
+    e*:  ARRAY DirPgSize OF DirEntry
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Search</strong> finds the DiskAdr for a given FileName.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Search</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FileName</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">A</span><span class="p">:</span> <span class="n">DiskAdr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>insert</strong> is the recursive procedure for finding a DirEntry to place a FileName in.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">insert</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FileName</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Insert</strong> starts the process of finding a DirEntry to place a FileName in.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Insert</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FileName</span><span class="p">;</span> <span class="n">fad</span><span class="p">:</span> <span class="n">DiskAdr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>underflow</strong> handles the case of DirPage underflow on DirEntry deletion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">underflow</span><span class="p">(</span><span class="n">VAR</span> <span class="n">c</span><span class="p">:</span> <span class="n">DirPage</span><span class="p">;</span>  <span class="p">(</span><span class="o">*</span><span class="n">ancestor</span> <span class="n">page</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>delete</strong> is the recursive function that searches for and removes a DirEntry.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">delete</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FileName</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>del</strong> is the interior procedure that re-writes a DirPage to remove a DirEntry.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="k">del</span><span class="p">(</span><span class="n">VAR</span> <span class="n">a</span><span class="p">:</span> <span class="n">DirPage</span><span class="p">;</span> <span class="n">R</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">dpg1</span><span class="p">:</span> <span class="n">DiskAdr</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">h</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Delete</strong> starts the process of removing a DirEntry with a given FileName.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Delete</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FileName</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">fad</span><span class="p">:</span> <span class="n">DiskAdr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>enumerate</strong> is the recursive function that iteratively calls a passed-in procedure on DirEntries with names that match a prefix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">prefix</span><span class="p">:</span>   <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Enumerate</strong> starts the process of listing directory entries matching a prefix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Enumerate</span><span class="o">*</span><span class="p">(</span><span class="n">prefix</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">proc</span><span class="p">:</span> <span class="n">EntryHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Init</strong> preapres Oberon to use the disk by marking used sectors in the Kernel sector map.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Init</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE MarkSectors(VAR A: ARRAY OF DiskAdr; k: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE sift(VAR A: ARRAY OF DiskAdr; L, R: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE TraverseDir(VAR A: ARRAY OF DiskAdr; VAR k: INTEGER; dpg: DiskAdr);</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
+<div><p>(NW 12.1.86 / 23.8.90 / 15.8.2013)</p>
 </div></blockquote>
 <p><a class="reference external" href="https://github.com/io-core/Files/blob/main/FileDir.Mod">https://github.com/io-core/Files/blob/main/FileDir.Mod</a></p>
+</div>
 </div>
 
 
@@ -209,7 +368,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Files.html" class="btn btn-neutral float-right" title="Files Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../Files.html" class="btn btn-neutral float-left" title="Files Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../FilesModules.html" class="btn btn-neutral float-left" title="Files Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Build Package" href="../Build.html" />
-    <link rel="prev" title="Modules Package" href="../Modules.html" /> 
+    <link rel="prev" title="Modules Modules" href="../ModulesModules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,22 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Modules.html">Modules Package</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Modules</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../ModulesModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modules.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modules.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modules.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -169,6 +172,8 @@
         
           <li><a href="../Modules.html">Modules Package</a> &raquo;</li>
         
+          <li><a href="../ModulesModules.html">Modules Modules</a> &raquo;</li>
+        
       <li>Modules Module</li>
     
     
@@ -190,15 +195,108 @@
             
   <div class="section" id="modules-module">
 <h1>Modules Module<a class="headerlink" href="#modules-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module Modules is the heart of how separately compiled Oberon programs are loaded and linked.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>versionkey = 1X;
+MT         = 12;
+DescSize   = 80;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Module*     = POINTER TO ModDesc;
+Command*    = PROCEDURE;
+ModuleName* = ARRAY 32 OF CHAR;
+
+ModDesc* = RECORD
+    name*: ModuleName;
+    next*: Module;
+    key*, num*, size*, refcnt*: INTEGER;
+    data*, code*, imp*, cmd*, ent*, ptr*, unused: INTEGER  (*addresses*)
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root*, M: Module;
+MTOrg*, AllocPtr*, res*: INTEGER;
+importing*, imported*: ModuleName;
+limit: INTEGER;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>ThisFile</strong> appends <cite>.rsc</cite> to the module name, opens it, and returns the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ThisFile</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">Files</span><span class="o">.</span><span class="n">File</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>error</strong> places the error number and error name in global varaibles <cite>res</cite> and <cite>importing</cite> for later reference.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">error</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Check</strong> conditionally sets global variable <cite>res</cite> to 0 (valid) or 1 (invalid) when checking to see if the string is a valid name.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Check</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Load</strong> recursively loads from disk into the module area of memory the imports of a module and then the module itself.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Load</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">newmod</span><span class="p">:</span> <span class="n">Module</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ThisCommand</strong> finds and executes a parameterless procedure of module <cite>mod</cite> identified by the string <cite>name</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ThisCommand</span><span class="o">*</span><span class="p">(</span><span class="n">mod</span><span class="p">:</span> <span class="n">Module</span><span class="p">;</span> <span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">Command</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Free</strong> recursively removes modules imported by a module and the module itself from memory if no other loaded modules import it, or returns an error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Free</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Init</strong> calls <cite>Files.Init</cite>, sets the module table start and allocation pointer and module root and limit and makes room for the stack by decreasing the limit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Init</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> calls <cite>Init</cite> and then dynamically loads the <cite>Oberon</cite> module and its imports. <cite>Oberon</cite> is not expected to return.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(Link and load on RISC; NW 20.10.2013 / 8.1.2019)</p>
+<p>After the BootLoader loads the Inner Core (<cite>Kernel</cite>, <cite>FileDir</cite>, <cite>Files</cite>, <cite>Modules</cite>) into memory, the
+BEGIN section at the end of this module is the next code to execute. Modules, Files, Filedir, and Kernel
+cooperate in initializing the state of the Oberon system.</p>
+<p>Once the system is initialized, <cite>Modules</cite> dynamically loads the <cite>Oberon</cite> module which recursively requires <cite>Input</cite>, <cite>Display</cite>, <cite>Viewers</cite>, <cite>Fonts</cite>, and <cite>Texts</cite> to also be loaded.</p>
+<p>The <cite>Oberon</cite> module in turn, at the end of its initialization, dynamically loads the <cite>System</cite> module which further requires <cite>MenuViewers</cite> and <cite>TextFrames</cite>.</p>
+<p>At this point the Oberon system is responsive to user commands.</p>
 <p><a class="reference external" href="https://github.com/io-core/Modules/blob/main/Modules.Mod">https://github.com/io-core/Modules/blob/main/Modules.Mod</a></p>
+</div>
 </div>
 
 
@@ -208,7 +306,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../Build.html" class="btn btn-neutral float-right" title="Build Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../Modules.html" class="btn btn-neutral float-left" title="Modules Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ModulesModules.html" class="btn btn-neutral float-left" title="Modules Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

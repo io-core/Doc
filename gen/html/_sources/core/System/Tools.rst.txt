@@ -2,17 +2,83 @@
   Tools Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Tools provides commands for inspecting memory, disk, etc.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Kernel Files Modules Input Texts Viewers MenuViewers TextFrames Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ T: Texts.Text; V: MenuViewers.Viewer; W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE OpenViewer(T: Texts.Text; title: ARRAY OF CHAR);
+
+::
+  PROCEDURE Clear*;  (*used to clear output*)
+
+::
+  PROCEDURE Recall*;
+
+::
+  PROCEDURE Inspect*;
+
+::
+  PROCEDURE Sector*;
+
+::
+  PROCEDURE ShowFile*;
+
+::
+  PROCEDURE Convert*;   (*convert selected text to txt-format*)
+
+::
+  PROCEDURE Id*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/Tools.Mod
 

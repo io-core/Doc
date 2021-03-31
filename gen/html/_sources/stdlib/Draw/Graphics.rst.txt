@@ -2,17 +2,312 @@
   Graphics Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Modules Fonts (*Printer*) Texts Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ NameLen* = 32; GraphFileId = 0FAX; LibFileId = 0FBX;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+    Graph* = POINTER TO GraphDesc;
+    Object* = POINTER TO ObjectDesc;
+    Method* = POINTER TO MethodDesc;
+
+    Line* = POINTER TO LineDesc;
+    Caption* = POINTER TO CaptionDesc;
+    Macro* = POINTER TO MacroDesc;
+
+    ObjectDesc* = RECORD
+        x*, y*, w*, h*: INTEGER;
+        col*: BYTE;
+        selected*, marked*: BOOLEAN;
+        do*: Method;
+        next: Object
+      END ;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    Name* = ARRAY NameLen OF CHAR;
+
+    GraphDesc* = RECORD
+        time*: LONGINT;
+        sel*, first: Object;
+        changed*: BOOLEAN
+      END ;
+
+    MacHead* = POINTER TO MacHeadDesc;
+    MacExt* = POINTER TO MacExtDesc;
+    Library* = POINTER TO LibraryDesc;
+
+    MacHeadDesc* = RECORD
+        name*: Name;
+        w*, h*: INTEGER;
+        ext*: MacExt;
+        lib*: Library;
+        first: Object;
+        next: MacHead
+      END ;
+
+    LibraryDesc* = RECORD
+        name*: Name;
+        first: MacHead;
+        next: Library
+      END ;
+
+    MacExtDesc* = RECORD END ;
+
+    Context* = RECORD
+        nofonts, noflibs, nofclasses: INTEGER;
+        font: ARRAY 10 OF Fonts.Font;
+        lib: ARRAY 4 OF Library;
+        class: ARRAY 6 OF Modules.Command
+      END;
+
+    MethodDesc* = RECORD
+        module*, allocator*: Name;
+        new*: Modules.Command;
+        copy*: PROCEDURE (from, to: Object);
+        draw*, change*: PROCEDURE (obj: Object; VAR msg: Msg);
+        selectable*: PROCEDURE (obj: Object; x, y: INTEGER): BOOLEAN;
+        read*: PROCEDURE (obj: Object; VAR R: Files.Rider; VAR C: Context);
+        write*: PROCEDURE (obj: Object; cno: INTEGER; VAR R: Files.Rider; VAR C: Context);
+        print*: PROCEDURE (obj: Object; x, y: INTEGER)
+      END ;
+
+    LineDesc* = RECORD (ObjectDesc)
+        unused*: INTEGER
+      END ;
+
+    CaptionDesc* = RECORD (ObjectDesc)
+        pos*, len*: INTEGER
+      END ;
+
+    MacroDesc* = RECORD (ObjectDesc)
+        mac*: MacHead
+      END ;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ width*, res*: INTEGER;
+    new: Object;
+    T*: Texts.Text;  (*captions*)
+    LineMethod*, CapMethod*, MacMethod* : Method;
+    GetLib0: PROCEDURE (name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE New*(obj: Object);
+
+::
+  PROCEDURE Add*(G: Graph; obj: Object);
+
+::
+  PROCEDURE ThisObj*(G: Graph; x, y: INTEGER): Object;
+
+::
+  PROCEDURE SelectObj*(G: Graph; obj: Object);
+
+::
+  PROCEDURE SelectArea*(G: Graph; x0, y0, x1, y1: INTEGER);
+
+::
+  PROCEDURE Draw*(G: Graph; VAR M: Msg);
+
+::
+  PROCEDURE List*(G: Graph);
+
+::
+  PROCEDURE Deselect*(G: Graph);
+
+::
+  PROCEDURE DrawSel*(G: Graph; VAR M: Msg);
+
+::
+  PROCEDURE Change*(G: Graph; VAR M: Msg);
+
+::
+  PROCEDURE Move*(G: Graph; dx, dy: INTEGER);
+
+::
+  PROCEDURE Copy*(Gs, Gd: Graph; dx, dy: INTEGER);
+
+::
+  PROCEDURE Delete*(G: Graph);
+
+::
+  PROCEDURE WMsg(s0, s1: ARRAY OF CHAR);
+
+::
+  PROCEDURE InitContext(VAR C: Context);
+
+::
+  PROCEDURE FontNo*(VAR W: Files.Rider; VAR C: Context; fnt: Fonts.Font): INTEGER;
+
+::
+  PROCEDURE StoreElems(VAR W: Files.Rider; VAR C: Context; obj: Object);
+
+::
+  PROCEDURE Store*(G: Graph; VAR W: Files.Rider);
+
+::
+  PROCEDURE WriteObj*(VAR W: Files.Rider; cno: INTEGER; obj: Object);
+
+::
+  PROCEDURE WriteFile*(G: Graph; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Print*(G: Graph; x0, y0: INTEGER);
+
+::
+  PROCEDURE GetClass*(module, allocator: ARRAY OF CHAR; VAR com: Modules.Command);
+
+::
+  PROCEDURE Font*(VAR R: Files.Rider; VAR C: Context): Fonts.Font;
+
+::
+  PROCEDURE ReadObj(VAR R: Files.Rider; obj: Object);
+
+::
+  PROCEDURE LoadElems(VAR R: Files.Rider; VAR C: Context; VAR fobj: Object);
+
+::
+  PROCEDURE Load*(G: Graph; VAR R: Files.Rider);
+
+::
+  PROCEDURE Open*(G: Graph; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE SetWidth*(w: INTEGER);
+
+::
+  PROCEDURE GetLib*(name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);
+
+::
+  PROCEDURE NewLib*(Lname: ARRAY OF CHAR): Library;
+
+::
+  PROCEDURE StoreLib*(L: Library; Fname: ARRAY OF CHAR);
+
+::
+  PROCEDURE RemoveLibraries*;
+
+::
+  PROCEDURE ThisMac*(L: Library; Mname: ARRAY OF CHAR): MacHead;
+
+::
+  PROCEDURE DrawMac*(mh: MacHead; VAR M: Msg);
+
+::
+  PROCEDURE OpenMac*(mh: MacHead; G: Graph; x, y: INTEGER);
+
+::
+  PROCEDURE MakeMac*(G: Graph; VAR head: MacHead);
+
+::
+  PROCEDURE InsertMac*(mh: MacHead; L: Library; VAR new: BOOLEAN);
+
+::
+  PROCEDURE NewLine;
+
+::
+  PROCEDURE CopyLine(src, dst: Object);
+
+::
+  PROCEDURE ChangeLine(obj: Object; VAR M: Msg);
+
+::
+  PROCEDURE LineSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
+
+::
+  PROCEDURE ReadLine(obj: Object; VAR R: Files.Rider; VAR C: Context);
+
+::
+  PROCEDURE WriteLine(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);
+
+::
+  PROCEDURE NewCaption;
+
+::
+  PROCEDURE CopyCaption(src, dst: Object);
+
+::
+  PROCEDURE ChangeCaption(obj: Object;  VAR M: Msg);
+
+::
+  PROCEDURE CaptionSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
+
+::
+  PROCEDURE ReadCaption(obj: Object; VAR R: Files.Rider; VAR C: Context);
+
+::
+  PROCEDURE WriteCaption(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);
+
+::
+  PROCEDURE NewMacro;
+
+::
+  PROCEDURE CopyMacro(src, dst: Object);
+
+::
+  PROCEDURE ChangeMacro(obj: Object; VAR M: Msg);
+
+::
+  PROCEDURE MacroSelectable(obj: Object; x, y: INTEGER): BOOLEAN;
+
+::
+  PROCEDURE ReadMacro(obj: Object; VAR R: Files.Rider; VAR C: Context);
+
+::
+  PROCEDURE WriteMacro(obj: Object; cno: INTEGER; VAR W1: Files.Rider; VAR C: Context);
+
+::
+  PROCEDURE Notify(T: Texts.Text; op: INTEGER; beg, end: LONGINT);
+
+::
+  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (obj: Object; VAR msg: Msg));
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Draw/blob/main/Graphics.Mod
 

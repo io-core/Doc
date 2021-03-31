@@ -1,0 +1,24 @@
+
+##########################
+  Assist Modules  
+##########################
+ 
+.. toctree::
+   :titlesonly:
+   :glob:
+
+   Assist/*
+
+ 
+.. list-table::  
+   :widths: 20 80 
+   :header-rows: 1 
+
+   * - Module 
+     - Description 
+
+   * - Assist 
+     - provides help functionality in the UI. 
+   * - Hello 
+     - provides help functionality in the UI. 
+

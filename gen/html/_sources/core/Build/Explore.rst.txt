@@ -2,17 +2,65 @@
   Explore Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Explore handles:
+* Nothing yet. Placeholder.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Foo** is a placeholder
+::
+  PROCEDURE Foo;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Build/blob/main/Explore.Mod
 

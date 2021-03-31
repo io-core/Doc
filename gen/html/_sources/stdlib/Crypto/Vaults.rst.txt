@@ -1,0 +1,169 @@
+####################################
+  Vaults Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Vaults provides an infrastructure for secrets and vaults.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Fonts Ciphers
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+    replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+    Method* = POINTER TO MethodDesc;
+    Document* = POINTER TO DocumentDesc;
+    DocumentDesc* = RECORD
+      x*, y*, w*, h*, d*, p*: INTEGER;
+      sx*, sy*: REAL;
+      sw*, sh*: INTEGER;
+      selected*, marked*: BOOLEAN;
+      do*: Method;
+      next: Document
+    END;
+
+    Vault* = POINTER TO VaultDesc;
+    Notifier* = PROCEDURE (V: Vault; op: INTEGER; beg, end: LONGINT);
+    VaultDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      flattened*: BOOLEAN;
+      sel*, first: Document;
+      notify*: Notifier
+    END;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    
+
+    bmpHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    jpgHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    pngHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    MethodDesc* = RECORD
+        copy*: PROCEDURE (from, to: Document);
+        draw*, change*: PROCEDURE (D: Document; VAR msg: Msg);
+        selectable*: PROCEDURE (D: Document; x, y: INTEGER): BOOLEAN;
+        read*: PROCEDURE (D: Document; VAR r: Files.Rider); (*; VAR c: Context); *)
+        write*: PROCEDURE (D: Document; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)
+        print*: PROCEDURE (D: Document; x, y: INTEGER)
+      END ;
+
+    
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+  res*: INTEGER;
+  width: INTEGER;
+  new*: Document; 
+  LineMethod*, CapMethod*, MacMethod* : Method;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE New*(D: Document);
+
+::
+  PROCEDURE Add*(V: Vault; D: Document);
+
+::
+  PROCEDURE ThisDocument*(V: Vault; x, y: INTEGER): Document;
+
+::
+  PROCEDURE SelectDocument*(V: Vault; D: Document);
+
+::
+  PROCEDURE SelectArea*(V: Vault; x0, y0, x1, y1: INTEGER);
+
+::
+  PROCEDURE Draw*(V: Vault; VAR m: Msg);
+
+::
+  PROCEDURE List*(V: Vault);
+
+::
+  PROCEDURE Deselect*(V: Vault);
+
+::
+  PROCEDURE DrawSel*(V: Vault; VAR m: Msg);
+
+::
+  PROCEDURE Change*(V: Vault; VAR m: Msg);
+
+::
+  PROCEDURE WriteFile*(V: Vault; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE SetWidth*(w: INTEGER);
+
+::
+  PROCEDURE Open*(V: Vault; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Delete*(V: Vault);
+
+::
+  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (D: Document; VAR msg: Msg));
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Crypto/blob/main/Vaults.Mod
+

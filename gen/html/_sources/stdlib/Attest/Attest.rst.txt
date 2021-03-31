@@ -1,0 +1,99 @@
+####################################
+  Attest Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Attest provides commands for code signing and checking provenance.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Files Fonts Viewers Texts Oberon
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ Menu = "System.Close  System.Copy  System.Grow  Attest.Delete  Attest.Ticks  Attest.Restore  Attest.Store";
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Open*;
+
+::
+  PROCEDURE Delete*;
+
+::
+  PROCEDURE GetArg(VAR S: Texts.Scanner);
+
+::
+  PROCEDURE SetWidth*;
+
+::
+  PROCEDURE ChangeColor*;
+
+::
+  PROCEDURE ChangeWidth*;
+
+::
+  PROCEDURE ChangeFont*;
+
+::
+  PROCEDURE Redraw(Q: BOOLEAN);
+
+::
+  PROCEDURE Ticks*;
+
+::
+  PROCEDURE Restore*;
+
+::
+  PROCEDURE Backup (VAR name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Store*;
+
+::
+  PROCEDURE Macro*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Attest/blob/main/Attest.Mod
+

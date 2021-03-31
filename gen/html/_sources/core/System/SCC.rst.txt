@@ -2,17 +2,124 @@
   SCC Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module SCC provides for wireless communication in RISC Oberon.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Kernel
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+
+    swi = -60; spiData = -48; spiCtrl = -44;
+    netSelect = 1; spiFast = 2; netEnable = 3;
+    HdrSize = 8; MaxPayload = 512; SubPacket = 32; Wait = 50; SendTries = 50;
+    MaxPacket = (HdrSize + MaxPayload + SubPacket-1) DIV SubPacket *
+SubPacket;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ Header* =
+    RECORD valid*: BOOLEAN;
+      dadr*, sadr*, typ*: BYTE;
+      len*: INTEGER (*of data following header*)
+    END ;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    filter*: BOOLEAN; Adr*: BYTE; rcvd: INTEGER;
+    rx: RECORD
+      hd: Header;
+      dat: ARRAY MaxPacket-HdrSize OF BYTE
+    END;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE SPICtrl(s: SET);
+
+::
+  PROCEDURE SPI(n: INTEGER);
+
+::
+  PROCEDURE StartCmd(cmd: INTEGER);
+
+::
+  PROCEDURE WriteReg1(reg, dat: INTEGER);  (*disables radio!*)
+
+::
+  PROCEDURE SubRcv(dst: INTEGER);
+
+::
+  PROCEDURE SubSnd(src: INTEGER; VAR timeout: BOOLEAN);
+
+::
+  PROCEDURE Flush();
+
+::
+  PROCEDURE ResetRcv;
+
+::
+  PROCEDURE Listen(b: BOOLEAN);
+
+::
+  PROCEDURE Start*(filt: BOOLEAN);
+
+::
+  PROCEDURE SendPacket*(VAR head: Header; dat: ARRAY OF BYTE);
+
+::
+  PROCEDURE Available*(): INTEGER;
+
+::
+  PROCEDURE Receive*(VAR x: BYTE);
+
+::
+  PROCEDURE Rcvd(time: INTEGER): BOOLEAN;
+
+::
+  PROCEDURE ReceiveHead*(VAR head: Header);  (*actually, recv whole packet*)
+
+::
+  PROCEDURE Skip*(m: INTEGER);
+
+::
+  PROCEDURE Stop*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/SCC.Mod
 

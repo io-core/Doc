@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ORB Module" href="ORB.html" />
-    <link rel="prev" title="ORG Module" href="ORG.html" /> 
+    <link rel="next" title="OXP Module" href="OXP.html" />
+    <link rel="prev" title="OXDis Module" href="OXDis.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,36 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Build.html">Build Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ORP.html">ORP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORG.html">ORG</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">OXG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORB.html">ORB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORS.html">ORS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXTool.html">OXTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OXDis.html">OXDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORDis.html">ORDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OIDis.html">OIDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OADis.html">OADis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OaDis.html">OaDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OvDis.html">OvDis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ORC.html">ORC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="M.html">M</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explore.html">Explore</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../BuildModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Build.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -183,6 +172,8 @@
         
           <li><a href="../Build.html">Build Package</a> &raquo;</li>
         
+          <li><a href="../BuildModules.html">Build Modules</a> &raquo;</li>
+        
       <li>OXG Module</li>
     
     
@@ -204,15 +195,588 @@
             
   <div class="section" id="oxg-module">
 <h1>OXG Module<a class="headerlink" href="#oxg-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module OXG generates the processor-specific instructions for executing an Oberon program.</p>
+<p>OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files OXS OXB OXT OXX
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  StkOrg0 = -64; VarOrg0 = 0;  (*for RISC-0 only*)
+  MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
+  maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+  Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
+
+(*frequently used opcodes*)  U = 2000H; V = 1000H;
+  Mov = 0; Lsl = 1; Asr = 2; Ror= 3; And = 4; Ann = 5; Ior = 6; Xor = 7;
+  Add = 8; Sub = 9; Cmp = 9; Mul = 10; Div = 11;
+  Fad = 12; Fsb = 13; Fml = 14; Fdv = 15; MovU = 16;
+  Ldr = 8; Str = 10;
+  BR = 0; BLR = 1; BC = 2; BL = 3;
+  MI = 0; PL = 8; EQ = 1; NE = 9; LT = 5; GE = 13; LE = 6; GT = 14;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Item* = RECORD
+    mode*: INTEGER;
+    type*: OXB.Type;
+    a*, b*, r: LONGINT;
+    rdo*: BOOLEAN  (*read only*)
+  END ;
+
+(* Item forms and meaning of fields:
+  mode    r      a       b
+  --------------------------------
+  Const   -     value (proc adr)  (immediate value)
+  Var     base   off     -               (direct adr)
+  Par      -     off0     off1         (indirect adr)
+  Reg    regno
+  RegI   regno   off     -
+  Cond  cond   Fchain  Tchain  *)
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pc*, pcb*, varsize: LONGINT;   (*program counter, data index*)
+tdx, strx: LONGINT;
+entry: LONGINT;   (*main entry point*)
+RH: LONGINT;  (*available registers R[0] ... R[H-1]*)
+frame: LONGINT;  (*frame offset changed in SaveRegs and RestoreRegs*)
+check: BOOLEAN;  (*emit run-time checks*)
+version: INTEGER;  (* 0 = RISC-0, 1 = RISC-5 *)
+relmap: ARRAY 6 OF INTEGER;  (*condition codes for relations*)
+xPut0: PROCEDURE  (VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+xPut1: PROCEDURE  (o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+xPut1a: PROCEDURE (o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+xPut2: PROCEDURE  (VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);
+xPut3: PROCEDURE  (VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+xHeader: PROCEDURE (VAR pc, pcb, RH, entry, version: LONGINT);
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE incR;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CheckRegs*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetCC(VAR x: Item; n: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Trap(cond, num: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE negated(cond: LONGINT): LONGINT;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FixOne*(at: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FixLink*(L: LONGINT);</p>
+</dd>
+</dl>
+<p>—
+<strong>GetSB</strong> loads the static base of a module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">GetSB</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>NilCheck</strong> ensures a pointer is not NIL</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">NilCheck</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>load</strong> generates loading the contents of a variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">load</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>loadAdr</strong> generates loading the location of a variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">loadAdr</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>loadCond</strong> generates loading a boolean</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">loadCond</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>loadTypTagAdr</strong> generates loading a type tag address</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">loadTypTagAdr</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>loadStringAdr</strong> generates loading a string address</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">loadStringAdr</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>MakeConstItem</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">MakeConstItem</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">typ</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">val</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>MakeRealItem</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">MakeRealItem</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">val</span><span class="p">:</span> <span class="n">REAL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>MakeStringItem</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">MakeStringItem</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="nb">len</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span> <span class="p">(</span><span class="o">*</span><span class="n">copies</span> <span class="n">string</span> <span class="kn">from</span> <span class="nn">OXS</span><span class="o">-</span><span class="n">buffer</span> <span class="n">to</span> <span class="n">OXG</span><span class="o">-</span><span class="n">string</span> <span class="n">array</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>MakeItem</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">MakeItem</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">y</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Object</span><span class="p">;</span> <span class="n">curlev</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Field</strong> locates a record field</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Field</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">y</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Object</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>Index</strong> locates an array element</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Index</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>DeRef</strong> generates a dereference</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DeRef</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Q</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Q</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">dcw</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FindPtrFlds</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FindPtrFlds</span><span class="p">(</span><span class="n">typ</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">off</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">dcw</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>BuildTD</strong> prepares</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">BuildTD</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">dc</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>TypeTest</strong> generates a type test</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">TypeTest</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">T</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">varpar</span><span class="p">,</span> <span class="n">isguard</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Not</strong> generates</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Not</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="o">~</span><span class="n">x</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>And1</strong> generates</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">And1</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>And2</strong> generates</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">And2</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Or1</strong> generates</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Or1</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="n">OR</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>Or2</strong> generates</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Or2</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Neg*(VAR x: Item);   (* x := -x <a href="#id1"><span class="problematic" id="id2">*</span></a>)</p>
+</dd>
+</dl>
+<p>—
+<strong>AddOp</strong> generates an add operation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">AddOp</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">+-</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>log2</strong> generates a log2 operation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">log2</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">e</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">):</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>MulOp</strong> generates a multipy operation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">MulOp</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>DivOp</strong> generates a divide operation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">DivOp</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="n">op</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>RealOp</strong> generates operations on reals</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RealOp</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="n">op</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>Singleton</strong> generates a set of one set item.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Singleton</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>  <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">}</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>Set</strong> generates a set value from two set items.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Set</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">..</span> <span class="n">y</span><span class="p">}</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>In</strong> generates a test for if an item is in a set</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">In</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>  <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="n">IN</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetOp</strong> generates operations on sets</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetOp</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="n">op</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>IntRelation</strong> generates an integer comparison</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">IntRelation</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>RealRelation</strong> generates a real comparison</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RealRelation</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>StringRelation</strong> generates a string comparison</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StringRelation</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>StrToChar</strong> ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StrToChar</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Store</strong> generates the copying of the value of one word-sized variable into another word-sized variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Store</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span> <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>StoreStruct</strong> generates copying the contents of one structure into another structure.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StoreStruct</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span> <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>CopyString</strong> generates copying the contents of one string variable into another string variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CopyString</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>  <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>OpenArrayParam</strong> generates placing the address of an open array variable in a register, allocating the register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">OpenArrayParam</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>VarParam</strong> generates placing the address of a variable in a register, allocating the register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">VarParam</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">ftype</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ValueParam</strong> generates placing a value in a register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ValueParam</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>StringParam</strong> generates placing the location of a string in a register, allocating the register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StringParam</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>For0</strong> generates the initial part of a FOR statement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">For0</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FOR1</strong> generates the central part of a FOR statement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">For1</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">L</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>FOR2</strong> generates the final part of a FOR statement.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">For2</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Here</strong> returns the next available code location.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Here</span><span class="o">*</span><span class="p">():</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>FJump</strong> generates a forward jump.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FJump</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">L</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CFJump</strong> generates a conditional forward jump</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CFJump</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>BJump</strong> generates a backwards jump.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">BJump</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CBJump</strong> generates a conditional backwards jump.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CBJump</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">L</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Fixup</strong> fixes ???</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Fixup</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SaveRegs</strong> saves register values in preparation for a procedure call.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SaveRegs</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>  <span class="p">(</span><span class="o">*</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span> <span class="o">..</span> <span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>RestoreRegs</strong> brings values back into registers after a procedure call.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RestoreRegs</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span> <span class="p">(</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span> <span class="o">..</span> <span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>PrepCall</strong> generates generates a sequence that preapreas for a procedure call.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">PrepCall</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Call</strong> generates the procedure call sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Call</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">r</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Enter</strong> generates the procedure entry sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Enter</span><span class="o">*</span><span class="p">(</span><span class="n">parblksize</span><span class="p">,</span> <span class="n">locblksize</span><span class="p">,</span> <span class="n">wordsize</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="nb">int</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Return</strong> generates the procedure return sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Return</span><span class="o">*</span><span class="p">(</span><span class="n">form</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">;</span> <span class="n">size</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="nb">int</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Increment</strong> generates an inline routine that increments a variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Increment</span><span class="o">*</span><span class="p">(</span><span class="n">upordown</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Include</strong> generates a routine that ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Include</span><span class="o">*</span><span class="p">(</span><span class="n">inorex</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Assert</strong> generates an inline routine that traps on a condition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Assert</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>New</strong> generates an inline routine that allocates heap memory via trap 0.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">New</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Pack</strong> generates an inline routine that ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Pack</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Unpk</strong> generates in inline routine that ??</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Unpk</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Led</strong> generates an inline routine that displays a bit pattern on the LED display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Led</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Get</strong> generates an inline routine that loads a value from an IO register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Get</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Put</strong> generates an inline routine that stores a value in an IO register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Put</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Copy</strong> generates an inline memory copy routine.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Copy</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>LDPSR</strong> places the processor status register in a variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">LDPSR</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>REGREG</strong> loads a register with the contents of another register</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">REGREG</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>LDREG</strong> places a register value in a variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">LDREG</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Abs</strong> generates an inline functionn that takes the absolute value</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Abs</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Odd</strong> generates an inlinen function that checks whether a value is odd.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Odd</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Floor</strong> generates an inline function that produces the floor of a value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Floor</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Float</strong> generates an inline function that produces a float.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Float</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Ord</strong> generates an inline function that presents the ordinal value of its parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Ord</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Len</strong> generates an inline function that presents the length of an array.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Len</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Shift</strong> generates an inline function that performs bit shifts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Shift</span><span class="o">*</span><span class="p">(</span><span class="n">fct</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ADC</strong> generates an inline function that Adds with Carry</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ADC</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SBC</strong> generates an inline function that Subtracts with Carry</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SBC</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>UML</strong> generates an unsigned multiply</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">UML</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Bit</strong> generates an inline function presenting the yth bit of x</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Bit</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Register</strong> generates an inline function presenting a general register’s contents</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Register</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>H</strong> genrates an inline funtion presenting the contents of the H register.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">H</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Adr</strong> generates an inline function presenting the memory address of its parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Adr</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Condition</strong> generates an inline function presenting a condition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Condition</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Open</strong> initializes the OXG module code generation engine.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Open</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetDataSize</strong> sets the amount of space reserved for module global variables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetDataSize</span><span class="o">*</span><span class="p">(</span><span class="n">dc</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Header</strong> prepares the code introductory sequence for a compiled module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Header</span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>NofPtrs</strong> determines the number of Garbage Collection Roots.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">NofPtrs</span><span class="p">(</span><span class="n">typ</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">):</span> <span class="n">LONGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>FindPtrs</strong> locates Garbage Collection roots.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">FindPtrs</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Files</span><span class="o">.</span><span class="n">Rider</span><span class="p">;</span> <span class="n">typ</span><span class="p">:</span> <span class="n">OXB</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span> <span class="n">adr</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Close</strong> writes the completed binary to disk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Close</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">modid</span><span class="p">:</span> <span class="n">OXS</span><span class="o">.</span><span class="n">Ident</span><span class="p">;</span> <span class="n">key</span><span class="p">,</span> <span class="n">nofent</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> merely sets the 6 values in the global relmap array.</p>
+<p>This module’s global variables are initialized by ORP calling OXG.Open, once it has begun parsing the source code’s Module
+definition and determined that its module imports are available and of compatible object filetype.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(N.Wirth, 16.4.2016 / 4.4.2017 / 31.5.2019  Oberon compiler; code generator for RISC)</p>
+<p><strong>OXG</strong> is called from ORP and generates machine code various Oberon language constructs for the Oberon RISC5 architeture.</p>
 <p><a class="reference external" href="https://github.com/io-core/Build/blob/main/OXG.Mod">https://github.com/io-core/Build/blob/main/OXG.Mod</a></p>
+</div>
 </div>
 
 
@@ -221,8 +785,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ORB.html" class="btn btn-neutral float-right" title="ORB Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ORG.html" class="btn btn-neutral float-left" title="ORG Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="OXP.html" class="btn btn-neutral float-right" title="OXP Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="OXDis.html" class="btn btn-neutral float-left" title="OXDis Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

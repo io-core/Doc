@@ -2,17 +2,75 @@
   OXDis Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module OXDis provides an interface for disassembling opcodes.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files ORDis OIDis OADis OaDis OvDis
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+
+    OK* = 0; FINISH* = 1; BAD* = 2;
+    BADARCH=0; RISC5=1; X8664=2; AARCH64=3; ARM32=4; RISCV=5; 
+    BYTEORIENTED=0; WORDORIENTED=1;
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    E*, at*, pc*, isz*, Arch*,wo*: INTEGER;
+    ibytes*: ARRAY 32 OF BYTE;
+    istr*: ARRAY 32 OF CHAR;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE decode*():INTEGER;
+
+::
+  PROCEDURE originate*(r: Files.Rider; f: Files.File; offset, extent, index, arch: INTEGER): INTEGER;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(CP 2020)
+
+**OXDis** provides an interface for disassembling opcodes.
+The module sets up a state machine that operates on an input via repeated calls to decode.
  
 https://github.com/io-core/Build/blob/main/OXDis.Mod
 

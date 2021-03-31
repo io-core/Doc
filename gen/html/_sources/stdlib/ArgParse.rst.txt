@@ -1,0 +1,35 @@
+########################
+  ArgParse Package 
+########################
+
+Version v1.0.20190331
+
+ArgParse provides argument parsing for Oberon. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: ArgParse:
+   :hidden:
+
+   Modules <ArgParseModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Build v5.0.0
+
+--------
+  About  
+--------
+ 
+The ArgParse package provides a parser for command-line options and arguments.
+
+---------------------
+  Development Guide  
+---------------------
+ 
+ArgParse  
+
+https://github.com/io-core/ArgParse/blob/main/ArgParse.Pkg

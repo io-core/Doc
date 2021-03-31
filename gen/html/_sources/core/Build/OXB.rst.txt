@@ -1,0 +1,208 @@
+####################################
+  OXB Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module OXB manages the symbol table for the Oberon compiler and reads and writes 'smb' files
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Files OXS
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+    versionkey* = 1; maxTypTab = 64;
+    (* class values*) Head* = 0;
+      Const* = 1; Var* = 2; Par* = 3; Fld* = 4; Typ* = 5;
+      SProc* = 6; SFunc* = 7; Mod* = 8;
+
+    (* form values*)  (* BYTE <= SHORTINT <= INTEGER <= LONGINT , FLOAT <= DOUBLE *)
+      Byte* = 1; Bool* = 2; Char* = 3; Short* = 4; Int* = 5; Long* = 6; Real* = 7; Double* = 8; Set* = 9;
+      Pointer* = 10; Interface* = 11; NilTyp* = 12; NoTyp* = 13; Proc* = 14;
+      String* = 15; Array* = 16; Record* = 17; (*TProc*)
+      Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
+      
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+    Object* = POINTER TO ObjDesc;
+    Module* = POINTER TO ModDesc;
+    Type* = POINTER TO TypeDesc;
+
+    ObjDesc*= RECORD
+      class*, exno*: BYTE;
+      expo*, rdo*: BOOLEAN;   (*exported / read-only*)
+      lev*: INTEGER;
+      next*, dsc*: Object;
+      type*: Type;
+      name*: OXS.Ident;
+      val*: LONGINT
+    END ;
+
+    ModDesc* = RECORD (ObjDesc) orgname*: OXS.Ident END ;
+
+    TypeDesc* = RECORD
+      form*, ref*, mno*: INTEGER;  (*ref is only used for import/export*)
+      nofpar*: INTEGER;  (*for procedures, extension level for records*)
+      len*: LONGINT;  (*for arrays, len < 0 => open array; for records: adr of descriptor*)
+      dsc*, typobj*: Object;
+      base*: Type;  (*for arrays, records, pointers*)
+      size*: LONGINT;  (*in bytes; always multiple of 4, except for Byte, Bool and Char*)
+    END ;
+
+  (* Object classes and the meaning of "val":
+    class    val
+    ----------
+    Var      address
+    Par      address
+    Const    value
+    Fld      offset
+    Typ      type descriptor (TD) address
+    SProc    inline code number
+    SFunc    inline code number
+    Mod      key
+
+  Type forms and the meaning of "dsc" and "base":
+    form     dsc      base
+    ------------------------
+    Pointer  -        type of dereferenced object
+    Proc     params   result type
+    Array    -        type of elements
+    Record   fields   extension *)
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    topScope*, universe, system*: Object;
+    byteType*, boolType*, charType*: Type;
+    shortType*, longType*, doubleType*: Type; 
+    intType*, realType*, setType*, nilType*, noType*, strType*: Type;
+    nofmod, Ref: INTEGER;
+    typtab: ARRAY maxTypTab OF Type;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE NewObj*(VAR obj: Object; id: OXS.Ident; class: INTEGER);  (*insert new Object with name id*)
+
+::
+  PROCEDURE thisObj*(): Object;
+
+::
+  PROCEDURE thisimport*(mod: Object): Object;
+
+::
+  PROCEDURE thisfield*(rec: Type): Object;
+
+::
+  PROCEDURE OpenScope*;
+
+::
+  PROCEDURE CloseScope*;
+
+---
+**MakeFileName**  ??
+::
+  PROCEDURE MakeFileName*(VAR FName: OXS.Ident; name, ext: ARRAY OF CHAR);
+
+---
+**ThisModule** ??
+::
+  PROCEDURE ThisModule(name, orgname: OXS.Ident; decl: BOOLEAN; key: LONGINT): Object;
+
+---
+**Read** reads an adjusted byte in from the symbol file.
+::
+  PROCEDURE Read(VAR R: Files.Rider; VAR x: INTEGER);
+
+---
+**InType** reads a type in from the symbol file of an imported module.
+::
+  PROCEDURE InType(VAR R: Files.Rider; thismod: Object; VAR T: Type);
+
+---
+**Import** reads in the symbol file for an imported module so that its exported constants, types, variables, and procedures may be referenced. 
+::
+  PROCEDURE Import*(VAR modid, modid1: OXS.Ident);
+
+---
+**Write** delivers a byte from the integer to the symbol file.
+::
+  PROCEDURE Write(VAR R: Files.Rider; x: INTEGER);
+
+---
+**OutType** writes a type to the symbol file
+::
+  PROCEDURE OutType(VAR R: Files.Rider; t: Type);
+
+::
+    PROCEDURE OutPar(VAR R: Files.Rider; par: Object; n: INTEGER);
+
+::
+    PROCEDURE FindHiddenPointers(VAR R: Files.Rider; typ: Type; offset: LONGINT);
+
+---
+**Export** writes out the symbol file for a module.
+::
+  PROCEDURE Export*(VAR modid: OXS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT);
+
+---
+**Clear** prepares the top scope of the program.
+::
+  PROCEDURE Clear*;
+
+---
+**type** allocates a pre-defined type object
+::
+  PROCEDURE type(ref, form: INTEGER; size: LONGINT): Type;
+
+---
+**Enter** introduces a pre-defined type, function, or procedure.
+::
+  PROCEDURE enter(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);
+
+---
+**Init** registers base Oberon types and populates the the object table with predeclared types,functions and procedures.
+::
+  PROCEDURE Init*(wordsize: INTEGER); 
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(NW 25.6.2014  / AP 4.3.2020 / 8.3.2019  in Oberon-07 / CP 11.2020)
+
+**OXB** is called from ORP and OXG and tracks the state of identifiers and objects as code compilation progresses.
+ 
+https://github.com/io-core/Build/blob/main/OXB.Mod
+

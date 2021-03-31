@@ -1,34 +1,38 @@
-#################
+########################
   Paint Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Paint:
-   :hidden:
-
-   Images <Paint/Images>
-   Paint <Paint/Paint>
-   Bitmaps <Paint/Bitmaps>
-   ImageFrames <Paint/ImageFrames>
+Version v1.0.0
 
 Paint provides tools for viewing and manipulating bitmap images. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Paint:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <PaintModules>
 
-   * - Images 
-     -  
-   * - Paint 
-     -  
-   * - Bitmaps 
-     -  
-   * - ImageFrames 
-     -  
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Modules v5.0.0
+* Oberon v5.0.0
+* Edit v5.0.0
+* Files v5.0.0
+
+--------
+  About  
+--------
+ 
+
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Paint  
 
 https://github.com/io-core/Paint/blob/main/Paint.Pkg

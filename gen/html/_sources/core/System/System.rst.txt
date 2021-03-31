@@ -2,17 +2,157 @@
   System Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module System presents the Oberon user with tools and commands for interacting Displays and Tracks and Files and other miscelaneous features.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Kernel FileDir Files Modules Input Display Viewers Fonts Texts Oberon MenuViewers TextFrames
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+
+    StandardMenu = "System.Close System.Copy System.Grow Edit.Search Edit.Store";
+    LogMenu = "Edit.Locate Edit.Search System.Copy System.Grow System.Clear Halt.Now";
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ W: Texts.Writer;
+    pat: ARRAY 32 OF CHAR;
+    jobV: Viewers.Viewer;
+    jobCM: TextFrames.CallMsg;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE GetArg(VAR S: Texts.Scanner);
+
+::
+  PROCEDURE EndLine;
+
+::
+  PROCEDURE SetUser*;
+
+::
+  PROCEDURE SetFont*;
+
+::
+  PROCEDURE SetColor*;
+
+::
+  PROCEDURE SetOffset*;
+
+::
+  PROCEDURE Date*;
+
+::
+  PROCEDURE Collect*;
+
+::
+  PROCEDURE Open*;  (*open viewer in system track*)
+
+::
+  PROCEDURE Clear*;  (*clear Log*)
+
+::
+  PROCEDURE Close*;
+
+::
+  PROCEDURE CloseTrack*;
+
+::
+  PROCEDURE Recall*;
+
+::
+  PROCEDURE Copy*;
+
+::
+  PROCEDURE Grow*;
+
+::
+  PROCEDURE Free1(VAR S: Texts.Scanner);
+
+::
+  PROCEDURE Free*;
+
+::
+  PROCEDURE FreeFonts*;
+
+::
+  PROCEDURE List(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);
+
+::
+  PROCEDURE Directory*;
+
+::
+  PROCEDURE CopyFiles*;
+
+::
+  PROCEDURE RenameFiles*;
+
+::
+  PROCEDURE DeleteFiles*;
+
+::
+  PROCEDURE Watch*;
+
+::
+  PROCEDURE ShowModules*;
+
+::
+  PROCEDURE ShowCommands*;
+
+::
+  PROCEDURE ShowFonts*;
+
+::
+  PROCEDURE OpenViewers;
+
+::
+  PROCEDURE ExtendDisplay*;
+
+::
+  PROCEDURE Trap(VAR a: INTEGER; b: INTEGER);
+
+::
+  PROCEDURE Abort;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/System.Mod
 

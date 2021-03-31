@@ -1,46 +1,52 @@
-#################
+########################
   Edit Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Edit:
-   :hidden:
-
-   Edit <Edit/Edit>
-   Fonts <Edit/Fonts>
-   TextFrames <Edit/TextFrames>
-   Texts <Edit/Texts>
-   ConvertPCFFont <Edit/ConvertPCFFont>
-   FontSubsetBuilder <Edit/FontSubsetBuilder>
-   GrowFont <Edit/GrowFont>
-   OptimizeFont <Edit/OptimizeFont>
+Version v5.0.20190118
 
 Edit manages the text and font handling in Oberon. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Edit:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <EditModules>
 
-   * - Edit 
-     - provides text editing functionaltiy in Oberon. 
-   * - Fonts 
-     - implements font file reading and  glyph cacheing. 
-   * - TextFrames 
-     - manages the interaction with frames of text in Oberon. 
-   * - Texts 
-     - provides the fundamental text data abstraction in Oberon. 
-   * - ConvertPCFFont 
-     - converts a PCF font to Oberon format. 
-   * - FontSubsetBuilder 
-     - extracts a subset of glyphs into a smaller font file. 
-   * - GrowFont 
-     - produces an upscaled font from a smaller font. 
-   * - OptimizeFont 
-     - optimizes a font file. 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Files v5.0.0
+* Modules v5.0.0
+* Oberon v5.0.0
+
+--------
+  About  
+--------
+ 
+### _Package Overview:_
+The Edit package provides:
+
+* The 'text' abstraction for manipulating textual content
+* TextFrames for interacting with text via the GUI
+* The Edit tool for interacting with documents
+* The font mechanism in Oberon
+
+### _Package Use:_
+
+USAGE:
+```
+Edit.Open example.txt
+```
+
+### _Modules in this package:_
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Edit  
 
 https://github.com/io-core/Edit/blob/main/Edit.Pkg

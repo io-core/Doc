@@ -2,17 +2,102 @@
   Stars Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Display Viewers Texts Oberon MenuViewers TextFrames
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ N = 6;  (*nof stars*)
+    w = 16;   (*width of star*)
+    interval = 200;  (*millisec*)
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ Frame = POINTER TO FrameDesc;
+    Pos = RECORD x, y, dx, dy: INTEGER END ;
+    FrameDesc = RECORD (Display.FrameDesc) s: ARRAY N OF Pos END ;
+    RestoreMsg = RECORD (Display.FrameMsg) END ;
+    StepMsg = RECORD (Display.FrameMsg) END ;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ T: Oberon.Task;
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Draw(x, y: INTEGER);
+
+::
+  PROCEDURE Restore(F: Frame);
+
+::
+  PROCEDURE Move(F: Frame; VAR p: Pos);
+
+::
+  PROCEDURE Steps(F: Frame);
+
+::
+  PROCEDURE Handle(F: Display.Frame; VAR M: Display.FrameMsg);
+
+::
+  PROCEDURE Step*;
+
+::
+  PROCEDURE Open*;
+
+::
+  PROCEDURE Run*;
+
+::
+  PROCEDURE Stop*;
+
+::
+  PROCEDURE Close*;
+
+::
+  PROCEDURE Step1;
+
+::
+  PROCEDURE SetPeriod*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/Stars.Mod
 

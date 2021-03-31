@@ -8,16 +8,23 @@
    :caption: IO Core Packages:
    :hidden:
 
+   core/Boot 
    core/Kernel
    core/Files
    core/Modules
    core/Build
    core/Edit
-   core/Boot 
    core/Oberon
    core/System
 
-Core modules in Integrated Oberon...
+The Core Packages in Integrated Oberon contain those modules necessary 
+for booting Oberon to a user interface (or to a command loop for an embedded 
+Oberon) and those modules needed to recompile the core of Integrated Oberon.
+
+Four packages comprise an Inner Core of Oberon -- Boot, Kernel, Files, and 
+Modules. The modules in these four packages are linked into a bootable binary
+image that, after being loaded by the boot mechanism of the host platform, will
+load the rest of the Core Oberon system.
 
 https://github.com/io-core/Oberon/blob/main/Oberon.Mod
 
@@ -27,6 +34,8 @@ https://github.com/io-core/Oberon/blob/main/Oberon.Mod
  
    * - Package 
      - Description 
+   * - Boot 
+     -  Brings the Oberon Inner Core into memory and passes control to it. 
    * - Kernel 
      -  handles kernel load / heap and GC / SDcard and sectors / timer and clock / traps. 
    * - Files 
@@ -37,8 +46,6 @@ https://github.com/io-core/Oberon/blob/main/Oberon.Mod
      - provides the compiler and associated program building and debugging tools for Oberon. 
    * - Edit 
      - manages the text and font handling in Oberon. 
-   * - Boot 
-     -  Brings the Oberon Inner Core into memory and passes control to it. 
    * - Oberon 
      - implements the user-interaction functionality and the task loop of the system. 
    * - System 

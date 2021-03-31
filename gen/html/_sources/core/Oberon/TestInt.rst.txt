@@ -1,0 +1,79 @@
+####################################
+  TestInt Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module TestInt tests the Interrupt functionality of Oberon
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+  SYSTEM
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ led, cnt: INTEGER;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Int** fields the system millisecond interrupt and toggles the LED every half second.
+::
+ PROCEDURE* Int; (*interrupt handler called every millisecond*)
+
+---
+**On** enables the system millisecond interrupt.
+::
+ PROCEDURE On*;
+
+---
+**Off** disables the system millisecond interrupt.
+::
+ PROCEDURE Off*;
+
+---
+**The initialzation code for this module** installs the Int interrupt procedure in the system interrupt vector.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+Module TestInt enables or disables the central interrupt and registers an interrupt procedure that blinks an LED.
+ 
+https://github.com/io-core/Oberon/blob/main/TestInt.Mod
+

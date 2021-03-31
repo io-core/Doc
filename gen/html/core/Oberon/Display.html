@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Input Module" href="Input.html" />
-    <link rel="prev" title="Viewers Module" href="Viewers.html" /> 
+    <link rel="prev" title="Oberon Modules" href="../OberonModules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,17 +93,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Oberon.html">Oberon Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Oberon.html">Oberon</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Viewers.html">Viewers</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Input.html">Input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../OberonModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Oberon.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
@@ -112,7 +111,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -172,6 +172,8 @@
         
           <li><a href="../Oberon.html">Oberon Package</a> &raquo;</li>
         
+          <li><a href="../OberonModules.html">Oberon Modules</a> &raquo;</li>
+        
       <li>Display Module</li>
     
     
@@ -193,15 +195,104 @@
             
   <div class="section" id="display-module">
 <h1>Display Module<a class="headerlink" href="#display-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module Display implements the drawing primitives for the frame buffer device in Oberon.</p>
+<p>A pattern is an array of bytes; the first is its width (&lt; 32), the second its height, the rest the raster data.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>black* = 0;  (*black = background*)
+replace* = 0; paint* = 1; invert* = 2;  (*modes*)
+(* base = 0E7F00H; *)  (*adr of 1024 x 768 pixel, monocolor display frame*)
+(* In the emulator, the frame buffer address might be moved depending on memory configuration *)
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame* = POINTER TO FrameDesc;
+FrameMsg* = RECORD END ;
+Handler* = PROCEDURE (F: Frame; VAR M: FrameMsg);
+FrameDesc* = RECORD next*, dsc*: Frame;
+    X*, Y*, W*, H*: INTEGER;
+    handle*: Handler
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Base*, Width*, Height*, Depth*, white*, Span, Colors, Colmask, pp8, pp32: INTEGER;
+arrow*, star*, hook*, updown*, block*, top*, bot*, cross*, grey*: INTEGER;
+(*a pattern is an array of bytes; the first is its width (&lt; 32), the second its height, the rest the raster*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>—
+<strong>Handle</strong> dispatches a handle message to the appropriate frame.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Handle</span><span class="o">*</span><span class="p">(</span><span class="n">F</span><span class="p">:</span> <span class="n">Frame</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">M</span><span class="p">:</span> <span class="n">FrameMsg</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Dot</strong> modifies a pixel on the display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Dot</span><span class="o">*</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReplConst</strong> paints a color into a rectangular area or inverts the area.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReplConst</span><span class="o">*</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>CopyPattern</strong> copies a bitmap to a location in a color, possibly inverting the destination area.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CopyPattern</span><span class="o">*</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">patadr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>  <span class="p">(</span><span class="o">*</span><span class="n">only</span> <span class="k">for</span> <span class="n">modes</span> <span class="o">=</span> <span class="n">paint</span><span class="p">,</span> <span class="n">invert</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>CopyBlock</strong> copies a rectangular area to a location on the display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">CopyBlock</span><span class="o">*</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span> <span class="p">(</span><span class="o">*</span><span class="n">only</span> <span class="k">for</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">replace</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
+<strong>ReplPattern</strong> replicates a pattern over a rectangular area of the display.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ReplPattern</span><span class="o">*</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">patadr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>InitResolution</strong> determines the frame buffer base address and screen geometry.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">InitResolution</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>The initialzation code for this module</strong> detects the screen origin and geometry and then installs icons for cursors and a background pattern.</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>(NW 5.11.2013 / 17.1.2019 / PDW 21.1.2019 / JS 2020 / CP 2020)</p>
+<p><strong>Display</strong> is the interface to the hardware framebuffer in Oberon.</p>
+<p>On initialization the origial base address is queried for a magic value to determine
+if the base has moved and if the resolution is something other than 1024x768.</p>
+<p>A pattern is an array of bytes; the first is its width (&lt; 32), the second its height, the rest the raster data.</p>
 <p><a class="reference external" href="https://github.com/io-core/Oberon/blob/main/Display.Mod">https://github.com/io-core/Oberon/blob/main/Display.Mod</a></p>
+</div>
 </div>
 
 
@@ -211,7 +302,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Input.html" class="btn btn-neutral float-right" title="Input Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Viewers.html" class="btn btn-neutral float-left" title="Viewers Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../OberonModules.html" class="btn btn-neutral float-left" title="Oberon Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

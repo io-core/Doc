@@ -29,17 +29,16 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modules Module" href="Modules/Modules.html" />
+    <link rel="next" title="Modules Modules" href="ModulesModules.html" />
     <link rel="prev" title="Files Module" href="Files/Files.html" /> 
 </head>
 
@@ -94,22 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Files.html">Files Package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Modules Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Modules/Modules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ModulesModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Build.html">Build Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Edit.html">Edit Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Community.html">Community</a></li>
@@ -188,26 +191,32 @@
             
   <div class="section" id="modules-package">
 <h1>Modules Package<a class="headerlink" href="#modules-package" title="Permalink to this headline">¶</a></h1>
+<p>Version v5.0.20190108</p>
+<p>Modules manages compiled module loading and unloading in Oberon.</p>
 <div class="toctree-wrapper compound">
 </div>
-<p>Modules manages compiled module loading and unloading in Oberon.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Modules</p></td>
-<td><p>implements module loading and linking in Oberon.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="package-dependencies">
+<h2>Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Files v5.0.0</p></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>### _Package Overview:_
+The Modules package manages the loading and linking and unloading of program code and is the first code run when the boot loader passes control to the OS.</p>
+<p>### _Package Use:_</p>
+<p>USAGE:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Modules.Load(&quot;something&quot;,M)</span>
+<span class="pre">`</span></code></p>
+<p>### _Modules in this package:_</p>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
+<p>Modules</p>
 <p><a class="reference external" href="https://github.com/io-core/Modules/blob/main/Modules.Pkg">https://github.com/io-core/Modules/blob/main/Modules.Pkg</a></p>
+</div>
 </div>
 
 
@@ -216,7 +225,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Modules/Modules.html" class="btn btn-neutral float-right" title="Modules Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ModulesModules.html" class="btn btn-neutral float-right" title="Modules Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="Files/Files.html" class="btn btn-neutral float-left" title="Files Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

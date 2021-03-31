@@ -2,17 +2,105 @@
   Edit Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Edit provides document editing capability.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Files Fonts Texts Display Viewers Oberon MenuViewers TextFrames
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+    CR = 0DX; maxlen = 32;
+    StandardMenu = "System.Close System.Copy System.Grow Edit.Search Edit.Store";
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    W: Texts.Writer;
+    time: LONGINT;
+    M: INTEGER;
+    pat: ARRAY maxlen OF CHAR;
+    d: ARRAY 256 OF INTEGER;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Max(i, j: LONGINT): LONGINT;
+
+::
+  PROCEDURE Open*;
+
+::
+  PROCEDURE Store*;
+
+::
+    PROCEDURE Backup (VAR name: ARRAY OF CHAR);
+
+::
+  PROCEDURE CopyLooks*;
+
+::
+  PROCEDURE ChangeFont*;
+
+::
+  PROCEDURE ChangeColor*;
+
+::
+  PROCEDURE ChangeOffset*;
+
+::
+  PROCEDURE Search*;  (*uses global variables M, pat, d for Boyer-Moore search*)
+
+::
+    PROCEDURE Forward(n: INTEGER; VAR R: Texts.Reader; VAR buf: ARRAY OF CHAR);
+
+::
+  PROCEDURE Locate*;
+
+::
+  PROCEDURE Recall*;
+
+::
+  PROCEDURE InsertUnicode*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Edit/blob/main/Edit.Mod
 

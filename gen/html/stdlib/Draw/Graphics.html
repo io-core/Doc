@@ -29,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -40,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="MacroTool Module" href="MacroTool.html" />
-    <link rel="prev" title="Draw Module" href="Draw.html" /> 
+    <link rel="prev" title="GraphicFrames Module" href="GraphicFrames.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,23 +95,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Core.html">IO Core Packages</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Std.html">IO Standard Packages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Assist.html">Assist Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attest.html">Attest Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Crypto.html">Crypto Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Doc.html">Doc Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Draw.html">Draw Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Draw.html">Draw</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Graphics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="MacroTool.html">MacroTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="GraphicFrames.html">GraphicFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="GraphTool.html">GraphTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Rectangles.html">Rectangles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Curves.html">Curves</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../DrawModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Draw.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Draw.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Draw.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Paint.html">Paint Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Mod.html">Mod Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ArgParse.html">ArgParse Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Test.html">Test Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -172,6 +173,8 @@
         
           <li><a href="../Draw.html">Draw Package</a> &raquo;</li>
         
+          <li><a href="../DrawModules.html">Draw Modules</a> &raquo;</li>
+        
       <li>Graphics Module</li>
     
     
@@ -193,15 +196,358 @@
             
   <div class="section" id="graphics-module">
 <h1>Graphics Module<a class="headerlink" href="#graphics-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Files Modules Fonts (*Printer*) Texts Oberon
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NameLen* = 32; GraphFileId = 0FAX; LibFileId = 0FBX;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Graph* = POINTER TO GraphDesc;
+Object* = POINTER TO ObjectDesc;
+Method* = POINTER TO MethodDesc;
+
+Line* = POINTER TO LineDesc;
+Caption* = POINTER TO CaptionDesc;
+Macro* = POINTER TO MacroDesc;
+
+ObjectDesc* = RECORD
+    x*, y*, w*, h*: INTEGER;
+    col*: BYTE;
+    selected*, marked*: BOOLEAN;
+    do*: Method;
+    next: Object
+  END ;
+
+Msg* = RECORD END ;
+WidMsg* = RECORD (Msg) w*: INTEGER END ;
+ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+Name* = ARRAY NameLen OF CHAR;
+
+GraphDesc* = RECORD
+    time*: LONGINT;
+    sel*, first: Object;
+    changed*: BOOLEAN
+  END ;
+
+MacHead* = POINTER TO MacHeadDesc;
+MacExt* = POINTER TO MacExtDesc;
+Library* = POINTER TO LibraryDesc;
+
+MacHeadDesc* = RECORD
+    name*: Name;
+    w*, h*: INTEGER;
+    ext*: MacExt;
+    lib*: Library;
+    first: Object;
+    next: MacHead
+  END ;
+
+LibraryDesc* = RECORD
+    name*: Name;
+    first: MacHead;
+    next: Library
+  END ;
+
+MacExtDesc* = RECORD END ;
+
+Context* = RECORD
+    nofonts, noflibs, nofclasses: INTEGER;
+    font: ARRAY 10 OF Fonts.Font;
+    lib: ARRAY 4 OF Library;
+    class: ARRAY 6 OF Modules.Command
+  END;
+
+MethodDesc* = RECORD
+    module*, allocator*: Name;
+    new*: Modules.Command;
+    copy*: PROCEDURE (from, to: Object);
+    draw*, change*: PROCEDURE (obj: Object; VAR msg: Msg);
+    selectable*: PROCEDURE (obj: Object; x, y: INTEGER): BOOLEAN;
+    read*: PROCEDURE (obj: Object; VAR R: Files.Rider; VAR C: Context);
+    write*: PROCEDURE (obj: Object; cno: INTEGER; VAR R: Files.Rider; VAR C: Context);
+    print*: PROCEDURE (obj: Object; x, y: INTEGER)
+  END ;
+
+LineDesc* = RECORD (ObjectDesc)
+    unused*: INTEGER
+  END ;
+
+CaptionDesc* = RECORD (ObjectDesc)
+    pos*, len*: INTEGER
+  END ;
+
+MacroDesc* = RECORD (ObjectDesc)
+    mac*: MacHead
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>width*, res*: INTEGER;
+   new: Object;
+   T*: Texts.Text;  (*captions*)
+   LineMethod*, CapMethod*, MacMethod* : Method;
+   GetLib0: PROCEDURE (name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE New*(obj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Add*(G: Graph; obj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisObj*(G: Graph; x, y: INTEGER): Object;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SelectObj*(G: Graph; obj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SelectArea*(G: Graph; x0, y0, x1, y1: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Draw*(G: Graph; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE List*(G: Graph);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Deselect*(G: Graph);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawSel*(G: Graph; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Change*(G: Graph; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Move*(G: Graph; dx, dy: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Copy*(Gs, Gd: Graph; dx, dy: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Delete*(G: Graph);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WMsg(s0, s1: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE InitContext(VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FontNo*(VAR W: Files.Rider; VAR C: Context; fnt: Fonts.Font): INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE StoreElems(VAR W: Files.Rider; VAR C: Context; obj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Store*(G: Graph; VAR W: Files.Rider);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteObj*(VAR W: Files.Rider; cno: INTEGER; obj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteFile*(G: Graph; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Print*(G: Graph; x0, y0: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE GetClass*(module, allocator: ARRAY OF CHAR; VAR com: Modules.Command);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Font*(VAR R: Files.Rider; VAR C: Context): Fonts.Font;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadObj(VAR R: Files.Rider; obj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LoadElems(VAR R: Files.Rider; VAR C: Context; VAR fobj: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Load*(G: Graph; VAR R: Files.Rider);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Open*(G: Graph; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetWidth*(w: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE GetLib*(name: ARRAY OF CHAR; replace: BOOLEAN; VAR Lib: Library);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewLib*(Lname: ARRAY OF CHAR): Library;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE StoreLib*(L: Library; Fname: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE RemoveLibraries*;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisMac*(L: Library; Mname: ARRAY OF CHAR): MacHead;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawMac*(mh: MacHead; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenMac*(mh: MacHead; G: Graph; x, y: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE MakeMac*(G: Graph; VAR head: MacHead);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE InsertMac*(mh: MacHead; L: Library; VAR new: BOOLEAN);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewLine;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CopyLine(src, dst: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ChangeLine(obj: Object; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LineSelectable(obj: Object; x, y: INTEGER): BOOLEAN;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadLine(obj: Object; VAR R: Files.Rider; VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteLine(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewCaption;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CopyCaption(src, dst: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ChangeCaption(obj: Object;  VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CaptionSelectable(obj: Object; x, y: INTEGER): BOOLEAN;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadCaption(obj: Object; VAR R: Files.Rider; VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteCaption(obj: Object; cno: INTEGER; VAR W: Files.Rider; VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewMacro;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CopyMacro(src, dst: Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ChangeMacro(obj: Object; VAR M: Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE MacroSelectable(obj: Object; x, y: INTEGER): BOOLEAN;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadMacro(obj: Object; VAR R: Files.Rider; VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteMacro(obj: Object; cno: INTEGER; VAR W1: Files.Rider; VAR C: Context);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Notify(T: Texts.Text; op: INTEGER; beg, end: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (obj: Object; VAR msg: Msg));</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Draw/blob/main/Graphics.Mod">https://github.com/io-core/Draw/blob/main/Graphics.Mod</a></p>
+</div>
 </div>
 
 
@@ -211,7 +557,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="MacroTool.html" class="btn btn-neutral float-right" title="MacroTool Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Draw.html" class="btn btn-neutral float-left" title="Draw Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="GraphicFrames.html" class="btn btn-neutral float-left" title="GraphicFrames Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

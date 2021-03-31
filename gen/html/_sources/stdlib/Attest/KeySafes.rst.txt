@@ -1,0 +1,168 @@
+####################################
+  KeySafes Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module KeySafes keeps the secrets used to sign and trust signed code.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Fonts KeyPairs
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ 
+    replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+    Method* = POINTER TO MethodDesc;
+    KeyRing* = POINTER TO KeyRingDesc;
+    KeyRingDesc* = RECORD
+      x*, y*, w*, h*, d*, p*: INTEGER;
+      sx*, sy*: REAL;
+      sw*, sh*: INTEGER;
+      selected*, marked*: BOOLEAN;
+      do*: Method;
+      next: KeyRing
+    END;
+
+    KeySafe* = POINTER TO KeySafeDesc;
+    Notifier* = PROCEDURE (S: KeySafe; op: INTEGER; beg, end: LONGINT);
+    KeySafeDesc* = RECORD
+      len*: LONGINT;
+      changed*: BOOLEAN;
+      flattened*: BOOLEAN;
+      sel*, first: KeyRing;
+      notify*: Notifier
+    END;
+
+    Msg* = RECORD END ;
+    WidMsg* = RECORD (Msg) w*: INTEGER END ;
+    ColorMsg* = RECORD (Msg) col*: INTEGER END ;
+    FontMsg* = RECORD (Msg) fnt*: Fonts.Font END ;
+    
+
+    bmpHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    jpgHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    pngHeaderEntry = RECORD
+        a: INTEGER;
+        b: INTEGER;
+        c: INTEGER;
+        d: INTEGER
+    END;
+
+    MethodDesc* = RECORD
+        copy*: PROCEDURE (from, to: KeyRing);
+        draw*, change*: PROCEDURE (R: KeyRing; VAR msg: Msg);
+        selectable*: PROCEDURE (R: KeyRing; x, y: INTEGER): BOOLEAN;
+        read*: PROCEDURE (R: KeyRing; VAR r: Files.Rider); (*; VAR c: Context); *)
+        write*: PROCEDURE (R: KeyRing; cno: INTEGER; VAR r: Files.Rider); (*; VAR c: Context);*)
+        print*: PROCEDURE (R: KeyRing; x, y: INTEGER)
+      END ;
+
+    
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    res*: INTEGER;
+    width: INTEGER;
+    new*: KeyRing; 
+    LineMethod*, CapMethod*, MacMethod* : Method;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE New*(R: KeyRing);
+
+::
+  PROCEDURE Add*(S: KeySafe; R: KeyRing);
+
+::
+  PROCEDURE ThisKeyRing*(S: KeySafe; x, y: INTEGER): KeyRing;
+
+::
+  PROCEDURE SelectKeyRing*(S: KeySafe; R: KeyRing);
+
+::
+  PROCEDURE SelectArea*(S: KeySafe; x0, y0, x1, y1: INTEGER);
+
+::
+  PROCEDURE Draw*(S: KeySafe; VAR m: Msg);
+
+::
+  PROCEDURE List*(S: KeySafe);
+
+::
+  PROCEDURE Deselect*(S: KeySafe);
+
+::
+  PROCEDURE DrawSel*(S: KeySafe; VAR m: Msg);
+
+::
+  PROCEDURE Change*(S: KeySafe; VAR m: Msg);
+
+::
+  PROCEDURE WriteFile*(S: KeySafe; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE SetWidth*(w: INTEGER);
+
+::
+  PROCEDURE Open*(S: KeySafe; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE Delete*(S: KeySafe);
+
+::
+  PROCEDURE InstallDrawMethods*(drawLine, drawCaption, drawMacro: PROCEDURE (R: KeyRing; VAR msg: Msg));
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Attest/blob/main/KeySafes.Mod
+

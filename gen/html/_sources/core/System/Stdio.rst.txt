@@ -1,0 +1,72 @@
+####################################
+  Stdio Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Stdio adapts streaming io to the Oberon text and viewers model.
+
+Module Stdio adapts streaming io to the Oberon text and viewers model.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Texts Viewers Oberon TextFrames MenuViewers System Edit
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+    Flow* = POINTER TO FlowDesc;
+    FlowDesc* = RECORD
+      T*: Texts.Text;
+      V*: Viewers.Viewer;
+      X*, Y*: INTEGER;
+      user*: BOOLEAN
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE Open*(VAR F: Flow);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/System/blob/main/Stdio.Mod
+

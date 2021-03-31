@@ -2,17 +2,107 @@
   Batch Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Batch provides for automatic sequential execution of Oberon commands.
+
+Module Batch provides for automatic sequential execution of Oberon commands.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Kernel FileDir Files Display Texts TextFrames Viewers Oberon
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+
+    BatchStopped = 0;
+    BatchRunning = 1;
+    BatchWaitGC = 2;
+    BatchFailed = 3;
+    OberonVerifyVersion = "OR Compiler 22.7.2018";
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+
+    FileList = POINTER TO FileListDesc;
+
+    FileListDesc = RECORD
+        name: FileDir.FileName;
+        next: FileList;
+      END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    pat: ARRAY 32 OF CHAR;
+    fl: FileList;
+    state: INTEGER;
+    emptyReader: Texts.Reader;
+    script: Texts.Reader;
+    scriptFrame: TextFrames.Frame;
+    gcWaitTask: Oberon.Task;
+    gcWaitAllocated: INTEGER;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE ClearLog*;
+
+::
+  PROCEDURE WriteLog*;
+
+::
+  PROCEDURE VerifyLog*;
+
+::
+  PROCEDURE AddFileToList(name: FileDir.FileName; adr: LONGINT; VAR cont: BOOLEAN);
+
+::
+  PROCEDURE DeleteFiles*;
+
+::
+  PROCEDURE Collect*;
+
+::
+  PROCEDURE Continue;
+
+::
+  PROCEDURE GCWait;
+
+::
+  PROCEDURE Run*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/System/blob/main/Batch.Mod
 

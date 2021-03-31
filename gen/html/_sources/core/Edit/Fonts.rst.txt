@@ -2,17 +2,103 @@
   Fonts Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ OriginalFontFileId = 0DBH;
+        PaddedFontFileId = 0DCH;
+     
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ Font* = POINTER TO FontDesc;
+    RasterBlock = POINTER TO RasterBlockDesc;
+    FontDesc* = RECORD
+      name*: ARRAY 32 OF CHAR;
+      height*, minX*, maxX*, minY*, maxY*: INTEGER;
+      next*: Font;
+      T1: ARRAY 64 OF INTEGER;
+      block: RasterBlock;
+    END;
+
+    RasterBlockDesc = RECORD
+      next: RasterBlock;
+      offs: INTEGER;
+      raster: ARRAY 1000 OF BYTE;
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ Default*, root*: Font;
+  FallbackPat: ARRAY 35 OF BYTE;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+PROCEDURE ReadInt16(VAR R: Files.Rider; VAR r: INTEGER);
+
+::
+PROCEDURE RdInt16(VAR R: Files.Rider; VAR b0: BYTE);
+
+::
+PROCEDURE FindSpace(B: RasterBlock; size, align: INTEGER): INTEGER;
+
+::
+PROCEDURE OberonLoadRange(F: Font; rangeStart: INTEGER; f: Files.File; padded: BOOLEAN);
+
+::
+PROCEDURE LoadRange(F: Font; rangeStart: INTEGER);
+
+::
+PROCEDURE PatDot(x,y: INTEGER);
+
+::
+PROCEDURE GetUniPat*(fnt: Font; codepoint: INTEGER; VAR dx, x, y, w, h, patadr: INTEGER);
+
+::
+PROCEDURE This*(name: ARRAY OF CHAR): Font;
+
+::
+PROCEDURE Free*;  (*remove all but first two from font list*)
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Edit/blob/main/Fonts.Mod
 

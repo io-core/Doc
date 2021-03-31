@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="GraphTool Module" href="GraphTool.html" />
-    <link rel="prev" title="MacroTool Module" href="MacroTool.html" /> 
+    <link rel="next" title="Graphics Module" href="Graphics.html" />
+    <link rel="prev" title="GraphTool Module" href="GraphTool.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,23 +95,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Core.html">IO Core Packages</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Std.html">IO Standard Packages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Assist.html">Assist Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attest.html">Attest Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Crypto.html">Crypto Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Doc.html">Doc Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Draw.html">Draw Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Draw.html">Draw</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Graphics.html">Graphics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="MacroTool.html">MacroTool</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">GraphicFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="GraphTool.html">GraphTool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Rectangles.html">Rectangles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Curves.html">Curves</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../DrawModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Draw.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Draw.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Draw.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Paint.html">Paint Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Mod.html">Mod Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ArgParse.html">ArgParse Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Test.html">Test Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -172,6 +173,8 @@
         
           <li><a href="../Draw.html">Draw Package</a> &raquo;</li>
         
+          <li><a href="../DrawModules.html">Draw Modules</a> &raquo;</li>
+        
       <li>GraphicFrames Module</li>
     
     
@@ -193,15 +196,236 @@
             
   <div class="section" id="graphicframes-module">
 <h1>GraphicFrames Module<a class="headerlink" href="#graphicframes-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Display Viewers Input Fonts Texts Graphics Oberon MenuViewers
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(*update message ids*)
+   drawobj = 1; drawobjs = 2; drawobjd = 3;
+   drawnorm = 4; drawsel = 5; drawdel = 6;
+
+   markW = 5;
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame* = POINTER TO FrameDesc;
+Location* = POINTER TO LocDesc;
+
+LocDesc* = RECORD
+    x*, y*: INTEGER;
+    next*: Location
+  END ;
+
+FrameDesc* = RECORD (Display.FrameDesc)
+    graph*: Graphics.Graph;
+    Xg*, Yg*: INTEGER;  (*pos rel to graph origin*)
+    X1*, Y1*: INTEGER;  (*right and upper margins*)
+    x*, y*, col*: INTEGER;  (*x = X + Xg, y = Y + Yg*)
+    marked*, ticked*: BOOLEAN;
+    mark*: LocDesc
+  END ;
+
+DrawMsg* = RECORD (Graphics.Msg)
+    f*: Frame;
+    x*, y*, col*, mode*: INTEGER
+  END ;
+
+UpdateMsg = RECORD (Display.FrameMsg)
+    id: INTEGER;
+    graph: Graphics.Graph;
+    obj: Graphics.Object
+  END ;
+
+ChangedMsg = RECORD (Display.FrameMsg)
+    f: Frame;
+    graph: Graphics.Graph;
+    mode: INTEGER
+  END ;
+
+SelQuery = RECORD (Display.FrameMsg)
+    f: Frame; time: LONGINT
+  END ;
+
+FocusQuery = RECORD (Display.FrameMsg)
+    f: Frame
+  END ;
+
+PosQuery = RECORD (Display.FrameMsg)
+    f: Frame; x, y: INTEGER
+  END ;
+
+DispMsg = RECORD (Display.FrameMsg)
+    x1, y1, w: INTEGER;
+    pat: INTEGER;
+    graph: Graphics.Graph
+  END ;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Crosshair*: Oberon.Marker;
+   tack*, dotted*, dotted1*: INTEGER;  (*patterns*)
+   newcap: Graphics.Caption;
+   TBuf: Texts.Buffer;
+   DW, DH, CL: INTEGER;
+   W: Texts.Writer;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetChangeMark(F: Frame; col: INTEGER); (<em>set mark in corner of frame</em>)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Restore*(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FlipCross(X, Y: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Focus*(): Frame;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Selected*(): Frame;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE This*(x, y: INTEGER): Frame;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Mark(F: Frame; mode: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Draw*(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawNorm(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Erase*(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawObj*(F: Frame; obj: Graphics.Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE EraseObj*(F: Frame; obj: Graphics.Object);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Change*(F: Frame; VAR msg: Graphics.Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FlipMark(x, y: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Defocus*(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Deselect*(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Macro*(Lname, Mname: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE CaptionCopy(F: Frame;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewLine(F: Frame; G: Graphics.Graph; x, y, w, h: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Edit(F: Frame; x0, y0: INTEGER; k0: SET);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE NewCaption(F: Frame; col: INTEGER; font: Fonts.Font);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE InsertChar(F: Frame; codepoint: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DeleteChar(F: Frame);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE GetSelection(F: Frame; VAR text: Texts.Text; VAR beg, end, time: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Handle*(G: Display.Frame; VAR M: Display.FrameMsg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Store*(F: Frame; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawLine(obj: Graphics.Object; VAR M: Graphics.Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawCaption(obj: Graphics.Object; VAR M: Graphics.Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE DrawMacro(obj: Graphics.Object; VAR M: Graphics.Msg);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Open*(G: Frame; graph: Graphics.Graph);</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod">https://github.com/io-core/Draw/blob/main/GraphicFrames.Mod</a></p>
+</div>
 </div>
 
 
@@ -210,8 +434,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="GraphTool.html" class="btn btn-neutral float-right" title="GraphTool Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="MacroTool.html" class="btn btn-neutral float-left" title="MacroTool Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Graphics.html" class="btn btn-neutral float-right" title="Graphics Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="GraphTool.html" class="btn btn-neutral float-left" title="GraphTool Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

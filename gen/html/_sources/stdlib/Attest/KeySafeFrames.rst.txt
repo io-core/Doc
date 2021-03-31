@@ -1,0 +1,207 @@
+####################################
+  KeySafeFrames Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module KeySafeFrames provides a user-interface to the keys used to sign and to trust signed code.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Display Viewers Input Fonts Texts KeySafes Oberon MenuViewers
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ (*update message ids*)
+    drawkeyring = 1; drawkeyrings = 2; drawkeyringd = 3;
+    drawnorm = 4; drawsel = 5; drawdel = 6;
+
+    markW = 5;
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+    Frame* = POINTER TO FrameDesc;
+    Location* = POINTER TO LocDesc;
+
+    LocDesc* = RECORD
+        x*, y*: INTEGER;
+        next*: Location
+      END ;
+
+    FrameDesc* = RECORD (Display.FrameDesc)
+        keysafe*: KeySafes.KeySafe;
+        Xg*, Yg*: INTEGER;  (*pos rel to keysafe origin*)
+        X1*, Y1*: INTEGER;  (*right and upper margins*)
+        x*, y*, col*: INTEGER;  (*x = X + Xg, y = Y + Yg*)
+        marked*, ticked*: BOOLEAN;
+        mark*: LocDesc
+      END ;
+
+    DrawMsg* = RECORD (KeySafes.Msg)
+        f*: Frame;
+        x*, y*, col*, mode*: INTEGER
+      END ;
+
+    UpdateMsg = RECORD (Display.FrameMsg)
+        id: INTEGER;
+        keysafe: KeySafes.KeySafe;
+        keyring: KeySafes.KeyRing
+      END ;
+
+    ChangedMsg = RECORD (Display.FrameMsg)
+        f: Frame;
+        keysafe: KeySafes.KeySafe;
+        mode: INTEGER
+      END ;
+
+    SelQuery = RECORD (Display.FrameMsg)
+        f: Frame; time: LONGINT
+      END ;
+
+    FocusQuery = RECORD (Display.FrameMsg)
+        f: Frame
+      END ;
+
+    PosQuery = RECORD (Display.FrameMsg)
+        f: Frame; x, y: INTEGER
+      END ;
+
+    DispMsg = RECORD (Display.FrameMsg)
+        x1, y1, w: INTEGER;
+        pat: INTEGER;
+        keysafe: KeySafes.KeySafe
+      END ;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ Crosshair*: Oberon.Marker;
+    tack*, dotted*, dotted1*: INTEGER;  (*patterns*)
+    (* newcap: Graphics.Caption; *)
+    TBuf: Texts.Buffer;
+    DW, DH, CL: INTEGER;
+    w: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+::
+  PROCEDURE SetChangeMark(f: Frame; col: INTEGER); (*set mark in corner of frame*)
+
+::
+  PROCEDURE Restore*(f: Frame);
+
+::
+  PROCEDURE FlipCross(X, Y: INTEGER);
+
+::
+  PROCEDURE Focus*(): Frame;
+
+::
+  PROCEDURE Selected*(): Frame;
+
+::
+  PROCEDURE This*(x, y: INTEGER): Frame;
+
+::
+  PROCEDURE Mark(f: Frame; mode: INTEGER);
+
+::
+  PROCEDURE Draw*(f: Frame);
+
+::
+  PROCEDURE DrawNorm(f: Frame);
+
+::
+  PROCEDURE Erase*(f: Frame);
+
+::
+  PROCEDURE DrawKeyRing*(f: Frame; L: KeySafes.KeyRing);
+
+::
+  PROCEDURE EraseKeyRing*(f: Frame; R: KeySafes.KeyRing);
+
+::
+  PROCEDURE Change*(f: Frame; VAR msg: KeySafes.Msg);
+
+::
+  PROCEDURE FlipMark(x, y: INTEGER);
+
+::
+  PROCEDURE Defocus*(f: Frame);
+
+::
+  PROCEDURE Deselect*(f: Frame);
+
+::
+  PROCEDURE Edit(f: Frame; x0, y0: INTEGER; k0: SET);
+
+::
+  PROCEDURE NewCaption(f: Frame; col: INTEGER; font: Fonts.Font);
+
+::
+  PROCEDURE InsertChar(f: Frame; codepoint: INTEGER);
+
+::
+  PROCEDURE DeleteChar(f: Frame);
+
+::
+  PROCEDURE GetSelection(f: Frame; VAR text: Texts.Text; VAR beg, end: (*, time:*) LONGINT);
+
+::
+  PROCEDURE Handle*(f: Display.Frame; VAR m: Display.FrameMsg);
+
+::
+  PROCEDURE Store*(f: Frame; name: ARRAY OF CHAR);
+
+::
+  PROCEDURE ReplConst*(F: Frame; col, x, y, w, h, mode: INTEGER);
+
+::
+  PROCEDURE ReplPattern*(F: Frame; col, patadr, x, y, w, h, mode: INTEGER);
+
+::
+  PROCEDURE DrawLine(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);
+
+::
+  PROCEDURE DrawCaption(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);
+
+::
+  PROCEDURE DrawMacro(obj: KeySafes.KeyRing; VAR m: KeySafes.Msg);
+
+::
+  PROCEDURE Open*(f: Frame; S: KeySafes.KeySafe);
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/Attest/blob/main/KeySafeFrames.Mod
+

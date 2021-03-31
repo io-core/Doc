@@ -1,34 +1,49 @@
-#################
+########################
   Oberon Package 
-#################
+########################
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Oberon:
-   :hidden:
-
-   Oberon <Oberon/Oberon>
-   Viewers <Oberon/Viewers>
-   Display <Oberon/Display>
-   Input <Oberon/Input>
+Version v5.0.20190117
 
 Oberon implements the user-interaction functionality and the task loop of the system. 
 
-.. list-table::  
-   :widths: 20 80 
-   :header-rows: 1 
+.. toctree::
+   :maxdepth: 3
+   :caption: Oberon:
+   :hidden:
 
-   * - Module 
-     - Description 
+   Modules <OberonModules>
 
-   * - Oberon 
-     - implements the Oberon Textual User Interface. 
-   * - Viewers 
-     - partitions and manages display panes. 
-   * - Display 
-     - renders text and graphics to the framebuffer. 
-   * - Input 
-     - presents keyboard and mouse events to the Oberon UI 
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+* Modules v5.0.0
+* Edit v5.0.0
+* Kernel v5.0.0
+* Files v5.0.0
+
+--------
+  About  
+--------
+ 
+### _Package Overview:_
+The Oberon package defines the user interface of Oberon.
+
+
+### _Package Use:_
+
+USAGE:
+```
+Modules.Load("something",M)
+```
+
+### _Modules in this package:_
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Oberon  
 
 https://github.com/io-core/Oberon/blob/main/Oberon.Pkg

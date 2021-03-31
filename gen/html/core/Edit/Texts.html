@@ -29,17 +29,16 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ConvertPCFFont Module" href="ConvertPCFFont.html" />
+    <link rel="next" title="Oberon Package" href="../Oberon.html" />
     <link rel="prev" title="TextFrames Module" href="TextFrames.html" /> 
 </head>
 
@@ -94,29 +93,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../Core.html">IO Core Packages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Kernel.html">Kernel Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Files.html">Files Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Modules.html">Modules Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Build.html">Build Package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../Edit.html">Edit Package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="Edit.html">Edit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Fonts.html">Fonts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="TextFrames.html">TextFrames</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Texts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ConvertPCFFont.html">ConvertPCFFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="FontSubsetBuilder.html">FontSubsetBuilder</a></li>
-<li class="toctree-l4"><a class="reference internal" href="GrowFont.html">GrowFont</a></li>
-<li class="toctree-l4"><a class="reference internal" href="OptimizeFont.html">OptimizeFont</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../EditModules.html">Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#package-dependencies">Package Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#about">About</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Edit.html#development-guide">Development Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../Boot.html">Boot Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Oberon.html">Oberon Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../System.html">System Package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Sup.html">IO Supplemental Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Style.html">IO Style Guide and Contrib. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
@@ -176,6 +172,8 @@
         
           <li><a href="../Edit.html">Edit Package</a> &raquo;</li>
         
+          <li><a href="../EditModules.html">Edit Modules</a> &raquo;</li>
+        
       <li>Texts Module</li>
     
     
@@ -197,15 +195,270 @@
             
   <div class="section" id="texts-module">
 <h1>Texts Module<a class="headerlink" href="#texts-module" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>About</p>
-<p>Usage</p>
-<p>Development</p>
-<p>Constants</p>
-<p>Types</p>
-<p>Procedures</p>
-</div></blockquote>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="command-guide">
+<h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
+<p>Module Texts defines the ‘text’ abstract data type used pervasively in the Oberon system.</p>
+</div>
+<div class="section" id="api-guide">
+<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Files Fonts MIME
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(*scanner symbol classes*)
+   Inval* = 0;         (*invalid symbol*)
+   Name* = 1;          (*name s (length len)*)
+   String* = 2;        (*literal string s (length len)*)
+   Int* = 3;           (*integer i (decimal or hexadecimal)*)
+   Real* = 4;          (*real number x*)
+   Char* = 6;          (*special character c*)
+
+   (* TextBlock = TextTag offset run {run} &quot;0&quot; len {AsciiCode}.
+     run = fnt [name] col voff len. *)
+
+   TAB = 9X; CR = 0DX; NL = 0AX;
+   TextTag = 0F1X;
+   replace* = 0; insert* = 1; delete* = 2; unmark* = 3;  (*op-codes*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Piece = POINTER TO PieceDesc;
+   PieceDesc = RECORD
+     f: Files.File;
+     off, len: LONGINT;
+     fnt: Fonts.Font;
+     col, voff: INTEGER;
+     prev, next: Piece
+   END;
+
+   Text* = POINTER TO TextDesc;
+   Notifier* = PROCEDURE (T: Text; op: INTEGER; beg, end: LONGINT);
+   Consumer* = PROCEDURE (T: Text; beg, end: LONGINT);
+   TextDesc* = RECORD
+     len*,sent*,cap*: LONGINT;
+     mime*: MIME.Type;
+     changed*: BOOLEAN;
+     notify*: Notifier;
+     out*: Consumer;
+     trailer: Piece;
+     pce: Piece;  (*cache*)
+     org: LONGINT (*cache*)
+   END;
+
+   Reader* = RECORD
+     eot*: BOOLEAN;
+     fnt*: Fonts.Font;
+     col*, voff*: INTEGER;
+     ref: Piece;
+     org: LONGINT;
+     off: LONGINT;
+     rider: Files.Rider
+   END;
+
+   Scanner* = RECORD (Reader)
+     nextCh*: CHAR;
+     line*, class*: INTEGER;
+     i*: LONGINT;
+     x*: REAL;
+     y*: LONGREAL;
+     codepoint*: INTEGER;
+     len*: INTEGER;
+     s*: ARRAY 32 OF CHAR
+   END;
+
+   Buffer* = POINTER TO BufDesc;
+   BufDesc* = RECORD
+     len*: LONGINT;
+     header, last: Piece
+   END;
+
+   Writer* = RECORD
+     buf*: Buffer;
+     fnt*: Fonts.Font;
+     col*, voff*: INTEGER;
+     rider: Files.Rider
+   END;
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TrailerFile: Files.File;
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-and-procedures">
+<h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Trailer(): Piece;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Load* (VAR R: Files.Rider; T: Text);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Open* (T: Text; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Store* (VAR W: Files.Rider; T: Text);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Close*(T: Text; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenBuf* (B: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FindPiece (T: Text; pos: LONGINT; VAR org: LONGINT; VAR pce: Piece);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SplitPiece (p: Piece; off: LONGINT; VAR pr: Piece);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Save* (T: Text; beg, end: LONGINT; B: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Copy* (SB, DB: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Insert* (T: Text; pos: LONGINT; B: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Append* (T: Text; B: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Delete* (T: Text; beg, end: LONGINT; B: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ChangeLooks* (T: Text; beg, end: LONGINT; sel: SET; fnt: Fonts.Font; col, voff: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Attributes*(T: Text; pos: LONGINT; VAR fnt: Fonts.Font; VAR col, voff: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenReader* (VAR R: Reader; T: Text; pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Read* (VAR R: Reader; VAR ch: CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE UnicodeWidth* (codepoint: INTEGER): INTEGER;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadUnicodeRest(VAR R: Reader; ch: CHAR; VAR codepoint: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ReadUnicode* (VAR R: Reader; VAR codepoint: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Pos* (VAR R: Reader): LONGINT;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenScanner* (VAR S: Scanner; T: Text; pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Ten(n: INTEGER): REAL;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Scan* (VAR S: Scanner);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenWriter* (VAR W: Writer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetFont* (VAR W: Writer; fnt: Fonts.Font);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetColor* (VAR W: Writer; col: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE SetOffset* (VAR W: Writer; voff: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Write* (VAR W: Writer; ch: CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteUnicode* (VAR W: Writer; codepoint: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteLn* (VAR W: Writer);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteString* (VAR W: Writer; s: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteInt* (VAR W: Writer; x, n: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteHex* (VAR W: Writer; x: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteReal* (VAR W: Writer; x: REAL; n: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteRealFix* (VAR W: Writer; x: REAL; n, k: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WritePair(VAR W: Writer; ch: CHAR; x: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE WriteClock* (VAR W: Writer; d: LONGINT);</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="development-guide">
+<h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/io-core/Edit/blob/main/Texts.Mod">https://github.com/io-core/Edit/blob/main/Texts.Mod</a></p>
+</div>
 </div>
 
 
@@ -214,7 +467,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ConvertPCFFont.html" class="btn btn-neutral float-right" title="ConvertPCFFont Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Oberon.html" class="btn btn-neutral float-right" title="Oberon Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="TextFrames.html" class="btn btn-neutral float-left" title="TextFrames Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

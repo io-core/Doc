@@ -2,17 +2,65 @@
   Vet Module 
 ####################################
  
+++++++++
   About  
+++++++++
  
-  Usage  
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
  
-  Development  
+Module Vet handles:
+* Nothing yet. Placeholder.
  
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
   Constants  
++++++++++++++
+.. code-block:: none
  
+ 
+ 
++++++++++
   Types  
++++++++++
+.. code-block:: none
  
-  Procedures  
+ 
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Foo** is a placeholder
+::
+  PROCEDURE Foo;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
  
 https://github.com/io-core/Mod/blob/main/Vet.Mod
 
