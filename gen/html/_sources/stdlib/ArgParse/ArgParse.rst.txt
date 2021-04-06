@@ -68,9 +68,9 @@ As for now this package is quite basic.
   PROCEDURE Option(VAR S: Texts.Scanner; o: ARRAY OF CHAR): SET;
 
 ---
-**ArgParse** finds the arguments to a command.
+**ArgParse** collects the arguments to a command.
 ::
-  PROCEDURE ArgParse*(VAR W:Texts.Writer; o: ARRAY OF CHAR);
+  PROCEDURE ArgParse*(VAR W:Texts.Writer; o: ARRAY OF CHAR; VAR e: SET);
  
 ++++++++++++++++++++
   Development Guide 

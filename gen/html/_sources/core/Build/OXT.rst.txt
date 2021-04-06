@@ -67,6 +67,7 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
       TwoBytes*:   PROCEDURE (a, b: INTEGER; VAR pc, pcb: INTEGER);
       ThreeBytes*: PROCEDURE (a, b, c: INTEGER; VAR pc, pcb: INTEGER);
       FourBytes*:  PROCEDURE (a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);
+      TwoByteInteger*:  PROCEDURE (i: INTEGER; VAR pc, pcb: INTEGER);
       FourByteInteger*:  PROCEDURE (i: INTEGER; VAR pc, pcb: INTEGER);
     END; 
  
@@ -76,21 +77,12 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
 .. code-block:: none
  
 
-    (*       
-    code*: ARRAY maxCode OF LONGINT;
-    data*: ARRAY maxTD OF LONGINT;  (*type descriptors*)
-    str*: ARRAY maxStrx OF CHAR;
-    fixorgP*, fixorgD*, fixorgT*: LONGINT;   (*origins of lists of locations to be fixed up by loader*)
-    err: ARRAY 32 OF CHAR;
-    *)
     regmap: ARRAY 16 OF INTEGER; (*shuffle of registers for allocation/use*)
     it0: ARRAY 16 OF INTEGER;
     it1: ARRAY 16 OF INTEGER;
     it2: ARRAY 4 OF INTEGER;
     it3: ARRAY 16 OF INTEGER;
     Put: CodePlacer;
-(*
-    Put.CodeWord:  PROCEDURE (a,v: INTEGER);
  
 ++++++++++++++++++++++++++++
   Functions and Procedures  
@@ -253,6 +245,81 @@ If the 'U' bit is set and the operation is a move, the value is shifted left 32-
 **aHeader** prepares the code introductory sequence for a compiled module
 ::
   PROCEDURE aHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**CSetTables** maps registers between the RISC5 model machine and the aarch64 actual machine and prepares opcode tables for aarch64.
+::
+  PROCEDURE CSetTables;
+
+---
+**CPut0** PutRegFromRegOpReg
+::
+  PROCEDURE CPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**CPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE CPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**CPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE CPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**CPut2** PutRegLdStRegOffset
+::
+  PROCEDURE CPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);
+
+---
+**CPut3** PutBrCondOffset
+::
+  PROCEDURE CPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**CHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE CHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
+**cSetTables** maps registers between the RISC5 model machine and the arm actual machine and prepares opcode tables for arm 32-bit.
+::
+  PROCEDURE cSetTables;
+
+---
+**cUMT** convert an integer to mov m/t immediate format
+::
+  PROCEDURE cUMT( i : LONGINT ): LONGINT;
+
+---
+**cPut0** PutRegFromRegOpReg
+::
+  PROCEDURE cPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**cPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE cPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**cPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE cPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**cPut2** PutRegLdStRegOffset
+::
+  PROCEDURE cPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);
+
+---
+**cPut3** PutBrCondOffset
+::
+  PROCEDURE cPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**cHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE cHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
 
 ---
 **VSetTables** maps registers between the RISC5 model machine and the rv64 actual machine and prepares opcode tables for riscv64.

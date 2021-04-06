@@ -131,6 +131,11 @@ Module OXX generates the processor-specific instructions for executing an Oberon
   PROCEDURE Put4Bytes(a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);
 
 ---
+**Put2Integer** places an integer as 2 bytes in in the instruction stream.
+::
+  PROCEDURE Put2Integer(i: INTEGER; VAR pc, pcb: INTEGER);
+
+---
 **Put4Integer** places an integer as 4 bytes in in the instruction stream.
 ::
   PROCEDURE Put4Integer(i: INTEGER; VAR pc, pcb: INTEGER);
