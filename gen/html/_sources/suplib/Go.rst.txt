@@ -1,0 +1,38 @@
+########################
+  Go Package 
+########################
+
+Version v1.0.20210413
+
+Go  compile Go programs. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Go:
+   :hidden:
+
+   Modules <GoModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+
+
+--------
+  About  
+--------
+ 
+
+**Package Overview**
+
+Go for Integrated Oberon is a front-end replacing the Oberon parser with a Go parser, calling OXG to generate the program executable.
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Go  
+
+https://github.com/io-core/Go/blob/main/Go.Pkg

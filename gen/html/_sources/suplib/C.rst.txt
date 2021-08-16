@@ -1,0 +1,38 @@
+########################
+  C Package 
+########################
+
+Version v1.0.20210413
+
+C  compile C programs. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: C:
+   :hidden:
+
+   Modules <CModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+
+
+--------
+  About  
+--------
+ 
+
+**Package Overview**
+
+C for Integrated Oberon is a front-end replacing the Oberon parser with a G parser, calling OXG to generate the program executable.
+
+---------------------
+  Development Guide  
+---------------------
+ 
+C  
+
+https://github.com/io-core/C/blob/main/C.Pkg

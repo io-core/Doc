@@ -1,0 +1,305 @@
+####################################
+  CXP Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+
+Module CXP reads the source code of a C program and produces an executable binary module.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   Texts Oberon OXS OXB OXG
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+    PtrBase = POINTER TO PtrBaseDesc;
+    PtrBaseDesc = RECORD  (*list of names of pointer base types*)
+      name: OXS.Ident; type: OXB.Type; next: PtrBase
+    END ;
+  
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    sym: INTEGER;   (*last symbol read*)
+    dc: LONGINT;    (*data counter*)
+    level, exno, version: INTEGER;
+    newSF: BOOLEAN;  (*option flag*)
+    ccARCH, ccWordsize, ccStackalign: INTEGER;
+    expression: PROCEDURE (VAR x: OXG.Item);  (*to avoid forward reference*)
+    Type: PROCEDURE (VAR type: OXB.Type);
+    FormalType: PROCEDURE (VAR typ: OXB.Type; dim: INTEGER);
+    modid: OXS.Ident;
+    pbsList: PtrBase;   (*list of names of pointer base types*)
+    dummy: OXB.Object;
+    W: Texts.Writer;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Check** marks an error if the current symbol does not match the expeted symbol.
+::
+  PROCEDURE Check(s: INTEGER; msg: ARRAY OF CHAR);
+
+---
+**Qualident** generates a reference to a previously defined item if possible otherwise an error is marked.
+::
+  PROCEDURE qualident(VAR obj: OXB.Object);
+
+---
+**CheckBool** marks an error if the item is not a boolean.
+::
+  PROCEDURE CheckBool(VAR x: OXG.Item);
+
+---
+**CheckInt** marks an error if the item is not an Int.
+::
+  PROCEDURE CheckInt(VAR x: OXG.Item);
+
+---
+**CheckReal** marks an error if the item is not a Real.
+::
+  PROCEDURE CheckReal(VAR x: OXG.Item);
+
+---
+**CheckSet** marks an error if the item is not a Set.
+::
+  PROCEDURE CheckSet(VAR x: OXG.Item);
+
+---
+**CheckSetVal** marks an error if the item is not a Set Value.
+::
+  PROCEDURE CheckSetVal(VAR x: OXG.Item);
+
+---
+**CheckConst** marks an error if the value is not a Constant.
+::
+  PROCEDURE CheckConst(VAR x: OXG.Item);
+
+---
+**CheckReadOnly** marks an error if the value is not read-only.
+::
+  PROCEDURE CheckReadOnly(VAR x: OXG.Item);
+
+---
+**CheckExport** checks for an export symbol and marks an error if export not at top level.
+::
+  PROCEDURE CheckExport(VAR expo: BOOLEAN);
+
+---
+**IsExtension** determines if type t1 is an extension of t0.
+::
+  PROCEDURE IsExtension(t0, t1: OXB.Type): BOOLEAN;
+
+---
+**TypeTest** checks for assignment type compatibility.
+::
+  PROCEDURE TypeTest(VAR x: OXG.Item; T: OXB.Type; guard: BOOLEAN);
+
+---
+**selector** generates the array item, procedure, or method dereference on an array or record.
+::
+  PROCEDURE selector(VAR x: OXG.Item);
+
+---
+**EqualSignatures** verifies that a procedure may be assigned to a procedure variable.
+::
+  PROCEDURE EqualSignatures(t0, t1: OXB.Type): BOOLEAN;
+
+---
+**CompTypes** verifies assigment compatibility by type.
+::
+  PROCEDURE CompTypes(t0, t1: OXB.Type; varpar: BOOLEAN): BOOLEAN;
+
+---
+**Parameter** consumes a function call parameter and produces function call proloogue code for the parameter.
+::
+  PROCEDURE Parameter(par: OXB.Object);
+
+---
+**ParamList** consumes the function call parameters, resulting in a function call prologue.
+::
+  PROCEDURE ParamList(VAR x: OXG.Item);
+
+---
+**StandFunc** consumes standard language functions and produces inline code for those functions.
+
+Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `SBC` `UML` `BIT` `REG` `VAL` `ADR` `SIZE` `COND` `H`
+::
+  PROCEDURE StandFunc(VAR x: OXG.Item; fct: LONGINT; restyp: OXB.Type);
+
+---
+**element** produces a reference to an element in a set.
+::
+  PROCEDURE element(VAR x: OXG.Item);
+
+---
+**set** produces a set from elements.
+::
+  PROCEDURE set(VAR x: OXG.Item);
+
+---
+**factor** generates code that produces a value from identifiers, applications of functions and procedures, etc. for use in a calculation or assignment.
+::
+  PROCEDURE factor(VAR x: OXG.Item);
+
+---
+**term** combines factors via multiplication and division, resulting in a value.
+::
+  PROCEDURE term(VAR x: OXG.Item);
+
+---
+**SimpleExpression** combines terms via addition, subtraction, boolean, and set operations, resulting in a value.
+::
+  PROCEDURE SimpleExpression(VAR x: OXG.Item);
+
+---
+**expression0** produces code handling arbitrary arithmetic and logical operations, resulting in a value.
+
+expression0 is assigned to the procedure variable `expression` to allow the forward reference.
+
+::
+  PROCEDURE expression0(VAR x: OXG.Item);
+
+---
+**StandProc** handles standard (predefined) procedures.
+::
+  PROCEDURE StandProc(pno: LONGINT);
+
+---
+**StatSequence** matches a statement sequence.
+::
+  PROCEDURE StatSequence;
+
+**TypeCase** (interior procedure)
+::
+    PROCEDURE TypeCase(obj: OXB.Object; VAR x: OXG.Item);
+
+**SkipCase** (interior procedure)
+::
+    PROCEDURE SkipCase;
+
+---
+**IdentList** matches a comma separated list of identifiers.
+::
+  PROCEDURE IdentList(class: INTEGER; VAR first: OXB.Object);
+
+---
+**ArrayType** matches the definiton of an Array Type or marks an error.
+::
+  PROCEDURE ArrayType(VAR type: OXB.Type);
+
+---
+**RecordType** matches the definition of a Record Type or marks an error.
+::
+  PROCEDURE RecordType(VAR type: OXB.Type);
+
+---
+**FPSection** matches the parameters to a function or marks an error.
+::
+  PROCEDURE FPSection(VAR adr: LONGINT; VAR nofpar: INTEGER);
+
+---
+**ProcedureType** matches a Procedure Type definition or marks an error.
+::
+  PROCEDURE ProcedureType(ptype: OXB.Type; VAR parblksize: LONGINT);
+
+---
+**FormalType0** matches the definition of a type or marks an error.
+::
+  PROCEDURE FormalType0(VAR typ: OXB.Type; dim: INTEGER);
+
+---
+**CheckRecLevel** ensures that the ptr base is global.
+::
+  PROCEDURE CheckRecLevel(lev: INTEGER);
+
+---
+**Type0** matches a type definition or marks an error.
+::
+  PROCEDURE Type0(VAR type: OXB.Type);
+
+---
+**Declarations** dispatches the definition of constants, types, and variables.
+::
+  PROCEDURE Declarations(VAR varsize: LONGINT);
+
+---
+**ProcedureDecl** matches the definition of a procedure or marks an error.
+::
+  PROCEDURE ProcedureDecl;
+
+---
+**Import** consumes the names of modules imported by this module and ensures their compatibility or marks an error.
+::
+  PROCEDURE Import;
+
+---
+**Module** begins the recursive descent parsing of the source text and emits an object code file on completion or marks an error.
+::
+  PROCEDURE Module;
+
+---
+**Option** checks if a new symbol file may be generated and which architecture to compile for.
+::
+  PROCEDURE Option(VAR S: Texts.Scanner);
+
+---
+**Prep** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
+::
+  PROCEDURE Prep;
+
+---
+**Compile** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
+::
+  PROCEDURE Compile*;
+
+---
+**The initialzation code for this module** opens a writer to print marked errors and initializes the Go parser state.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+(N. Wirth 1.7.97 / 8.3.2020 Oberon compiler for RISC in Oberon-07, C. Perkins 2021 retargetted to C.)
+
+**CXP** implements a one-pass recursive descent parser for the C language.
+
+This module (CXP) relies on module OXG for code generation, OXB for the symbol table, execution context tracking and reserved words, and OXS
+for lexical parsing and built-in type identification.
+ 
+https://github.com/io-core/C/blob/main/CXP.Mod
+
