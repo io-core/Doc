@@ -59,14 +59,18 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
     END;
 
     Text* = POINTER TO TextDesc;
+    Buffer* = POINTER TO BufDesc;
+
+    Processor* = PROCEDURE (B: Buffer): Buffer;
+(*    Feeder* = PROCEDURE(T: Text; R: Reader); *)
     Notifier* = PROCEDURE (T: Text; op: INTEGER; beg, end: LONGINT);
-    Consumer* = PROCEDURE (T: Text; beg, end: LONGINT);
+
     TextDesc* = RECORD
-      len*,sent*,cap*: LONGINT;
+      len*,sent*,lcap*,bcap*: LONGINT;
       mime*: MIME.Type; 
       changed*: BOOLEAN;
       notify*: Notifier;
-      out*: Consumer;
+      aproc*: Processor;
       trailer: Piece;
       pce: Piece;  (*cache*)
       org: LONGINT (*cache*)
@@ -76,6 +80,7 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
       eot*: BOOLEAN;
       fnt*: Fonts.Font;
       col*, voff*: INTEGER;
+(*      more*: Feeder; *)
       ref: Piece;
       org: LONGINT;
       off: LONGINT;
@@ -93,7 +98,6 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
       s*: ARRAY 32 OF CHAR
     END;
 
-    Buffer* = POINTER TO BufDesc;
     BufDesc* = RECORD
       len*: LONGINT;
       header, last: Piece
@@ -104,7 +108,12 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
       fnt*: Fonts.Font;
       col*, voff*: INTEGER;
       rider: Files.Rider
-    END;     
+    END;
+
+    Stream* = RECORD
+      in*: Reader;
+      out*: Writer
+    END;
  
 ++++++++++++
   Variables  
@@ -152,6 +161,9 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
   PROCEDURE Insert* (T: Text; pos: LONGINT; B: Buffer);
 
 ::
+  PROCEDURE FromBuffer* (T: Text; B: Buffer);
+
+::
   PROCEDURE Append* (T: Text; B: Buffer);
 
 ::
@@ -183,6 +195,9 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
 
 ::
   PROCEDURE OpenScanner* (VAR S: Scanner; T: Text; pos: LONGINT);
+
+::
+  PROCEDURE ScannerFromReader* (VAR S: Scanner; R: Reader);
 
 ::
   PROCEDURE Ten(n: INTEGER): REAL;
@@ -231,6 +246,15 @@ Module Texts defines the 'text' abstract data type used pervasively in the Obero
 
 ::
   PROCEDURE WriteClock* (VAR W: Writer; d: LONGINT);
+
+::
+  PROCEDURE Pipe*(VAR I: Text; VAR O: Text; P: Processor );
+
+::
+  PROCEDURE OpenStream* (VAR S: Stream; T: Text; pos: LONGINT);
+
+::
+  PROCEDURE UpdateStream* (VAR S: Stream);
  
 ++++++++++++++++++++
   Development Guide 

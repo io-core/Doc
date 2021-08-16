@@ -1,0 +1,149 @@
+####################################
+  OXLinker Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module OXLinker transforms a linkable binary module into a standalone binary suitable for installation in the boot area of an Oberon filesystem.
+
+```
+OXP.Compile Modules.Mod
+OXLinker.Link Modules
+OXLinker.Load Modules
+
+OXP.Compile BareMetalR.Mod
+OXLinker.Strip BareMetalR
+``` 
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Files Modules Kernel Texts Oberon
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+ versionkey = 1X; MT = 12; DescSize = 80;
+     BADARCH = 0;
+     RISC5   = 6517618;    (* "rsc" 0x00637372 *)
+     ERISC5  = 7878770;    (* "r8x" 0x00783872 *)
+     X8664   = 7878761;    (* "i8x" 0x00783869 *)
+     CORTEX4 = 7877731;    (* "c4x" 0x00783463 *)
+     CORTEX0 = 7876707;    (* "c0x" 0x00783063 *)
+     ARM64   = 7878753;    (* "a8x" 0x00783861 *)
+     ARM32   = 7877729;    (* "a4x" 0x00783461 *)
+     RISCV64 = 7878774;    (* "v8x" 0x00783876 *)
+     RISCV32 = 7877750;    (* "v4x" 0x00783476 *)
+     WASM    = 7877751;    (* "w4x" 0x00783477 *)
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    binroot, M: Modules.Module;
+    binMTOrg, binStart, binAllocPtr, res*: INTEGER;
+    importing*, imported*: Modules.ModuleName;
+    limit: INTEGER;
+    W: Texts.Writer;
+    Mlist: ARRAY 16 OF Modules.ModuleName;
+ 
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**ThisFile** returns a file handle for the compiled module.
+::
+  PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;
+
+---
+**Zero** clears the contents of a string buffer.
+::
+  PROCEDURE zero( VAR s: ARRAY OF CHAR);
+
+---
+**ThisBinFile** returns a file handle for output of the linked or stripped binary.
+::
+  PROCEDURE ThisBinFile(name: ARRAY OF CHAR): Files.File;
+
+---
+**error** sets an error value.
+::
+  PROCEDURE error(n: INTEGER; name: Modules.ModuleName);
+
+---
+**check** sets an error if a filename is invalid.
+::
+  PROCEDURE Check(s: ARRAY OF CHAR);
+
+---
+**ck** ??
+::
+  PROCEDURE ck( i : INTEGER );
+
+---
+**LinkOne** recursively assembles the just-loaded-state of a module and the modules it imports to an area of Oberon's module section.
+::
+  PROCEDURE LinkOne*(name: ARRAY OF CHAR; VAR newmod: Modules.Module);
+
+---
+**Load** places a binary file in the boot sectors of the Oberon filesystem.
+::
+  PROCEDURE Load*;
+
+---
+**Strip** writes a new file containing only the code section of a compiled module.
+::
+  PROCEDURE Strip*;
+
+---
+**Link** writes a new file containing the just-loaded-state of a module and the modules it imports.
+::
+  PROCEDURE Link*;
+
+---
+**ThisCommand** dispatches command procedures.
+::
+  PROCEDURE ThisCommand*(mod: Modules.Module; name: ARRAY OF CHAR): Modules.Command;
+
+---
+**The initialzation code for this module** opens a text writer for output.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+    
+(Link and create binary on RISC; NW 20.10.2013 CP 21.05.2014 / 2020-2021 )
+    
+**OXLinker** can generate and install a bootable inner core binary for Oberon.
+  
+ 
+https://github.com/io-core/Build/blob/main/OXLinker.Mod
+

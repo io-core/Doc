@@ -220,7 +220,13 @@
 </div>
 <div class="section" id="types">
 <h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Flow* = POINTER TO FlowDesc;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Consumer* = PROCEDURE (T: Texts.Text; op: INTEGER; beg, end: LONGINT);
+Stream* = RECORD (* (Texts.Text)  *)
+  consume*: Consumer;
+  limit*: INTEGER;
+END;
+
+Flow* = POINTER TO FlowDesc;
 FlowDesc* = RECORD
   T*: Texts.Text;
   V*: Viewers.Viewer;

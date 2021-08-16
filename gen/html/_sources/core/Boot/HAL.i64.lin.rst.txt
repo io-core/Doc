@@ -30,9 +30,11 @@ Module HAL (.i64.lin) exercises features of the compiler in bringing Oberon up u
 .. code-block:: none
  
 
+(*
     MT     = 12; 
     rsData = -56; 
     rsCtrl = -52;
+*)
  
 +++++++++
   Types  

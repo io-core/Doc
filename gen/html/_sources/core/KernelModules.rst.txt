@@ -18,5 +18,5 @@
      - Description 
 
    * - Kernel 
-     - manages memory, block access, system timer, and traps. 
+     -  
 

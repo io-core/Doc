@@ -107,6 +107,9 @@ Module System presents the Oberon user with tools and commands for interacting D
   PROCEDURE Free*;
 
 ::
+  PROCEDURE Link*;
+
+::
   PROCEDURE FreeFonts*;
 
 ::
@@ -141,6 +144,12 @@ Module System presents the Oberon user with tools and commands for interacting D
 
 ::
   PROCEDURE ExtendDisplay*;
+
+::
+  PROCEDURE sayWhere(VAR mod: Modules.Module; adr: INTEGER);
+
+::
+  PROCEDURE Trace(a,b,c: INTEGER);
 
 ::
   PROCEDURE Trap(VAR a: INTEGER; b: INTEGER);

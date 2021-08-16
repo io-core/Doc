@@ -37,9 +37,9 @@ Module OXB manages the symbol table for the Oberon compiler and reads and writes
 
     (* form values*)  (* BYTE <= SHORTINT <= INTEGER <= LONGINT , FLOAT <= DOUBLE *)
       Byte* = 1; Bool* = 2; Char* = 3; Short* = 4; Int* = 5; Long* = 6; Real* = 7; Double* = 8; Set* = 9;
-      Pointer* = 10; Interface* = 11; NilTyp* = 12; NoTyp* = 13; Proc* = 14;
-      String* = 15; Array* = 16; Record* = 17; (*TProc*)
-      Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp};
+      Pointer* = 10; Interface* = 11; Continuation* = 12; NilTyp* = 13; NoTyp* = 14; Proc* = 15;
+      String* = 16; Array* = 17; Record* = 18; TProc* = 19;
+      Ptrs* = {Pointer, Interface, NilTyp}; Procs* = {Proc, NoTyp}; 
       
  
 +++++++++
@@ -59,7 +59,7 @@ Module OXB manages the symbol table for the Oberon compiler and reads and writes
       next*, dsc*: Object;
       type*: Type;
       name*: OXS.Ident;
-      val*: LONGINT
+      val* (*,val2* *): LONGINT
     END ;
 
     ModDesc* = RECORD (ObjDesc) orgname*: OXS.Ident END ;
@@ -152,7 +152,7 @@ Module OXB manages the symbol table for the Oberon compiler and reads and writes
 ---
 **Import** reads in the symbol file for an imported module so that its exported constants, types, variables, and procedures may be referenced. 
 ::
-  PROCEDURE Import*(VAR modid, modid1: OXS.Ident);
+  PROCEDURE Import*(VAR modid, modid1: OXS.Ident; ccARCH: INTEGER);
 
 ---
 **Write** delivers a byte from the integer to the symbol file.
@@ -173,7 +173,7 @@ Module OXB manages the symbol table for the Oberon compiler and reads and writes
 ---
 **Export** writes out the symbol file for a module.
 ::
-  PROCEDURE Export*(VAR modid: OXS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT);
+  PROCEDURE Export*(VAR modid: OXS.Ident; VAR newSF: BOOLEAN; VAR key: LONGINT; ccARCH: INTEGER);
 
 ---
 **Clear** prepares the top scope of the program.
@@ -188,7 +188,12 @@ Module OXB manages the symbol table for the Oberon compiler and reads and writes
 ---
 **Enter** introduces a pre-defined type, function, or procedure.
 ::
-  PROCEDURE enter(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);
+  PROCEDURE Enter*(name: ARRAY OF CHAR; cl: INTEGER; type: Type; n: LONGINT);
+
+---
+**PrepSYSTEM** prepares the SYSTEM scope for entry of types, functions, or procedures.
+::
+  PROCEDURE PrepSYSTEM*;
 
 ---
 **Init** registers base Oberon types and populates the the object table with predeclared types,functions and procedures.

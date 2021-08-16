@@ -39,6 +39,12 @@ Module Stdio adapts streaming io to the Oberon text and viewers model.
 .. code-block:: none
  
 
+    Consumer* = PROCEDURE (T: Texts.Text; op: INTEGER; beg, end: LONGINT);
+    Stream* = RECORD (* (Texts.Text)  *)
+      consume*: Consumer;
+      limit*: INTEGER;
+    END;
+
     Flow* = POINTER TO FlowDesc;
     FlowDesc* = RECORD
       T*: Texts.Text;

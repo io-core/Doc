@@ -10,13 +10,7 @@
   Command Guide  
 +++++++++++++++++
  
-Module Kernel handles:
 
-* Memory use by the shared Oberon heap including garbage collection
-* Reading and writing to SD Card 512-byte blocks
-* Allocating, Deallocating, Reading and Writing 1024-byte sectors on the SD card
-* Using the sytem timer and clock
-* Setting the trap handler and dispatching traps.
  
 +++++++++++++
   API Guide  
@@ -35,178 +29,115 @@ Module Kernel handles:
 +++++++++++++
 .. code-block:: none
  
- 
-    SectorLength* = 1024;
-(*    WarningSize* = 80; *)
+ SectorLength* = 1024;
     timer = -64; spiData = -48; spiCtrl = -44;
     CARD0 = 1; SPIFAST = 4;
     FSoffset = 80000H; (*256MB in 512-byte blocks*)
     mapsize = 10000H; (*1K sectors, 64MB*)
-(*    wbsize = 4096; *)
  
 +++++++++
   Types  
 +++++++++
 .. code-block:: none
  
- 
-    Sector* = ARRAY SectorLength OF BYTE;
-(*    Warning* = POINTER TO ARRAY WarningSize OF CHAR; *)
+ Sector* = ARRAY SectorLength OF BYTE;
  
 ++++++++++++
   Variables  
 ++++++++++++
 .. code-block:: none
  
- 
-    allocated*, NofSectors*: INTEGER;
+ allocated*, NofSectors*: INTEGER;
     heapOrg*, heapLim*: INTEGER; 
     stackOrg* ,  stackSize*, MemLim*: INTEGER;
     clock: INTEGER;
     list0, list1, list2, list3: INTEGER;  (*lists of free blocks of size n*256, 128, 64, 32 bytes*)
     data: INTEGER; (*SPI data in*)
     sectorMap: ARRAY mapsize DIV 32 OF SET;
-(*    warnBuffer: ARRAY wbsize OF CHAR; *)
-(*    wbStart, wbEnd: INTEGER;   *)
  
 ++++++++++++++++++++++++++++
   Functions and Procedures  
 ++++++++++++++++++++++++++++
 .. code-block:: none
  
----
-**WARNING** logs a warning or error condition. 
 ::
-  PROCEDURE WARNING(w: ARRAY OF CHAR);
+  PROCEDURE Klog*(s: ARRAY OF CHAR);
 
----
-**WARN1** logs the first occurance of a warning or error condition.
 ::
-  PROCEDURE WARN1(w: ARRAY OF CHAR);
+  PROCEDURE Klogln*(s: ARRAY OF CHAR);
 
----
-**GetBlock** gets a block from the heap of a regular size. 
 ::
   PROCEDURE GetBlock(VAR p: LONGINT; len: LONGINT);
 
----
-**GetBlock128** gets a 128-byte block from the heap.
 ::
   PROCEDURE GetBlock128(VAR p: LONGINT);
 
----
-**GetBlock64** gets a 64-byte block from the heap. 
 ::
   PROCEDURE GetBlock64(VAR p: LONGINT);
 
----
-**GetBlock32** gets a 32-byte block from the heap.
 ::
   PROCEDURE GetBlock32(VAR p: LONGINT);
 
----
-**New** gets an appropriate block from the heap to hold a new object and initializes it to zero. 
 ::
    PROCEDURE New*(VAR ptr: LONGINT; tag: LONGINT);
 
----
-**Mark** traverses the heap from roots, identifying live objects. 
 ::
   PROCEDURE Mark*(pref: LONGINT);
 
----
-**Scan** traverses the heap de-allocating unreachable objects. 
 ::
   PROCEDURE Scan*;
 
----
-**SPIIdle** 
 ::
   PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)
 
----
-**SPI** 
 ::
   PROCEDURE SPI(n: INTEGER); (*send&rcv byte slowly with card selected*)
 
----
-**SPICmd** 
 ::
   PROCEDURE SPICmd(n, arg: INTEGER);
 
----
-**SDShift** 
 ::
   PROCEDURE SDShift(VAR n: INTEGER);
 
----
-**ReadSD** 
 ::
   PROCEDURE ReadSD(src, dst: INTEGER);
 
----
-**WriteSD** 
 ::
   PROCEDURE WriteSD(dst, src: INTEGER);
 
----
-**InitSecMap** 
 ::
   PROCEDURE InitSecMap*;
 
----
-**MarkSector** 
 ::
   PROCEDURE MarkSector*(sec: INTEGER);
 
----
-**FreeSector** 
 ::
   PROCEDURE FreeSector*(sec: INTEGER);
 
----
-**AllocSector** 
 ::
   PROCEDURE AllocSector*(hint: INTEGER; VAR sec: INTEGER);
 
----
-**GetSector** 
 ::
   PROCEDURE GetSector*(src: INTEGER; VAR dst: Sector);
 
----
-**PutSector** 
 ::
   PROCEDURE PutSector*(dst: INTEGER; VAR src: Sector);
 
----
-**Time** gets the current timer value.
 ::
   PROCEDURE Time*(): INTEGER;
 
----
-**Clock** gets the current clock value.
 ::
   PROCEDURE Clock*(): INTEGER;
 
----
-**SetClock** sets the clock.
 ::
   PROCEDURE SetClock*(dt: INTEGER);
 
----
-**Install** constructs a branch instruction to the specified trap handler and places it.
 ::
   PROCEDURE Install*(Padr, at: INTEGER);
 
----
-**Trap** is a temporary trap handler used in system initialization that either allocates memory (trap 0) or 
-emits the trap number on the LEDs and goes into an infinite loop.
 ::
   PROCEDURE Trap(VAR a: INTEGER; b: INTEGER);
 
----
-**Init** is called by Modules on system startup to install a temporary trap handler and then initialize memory and the sector map. 
 ::
   PROCEDURE Init*;
  
@@ -214,7 +145,7 @@ emits the trap number on the LEDs and goes into an infinite loop.
   Development Guide 
 ++++++++++++++++++++
  
-(*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
+
  
 https://github.com/io-core/Kernel/blob/main/Kernel.Mod
 

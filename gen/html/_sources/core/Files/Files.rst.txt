@@ -51,14 +51,33 @@ Module Files manages the on-disk representation of files and presents the follow
     File*   = POINTER TO FileDesc;
     Buffer  = POINTER TO BufferRecord;
     Index   = POINTER TO IndexRecord;
+    OT      = POINTER TO OTDesc; 
 
     Rider* =
       RECORD eof*: BOOLEAN;
         res*: INTEGER;
         file: File;
         apos, bpos: INTEGER;
-        buf: Buffer
+        buf: Buffer;
+        Ot: OT; 
       END ;
+
+    ReadByteProc* = PROCEDURE (VAR r: Rider; VAR x: BYTE);
+    ReadProc* = PROCEDURE (VAR r: Rider; VAR ch: CHAR);
+    WriteByteProc* = PROCEDURE (VAR r: Rider; x: BYTE);
+    WriteProc* = PROCEDURE (VAR r: Rider; ch: CHAR);
+
+    OTDesc = RECORD
+      Next:        OT;
+      Id:          INTEGER;
+      Set:         PROCEDURE (VAR r: Rider; f: File; pos: INTEGER);
+      Pos:         PROCEDURE (VAR r: Rider): INTEGER;
+      Base:        PROCEDURE (VAR r: Rider): File;
+      ReadByte:    ReadByteProc;
+      Read:        ReadProc;
+      WriteByte:   WriteByteProc;
+      Write:       WriteProc;
+    END;
 
     FileDesc =
       RECORD 
@@ -108,6 +127,8 @@ Module Files manages the on-disk representation of files and presents the follow
  
  
     root: INTEGER (*File*);  (*list of open files*)
+    Ot: OT; (* operations on file riders *)  
+    OTBase: OTDesc; 
  
 ++++++++++++++++++++++++++++
   Functions and Procedures  
@@ -195,6 +216,26 @@ Module Files manages the on-disk representation of files and presents the follow
   PROCEDURE Date*(f: File): INTEGER;
 
 ---
+**SetRead** sets the Read procudure for Rider R to P.
+::
+  PROCEDURE SetRead*(VAR R: Rider; P: ReadProc);
+
+---
+**SetReadByte** sets the ReadByte procudure for Rider R to P.
+::
+  PROCEDURE SetReadByte*(VAR R: Rider; P: ReadByteProc);
+
+---
+**SetWrite** sets the Write procudure for Rider R to P.
+::
+  PROCEDURE SetWrite*(VAR R: Rider; P: WriteProc);
+
+---
+**SetWriteByte** sets the WriteByte procudure for Rider R to P.
+::
+  PROCEDURE SetWriteByte*(VAR R: Rider; P: WriteByteProc);
+
+---
 **Set** positions the Rider `r` to position `pos` on File `f` for reading and writing.
 ::
   PROCEDURE Set*(VAR r: Rider; f: File; pos: INTEGER);
@@ -258,7 +299,7 @@ Module Files manages the on-disk representation of files and presents the follow
   PROCEDURE WriteByte*(VAR r: Rider; x: BYTE);
 
 ---
-**WriteByte** writes `n` bytes to the file at the rider position, extending the file as necessary.
+**WriteBytes** writes `n` bytes to the file at the rider position, extending the file as necessary.
 ::
   PROCEDURE WriteBytes*(VAR r: Rider; x: ARRAY OF BYTE; n: INTEGER);
 
@@ -278,7 +319,7 @@ Module Files manages the on-disk representation of files and presents the follow
   PROCEDURE WriteSet*(VAR R: Rider; s: SET);
 
 ---
-**WriteByte** writes a Real to the file at the rider position, extending the file as necessary.
+**WriteReal** writes a Real to the file at the rider position, extending the file as necessary.
 ::
   PROCEDURE WriteReal*(VAR R: Rider; x: REAL);
 
@@ -293,7 +334,17 @@ Module Files manages the on-disk representation of files and presents the follow
   PROCEDURE WriteNum*(VAR R: Rider; x: INTEGER);
 
 ---
-**Init** (called on system-startup by `Modules`) sets the list of open files to `0` and calls `Kernel.Init` and `FileDir.Init`.
+**RegisterOT** enrolls an OTDesc table of function pointers in the Files module.
+::
+  PROCEDURE RegisterOT*(VAR o: OT);
+
+---
+**UnRegisterOT** enrolls an OTDesc table of function pointers in the Files module.
+::
+  PROCEDURE UnRegisterOT*(i: INTEGER);
+
+---
+**Init** (called on system-startup by `Modules`) sets the list of open files to `0`, sets up the file rider operations table, and calls `Kernel.Init` and `FileDir.Init`.
 ::
   PROCEDURE Init*;
 
@@ -309,7 +360,7 @@ Module Files manages the on-disk representation of files and presents the follow
   Development Guide 
 ++++++++++++++++++++
  
-  (NW 11.1.86 / 22.9.93 / 25.5.95 / 25.12.95 / 15.8.2013)
+  (NW 11.1.86 / 22.9.93 / 25.5.95 / 25.12.95 / 15.8.2013, CP 2021)
  
 https://github.com/io-core/Files/blob/main/Files.Mod
 

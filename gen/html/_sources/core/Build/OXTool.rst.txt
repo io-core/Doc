@@ -116,6 +116,9 @@ OXTool.DecBin Target.bin ~ (if a bare metal module)
 
 ::
   PROCEDURE DecObj*;   (*decode object file*)
+
+::
+  PROCEDURE DecMod*;   (*decode loaded module*)
  
 ++++++++++++++++++++
   Development Guide 

@@ -1,0 +1,114 @@
+####################################
+  Fail Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM Oberon
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+ 
+    R = POINTER TO RDesc;
+    RDesc = RECORD
+     a: ARRAY 4 OF INTEGER
+    END;
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+ 
+    z, led, cnt: INTEGER;
+    T: Oberon.Task;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Run** fields the system millisecond interrupt and toggles the LED every half second.
+::
+  PROCEDURE Run*;
+
+---
+**Stop** fields the system millisecond interrupt and toggles the LED every half second.
+::
+  PROCEDURE Stop*;
+
+---
+**Int** fields the system millisecond interrupt and toggles the LED every half second.
+::
+  PROCEDURE Tick;
+
+---
+**Int** fields the system millisecond interrupt and toggles the LED every half second.
+::
+  PROCEDURE* Int; (*interrupt handler called every millisecond*)
+
+---
+**On** enables the system millisecond interrupt.
+::
+  PROCEDURE On*;
+
+---
+**Off** disables the system millisecond interrupt.
+::
+  PROCEDURE Off*;
+
+---
+**Bounds** generates a bounds check failure.
+::
+  PROCEDURE Bounds*;
+
+---
+**Assert** generates an assertion failure.
+::
+  PROCEDURE Assert*;
+
+---
+**Nil** generates a nil pointer dereference.
+::
+  PROCEDURE Nil*;
+
+---
+**The initialzation code for this module** installs the Int interrupt procedure in the system interrupt vector.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+ 
+https://github.com/io-core/System/blob/main/Fail.Mod
+

@@ -197,14 +197,34 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Boot/BootLoad.html">BootLoad Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.a32.qemu.html">HAL.a32.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.a64.pbpro.html">HAL.a64.pbpro Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.a64.pphone.html">HAL.a64.pphone Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.a64.qemu.html">HAL.a64.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.arm32.qemu.html">HAL.arm32.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.arm64.pbpro.html">HAL.arm64.pbpro Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.arm64.pphone.html">HAL.arm64.pphone Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.arm64.qemu.html">HAL.arm64.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cm0.pico.html">HAL.cm0.pico Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cm0.qemu.html">HAL.cm0.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cm4.ptime.html">HAL.cm4.ptime Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cm4.qemu.html">HAL.cm4.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cortex0.pico.html">HAL.cortex0.pico Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cortex0.qemu.html">HAL.cortex0.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cortex4.ptime.html">HAL.cortex4.ptime Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.cortex4.qemu.html">HAL.cortex4.qemu Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.i64.lin.html">HAL.i64.lin Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.i64.osx.html">HAL.i64.osx Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.i64.qemu.html">HAL.i64.qemu Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.i64.win.html">HAL.i64.win Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.riscv32.qemu.html">HAL.riscv32.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.riscv64.qemu.html">HAL.riscv64.qemu Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.rsc.qemu.html">HAL.rsc.qemu Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.v32.qemu.html">HAL.v32.qemu Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/HAL.v64.qemu.html">HAL.v64.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.x8664.lin.html">HAL.x8664.lin Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.x8664.osx.html">HAL.x8664.osx Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.x8664.qemu.html">HAL.x8664.qemu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boot/HAL.x8664.win.html">HAL.x8664.win Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Boot/ORLinker.html">ORLinker Module</a></li>
 </ul>
 </div>
@@ -222,34 +242,49 @@
 <tr class="row-even"><td><p>BootLoad</p></td>
 <td><p>loads the Inner Core from disk or serial.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ORLinker</p></td>
-<td><p>links the inner core into a bootable binary file.</p></td>
+<tr class="row-odd"><td><p>HAL.rsc.qemu</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>HAL.rsc.qemu</p></td>
-<td><p>provides a Hardware Abstraction Layer for RISC5 on QEMU.</p></td>
-</tr>
-<tr class="row-odd"><td><p>HAL.a32.qemu</p></td>
+<tr class="row-even"><td><p>HAL.arm32.qemu</p></td>
 <td><p>provides a Hardware Abstraction Layer for 32-bit arm.</p></td>
 </tr>
-<tr class="row-even"><td><p>HAL.a64.qemu</p></td>
+<tr class="row-odd"><td><p>HAL.arm64.qemu</p></td>
 <td><p>provides a Hardware Abstraction Layer for aarch64.</p></td>
 </tr>
-<tr class="row-odd"><td><p>HAL.i64.qemu</p></td>
+<tr class="row-even"><td><p>HAL.arm64.pbpro</p></td>
+<td><p>provides a Hardware Abstraction Layer for aarch64 on the Pinebook Pro.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HAL.arm64.pphone</p></td>
+<td><p>provides a Hardware Abstraction Layer for aarch64 on the Pinephone.</p></td>
+</tr>
+<tr class="row-even"><td><p>HAL.cortex4.qemu</p></td>
+<td><p>provides a Hardware Abstraction Layer for cortex-m4.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HAL.cortex0.qemu</p></td>
+<td><p>provides a Hardware Abstraction Layer for cortex-m0.</p></td>
+</tr>
+<tr class="row-even"><td><p>HAL.cortex4.ptime</p></td>
+<td><p>provides a Hardware Abstraction Layer for cortex-m4 on the PineTime.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HAL.cortex0.pico</p></td>
+<td><p>provides a Hardware Abstraction Layer for cortex-m0 on the Raspberry Pi Pico.</p></td>
+</tr>
+<tr class="row-even"><td><p>HAL.x8664.qemu</p></td>
 <td><p>provides a Hardware Abstraction Layer for x86_64.</p></td>
 </tr>
-<tr class="row-even"><td><p>HAL.v32.qemu</p></td>
+<tr class="row-odd"><td><p>HAL.riscv32.qemu</p></td>
 <td><p>provides a Hardware Abstraction Layer for 32-bit riscv.</p></td>
 </tr>
-<tr class="row-odd"><td><p>HAL.v64.qemu</p></td>
+<tr class="row-even"><td><p>HAL.riscv64.qemu</p></td>
 <td><p>provides a Hardware Abstraction Layer for 64-bit riscv.</p></td>
 </tr>
-<tr class="row-even"><td><p>HAL.i64.lin</p></td>
+<tr class="row-odd"><td><p>HAL.x8664.lin</p></td>
 <td><p>provides a Hardware Abstraction Layer for x86_64 in Linux userspace.</p></td>
 </tr>
-<tr class="row-odd"><td><p>HAL.i64.win</p></td>
+<tr class="row-even"><td><p>HAL.x8664.win</p></td>
 <td><p>provides a Hardware Abstraction Layer for x86_64 on Windows.</p></td>
 </tr>
-<tr class="row-even"><td><p>HAL.i64.osx</p></td>
+<tr class="row-odd"><td><p>HAL.x8664.osx</p></td>
 <td><p>provides a Hardware Abstraction Layer for x86_64 in OSX userspace.</p></td>
 </tr>
 </tbody>

@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="HAL.v32.qemu Module" href="HAL.v32.qemu.html" />
-    <link rel="prev" title="HAL.i64.win Module" href="HAL.i64.win.html" /> 
+    <link rel="prev" title="HAL.riscv64.qemu Module" href="HAL.riscv64.qemu.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -200,21 +200,19 @@
 </div>
 <div class="section" id="command-guide">
 <h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
-<p>Module HAL (.rsc) exercises features of the compiler in bringing Oberon up from bare metal on RISC5.</p>
 </div>
 <div class="section" id="api-guide">
 <h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="constants">
 <h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rsData = -56;
-rsCtrl = -52;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -235,24 +233,9 @@ rsCtrl = -52;
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>—
-<strong>Init</strong> simply returns.
-::
-PROCEDURE Init( i: INTEGER);</p>
-<p>—
-<strong>The initialzation code for this module</strong> calls Init and then goes into an infinite loop.</p>
 </div>
 <div class="section" id="development-guide">
 <h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
-<p>The HAL prepares the Oberon runtime and so cannot rely on it.</p>
-<ul class="simple">
-<li><p>No global variables</p></li>
-<li><p>No strings</p></li>
-<li><p>No heap allocation</p></li>
-</ul>
-<p>The first thing HAL must do is set up its own stack.</p>
-<p>Each platform should have its own HAL. This is the HAL for riscv32 on QEMU.</p>
-<p>The HAL remains resident and may be used by other modules.</p>
 <p><a class="reference external" href="https://github.com/io-core/Boot/blob/main/HAL.rsc.qemu.Mod">https://github.com/io-core/Boot/blob/main/HAL.rsc.qemu.Mod</a></p>
 </div>
 </div>
@@ -264,7 +247,7 @@ PROCEDURE Init( i: INTEGER);</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="HAL.v32.qemu.html" class="btn btn-neutral float-right" title="HAL.v32.qemu Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="HAL.i64.win.html" class="btn btn-neutral float-left" title="HAL.i64.win Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="HAL.riscv64.qemu.html" class="btn btn-neutral float-left" title="HAL.riscv64.qemu Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

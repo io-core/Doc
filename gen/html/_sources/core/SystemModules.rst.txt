@@ -29,6 +29,8 @@
      -  
    * - RS232 
      -  
+   * - Base64 
+     - provides base64 encoding and decoding via a streaming texts interface. 
    * - Net 
      -  
    * - SCC 
@@ -39,6 +41,8 @@
      - provides for batching commands. 
    * - Halt 
      - powers off an emulated Oberon. 
+   * - Fail 
+     -  
    * - Hilbert 
      - draws a Hilbert square. 
    * - Sierpinski 

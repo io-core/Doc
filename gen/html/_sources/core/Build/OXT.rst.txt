@@ -29,7 +29,7 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
 +++++++++++++
 .. code-block:: none
  
-     
+
     WordSize* = 4;
     RStkOrg0 = -64;
     IStkOrg0 = -64;
@@ -38,7 +38,7 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
     VStkOrg0 = -64;
     vStkOrg0 = -64;
     MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
-    maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+    maxCode = 10000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
     Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
 
     (*frequently used opcodes*)  U = 2000H; V = 1000H;
@@ -48,18 +48,17 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
     Ldr = 8; Ldb = 9; Str = 10; Stb = 11;
     BR = 0; BLR = 1; BC = 2; BL = 3;
     MI = 0; PL = 8; EQ = 1; NE = 9; LT = 5; GE = 13; LE = 6; GT = 14;
-    BMI =  0; BEQ =  1; BCS =  2; BVS =  3; 
+    BMI =  0; BEQ =  1; BCS =  2; BVS =  3;
     BLS =  4; BLT =  5; BLE =  6; B   =  7;
     BPL =  8; BNE =  9; BVC = 10; BCC = 11;
     BHI = 12; BGE = 13; BGT = 14; BNO = 15;
-    
  
 +++++++++
   Types  
 +++++++++
 .. code-block:: none
  
-      
+
     CodePlacer* = POINTER TO CodePlacerProcs;
     CodePlacerProcs* = RECORD
       CodeWord*:   PROCEDURE (a,v: INTEGER);
@@ -69,7 +68,7 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
       FourBytes*:  PROCEDURE (a, b, c, d: INTEGER; VAR pc, pcb: INTEGER);
       TwoByteInteger*:  PROCEDURE (i: INTEGER; VAR pc, pcb: INTEGER);
       FourByteInteger*:  PROCEDURE (i: INTEGER; VAR pc, pcb: INTEGER);
-    END; 
+    END;
  
 ++++++++++++
   Variables  
@@ -125,6 +124,36 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
   PROCEDURE RHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
 
 ---
+**EPut0** PutRegFromRegOpReg
+::
+  PROCEDURE EPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**EPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE EPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**EPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE EPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**EPut2** PutRegLdStRegOffset
+::
+  PROCEDURE EPut2*(VAR pc, pcb: LONGINT; op, a, b, off: LONGINT);
+
+---
+**EPut3** PutBrCondOffset
+::
+  PROCEDURE EPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**EHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE EHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
 **ISetTables** maps registers between the RISC5 model machine and the x86_64 actual machine and prepares opcode tables for x86_64.
 ::
   PROCEDURE ISetTables;
@@ -132,7 +161,7 @@ Module OXT generates the processor-specific opcodes for executing an Oberon prog
 ---
 **IPut0** places a register <= Register Operation Register instruction in the code array.
 
-When the destination register (ai) is not the same as the first operand register (bi) 
+When the destination register (ai) is not the same as the first operand register (bi)
 the AX register is used as an intermediate register.
 
 ::
@@ -397,9 +426,44 @@ If the 'U' bit is set and the operation is a move, the value is shifted left 32-
   PROCEDURE vHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
 
 ---
+**WSetTables** maps registers between the RISC5 model machine and the wasm virtual machine and prepares opcode tables for wasm.
+::
+  PROCEDURE WSetTables;
+
+---
+**WPut0** PutRegFromRegOpReg
+::
+  PROCEDURE WPut0*(VAR pc, pcb: LONGINT; op, a, b, c: LONGINT);
+
+---
+**WPut1** PutRegFromRegOpImmSmall
+::
+  PROCEDURE WPut1*(o: INTEGER; VAR pc, pcb: LONGINT; op, a, b, im: LONGINT);
+
+---
+**WPut1a** PutRegFromRegOpImmLargeViaRH
+::
+  PROCEDURE WPut1a*(o: INTEGER; VAR pc, pcb, RH: LONGINT; op, a, b, im: LONGINT);
+
+---
+**WPut2** PutRegLdStRegOffset
+::
+  PROCEDURE WPut2*(VAR pc, pcb: LONGINT; op, ai, bi, off: LONGINT);
+
+---
+**WPut3** PutBrCondOffset
+::
+  PROCEDURE WPut3*(VAR pc, pcb: LONGINT; op, cond, off: LONGINT);
+
+---
+**WHeader** prepares the code introductory sequence for a compiled module
+::
+  PROCEDURE WHeader*(VAR pc, pcb, RH, entry, version: LONGINT);
+
+---
 **setRegMap**
 ::
-  PROCEDURE setRegMap*;               
+  PROCEDURE setRegMap*;
  
 ++++++++++++++++++++
   Development Guide 

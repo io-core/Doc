@@ -1,0 +1,88 @@
+####################################
+  HAL.arm64.qemu Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module HAL (.a64) exercises features of the compiler in bringing Oberon up from bare metal on aarch64.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+    stackOrg = 47FFF000H;
+    MTOrg    = 40001000H;
+    rsData   = 9000000H;
+    FDTLoc   = 48000000H; (* At start R02 holds the location of the FDTB *)
+    MT = 12; SP = 14; LNK = 15;   (*dedicated registers RISC5 ordinal*)
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Greet** Transmits a greeting on the serial port.
+::
+PROCEDURE Greet;
+
+---
+**Init** queries the system configuration, establishes the module store and the heap, and passes control to the Kernel.
+::
+PROCEDURE Init;
+
+---
+**The initialzation code for this module** establishes the stack and module table origin, transmits a greeting, and then calls Init.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+The HAL prepares the Oberon runtime and so cannot rely on it.
+
+* No global variables
+* No strings
+* No heap allocation
+
+The first thing HAL must do is set up its own stack.
+
+Each platform should have its own HAL. This is the HAL for aarch64 on QEMU.
+
+The HAL remains resident and may be used by other modules.
+ 
+https://github.com/io-core/Boot/blob/main/HAL.arm64.qemu.Mod
+

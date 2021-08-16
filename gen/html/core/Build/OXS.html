@@ -236,11 +236,27 @@ notasymbol* = -1;
 go* = 100; on* = 101; def* = 102; dim* = 103; let* = 104; rem* = 105; sub* = 106; base* = 107;
 data* = 108; goto* = 109;  next* = 110;  read* = 110;  step* = 112; stop* = 113; gosub* = 114;
 input* = 115; print* = 116; option* = 117; restore* = 118; randomize* = 119; eol* = 120;
-BADARCH* = 0; RISC5* = 1; X8664* = 2; ARM64* = 3; ARM32* = 4; RISCV64* = 5; RISCV32* = 6; CORTEX4* = 7; CORTEX0* = 8;
-BYTEORIENTED* = 0; WORDORIENTED* = 1;
-nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
+func* = 150; void* = 151; package* = 152; rune* = 153; eqeql* = 154; pcnt* = 155; andand* = 156; oror* = 157;
 </pre></div>
 </div>
+<dl>
+<dt>(*    BADARCH* = 0; RISC5* = 1; X8664* = 2; ARM64* = 3; ARM32* = 4; RISCV64* = 5; RISCV32* = 6; CORTEX4* = 7; CORTEX0* = 8; WASM* = 9; ERISC5* = 10; <a href="#id1"><span class="problematic" id="id2">*</span></a>)</dt><dd><blockquote>
+<div><p>BADARCH* = 0;
+RISC5*   = 6517618;    (* “rsc” 0x00637372 <em>)
+ERISC5</em>  = 7878770;    (* “r8x” 0x00783872 <em>)
+X8664</em>   = 7878761;    (* “i8x” 0x00783869 <em>)
+CORTEX4</em> = 7877731;    (* “c4x” 0x00783463 <em>)
+CORTEX0</em> = 7876707;    (* “c0x” 0x00783063 <em>)
+ARM64</em>   = 7878753;    (* “a8x” 0x00783861 <em>)
+ARM32</em>   = 7877729;    (* “a4x” 0x00783461 <em>)
+RISCV64</em> = 7878774;    (* “v8x” 0x00783876 <em>)
+RISCV32</em> = 7877750;    (* “v4x” 0x00783476 <em>)
+WASM</em>    = 7877751;    (* “w4x” 0x00783477 <a href="#id3"><span class="problematic" id="id4">*</span></a>)</p>
+</div></blockquote>
+<p>BYTEORIENTED* = 0; WORDORIENTED* = 1;
+nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="types">
 <h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
@@ -261,19 +277,13 @@ nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
    R: Texts.Reader;
    W: Texts.Writer;
    commentstyle: INTEGER;
-   sigCR: BOOLEAN;
+   sigCR, semiCR, haveRunes: BOOLEAN;
    k: INTEGER;
    KWX: ARRAY 10 OF INTEGER;
    keyTab: ARRAY NKW OF
        RECORD sym: INTEGER; id: ARRAY 12 OF CHAR END;
-
- (* begin-section-description
 </pre></div>
 </div>
-<dl class="simple">
-<dt>## ———- Lexer</dt><dd><p>end-section-description <a href="#id1"><span class="problematic" id="id2">*</span></a>)</p>
-</dd>
-</dl>
 </div>
 <div class="section" id="functions-and-procedures">
 <h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
@@ -283,6 +293,16 @@ nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
 <p>—
 <strong>SetSigCR</strong> sets whether or not a carriage return or newline is significant.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetSigCR</span><span class="o">*</span><span class="p">(</span><span class="n">sig</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetSemiCR</strong> sets whether or not semicolons should be inferred at newlines.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetSemiCR</span><span class="o">*</span><span class="p">(</span><span class="n">semi</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetRunes</strong> sets whether or not to single-quote strings identify runes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetRunes</span><span class="o">*</span><span class="p">(</span><span class="n">runes</span><span class="p">:</span> <span class="n">BOOLEAN</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>—
@@ -306,6 +326,16 @@ nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
 </pre></div>
 </div>
 <p>—
+<strong>Note</strong> places a note in the Oberon system log.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Note</span><span class="o">*</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Value</strong> places a note in the Oberon system log.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Value</span><span class="o">*</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">val</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
 <strong>Identifier</strong> matches an alphanumeric identifier.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Identifier</span><span class="p">(</span><span class="n">VAR</span> <span class="n">sym</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
 </pre></div>
@@ -313,6 +343,11 @@ nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
 <p>—
 <strong>String</strong> matches a quote delimeted string.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">String</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>Rune</strong> matches a single tick delimeted char.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Rune</span><span class="p">(</span><span class="n">VAR</span> <span class="n">sym</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>—
@@ -331,8 +366,13 @@ nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
 </pre></div>
 </div>
 <p>—
-<strong>Comment</strong> matches comments.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">comment</span><span class="p">;</span>
+<strong>oberoncomment</strong> matches Oberon style comments.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">oberoncomment</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>clinecomment</strong> matches C line style comments.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">clinecomment</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>—
@@ -351,7 +391,7 @@ nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
 </pre></div>
 </div>
 <p>—
-<strong>The initialzation code for this module</strong> populats the table of reserved keywords.</p>
+<strong>The initialzation code for this module</strong> prepares an empty table of reserved keywords.</p>
 </div>
 <div class="section" id="development-guide">
 <h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>

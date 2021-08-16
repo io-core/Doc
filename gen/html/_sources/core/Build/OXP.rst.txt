@@ -37,19 +37,18 @@ Module OXP reads the source code of an Oberon program and produces an executable
 +++++++++
 .. code-block:: none
  
- 
+
     PtrBase = POINTER TO PtrBaseDesc;
     PtrBaseDesc = RECORD  (*list of names of pointer base types*)
       name: OXS.Ident; type: OXB.Type; next: PtrBase
     END ;
-  
  
 ++++++++++++
   Variables  
 ++++++++++++
 .. code-block:: none
  
- 
+
     sym: INTEGER;   (*last symbol read*)
     dc: LONGINT;    (*data counter*)
     level, exno, version: INTEGER;
@@ -156,7 +155,7 @@ Module OXP reads the source code of an Oberon program and produces an executable
 ---
 **StandFunc** consumes standard language functions and produces inline code for those functions.
 
-Standard functions include: `ABS` `ODD` `FLOOR` `FLT` `ORD` `CHR` `LEN` `ADC` `SBC` `UML` `BIT` `REG` `VAL` `ADR` `SIZE` `COND` `H`
+Standard functions include: ABS ODD FLOOR FLT ORD CHR LEN ADC SBC UML BIT REG VAL ADR SIZE COND H PAU PLY
 ::
   PROCEDURE StandFunc(VAR x: OXG.Item; fct: LONGINT; restyp: OXB.Type);
 
@@ -277,6 +276,11 @@ expression0 is assigned to the procedure variable `expression` to allow the forw
   PROCEDURE Option(VAR S: Texts.Scanner);
 
 ---
+**Prep** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
+::
+  PROCEDURE Prep;
+
+---
 **Compile** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
 ::
   PROCEDURE Compile*;
@@ -293,9 +297,9 @@ expression0 is assigned to the procedure variable `expression` to allow the forw
 
 **OXP** implements a one-pass recursive descent parser for the language Oberon.
 
-The structure of the parser is derived from the structure of the language, with constituent parts of the language 
-(e.g. Module, Procedure, Type, Expression, Term, Parameter) represented by a procedure of that name, invoked from the 
-encompassing construct. Each procedure consumes and validates a part of the program source text while populating the 
+The structure of the parser is derived from the structure of the language, with constituent parts of the language
+(e.g. Module, Procedure, Type, Expression, Term, Parameter) represented by a procedure of that name, invoked from the
+encompassing construct. Each procedure consumes and validates a part of the program source text while populating the
 symbol table and execution context and also generating machine code faithfully representing that language construct.
 
 This module (OXP) relies on module OXG for code generation, OXB for the symbol table, execution context tracking and reserved words, and OXS

@@ -29,11 +29,11 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
 +++++++++++++
 .. code-block:: none
  
- 
+
     IdLen* = 32;
     NKW = 34;  (*nof keywords*)
     maxExp = 38; stringBufSize = 256;
-  
+
     (*lexical symbols*)
     null = 0; times* = 1; rdiv* = 2; div* = 3; mod* = 4;
     and* = 5; plus* = 6; minus* = 7; or* = 8; eql* = 9;
@@ -53,16 +53,28 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
     go* = 100; on* = 101; def* = 102; dim* = 103; let* = 104; rem* = 105; sub* = 106; base* = 107;
     data* = 108; goto* = 109;  next* = 110;  read* = 110;  step* = 112; stop* = 113; gosub* = 114;
     input* = 115; print* = 116; option* = 117; restore* = 118; randomize* = 119; eol* = 120;
-    BADARCH* = 0; RISC5* = 1; X8664* = 2; ARM64* = 3; ARM32* = 4; RISCV64* = 5; RISCV32* = 6; CORTEX4* = 7; CORTEX0* = 8;
+    func* = 150; void* = 151; package* = 152; rune* = 153; eqeql* = 154; pcnt* = 155; andand* = 156; oror* = 157;
+(*    BADARCH* = 0; RISC5* = 1; X8664* = 2; ARM64* = 3; ARM32* = 4; RISCV64* = 5; RISCV32* = 6; CORTEX4* = 7; CORTEX0* = 8; WASM* = 9; ERISC5* = 10; *)
+     BADARCH* = 0;
+     RISC5*   = 6517618;    (* "rsc" 0x00637372 *)
+     ERISC5*  = 7878770;    (* "r8x" 0x00783872 *)
+     X8664*   = 7878761;    (* "i8x" 0x00783869 *)
+     CORTEX4* = 7877731;    (* "c4x" 0x00783463 *)
+     CORTEX0* = 7876707;    (* "c0x" 0x00783063 *)
+     ARM64*   = 7878753;    (* "a8x" 0x00783861 *)
+     ARM32*   = 7877729;    (* "a4x" 0x00783461 *)
+     RISCV64* = 7878774;    (* "v8x" 0x00783876 *)
+     RISCV32* = 7877750;    (* "v4x" 0x00783476 *)
+     WASM*    = 7877751;    (* "w4x" 0x00783477 *)
     BYTEORIENTED* = 0; WORDORIENTED* = 1;
-    nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3; 
+    nostyle* = 0; oberonstyle* = 1; basicstyle* = 2; cstyle* = 3;
  
 +++++++++
   Types  
 +++++++++
 .. code-block:: none
  
- 
+
     Ident* = ARRAY IdLen OF CHAR;
  
 ++++++++++++
@@ -81,15 +93,11 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
     R: Texts.Reader;
     W: Texts.Writer;
     commentstyle: INTEGER;
-    sigCR: BOOLEAN;
+    sigCR, semiCR, haveRunes: BOOLEAN;
     k: INTEGER;
     KWX: ARRAY 10 OF INTEGER;
     keyTab: ARRAY NKW OF
         RECORD sym: INTEGER; id: ARRAY 12 OF CHAR END;
-  
-  (* begin-section-description
-## ---------- Lexer
-  end-section-description *)
  
 ++++++++++++++++++++++++++++
   Functions and Procedures  
@@ -100,6 +108,16 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
 **SetSigCR** sets whether or not a carriage return or newline is significant.
 ::
   PROCEDURE SetSigCR*(sig: BOOLEAN);
+
+---
+**SetSemiCR** sets whether or not semicolons should be inferred at newlines.
+::
+  PROCEDURE SetSemiCR*(semi: BOOLEAN);
+
+---
+**SetRunes** sets whether or not to single-quote strings identify runes.
+::
+  PROCEDURE SetRunes*(runes: BOOLEAN);
 
 ---
 **SetCommentStyle** sets the style of comments in the parser.
@@ -122,6 +140,16 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
   PROCEDURE Mark*(msg: ARRAY OF CHAR);
 
 ---
+**Note** places a note in the Oberon system log.
+::
+  PROCEDURE Note*(msg: ARRAY OF CHAR);
+
+---
+**Value** places a note in the Oberon system log.
+::
+  PROCEDURE Value*(msg: ARRAY OF CHAR; val: LONGINT);
+
+---
 **Identifier** matches an alphanumeric identifier.
 ::
   PROCEDURE Identifier(VAR sym: INTEGER);
@@ -130,6 +158,11 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
 **String** matches a quote delimeted string.
 ::
   PROCEDURE String;
+
+---
+**Rune** matches a single tick delimeted char.
+::
+  PROCEDURE Rune(VAR sym: INTEGER);
 
 ---
 **HexString** matches a hex string.
@@ -147,9 +180,14 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
   PROCEDURE Number(VAR sym: INTEGER);
 
 ---
-**Comment** matches comments.
+**oberoncomment** matches Oberon style comments.
 ::
-  PROCEDURE comment;
+  PROCEDURE oberoncomment;
+
+---
+**clinecomment** matches C line style comments.
+::
+  PROCEDURE clinecomment;
 
 ---
 **Get** gets the next symbol from the source text.
@@ -167,7 +205,7 @@ Module OXS does lexical analysis of the Oberon source code and defines symbols a
   PROCEDURE EnterKW*(sym: INTEGER; name: ARRAY OF CHAR; kl: INTEGER);
 
 ---
-**The initialzation code for this module** populats the table of reserved keywords.
+**The initialzation code for this module** prepares an empty table of reserved keywords.
  
 ++++++++++++++++++++
   Development Guide 
@@ -186,8 +224,8 @@ Recognises all Oberon keywords and skips comments. The keywords are recorded in 
 
 `Mark(msg)` records error and delivers error message with Writer W.
 
-If Get delivers ident, then the identifier (a string) is in variable id, 
-if int or char in ival, if real in rval, and if string in str (and slen) 
+If Get delivers ident, then the identifier (a string) is in variable id,
+if int or char in ival, if real in rval, and if string in str (and slen)
  
 https://github.com/io-core/Build/blob/main/OXS.Mod
 

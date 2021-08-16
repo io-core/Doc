@@ -10,7 +10,7 @@
   Command Guide  
 +++++++++++++++++
  
-Module OXG generates the processor-specific instructions for executing an Oberon program. 
+Module OXG generates the processor-specific instructions for executing an Oberon program.
 
 OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
  
@@ -34,7 +34,7 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
 
     StkOrg0 = -64; VarOrg0 = 0;  (*for RISC-0 only*)
     MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
-    maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+    maxCode = 10000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
     Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
 
   (*frequently used opcodes*)  U = 2000H; V = 1000H;
@@ -50,7 +50,7 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
 +++++++++
 .. code-block:: none
  
- 
+
     Item* = RECORD
       mode*: INTEGER;
       type*: OXB.Type;
@@ -73,7 +73,7 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
 ++++++++++++
 .. code-block:: none
  
- 
+
     pc*, pcb*, varsize: LONGINT;   (*program counter, data index*)
     tdx, strx: LONGINT;
     entry: LONGINT;   (*main entry point*)
@@ -259,6 +259,11 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
   PROCEDURE RealOp*(op: INTEGER; VAR x, y: Item);   (* x := x op y *)
 
 ---
+**StringOp** generates operations on reals
+::
+  PROCEDURE StringOp*(op: INTEGER; VAR x, y: Item);   (* x := x op y *)
+
+---
 **Singleton** generates a set of one set item.
 ::
   PROCEDURE Singleton*(VAR x: Item);  (* x := {x} *)
@@ -311,7 +316,7 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
 ---
 **CopyString** generates copying the contents of one string variable into another string variable.
 ::
-  PROCEDURE CopyString*(VAR x, y: Item);  (* x := y *) 
+  PROCEDURE CopyString*(VAR x, y: Item);  (* x := y *)
 
 ---
 **OpenArrayParam** generates placing the address of an open array variable in a register, allocating the register.
@@ -444,6 +449,11 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
   PROCEDURE Led*(VAR x: Item);
 
 ---
+**Ouch** generates an inline routine that sends a character to debug output.
+::
+  PROCEDURE Ouch*(VAR x: Item);
+
+---
 **Get** generates an inline routine that loads a value from an IO register.
 ::
   PROCEDURE Get*(VAR x, y: Item);
@@ -454,112 +464,122 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
   PROCEDURE Put*(VAR x, y: Item);
 
 ---
-**Copy** generates an inline memory copy routine.     
+**Copy** generates an inline memory copy routine.
 ::
   PROCEDURE Copy*(VAR x, y, z: Item);
 
 ---
-**LDPSR** places the processor status register in a variable     
+**LDPSR** places the processor status register in a variable
 ::
   PROCEDURE LDPSR*(VAR x: Item);
 
 ---
-**REGREG** loads a register with the contents of another register     
+**REGREG** loads a register with the contents of another register
 ::
   PROCEDURE REGREG*(VAR x, y: Item);
 
 ---
-**LDREG** places a register value in a variable     
+**LDREG** places a register value in a variable
 ::
   PROCEDURE LDREG*(VAR x, y: Item);
 
 ---
-**Abs** generates an inline functionn that takes the absolute value     
+**Abs** generates an inline functionn that takes the absolute value
 ::
   PROCEDURE Abs*(VAR x: Item);
 
 ---
-**Odd** generates an inlinen function that checks whether a value is odd.     
+**Odd** generates an inlinen function that checks whether a value is odd.
 ::
   PROCEDURE Odd*(VAR x: Item);
 
 ---
-**Floor** generates an inline function that produces the floor of a value.     
+**Floor** generates an inline function that produces the floor of a value.
 ::
   PROCEDURE Floor*(VAR x: Item);
 
 ---
-**Float** generates an inline function that produces a float.     
+**Float** generates an inline function that produces a float.
 ::
   PROCEDURE Float*(VAR x: Item);
 
 ---
-**Ord** generates an inline function that presents the ordinal value of its parameter.     
+**Ord** generates an inline function that presents the ordinal value of its parameter.
 ::
   PROCEDURE Ord*(VAR x: Item);
 
 ---
-**Len** generates an inline function that presents the length of an array.     
+**Len** generates an inline function that presents the length of an array.
 ::
   PROCEDURE Len*(VAR x: Item);
 
 ---
-**Shift** generates an inline function that performs bit shifts.      
+**Shift** generates an inline function that performs bit shifts.
 ::
   PROCEDURE Shift*(fct: LONGINT; VAR x, y: Item);
 
 ---
-**ADC** generates an inline function that Adds with Carry     
+**ADC** generates an inline function that Adds with Carry
 ::
   PROCEDURE ADC*(VAR x, y: Item);
 
 ---
-**SBC** generates an inline function that Subtracts with Carry 
+**SBC** generates an inline function that Subtracts with Carry
 ::
   PROCEDURE SBC*(VAR x, y: Item);
 
 ---
-**UML** generates an unsigned multiply 
+**UML** generates an unsigned multiply
 ::
   PROCEDURE UML*(VAR x, y: Item);
 
 ---
-**Bit** generates an inline function presenting the yth bit of x      
+**Bit** generates an inline function presenting the yth bit of x
 ::
   PROCEDURE Bit*(VAR x, y: Item);
 
 ---
-**Register** generates an inline function presenting a general register's contents      
+**Register** generates an inline function presenting a general register's contents
 ::
   PROCEDURE Register*(VAR x: Item);
 
 ---
-**H** genrates an inline funtion presenting the contents of the H register.     
+**H** genrates an inline funtion presenting the contents of the H register.
 ::
   PROCEDURE H*(VAR x: Item);
 
 ---
-**Adr** generates an inline function presenting the memory address of its parameter.      
+**PAU** genrates an inline funtion that records a one-shot continuation.
+::
+  PROCEDURE Pau*(VAR x: Item);
+
+---
+**Ply** genrates an inline funtion that invokes a one-shot continuation.
+::
+  PROCEDURE Ply*(VAR x: Item);
+
+---
+**Adr** generates an inline function presenting the memory address of its parameter.
 ::
   PROCEDURE Adr*(VAR x: Item);
 
 ---
-**Condition** generates an inline function presenting a condition.     
+**Condition** generates an inline function presenting a condition.
 ::
   PROCEDURE Condition*(VAR x: Item);
 
 ---
-**Open** initializes the OXG module code generation engine.     
+**Open** initializes the OXG module code generation engine.
 ::
   PROCEDURE Open*(v: INTEGER);
 
 ---
-**SetDataSize** sets the amount of space reserved for module global variables.     
+**SetDataSize** sets the amount of space reserved for module global variables.
 ::
   PROCEDURE SetDataSize*(dc: LONGINT);
 
 ---
-**Header** prepares the code introductory sequence for a compiled module     
+**Header** prepares the code introductory sequence for a compiled module
 ::
   PROCEDURE Header*;
 
@@ -576,7 +596,7 @@ OXG uses SYSTEM, Files, OXS, OXB, OXT, OXX
 ---
 **Close** writes the completed binary to disk.
 ::
-  PROCEDURE Close*(VAR modid: OXS.Ident; key, nofent: LONGINT);
+  PROCEDURE Close*(VAR modid: OXS.Ident; key, nofent: LONGINT; ccARCH: INTEGER);
 
 ---
 **The initialzation code for this module** merely sets the 6 values in the global relmap array.

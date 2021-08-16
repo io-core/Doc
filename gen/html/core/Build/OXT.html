@@ -221,7 +221,7 @@ aStkOrg0 = -64;
 VStkOrg0 = -64;
 vStkOrg0 = -64;
 MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
-maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+maxCode = 10000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
 Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
 
 (*frequently used opcodes*)  U = 2000H; V = 1000H;
@@ -302,6 +302,36 @@ Put: CodePlacer;
 <p>—
 <strong>RHeader</strong> prepares the code introductory sequence for a compiled module</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RHeader</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">,</span> <span class="n">RH</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EPut0</strong> PutRegFromRegOpReg</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EPut0</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EPut1</strong> PutRegFromRegOpImmSmall</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EPut1</span><span class="o">*</span><span class="p">(</span><span class="n">o</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EPut1a</strong> PutRegFromRegOpImmLargeViaRH</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EPut1a</span><span class="o">*</span><span class="p">(</span><span class="n">o</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">,</span> <span class="n">RH</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EPut2</strong> PutRegLdStRegOffset</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EPut2</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">off</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EPut3</strong> PutBrCondOffset</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EPut3</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">off</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>EHeader</strong> prepares the code introductory sequence for a compiled module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">EHeader</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">,</span> <span class="n">RH</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>—
@@ -570,6 +600,41 @@ the AX register is used as an intermediate register.</p>
 <p>—
 <strong>vHeader</strong> prepares the code introductory sequence for a compiled module</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">vHeader</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">,</span> <span class="n">RH</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WSetTables</strong> maps registers between the RISC5 model machine and the wasm virtual machine and prepares opcode tables for wasm.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WSetTables</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>—
+<strong>WPut0</strong> PutRegFromRegOpReg</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WPut0</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WPut1</strong> PutRegFromRegOpImmSmall</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WPut1</span><span class="o">*</span><span class="p">(</span><span class="n">o</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WPut1a</strong> PutRegFromRegOpImmLargeViaRH</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WPut1a</span><span class="o">*</span><span class="p">(</span><span class="n">o</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">,</span> <span class="n">RH</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WPut2</strong> PutRegLdStRegOffset</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WPut2</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">ai</span><span class="p">,</span> <span class="n">bi</span><span class="p">,</span> <span class="n">off</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WPut3</strong> PutBrCondOffset</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WPut3</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">op</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">off</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>WHeader</strong> prepares the code introductory sequence for a compiled module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WHeader</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pcb</span><span class="p">,</span> <span class="n">RH</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>—

@@ -242,54 +242,73 @@
    END;
 
    Text* = POINTER TO TextDesc;
-   Notifier* = PROCEDURE (T: Text; op: INTEGER; beg, end: LONGINT);
-   Consumer* = PROCEDURE (T: Text; beg, end: LONGINT);
-   TextDesc* = RECORD
-     len*,sent*,cap*: LONGINT;
-     mime*: MIME.Type;
-     changed*: BOOLEAN;
-     notify*: Notifier;
-     out*: Consumer;
-     trailer: Piece;
-     pce: Piece;  (*cache*)
-     org: LONGINT (*cache*)
-   END;
-
-   Reader* = RECORD
-     eot*: BOOLEAN;
-     fnt*: Fonts.Font;
-     col*, voff*: INTEGER;
-     ref: Piece;
-     org: LONGINT;
-     off: LONGINT;
-     rider: Files.Rider
-   END;
-
-   Scanner* = RECORD (Reader)
-     nextCh*: CHAR;
-     line*, class*: INTEGER;
-     i*: LONGINT;
-     x*: REAL;
-     y*: LONGREAL;
-     codepoint*: INTEGER;
-     len*: INTEGER;
-     s*: ARRAY 32 OF CHAR
-   END;
-
    Buffer* = POINTER TO BufDesc;
-   BufDesc* = RECORD
-     len*: LONGINT;
-     header, last: Piece
-   END;
 
-   Writer* = RECORD
-     buf*: Buffer;
-     fnt*: Fonts.Font;
-     col*, voff*: INTEGER;
-     rider: Files.Rider
-   END;
+   Processor* = PROCEDURE (B: Buffer): Buffer;
 </pre></div>
 </div>
+<dl>
+<dt>(*    Feeder* = PROCEDURE(T: Text; R: Reader); <a href="#id1"><span class="problematic" id="id2">*</span></a>)</dt><dd><p>Notifier* = PROCEDURE (T: Text; op: INTEGER; beg, end: LONGINT);</p>
+<dl class="simple">
+<dt>TextDesc* = RECORD</dt><dd><p>len*,sent*,lcap*,bcap*: LONGINT;
+mime*: MIME.Type;
+changed*: BOOLEAN;
+notify*: Notifier;
+aproc*: Processor;
+trailer: Piece;
+pce: Piece;  (<em>cache</em>)
+org: LONGINT (<em>cache</em>)</p>
+</dd>
+</dl>
+<p>END;</p>
+<dl class="simple">
+<dt>Reader* = RECORD</dt><dd><p>eot*: BOOLEAN;
+fnt*: Fonts.Font;
+col*, voff*: INTEGER;</p>
+</dd>
+</dl>
+</dd>
+<dt>(*      more*: Feeder; <a href="#id3"><span class="problematic" id="id4">*</span></a>)</dt><dd><blockquote>
+<div><p>ref: Piece;
+org: LONGINT;
+off: LONGINT;
+rider: Files.Rider</p>
+</div></blockquote>
+<p>END;</p>
+<dl class="simple">
+<dt>Scanner* = RECORD (Reader)</dt><dd><p>nextCh*: CHAR;
+line*, class*: INTEGER;
+i*: LONGINT;
+x*: REAL;
+y*: LONGREAL;
+codepoint*: INTEGER;
+len*: INTEGER;
+s*: ARRAY 32 OF CHAR</p>
+</dd>
+</dl>
+<p>END;</p>
+<dl class="simple">
+<dt>BufDesc* = RECORD</dt><dd><p>len*: LONGINT;
+header, last: Piece</p>
+</dd>
+</dl>
+<p>END;</p>
+<dl class="simple">
+<dt>Writer* = RECORD</dt><dd><p>buf*: Buffer;
+fnt*: Fonts.Font;
+col*, voff*: INTEGER;
+rider: Files.Rider</p>
+</dd>
+</dl>
+<p>END;</p>
+<dl class="simple">
+<dt>Stream* = RECORD</dt><dd><p>in*: Reader;
+out*: Writer</p>
+</dd>
+</dl>
+<p>END;</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
@@ -347,6 +366,10 @@
 </dd>
 </dl>
 <dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE FromBuffer* (T: Text; B: Buffer);</p>
+</dd>
+</dl>
+<dl class="simple">
 <dt>::</dt><dd><p>PROCEDURE Append* (T: Text; B: Buffer);</p>
 </dd>
 </dl>
@@ -388,6 +411,10 @@
 </dl>
 <dl class="simple">
 <dt>::</dt><dd><p>PROCEDURE OpenScanner* (VAR S: Scanner; T: Text; pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ScannerFromReader* (VAR S: Scanner; R: Reader);</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -452,6 +479,18 @@
 </dl>
 <dl class="simple">
 <dt>::</dt><dd><p>PROCEDURE WriteClock* (VAR W: Writer; d: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Pipe*(VAR I: Text; VAR O: Text; P: Processor );</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE OpenStream* (VAR S: Stream; T: Text; pos: LONGINT);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE UpdateStream* (VAR S: Stream);</p>
 </dd>
 </dl>
 </div>

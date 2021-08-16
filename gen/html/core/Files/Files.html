@@ -233,14 +233,33 @@ XS        = FileDir.IndexSize;
 File*   = POINTER TO FileDesc;
 Buffer  = POINTER TO BufferRecord;
 Index   = POINTER TO IndexRecord;
+OT      = POINTER TO OTDesc;
 
 Rider* =
   RECORD eof*: BOOLEAN;
     res*: INTEGER;
     file: File;
     apos, bpos: INTEGER;
-    buf: Buffer
+    buf: Buffer;
+    Ot: OT;
   END ;
+
+ReadByteProc* = PROCEDURE (VAR r: Rider; VAR x: BYTE);
+ReadProc* = PROCEDURE (VAR r: Rider; VAR ch: CHAR);
+WriteByteProc* = PROCEDURE (VAR r: Rider; x: BYTE);
+WriteProc* = PROCEDURE (VAR r: Rider; ch: CHAR);
+
+OTDesc = RECORD
+  Next:        OT;
+  Id:          INTEGER;
+  Set:         PROCEDURE (VAR r: Rider; f: File; pos: INTEGER);
+  Pos:         PROCEDURE (VAR r: Rider): INTEGER;
+  Base:        PROCEDURE (VAR r: Rider): File;
+  ReadByte:    ReadByteProc;
+  Read:        ReadProc;
+  WriteByte:   WriteByteProc;
+  Write:       WriteProc;
+END;
 
 FileDesc =
   RECORD
@@ -288,6 +307,8 @@ IndexRecord =
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root: INTEGER (*File*);  (*list of open files*)
+Ot: OT; (* operations on file riders *)
+OTBase: OTDesc;
 </pre></div>
 </div>
 </div>
@@ -377,6 +398,26 @@ IndexRecord =
 </pre></div>
 </div>
 <p>—
+<strong>SetRead</strong> sets the Read procudure for Rider R to P.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetRead</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">P</span><span class="p">:</span> <span class="n">ReadProc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetReadByte</strong> sets the ReadByte procudure for Rider R to P.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetReadByte</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">P</span><span class="p">:</span> <span class="n">ReadByteProc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetWrite</strong> sets the Write procudure for Rider R to P.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetWrite</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">P</span><span class="p">:</span> <span class="n">WriteProc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>SetWriteByte</strong> sets the WriteByte procudure for Rider R to P.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">SetWriteByte</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">P</span><span class="p">:</span> <span class="n">WriteByteProc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
 <strong>Set</strong> positions the Rider <cite>r</cite> to position <cite>pos</cite> on File <cite>f</cite> for reading and writing.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Set</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">f</span><span class="p">:</span> <span class="n">File</span><span class="p">;</span> <span class="n">pos</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
 </pre></div>
@@ -441,7 +482,7 @@ IndexRecord =
 </pre></div>
 </div>
 <p>—
-<strong>WriteByte</strong> writes <cite>n</cite> bytes to the file at the rider position, extending the file as necessary.</p>
+<strong>WriteBytes</strong> writes <cite>n</cite> bytes to the file at the rider position, extending the file as necessary.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteBytes</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">r</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">BYTE</span><span class="p">;</span> <span class="n">n</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -461,7 +502,7 @@ IndexRecord =
 </pre></div>
 </div>
 <p>—
-<strong>WriteByte</strong> writes a Real to the file at the rider position, extending the file as necessary.</p>
+<strong>WriteReal</strong> writes a Real to the file at the rider position, extending the file as necessary.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">WriteReal</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">R</span><span class="p">:</span> <span class="n">Rider</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span> <span class="n">REAL</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -476,7 +517,17 @@ IndexRecord =
 </pre></div>
 </div>
 <p>—
-<strong>Init</strong> (called on system-startup by <cite>Modules</cite>) sets the list of open files to <cite>0</cite> and calls <cite>Kernel.Init</cite> and <cite>FileDir.Init</cite>.</p>
+<strong>RegisterOT</strong> enrolls an OTDesc table of function pointers in the Files module.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">RegisterOT</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">o</span><span class="p">:</span> <span class="n">OT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>UnRegisterOT</strong> enrolls an OTDesc table of function pointers in the Files module.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">UnRegisterOT</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Init</strong> (called on system-startup by <cite>Modules</cite>) sets the list of open files to <cite>0</cite>, sets up the file rider operations table, and calls <cite>Kernel.Init</cite> and <cite>FileDir.Init</cite>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Init</span><span class="o">*</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -493,7 +544,7 @@ IndexRecord =
 <div class="section" id="development-guide">
 <h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>(NW 11.1.86 / 22.9.93 / 25.5.95 / 25.12.95 / 15.8.2013)</p>
+<div><p>(NW 11.1.86 / 22.9.93 / 25.5.95 / 25.12.95 / 15.8.2013, CP 2021)</p>
 </div></blockquote>
 <p><a class="reference external" href="https://github.com/io-core/Files/blob/main/Files.Mod">https://github.com/io-core/Files/blob/main/Files.Mod</a></p>
 </div>

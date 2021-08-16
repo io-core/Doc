@@ -10,7 +10,7 @@
   Command Guide  
 +++++++++++++++++
  
-Module Modules is the heart of how separately compiled Oberon programs are loaded and linked.
+
  
 +++++++++++++
   API Guide  
@@ -30,18 +30,26 @@ Module Modules is the heart of how separately compiled Oberon programs are loade
 .. code-block:: none
  
  
-    versionkey = 1X; 
-    MT         = 12; 
-    DescSize   = 80;
+    versionkey = 1X; MT = 12; DescSize = 80;
+    BADARCH = 0;
+    RISC5   = 6517618;    (* "rsc" 0x00637372 *)
+    ERISC5  = 7878770;    (* "r8x" 0x00783872 *)
+    X8664   = 7878761;    (* "i8x" 0x00783869 *)
+    CORTEX4 = 7877731;    (* "c4x" 0x00783463 *)
+    CORTEX0 = 7876707;    (* "c0x" 0x00783063 *)
+    ARM64   = 7878753;    (* "a8x" 0x00783861 *)
+    ARM32   = 7877729;    (* "a4x" 0x00783461 *)
+    RISCV64 = 7878774;    (* "v8x" 0x00783876 *)
+    RISCV32 = 7877750;    (* "v4x" 0x00783476 *)
+    WASM    = 7877751;    (* "w4x" 0x00783477 *)
  
 +++++++++
   Types  
 +++++++++
 .. code-block:: none
  
- 
-    Module*     = POINTER TO ModDesc;
-    Command*    = PROCEDURE;
+ Module* = POINTER TO ModDesc;
+    Command* = PROCEDURE;
     ModuleName* = ARRAY 32 OF CHAR;
 
     ModDesc* = RECORD
@@ -56,71 +64,67 @@ Module Modules is the heart of how separately compiled Oberon programs are loade
 ++++++++++++
 .. code-block:: none
  
- 
-    root*, M: Module;
+ root*, binroot, M: Module;
     MTOrg*, AllocPtr*, res*: INTEGER;
     importing*, imported*: ModuleName;
     limit: INTEGER;
+    binMTOrg, binStart, binAllocPtr: INTEGER;
+(*  W: Texts.Writer; *)
+    Mlist: ARRAY 16 OF ModuleName;
+    heapOrg: INTEGER;
  
 ++++++++++++++++++++++++++++
   Functions and Procedures  
 ++++++++++++++++++++++++++++
 .. code-block:: none
  
----
-**ThisFile** appends `.rsc` to the module name, opens it, and returns the file.
+::
+  PROCEDURE Debug(s: ARRAY OF CHAR);
+
+::
+  PROCEDURE Dln;
+
 ::
   PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;
 
----
-**error** places the error number and error name in global varaibles `res` and `importing` for later reference.
+::
+  PROCEDURE ThisBinFile(name: ARRAY OF CHAR): Files.File;
+
 ::
   PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);
 
----
-**Check** conditionally sets global variable `res` to 0 (valid) or 1 (invalid) when checking to see if the string is a valid name. 
 ::
   PROCEDURE Check(s: ARRAY OF CHAR);
 
----
-**Load** recursively loads from disk into the module area of memory the imports of a module and then the module itself. 
+::
+  PROCEDURE LoadOne(name: ARRAY OF CHAR; VAR newmod, rootmod: Module);
+
 ::
   PROCEDURE Load*(name: ARRAY OF CHAR; VAR newmod: Module);
 
----
-**ThisCommand** finds and executes a parameterless procedure of module `mod` identified by the string `name`.
+::
+  PROCEDURE zero( VAR s: ARRAY OF CHAR);
+
+::
+  PROCEDURE LinkOne*(name: ARRAY OF CHAR; VAR newmod, rootmod: Module);
+
+::
+  PROCEDURE Link*(s: ARRAY OF CHAR; VAR rv: INTEGER);
+
 ::
   PROCEDURE ThisCommand*(mod: Module; name: ARRAY OF CHAR): Command;
 
----
-**Free** recursively removes modules imported by a module and the module itself from memory if no other loaded modules import it, or returns an error.
 ::
   PROCEDURE Free*(name: ARRAY OF CHAR);
 
----
-**Init** calls `Files.Init`, sets the module table start and allocation pointer and module root and limit and makes room for the stack by decreasing the limit.
 ::
   PROCEDURE Init*;
-
----
-**The initialzation code for this module** calls `Init` and then dynamically loads the `Oberon` module and its imports. `Oberon` is not expected to return.
  
 ++++++++++++++++++++
   Development Guide 
 ++++++++++++++++++++
  
 
-(Link and load on RISC; NW 20.10.2013 / 8.1.2019)
-
-After the BootLoader loads the Inner Core (`Kernel`, `FileDir`, `Files`, `Modules`) into memory, the 
-BEGIN section at the end of this module is the next code to execute. Modules, Files, Filedir, and Kernel
-cooperate in initializing the state of the Oberon system.
-
-Once the system is initialized, `Modules` dynamically loads the `Oberon` module which recursively requires `Input`, `Display`, `Viewers`, `Fonts`, and `Texts` to also be loaded.
-
-The `Oberon` module in turn, at the end of its initialization, dynamically loads the `System` module which further requires `MenuViewers` and `TextFrames`.
-
-At this point the Oberon system is responsive to user commands.
  
 https://github.com/io-core/Modules/blob/main/Modules.Mod
 

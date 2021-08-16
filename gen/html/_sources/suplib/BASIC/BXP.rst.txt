@@ -407,6 +407,11 @@ expression0 is assigned to the procedure variable `expression` to allow the forw
   PROCEDURE Option(VAR S: Texts.Scanner);
 
 ---
+**Prep** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
+::
+  PROCEDURE Prep;
+
+---
 **Compile** locates the source code to a module, initializes the scanner, and begins parsing the source text.
 ::
   PROCEDURE Compile*;

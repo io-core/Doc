@@ -24,24 +24,7 @@ Kernel  handles kernel load / heap and GC / SDcard and sectors / timer and clock
   About  
 --------
  
-Package Overview
-++++++++++++++++
 
-The Kernel package manages:
-
-* Loading the Oberon inner core from the SDcard or the serial line
-* Heap Management, Disk Access, Timekeeping, and Trap handling
-
-Package Use
-+++++++++++
-
-USAGE:
-
-i:=Kernel.Time();
-
-Kernel.Install(SYSTEM.ADR(Abort), 0);
-
-Kernel.GetSector(secno*29, buf);
 
 ---------------------
   Development Guide  

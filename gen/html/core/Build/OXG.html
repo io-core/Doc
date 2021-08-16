@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OXP Module" href="OXP.html" />
+    <link rel="next" title="OXLinker Module" href="OXLinker.html" />
     <link rel="prev" title="OXDis Module" href="OXDis.html" /> 
 </head>
 
@@ -216,7 +216,7 @@
 <h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  StkOrg0 = -64; VarOrg0 = 0;  (*for RISC-0 only*)
   MT = 12; TL = 13; SP = 14; LNK = 15;   (*dedicated registers*)
-  maxCode = 8000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
+  maxCode = 10000; maxStrx = 6400; maxTD = 160; C24 = 1000000H;
   Reg = 10; RegI = 11; Cond = 12;  (*internal item modes*)
 
 (*frequently used opcodes*)  U = 2000H; V = 1000H;
@@ -447,6 +447,11 @@ xHeader: PROCEDURE (VAR pc, pcb, RH, entry, version: LONGINT);
 </pre></div>
 </div>
 <p>—
+<strong>StringOp</strong> generates operations on reals</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">StringOp</span><span class="o">*</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>   <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="n">op</span> <span class="n">y</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—
 <strong>Singleton</strong> generates a set of one set item.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Singleton</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>  <span class="p">(</span><span class="o">*</span> <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">}</span> <span class="o">*</span><span class="p">)</span>
 </pre></div>
@@ -632,6 +637,11 @@ xHeader: PROCEDURE (VAR pc, pcb, RH, entry, version: LONGINT);
 </pre></div>
 </div>
 <p>—
+<strong>Ouch</strong> generates an inline routine that sends a character to debug output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Ouch</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
 <strong>Get</strong> generates an inline routine that loads a value from an IO register.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Get</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
 </pre></div>
@@ -727,6 +737,16 @@ xHeader: PROCEDURE (VAR pc, pcb, RH, entry, version: LONGINT);
 </pre></div>
 </div>
 <p>—
+<strong>PAU</strong> genrates an inline funtion that records a one-shot continuation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Pau</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
+<strong>Ply</strong> genrates an inline funtion that invokes a one-shot continuation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Ply</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>—
 <strong>Adr</strong> generates an inline function presenting the memory address of its parameter.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Adr</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">x</span><span class="p">:</span> <span class="n">Item</span><span class="p">);</span>
 </pre></div>
@@ -763,7 +783,7 @@ xHeader: PROCEDURE (VAR pc, pcb, RH, entry, version: LONGINT);
 </div>
 <p>—
 <strong>Close</strong> writes the completed binary to disk.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Close</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">modid</span><span class="p">:</span> <span class="n">OXS</span><span class="o">.</span><span class="n">Ident</span><span class="p">;</span> <span class="n">key</span><span class="p">,</span> <span class="n">nofent</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Close</span><span class="o">*</span><span class="p">(</span><span class="n">VAR</span> <span class="n">modid</span><span class="p">:</span> <span class="n">OXS</span><span class="o">.</span><span class="n">Ident</span><span class="p">;</span> <span class="n">key</span><span class="p">,</span> <span class="n">nofent</span><span class="p">:</span> <span class="n">LONGINT</span><span class="p">;</span> <span class="n">ccARCH</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>—
@@ -785,7 +805,7 @@ definition and determined that its module imports are available and of compatibl
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="OXP.html" class="btn btn-neutral float-right" title="OXP Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="OXLinker.html" class="btn btn-neutral float-right" title="OXLinker Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="OXDis.html" class="btn btn-neutral float-left" title="OXDis Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

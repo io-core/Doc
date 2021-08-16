@@ -1,0 +1,88 @@
+####################################
+  HAL.riscv64.qemu Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module HAL (.v64)  exercises features of the compiler in bringing Oberon up from bare metal on 64-bit RISCV.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+   SYSTEM
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+    stackOrg = 0BFFFF000H;
+    MTOrg    = 80001000H;
+    rsData   = 10000000H; 
+    rsCtrl   = -52;
+    MT = 12; SP = 14; LNK = 15;   (*dedicated registers RISC5 ordinal*)
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Greet** Transmits a greeting on the serial port.
+::
+PROCEDURE Greet;
+
+---
+**Init** queries the system configuration, establishes the module store and the heap, and passes control to the Kernel.
+::
+PROCEDURE Init;
+
+---
+**The initialzation code for this module** establishes the stack and module table origin, transmits a greeting, and then calls Init.
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+The HAL prepares the Oberon runtime and so cannot rely on it.
+
+* No global variables
+* No strings
+* No heap allocation
+
+The first thing HAL must do is set up its own stack.
+
+Each platform should have its own HAL. This is the HAL for riscv64 on QEMU.
+
+The HAL remains resident and may be used by other modules.
+ 
+https://github.com/io-core/Boot/blob/main/HAL.riscv64.qemu.Mod
+

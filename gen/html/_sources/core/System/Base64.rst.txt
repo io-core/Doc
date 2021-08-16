@@ -1,0 +1,102 @@
+####################################
+  Base64 Module 
+####################################
+ 
+++++++++
+  About  
+++++++++
+ 
++++++++++++++++++
+  Command Guide  
++++++++++++++++++
+ 
+Module Base64 provides for encoding and decoding texts in a base64 format via a streaming interface.
+ 
++++++++++++++
+  API Guide  
++++++++++++++
+ 
+++++++++++++++++
+  Dependencies  
+++++++++++++++++
+ 
+.. code-block:: none
+ 
+ SYSTEM Texts Oberon
+ 
++++++++++++++
+  Constants  
++++++++++++++
+.. code-block:: none
+ 
+
+ 
++++++++++
+  Types  
++++++++++
+.. code-block:: none
+ 
+
+ 
+++++++++++++
+  Variables  
+++++++++++++
+.. code-block:: none
+ 
+
+    encTable: ARRAY 64 OF CHAR;
+    decTable: ARRAY 128 OF INTEGER;
+ 
+++++++++++++++++++++++++++++
+  Functions and Procedures  
+++++++++++++++++++++++++++++
+.. code-block:: none
+ 
+---
+**Decode** decodes a base64 text.
+::
+  PROCEDURE Decode*(VAR S: Texts.Stream);
+
+---
+**Encode** encodes a base64 text.
+::
+  PROCEDURE Encode*(VAR S:Texts.Stream);
+
+---
+**InitTables** sets up the static tables used by the encode and decode routines.
+::
+  PROCEDURE InitTables;
+
+---
+**decode** defines the procedure assigned to a Text procedure variable to 'pump' appended data downstream for decoding.
+::
+  PROCEDURE decode(I: Texts.Buffer):Texts.Buffer;
+
+---
+**encode** defines the procedure assigned to a Text procedure variable to 'pump' appended data downstream for encoding.
+::
+  PROCEDURE encode(I: Texts.Buffer):Texts.Buffer;
+
+---
+**Test** provides a test for the base64 implementation.
+::
+  PROCEDURE Test*;
+ 
+++++++++++++++++++++
+  Development Guide 
+++++++++++++++++++++
+ 
+
+( AUTHOR "P.Hunziker - Ported from Oberon.Base64.Mod (JG 23.8.94) "; )
+( converted from A2/AOS/Bluebottle Streams to IO text streams by C. Perkins 4.29.2021 )
+
+**Base64.Mod** shows how to implement a streaming module using Text Streams in Oberon-07.
+
+This module consists of three parts:
+
+ 1 the base64 encode and decode logic with Texts.Reader and Texts.Writer parameters
+ 2 PROCEDURES that may be assigned to Text aproc variables to drive the encoding or decoding on appended text
+ 3 tests for the correct operation of the algorithms which demonstrate how to use 1 and 2
+ 
+https://github.com/io-core/System/blob/main/Base64.Mod
+

@@ -200,7 +200,6 @@
 </div>
 <div class="section" id="command-guide">
 <h2>Command Guide<a class="headerlink" href="#command-guide" title="Permalink to this headline">¶</a></h2>
-<p>Module Modules is the heart of how separately compiled Oberon programs are loaded and linked.</p>
 </div>
 <div class="section" id="api-guide">
 <h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
@@ -213,88 +212,115 @@
 </div>
 <div class="section" id="constants">
 <h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>versionkey = 1X;
-MT         = 12;
-DescSize   = 80;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>versionkey = 1X; MT = 12; DescSize = 80;
+BADARCH = 0;
+RISC5   = 6517618;    (* &quot;rsc&quot; 0x00637372 *)
+ERISC5  = 7878770;    (* &quot;r8x&quot; 0x00783872 *)
+X8664   = 7878761;    (* &quot;i8x&quot; 0x00783869 *)
+CORTEX4 = 7877731;    (* &quot;c4x&quot; 0x00783463 *)
+CORTEX0 = 7876707;    (* &quot;c0x&quot; 0x00783063 *)
+ARM64   = 7878753;    (* &quot;a8x&quot; 0x00783861 *)
+ARM32   = 7877729;    (* &quot;a4x&quot; 0x00783461 *)
+RISCV64 = 7878774;    (* &quot;v8x&quot; 0x00783876 *)
+RISCV32 = 7877750;    (* &quot;v4x&quot; 0x00783476 *)
+WASM    = 7877751;    (* &quot;w4x&quot; 0x00783477 *)
 </pre></div>
 </div>
 </div>
 <div class="section" id="types">
 <h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Module*     = POINTER TO ModDesc;
-Command*    = PROCEDURE;
-ModuleName* = ARRAY 32 OF CHAR;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Module* = POINTER TO ModDesc;
+   Command* = PROCEDURE;
+   ModuleName* = ARRAY 32 OF CHAR;
 
-ModDesc* = RECORD
-    name*: ModuleName;
-    next*: Module;
-    key*, num*, size*, refcnt*: INTEGER;
-    data*, code*, imp*, cmd*, ent*, ptr*, unused: INTEGER  (*addresses*)
-  END ;
+   ModDesc* = RECORD
+       name*: ModuleName;
+       next*: Module;
+       key*, num*, size*, refcnt*: INTEGER;
+       data*, code*, imp*, cmd*, ent*, ptr*, unused: INTEGER  (*addresses*)
+     END ;
 </pre></div>
 </div>
 </div>
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root*, M: Module;
-MTOrg*, AllocPtr*, res*: INTEGER;
-importing*, imported*: ModuleName;
-limit: INTEGER;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root*, binroot, M: Module;
+   MTOrg*, AllocPtr*, res*: INTEGER;
+   importing*, imported*: ModuleName;
+   limit: INTEGER;
+   binMTOrg, binStart, binAllocPtr: INTEGER;
 </pre></div>
 </div>
+<dl class="simple">
+<dt>(*  W: Texts.Writer; <a href="#id1"><span class="problematic" id="id2">*</span></a>)</dt><dd><p>Mlist: ARRAY 16 OF ModuleName;
+heapOrg: INTEGER;</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="functions-and-procedures">
 <h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>—
-<strong>ThisFile</strong> appends <cite>.rsc</cite> to the module name, opens it, and returns the file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ThisFile</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">Files</span><span class="o">.</span><span class="n">File</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>—
-<strong>error</strong> places the error number and error name in global varaibles <cite>res</cite> and <cite>importing</cite> for later reference.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">error</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">INTEGER</span><span class="p">;</span> <span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>—
-<strong>Check</strong> conditionally sets global variable <cite>res</cite> to 0 (valid) or 1 (invalid) when checking to see if the string is a valid name.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Check</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>—
-<strong>Load</strong> recursively loads from disk into the module area of memory the imports of a module and then the module itself.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Load</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">;</span> <span class="n">VAR</span> <span class="n">newmod</span><span class="p">:</span> <span class="n">Module</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>—
-<strong>ThisCommand</strong> finds and executes a parameterless procedure of module <cite>mod</cite> identified by the string <cite>name</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ThisCommand</span><span class="o">*</span><span class="p">(</span><span class="n">mod</span><span class="p">:</span> <span class="n">Module</span><span class="p">;</span> <span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">):</span> <span class="n">Command</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>—
-<strong>Free</strong> recursively removes modules imported by a module and the module itself from memory if no other loaded modules import it, or returns an error.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Free</span><span class="o">*</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">ARRAY</span> <span class="n">OF</span> <span class="n">CHAR</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>—
-<strong>Init</strong> calls <cite>Files.Init</cite>, sets the module table start and allocation pointer and module root and limit and makes room for the stack by decreasing the limit.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Init</span><span class="o">*</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>—
-<strong>The initialzation code for this module</strong> calls <cite>Init</cite> and then dynamically loads the <cite>Oberon</cite> module and its imports. <cite>Oberon</cite> is not expected to return.</p>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Debug(s: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Dln;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisFile(name: ARRAY OF CHAR): Files.File;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisBinFile(name: ARRAY OF CHAR): Files.File;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE error(n: INTEGER; name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Check(s: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LoadOne(name: ARRAY OF CHAR; VAR newmod, rootmod: Module);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Load*(name: ARRAY OF CHAR; VAR newmod: Module);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE zero( VAR s: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE LinkOne*(name: ARRAY OF CHAR; VAR newmod, rootmod: Module);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Link*(s: ARRAY OF CHAR; VAR rv: INTEGER);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE ThisCommand*(mod: Module; name: ARRAY OF CHAR): Command;</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Free*(name: ARRAY OF CHAR);</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>PROCEDURE Init*;</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="development-guide">
 <h2>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h2>
-<p>(Link and load on RISC; NW 20.10.2013 / 8.1.2019)</p>
-<p>After the BootLoader loads the Inner Core (<cite>Kernel</cite>, <cite>FileDir</cite>, <cite>Files</cite>, <cite>Modules</cite>) into memory, the
-BEGIN section at the end of this module is the next code to execute. Modules, Files, Filedir, and Kernel
-cooperate in initializing the state of the Oberon system.</p>
-<p>Once the system is initialized, <cite>Modules</cite> dynamically loads the <cite>Oberon</cite> module which recursively requires <cite>Input</cite>, <cite>Display</cite>, <cite>Viewers</cite>, <cite>Fonts</cite>, and <cite>Texts</cite> to also be loaded.</p>
-<p>The <cite>Oberon</cite> module in turn, at the end of its initialization, dynamically loads the <cite>System</cite> module which further requires <cite>MenuViewers</cite> and <cite>TextFrames</cite>.</p>
-<p>At this point the Oberon system is responsive to user commands.</p>
 <p><a class="reference external" href="https://github.com/io-core/Modules/blob/main/Modules.Mod">https://github.com/io-core/Modules/blob/main/Modules.Mod</a></p>
 </div>
 </div>
