@@ -1,0 +1,35 @@
+########################
+  Pascal Package 
+########################
+
+Version v1.0.20210816
+
+Pascal  compile BASIC programs. 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Pascal:
+   :hidden:
+
+   Modules <PascalModules>
+
+ 
+------------------------
+  Package Dependencies  
+------------------------
+ 
+
+
+--------
+  About  
+--------
+ 
+
+
+---------------------
+  Development Guide  
+---------------------
+ 
+Pascal  
+
+https://github.com/io-core/Pascal/blob/main/Pascal.Pkg

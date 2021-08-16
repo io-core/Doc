@@ -10,6 +10,7 @@
 
    suplib/Examples
    suplib/BASIC
+   suplib/Pascal
 
 Supplemental and contributed modules here...
 
@@ -24,4 +25,6 @@ https://github.com/io-core/Mod/blob/main/Suite.Mod
    * - Examples 
      - demonstrates programming in Oberon for IO. 
    * - BASIC 
+     -  compile BASIC programs. 
+   * - Pascal 
      -  compile BASIC programs. 
