@@ -98,6 +98,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Compiling, Style Guide, and Contrib. Process</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#obtaining-the-code">Obtaining the Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#navigating-the-code">Navigating the Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-the-code">Compiling the Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coding-guidelines">Coding Guidelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commit-message-conventions">Commit Message Conventions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pull-request-process">Pull Request Process</a></li>
@@ -185,9 +186,17 @@
 <h2>Obtaining the Code<a class="headerlink" href="#obtaining-the-code" title="Permalink to this headline">¶</a></h2>
 <p>Check out the main project on a Linux or Mac based system</p>
 <p>This repo uses submodules, to get the whole thing:</p>
-<p>git clone –recursive <a class="reference external" href="https://github.com/io-core/io">https://github.com/io-core/io</a>
-After cloning the submodules may not be checked out to the main branch so after the above command you should:</p>
-<p>cd io; bash makemain.sh</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>git clone –recursive <a class="reference external" href="https://github.com/io-core/io">https://github.com/io-core/io</a></p></li>
+</ul>
+</div></blockquote>
+<p>After cloning the submodules may not be checked out to the main branch so after the above command you should:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>cd io; bash makemain.sh</p></li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="navigating-the-code">
 <h2>Navigating the Code<a class="headerlink" href="#navigating-the-code" title="Permalink to this headline">¶</a></h2>
@@ -195,16 +204,51 @@ After cloning the submodules may not be checked out to the main branch so after 
 <p>The directory structures under root mimic a potential future deployed self-hosting target system.</p>
 <p>Within root the src/github.com/io-core path provides a home for the io-core project submodules needed to build the target system.</p>
 <p>Within /root/src/github.com/io-core:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Boot</p></td>
+<td><p>source code for booting an IO target system and also shell scripts for building target artifacts on the host system.</p></td>
+</tr>
+<tr class="row-even"><td><p>Build</p></td>
+<td><p>compiler source code used to compile the system, including the compiler itself.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kernel, Files, and Modules</p></td>
+<td><p>the inner core of the IO system.</p></td>
+</tr>
+<tr class="row-even"><td><p>Oberon, Edit, and System</p></td>
+<td><p>the outer core of the IO system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Assist, Attest, Crypto, Doc, Draw, Paint, Mod, ArgParse, Test</p></td>
+<td><p>standard packages in the IO system.</p></td>
+</tr>
+<tr class="row-even"><td><p>Examples, BASIC, C, Go, Pascal</p></td>
+<td><p>supplemental packages in the IO system.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The Doc package also contains shell scripts used in the target system to generate documentation for the system.</p>
+<p>All documentation for the system resides in comments within the source modules of the system.</p>
+</div>
+<div class="section" id="compiling-the-code">
+<h2>Compiling the Code<a class="headerlink" href="#compiling-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Building the artifacts of an IO system on a Linux or Mac host requres several external packages:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Boot contains source code for booting an IO target system and also shell scripts for building target artifacts on the host system.</p></li>
-<li><p>Build contains the compiler source code used to compile the system, including the compiler itself.</p></li>
-<li><p>Kernel, Files, and Modules comprise the inner core of the IO system.</p></li>
-<li><p>Oberon, Edit, and System comprise the outer core of the IO system.</p></li>
-<li><p>Assist, Attest, Crypto, Doc, Draw, Paint, Mod, ArgParse, and Test are standard packages in the IO system.</p></li>
-<li><p>Examples, BASIC, C, Go, and Pascal are supplemental packages in the IO system.</p></li>
+<li><p>cd root/src/github.com/io-core/Boot; bash compile.sh</p></li>
 </ul>
 </div></blockquote>
+<p>The system will use a previously built image to perform compilation, a new image will be generated</p>
+<p>Building the documetation of the IO system on a Linux or Mac host requires several more external packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>cd root/src/github.com/io-core/Doc; bash genhtml.sh; make clean; make html</p></li>
+</ul>
+</div></blockquote>
+<p>The documentation will be found in Doc/gen/html/</p>
 </div>
 <div class="section" id="coding-guidelines">
 <h2>Coding Guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
