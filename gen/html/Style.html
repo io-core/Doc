@@ -96,6 +96,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Std.html">IO Standard Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Sup.html">IO Supplemental Packages</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IO Style Guide and Contrib. Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#obtaining-the-code">Obtaining the Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigating-the-code">Navigating the Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coding-guidelines">Coding Guidelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commit-message-conventions">Commit Message Conventions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pull-request-process">Pull Request Process</a></li>
@@ -179,6 +181,31 @@
             
   <div class="section" id="io-style-guide-and-contrib-process">
 <h1>IO Style Guide and Contrib. Process<a class="headerlink" href="#io-style-guide-and-contrib-process" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="obtaining-the-code">
+<h2>Obtaining the Code<a class="headerlink" href="#obtaining-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Check out the main project on a Linux or Mac based system</p>
+<p>This repo uses submodules, to get the whole thing:</p>
+<p>git clone –recursive <a class="reference external" href="https://github.com/io-core/io">https://github.com/io-core/io</a>
+After cloning the submodules may not be checked out to the main branch so after the above command you should:</p>
+<p>cd io; bash makemain.sh</p>
+</div>
+<div class="section" id="navigating-the-code">
+<h2>Navigating the Code<a class="headerlink" href="#navigating-the-code" title="Permalink to this headline">¶</a></h2>
+<p>At the top of the repo are some shell scripts, folders for artifacts of the build process, and a root folder.</p>
+<p>The directory structures under root mimic a potential future deployed self-hosting target system.</p>
+<p>Within root the src/github.com/io-core path provides a home for the io-core project submodules needed to build the target system.</p>
+<p>Within /root/src/github.com/io-core:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Boot contains source code for booting an IO target system and also shell scripts for building target artifacts on the host system.</p></li>
+<li><p>Build contains the compiler source code used to compile the system, including the compiler itself.</p></li>
+<li><p>Kernel, Files, and Modules comprise the inner core of the IO system.</p></li>
+<li><p>Oberon, Edit, and System comprise the outer core of the IO system.</p></li>
+<li><p>Assist, Attest, Crypto, Doc, Draw, Paint, Mod, ArgParse, and Test are standard packages in the IO system.</p></li>
+<li><p>Examples, BASIC, C, Go, and Pascal are supplemental packages in the IO system.</p></li>
+</ul>
+</div></blockquote>
+</div>
 <div class="section" id="coding-guidelines">
 <h2>Coding Guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
 <p>On your own system, anything goes. Code intended for a PUll Request to Integrated Oberon however should aspire to simplicity, clarity, and generality.</p>
