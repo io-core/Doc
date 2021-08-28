@@ -86,8 +86,6 @@
             
               <p class="caption"><span class="caption-text">Integrated Oberon:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Hello.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../Development.html">Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../Tutorial.html">Tutorial</a></li>
@@ -116,7 +114,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Port.html">Porting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Conduct.html">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../License.html">License</a></li>
 </ul>
@@ -211,7 +208,7 @@
 </div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Texts Oberon Performance Fuzzing
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SYSTEM Performance Fuzzing
 </pre></div>
 </div>
 </div>
@@ -229,23 +226,13 @@
 </div>
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>W: Texts.Writer;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="functions-and-procedures">
 <h2>Functions and Procedures<a class="headerlink" href="#functions-and-procedures" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<p>—
-<strong>Option</strong> checks if a new symbol file may be generated and which architecture to compile for.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Option</span><span class="p">(</span><span class="n">VAR</span> <span class="n">S</span><span class="p">:</span> <span class="n">Texts</span><span class="o">.</span><span class="n">Scanner</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>—
-<strong>ArgParse</strong> locates the source code to a module, initializes the scanner, and begins parsing at ‘Module’.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">ArgParse</span><span class="o">*</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>—
@@ -261,11 +248,6 @@
 <p>—
 <strong>Quick</strong> performs quick tests of a module’s exported procedures.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Quick</span><span class="o">*</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>—
-<strong>Full</strong> performs full tests of a module’s exported procedures excepting perf and fuzz.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">Full</span><span class="o">*</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>—

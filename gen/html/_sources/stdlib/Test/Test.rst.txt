@@ -24,7 +24,7 @@ Module Test handles:
  
 .. code-block:: none
  
-   SYSTEM Texts Oberon Performance Fuzzing
+   SYSTEM Performance Fuzzing
  
 +++++++++++++
   Constants  
@@ -46,23 +46,12 @@ Module Test handles:
 .. code-block:: none
  
  
-    W: Texts.Writer;
  
 ++++++++++++++++++++++++++++
   Functions and Procedures  
 ++++++++++++++++++++++++++++
 .. code-block:: none
  
----
-**Option** checks if a new symbol file may be generated and which architecture to compile for.
-::
-  PROCEDURE Option(VAR S: Texts.Scanner);
-
----
-**ArgParse** locates the source code to a module, initializes the scanner, and begins parsing at 'Module'.
-::
-  PROCEDURE ArgParse*;
-
 ---
 **Build** performs a build test of a module.
 ::
@@ -77,11 +66,6 @@ Module Test handles:
 **Quick** performs quick tests of a module's exported procedures.
 ::
   PROCEDURE Quick*;
-
----
-**Full** performs full tests of a module's exported procedures excepting perf and fuzz.
-::
-  PROCEDURE Full*;
 
 ---
 **Perf** performs benchmark tests of a module's exported procedures.

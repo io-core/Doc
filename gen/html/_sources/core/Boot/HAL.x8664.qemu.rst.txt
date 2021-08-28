@@ -30,7 +30,7 @@ Module HAL (.i64) exercises features of the compiler in bringing Oberon up from 
 .. code-block:: none
  
 
-    rsData = -56;
+    rsData = -56; 
     rsCtrl = -52;
  
 +++++++++

@@ -30,10 +30,10 @@ Module HAL (.a64) exercises features of the compiler in bringing Oberon up from 
 .. code-block:: none
  
 
-    stackOrg =  47FFF000H;
-    MTOrg    =  40001000H;
-    rsData   = 0FF1A0000H;
-    FDTLoc   =  48000000H; (* At start R02 holds the location of the FDTB *)
+    stackOrg = 47FFF000H;
+    MTOrg    = 40001000H;
+    rsData   = 9000000H;
+    FDTLoc   = 48000000H; (* At start R02 holds the location of the FDTB *)
     MT = 12; SP = 14; LNK = 15;   (*dedicated registers RISC5 ordinal*)
  
 +++++++++
